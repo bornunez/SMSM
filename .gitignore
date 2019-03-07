@@ -7,9 +7,11 @@
 #Carpetas nuestras
 Dependences/ogre-1.11.5/BUILD
 Dependences/bullet-2.82-r2704/build
+Dependences/OIS/lib
 /SMSM/Dependences/ogre-1.11.5/CMake
 /SMSM/Dependences/ogre-1.11.5/Docs
 /SMSM/Dependences/ogre-1.11.5/Tests
+
 
 
 

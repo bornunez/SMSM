@@ -75,13 +75,13 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>C:\Users\rodri\Desktop\Universidad\Universidad 3\Segundo Cuatrimestre\P3\SMSM\Dependencias\FmodSRC;$(SolutionDir)Dependencias\ogre-1.11.5\BUILD\include;$(SolutionDir)Dependencias\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependencias\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependencias\FmodSRC;$(SolutionDir)Dependencias\ogre-1.11.5\BUILD\include;$(SolutionDir)Dependencias\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependencias\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependencias\ogre-1.11.5\BUILD\lib$(Configuration);$(SolutionDir)Dependencias\bullet-2.82-r2704\lib\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
     <IncludePath>$(SolutionDir)Dependences\ogre-1.11.5\BUILD\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\BUILD\lib$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\BUILD\lib$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(SolutionDir)Dependences\OIS\lib\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
