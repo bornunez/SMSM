@@ -18,6 +18,9 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Src\Game\main.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{7DAAAF28-1115-45A2-9FDC-C2A0C2B02365}</ProjectGuid>
@@ -70,15 +73,15 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Src\MotorEngine;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Libs\$(Configuration);$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Exes\$(Configuration)</OutDir>
     <IntDir>$(SolutionDir)Inter\$(ProjectName)\$(Configuration)</IntDir>
     <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Src\MotorEngine;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Libs\$(Configuration);$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <OutDir>$(SolutionDir)Exes\$(Configuration)</OutDir>
     <IntDir>$(SolutionDir)Inter\$(ProjectName)\$(Configuration)</IntDir>
   </PropertyGroup>
@@ -104,7 +107,7 @@
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>OgreMain_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MotorEngine_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -131,7 +134,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>MotorEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -149,9 +152,6 @@
       <AdditionalDependencies>OgreMain.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="main.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

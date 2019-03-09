@@ -4,13 +4,13 @@
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
 
-#Carpetas nuestras
-Dependences/ogre-1.11.5/BUILD
-Dependences/bullet-2.82-r2704/build
-Dependences/OIS/lib
-/SMSM/Dependences/ogre-1.11.5/CMake
-/SMSM/Dependences/ogre-1.11.5/Docs
-/SMSM/Dependences/ogre-1.11.5/Tests
+#Nuestras carpetas
+/Dependences/ogre-1.11.5/Build
+/Dependences/bullet-2.82-r2704/build
+/Dependences/OIS/lib
+/Dependences/ogre-1.11.5/CMake
+/Dependences/ogre-1.11.5/Docs
+/Dependences/ogre-1.11.5/Tests
 
 
 

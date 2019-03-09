@@ -18,6 +18,14 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Src\MotorEngine\Game.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\Scene.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Src\MotorEngine\Game.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\Scene.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{87FA37A2-ADBA-4E64-AB71-3D90CE3105B3}</ProjectGuid>
@@ -72,19 +80,32 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(SolutionDir)Inter\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Libs\$(Configuration)\</OutDir>
+    <IncludePath>$(SolutionDir)Src\$(ProjectName);$(SolutionDir)Dependences\OIS\includes;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\Components\Overlay\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\Build\SDL2-build\RelWithDebInfo;$(SolutionDir)Dependences\ogre-1.11.5\Build\zlib-1.2.11\RelWithDebInfo;$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Dependencias\FmodSRC;$(SolutionDir)Dependencias\ogre-1.11.5\BUILD\include;$(SolutionDir)Dependencias\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependencias\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependencias\ogre-1.11.5\BUILD\lib$(Configuration);$(SolutionDir)Dependencias\bullet-2.82-r2704\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependences\FmodSRC;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IntDir>$(SolutionDir)Inter\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Libs\$(Configuration)\</OutDir>
+    <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)Dependences\ogre-1.11.5\BUILD\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\BUILD\lib$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(SolutionDir)Dependences\OIS\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IntDir>$(SolutionDir)Inter\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Libs\$(Configuration)\</OutDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(SolutionDir)Inter\$(Configuration)\</IntDir>
+    <OutDir>$(SolutionDir)Libs\$(Configuration)\</OutDir>
+    <IncludePath>$(SolutionDir)Src\$(ProjectName);$(SolutionDir)Dependences\OIS\includes;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\Components\Overlay\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\Build\SDL2-build\RelWithDebInfo;$(SolutionDir)Dependences\ogre-1.11.5\Build\zlib-1.2.11\RelWithDebInfo;$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -99,6 +120,12 @@
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalDependencies>OgreMain_d.lib;OgreRTShaderSystem_d.lib;SDL2.lib;OIS_d.lib</AdditionalDependencies>
+    </Lib>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -108,17 +135,15 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencias\bullet-2.82-r2704\src\$(Configuration);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependences\bullet-2.82-r2704\src\$(Configuration);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OgreMain_d.lib;OgreRTShaderSystem_d.lib;OgreOverlay_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -131,7 +156,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependencias\bullet-2.82-r2704\src\$(Configuration);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependences\bullet-2.82-r2704\src\$(Configuration);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -140,10 +165,8 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>
-      </AdditionalLibraryDirectories>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OgreMain.lib;OgreRTShaderSystem.lib;OgreOverlay.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -163,20 +186,11 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
+    <Lib>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Libs;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>OgreMain.lib;OgreRTShaderSystem.lib;SDL2.lib;OIS.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Lib>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="targetver.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="Prueba.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
