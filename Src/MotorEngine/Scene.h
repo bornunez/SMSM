@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Game.h"
+#include "PhysicsManager.h"
 
 class Scene
 {
@@ -8,6 +9,8 @@ private:
 	Ogre::SceneManager* mSceneManager;
 	Ogre::SceneNode* sceneNode;
 	Game * g;
+	PhysicsManager* phyManager;
+
 	//Class Camera
 	Ogre::SceneNode* mCamNode = nullptr;
 	//Class LightManager
@@ -15,7 +18,11 @@ private:
 	//Nodo de prueba
 	Ogre::SceneNode* testNode = nullptr;
 
+	Ogre::SceneNode* secondNode = nullptr;
 
+	btRigidBody* cube = nullptr;
+
+	int i = 0;
 
 public:
 	Scene(Game* _g);
