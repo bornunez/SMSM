@@ -17,10 +17,7 @@ private:
 	Ogre::SceneNode* mLightNode = nullptr;
 	//Nodo de prueba
 	Ogre::SceneNode* testNode = nullptr;
-
 	Ogre::SceneNode* secondNode = nullptr;
-
-	btRigidBody* cube = nullptr;
 
 	int i = 0;
 

@@ -1,5 +1,4 @@
 #include "Scene.h"
-#include "Scene.h"
 
 
 Scene::Scene(Game* _g) : g(_g)
@@ -39,31 +38,11 @@ Scene::Scene(Game* _g) : g(_g)
 	testNode->attachObject(ogreEntity);
 	testNode->setScale(0.1, 0.1, 0.1);
 
-	btCollisionShape *newRigidShape = new btBoxShape(btVector3(0.8f, 0.8f, 0.8f));
-	phyManager->addCollisionShape(newRigidShape);
-
-	//set the initial position and transform. For this demo, we set the tranform to be none
-	btTransform startTransform;
-	startTransform.setIdentity();
-	startTransform.setRotation(btQuaternion(0.0f, 0.0f, 0.0f, 1));
-
-	//set the mass of the object. a mass of "0" means that it is an immovable object
-	btScalar mass = 10.0f;
-	btVector3 localInertia(0, 0, 0);
-
-	startTransform.setOrigin(btVector3(0,10,0));
-	newRigidShape->calculateLocalInertia(mass, localInertia);
-
-	//actually contruvc the body and add it to the dynamics world
-	btDefaultMotionState *myMotionState = new btDefaultMotionState(startTransform);
-
-	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, myMotionState, newRigidShape, localInertia);
-	btRigidBody *body = new btRigidBody(rbInfo);
-	body->setRestitution(1);
-	body->setUserPointer(testNode);
-
-	phyManager->getDynamicsWorld()->addRigidBody(body);
-
+	//Cada nodo acaba teniendo una entidad y un rigidbody asociado, que puede colocar en un grupo o en otro para poder realizar acciones sobre un conjunto
+	//de rigidbodies al mismo tiempo
+	
+	btRigidBody* rb =  phyManager->CreateSphereCollider(testNode, 100, btVector3(0, 20, 0), btQuaternion(), 0.8f, 2);
+	phyManager->AddRigidBodyToGroup(rb, 0);
 
 	//SECOND HEAD
 	Ogre::Entity* ogreEntity2 = mSceneManager->createEntity("cube.mesh");
@@ -72,28 +51,8 @@ Scene::Scene(Game* _g) : g(_g)
 	secondNode->attachObject(ogreEntity2);
 	secondNode->setScale(0.05, 0.05, 0.05);
 
-	btCollisionShape *newRigidShape2 = new btBoxShape(btVector3(5.0f, 5.0f, 5.0f));
-	phyManager->addCollisionShape(newRigidShape2);
-
-	btScalar mass2 = 0.;
-	btVector3 localInertia2(0, 0, 0);
-
-
-	//set the mass of the object. a mass of "0" means that it is an immovable object
-
-	startTransform.setOrigin(btVector3(0, 0, 0));
-	newRigidShape2->calculateLocalInertia(mass2, localInertia2);
-
-	//actually contruvc the body and add it to the dynamics world
-	btDefaultMotionState *myMotionState2 = new btDefaultMotionState(startTransform);
-
-	btRigidBody::btRigidBodyConstructionInfo rbInfo2(mass2, myMotionState2, newRigidShape2, localInertia2);
-	btRigidBody *body2 = new btRigidBody(rbInfo2);
-	body2->setRestitution(1);
-	body2->setUserPointer(secondNode);
-
-	phyManager->getDynamicsWorld()->addRigidBody(body2);
-	cube = body2;
+	btRigidBody* rb1 = phyManager->CreateBoxCollider(secondNode, 0, btVector3(3, 0, 0), btQuaternion(), 0.5, btVector3(3,3,3));
+	phyManager->AddRigidBodyToGroup(rb1, 1);
 
 	// Crear luz
 
@@ -111,20 +70,8 @@ Scene::Scene(Game* _g) : g(_g)
 // Mueve el cubo a un lado en x.
 void Scene::Update() 
 {
-	//secondNode->setPosition(secondNode->getPosition().x + 0.2, secondNode->getPosition().y, testNode->getPosition().z);
-	
-		btTransform m;
-		cube->getMotionState()->getWorldTransform(m);		
-		m.setOrigin(m.getOrigin() + btVector3(0.1, 0, 0));
-		cube->getMotionState()->setWorldTransform(m);
-		cube->setWorldTransform(m);
-
-		secondNode->setPosition(Ogre::Vector3(m.getOrigin().getX(), m.getOrigin().getY(), m.getOrigin().getZ()));
-		//sceneNode->setOrientation(Ogre::Quaternion(orientation.getW(), orientation.getX(), orientation.getY(), orientation.getZ()));
-		
-	
-		phyManager->Update();
-	
+	phyManager->Update();
+	//phyManager->AddDiscreteImpulse(btVector3(1, 1, 0), 20, 0);
 }
 
 Scene::~Scene()
