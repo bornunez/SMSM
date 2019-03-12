@@ -19,11 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\MotorEngine\AudioEngine.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\AudioManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Game.h" />
     <ClInclude Include="..\..\Src\MotorEngine\PhysicsManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Scene.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\MotorEngine\AudioEngine.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\AudioManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Scene.cpp" />
@@ -97,8 +101,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
-    <LibraryPath>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)Dependences\FMOD\inc;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)Dependences\FMOD\libs;$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(LibraryPath)</LibraryPath>
     <IntDir>$(SolutionDir)Inter\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)Libs\$(Configuration)\</OutDir>
   </PropertyGroup>
