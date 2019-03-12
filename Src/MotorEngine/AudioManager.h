@@ -8,7 +8,7 @@ class AudioManager
 {
 public:
 	SoundSystemClass soundSystem;
-	map<string, string> sounds;
+	std::map<string, string> sounds;
 	AudioManager();
 	~AudioManager();
 	void playSound(string fileName, bool loop, float volume = 1, CHANNEL channel = CHANNEL::Default);

@@ -15,7 +15,7 @@ AudioManager::~AudioManager()
 
 void AudioManager::cargaSonidos()
 {
-	string path = "C:\\Users\\casad\\Desktop\\Universidad\\Efectos de sonido\\";
+	string path = ".\\Assets\\Audio\\";
 
 	sounds["JohnCena"] = path + "AND HIS NAME IS JOHN CENA.mp3";
 	sounds["BaDumTss"] = path + "BA DUM TSS.mp3";

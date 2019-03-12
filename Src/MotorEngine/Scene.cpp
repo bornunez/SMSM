@@ -1,4 +1,5 @@
 #include "Scene.h"
+#include "AudioManager.h"
 
 
 Scene::Scene(Game* _g) : g(_g)
@@ -64,6 +65,10 @@ Scene::Scene(Game* _g) : g(_g)
 	mLightNode->attachObject(luz);
 
 	mLightNode->setDirection(Ogre::Vector3(-1, 0, -1));  //vec3.normalise();
+
+	AudioManager* audioManager = new AudioManager();
+	audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
+
 
 }
 

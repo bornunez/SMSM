@@ -13,7 +13,7 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Audio">
+    <Filter Include="Archivos de origen\Audio">
       <UniqueIdentifier>{511d0586-b6f2-4bb2-abb0-1a25547914f4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -28,10 +28,10 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\AudioEngine.h">
-      <Filter>Audio</Filter>
+      <Filter>Archivos de origen\Audio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\AudioManager.h">
-      <Filter>Audio</Filter>
+      <Filter>Archivos de origen\Audio</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -45,10 +45,10 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\AudioEngine.cpp">
-      <Filter>Audio</Filter>
+      <Filter>Archivos de origen\Audio</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\AudioManager.cpp">
-      <Filter>Audio</Filter>
+      <Filter>Archivos de origen\Audio</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
