@@ -73,9 +73,11 @@ void Game::InitWindow()
 // Bucle del juego
 void Game::Play() 
 {
+	testScene->Load();
 	while (!endGame) {
 		MessagePump();
 		mWindow->update(); 
+		printf(" PRE RENDER");
 		mRoot->renderOneFrame();
 		testScene->Update();			// Actualiza la escena de prueba
 	}

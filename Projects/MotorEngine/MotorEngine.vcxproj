@@ -19,14 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\MotorEngine\Component.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Game.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\GameObject.h" />
     <ClInclude Include="..\..\Src\MotorEngine\PhysicsManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Scene.h" />
+    <ClInclude Include="Movement.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\MotorEngine\Component.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Scene.cpp" />
+    <ClCompile Include="Movement.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

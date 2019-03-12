@@ -13,27 +13,51 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{084ca340-6eca-41ae-8f4c-d81f4b61995c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Ejemplos">
+      <UniqueIdentifier>{86e82ddb-4355-4db8-beaa-0fa990a92314}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\MotorEngine\Game.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\MotorEngine\Scene.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\PhysicsManager.h">
-      <Filter>Archivos de encabezado</Filter>
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\Scene.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\Component.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\GameObject.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Movement.h">
+      <Filter>Ejemplos</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\MotorEngine\Scene.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\PhysicsManager.cpp">
-      <Filter>Archivos de origen</Filter>
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\Scene.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\Component.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Movement.cpp">
+      <Filter>Ejemplos</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
