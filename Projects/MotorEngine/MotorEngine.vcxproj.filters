@@ -39,14 +39,14 @@
     <ClInclude Include="..\..\Src\MotorEngine\GameObject.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="Movement.h">
-      <Filter>Ejemplos</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\AudioEngine.h">
       <Filter>Archivos de origen\Audio</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\AudioManager.h">
       <Filter>Archivos de origen\Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\Movement.h">
+      <Filter>Ejemplos</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,14 +65,14 @@
     <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="Movement.cpp">
-      <Filter>Ejemplos</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\AudioEngine.cpp">
       <Filter>Archivos de origen\Audio</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\AudioManager.cpp">
       <Filter>Archivos de origen\Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\Movement.cpp">
+      <Filter>Ejemplos</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

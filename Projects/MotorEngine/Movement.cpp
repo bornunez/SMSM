@@ -1,5 +1,5 @@
 #include "Movement.h"
-
+#include "Component.h"
 #include <iostream>
 
 Movement::Movement(GameObject* o) : Component(o)

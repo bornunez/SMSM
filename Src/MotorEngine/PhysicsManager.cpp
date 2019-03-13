@@ -1,5 +1,4 @@
 #include "PhysicsManager.h"
-
 #include <iostream>
 
 //Este manager inicializará el mundo fisico, y se encargará de comprobar las colisiones
@@ -12,6 +11,7 @@ PhysicsManager::PhysicsManager()
 	dynamicsWorld = new btDiscreteDynamicsWorld(dispatcher, overlappingPairCache, solver, collisionConfiguration);
 
 	dynamicsWorld->setGravity(btVector3(0, -30, 0));
+	
 }
 
 
@@ -53,7 +53,29 @@ void PhysicsManager::Update()
 			}
 		}
 	}
+
+	DetectCollision();
+	
 }
+
+void PhysicsManager::DetectCollision() {
+	bool IsCollision = false;
+
+	int numManifolds = dynamicsWorld->getDispatcher()->getNumManifolds();
+	for (int i = 0; i < numManifolds; i++)	//Comprueba todas las colisiones
+	{
+		btPersistentManifold* contactManifold = dynamicsWorld->getDispatcher()->getManifoldByIndexInternal(i);
+		const btCollisionObject* obA = contactManifold->getBody0();
+		const btCollisionObject* obB = contactManifold->getBody1();
+
+		if (((bulletObject*)obA->getUserPointer())->id == 0 || ((bulletObject*)obB->getUserPointer())->id == 0) {	//El jugador
+
+		}
+	}
+
+	IsCollision = false;
+}
+
 
 void PhysicsManager::addRigidBody(btRigidBody* rb)
 {
@@ -88,27 +110,45 @@ void PhysicsManager::Rotate(btRigidBody * rb, SceneNode* node, btQuaternion rot,
 	node->setOrientation(Ogre::Quaternion(orientation.getW(), orientation.getX(), orientation.getY(), orientation.getZ()));
 }
 
-void PhysicsManager::AddDiscreteImpulse(btVector3 dir, btScalar strenght, int group)
-{
-	if(group < rigidBodiesGroups.size())
-		for (int i = 0; i < rigidBodiesGroups[group].size(); i++) {
-			rigidBodiesGroups[group][i]->applyCentralImpulse(dir * strenght);
-		}
-}
-
 //Añade un rigidbody a un grupo concreto para trabajar con ese conjunto más facilmente
 //Indicar un -1 en el grupo, implica añadir un nuevo grupo
 //Devuelve el grupo al que pertenece, grupos ordenados a partir de 0
 int PhysicsManager::AddRigidBodyToGroup(btRigidBody * rb, int group)
 {
 	if (group == -1 || group >= rigidBodiesGroups.size()) {
-		rigidBodiesGroups.push_back(std::vector<btRigidBody*>());
-		rigidBodiesGroups[rigidBodiesGroups.size() - 1].push_back(rb);
+		rigidBodiesGroups.push_back(std::vector<bulletObject*>());
+		rigidBodiesGroups[rigidBodiesGroups.size() - 1].push_back(new bulletObject(rigidBodiesGroups[rigidBodiesGroups.size() - 1].size()-1,rb));
 		return rigidBodiesGroups.size() - 1;
 	}
 	else {
-		rigidBodiesGroups[group].push_back(rb);
+		rigidBodiesGroups[group].push_back(new bulletObject(rigidBodiesGroups[rigidBodiesGroups.size() - 1].size() - 1, rb));
 		return group;
+	}
+}
+
+void PhysicsManager::RemoveRigidBody(btRigidBody * rb)
+{
+	//Eliminamos el rigidbody del mundo fisico para que no se vea afectado por la fisica (gravedad, impulsos...), aún así cuando se modifique su transform
+	//será necesario mover aún el motionstate del rigidbody, para que si vuelve al mundo fisico, su posición en él sea la correcta
+	dynamicsWorld->removeRigidBody(rb);
+
+	bool found = false;
+	int i = 0;
+	int j = 0;
+
+	//Buscamos el rigidbody para no afectarlo dentro de su grupo
+	while (!found && i < rigidBodiesGroups.size()) {
+		while (!found && j < rigidBodiesGroups[i].size()) {
+
+			if (rigidBodiesGroups[i][j]->rb == rb) {
+
+				rigidBodiesGroups[i][j] = nullptr;
+				found = true;
+			}
+			j++;
+		}
+		j = 0;
+		i++;
 	}
 }
 
@@ -138,10 +178,10 @@ btRigidBody * PhysicsManager::CreateCapsuleCollider(SceneNode * node, btScalar m
 	return CreatePhysicObject(newRigidShape, node, mass, originalPosition, originalRotation, restitutionFactor);
 }
 
-btRigidBody * PhysicsManager::CreatePlaneCollider(SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btVector3 normalDir, btScalar size)
+btRigidBody * PhysicsManager::CreatePlaneCollider(SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btVector3 normalDir, btScalar thickness)
 {
 	btCollisionShape *newRigidShape;
-	newRigidShape = new btStaticPlaneShape(normalDir, size);
+	newRigidShape = new btStaticPlaneShape(normalDir, thickness);
 	addCollisionShape(newRigidShape);
 	return CreatePhysicObject(newRigidShape, node, mass, originalPosition, originalRotation, restitutionFactor);
 }
