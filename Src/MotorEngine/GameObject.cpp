@@ -87,4 +87,18 @@ void GameObject::SetActive(bool act)
 		OnInactive();
 }
 
+void GameObject::AddChild(GameObject * child)
+{
+
+	if (child->getParentNode()!= nullptr) {
+		child->getParentNode()->removeChild(child->getNode());
+	}
+	mNode->addChild(child->getNode());
+	child->setParentNode(mNode);
+	child->setParent(this);
+	
+	children.push_back(child);
+}
+
+
 

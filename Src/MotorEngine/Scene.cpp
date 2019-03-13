@@ -92,8 +92,15 @@ void Scene::Load()
 	Movement* m = new Movement(o1);
 	o1->AddComponent(m);
 	Add(m);
-	o1->getNode()->setScale(0.5, 0.5, 0.5);
+	o1->getNode()->setScale(0.25, 0.25, 0.25);
 
+
+
+	GameObject* child = new GameObject(this, mSceneManager, "Child");
+	child->setPosition({ 0,-30,0 });
+	child->AddMesh("cube.mesh");
+	child->getNode()->setScale(0.25, 0.25, 0.25);
+	o1->AddChild(child);
 
 	for (Component* c : components) {
 		c->Awake();

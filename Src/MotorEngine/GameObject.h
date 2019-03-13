@@ -65,10 +65,18 @@ public:
 	bool isActive() { return active; }
 	void SetActive(bool act);
 
+	//Manejo de hijos
+	void AddChild(GameObject* child);
+
 
 	//GETS Y SETS
 	Transform* GetTransform() { return transform; }
 	Ogre::SceneNode* getNode() { return mNode; }
+	Ogre::SceneNode* getParentNode() { return parentNode; }
+	void setParentNode(Ogre::SceneNode* pNode) { parentNode = pNode; }
+	GameObject* getParent() { return parent; }
+	void setParent(GameObject* newParent) { parent = newParent; }
+
 	string getName() { return name; }
 	void setName(string _name) { name = _name; }
 };
