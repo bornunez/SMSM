@@ -17,10 +17,6 @@ void AudioManager::cargaSonidos()
 {
 	string path = ".\\Assets\\Audio\\";
 
-	sounds["JohnCena"] = path + "AND HIS NAME IS JOHN CENA.mp3";
-	sounds["BaDumTss"] = path + "BA DUM TSS.mp3";
-	sounds["Bruh"] = path + "BRUH.mp3";
-	sounds["Megalovania"] = path + "Megalovania.wav";
 	sounds["CorazonPartio"] = path + "alejandro-sanz-corazon-partio-letra.mp3";
 }
 
