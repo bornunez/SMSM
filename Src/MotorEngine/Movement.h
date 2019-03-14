@@ -8,6 +8,8 @@ public:
 	Movement(GameObject* o);
 	virtual ~Movement();
 
+	virtual void receiveMessage(string message);
+
 	void Update();
 };
 

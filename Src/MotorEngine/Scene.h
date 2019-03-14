@@ -4,10 +4,10 @@
 #include "PhysicsManager.h"
 #include <list>
 #include <queue>
+#include "GameObject.h"
 
 using namespace std;
 
-class GameObject;
 class Component;
 
 class Scene
@@ -29,10 +29,10 @@ private:
 	//Atributos de la escena
 	std::list<GameObject*> gameObjects;
 	std::list<Component*> components;
+	std::list<GameObject*> listeners;
 	queue<GameObject*> trash;
 
 	void ClearTrash();
-
 	int i = 0;
 
 public:
@@ -41,13 +41,17 @@ public:
 	void Load();
 	void Start();
 	void Update();			// Actualiza la escena
-	void BroadcastMessage();
 	void Add(GameObject* o);
 	void Add(Component* c);
 	void Instantiate(GameObject* o);
 	void Destroy(GameObject* o);
 
+	//Manejo de Mensajes
+	void AddListener(GameObject* o) { listeners.push_back(o); }
+	void BroadcastMessage(string message);
+	
 	//GETS Y SETS
 	Ogre::SceneNode* getSceneNode() { return sceneNode; }
+
 };
 

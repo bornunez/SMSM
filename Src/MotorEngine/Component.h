@@ -1,18 +1,21 @@
 #pragma once
 #include <list>
 #include "GameObject.h"
+#include <string>
 
 #include <iostream>
 using namespace std;
 
 //"Includes" circulares
 class Transform;
+class Scene;
 
 class Component
 {
 protected:
 	GameObject * gameObject;
 	Transform* transform;
+	Scene* scene;
 	bool enabled;
 public:
 	Component(GameObject* _gameObject,bool _enabled = true);
@@ -34,8 +37,10 @@ public:
 	void Enable();
 	void SetEnabled(bool _enabled);
 
+	// Sistema de mensajes
+	virtual void receiveMessage(string message) {};
+
 	//Gets y sets
 	GameObject* getGameObject() { return gameObject; }
 
 };
-

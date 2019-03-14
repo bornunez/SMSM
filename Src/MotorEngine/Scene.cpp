@@ -3,6 +3,7 @@
 #include "GameObject.h"
 #include "../../Projects/MotorEngine/Movement.h"
 #include "AudioManager.h"
+#include "MeshRenderer.h"
 
 Scene::Scene(Game* _g) : g(_g)
 {
@@ -87,19 +88,23 @@ void Scene::Load()
 	CARGA DE ESCENA POR FICHEROS / PONER LOS OBJETOS A MANO
 	*/
 	GameObject* o1 = new GameObject(this, mSceneManager,"Head");
-	o1->AddMesh("ogrehead.mesh");
-	Add(o1);
+	MeshRenderer* head = new MeshRenderer(o1, "ogrehead.mesh");
 	Movement* m = new Movement(o1);
+	Add(o1);
 	o1->AddComponent(m);
-	Add(m);
+	o1->AddComponent(head);
+	AddListener(o1);
+
 	o1->getNode()->setScale(0.25, 0.25, 0.25);
 
 
 
 	GameObject* child = new GameObject(this, mSceneManager, "Child");
+	MeshRenderer* cube = new MeshRenderer(child, "cube.mesh");
+	child->AddComponent(cube);
 	child->setPosition({ 0,-30,0 });
-	child->AddMesh("cube.mesh");
 	child->getNode()->setScale(0.25, 0.25, 0.25);
+
 	o1->AddChild(child);
 
 	for (Component* c : components) {
@@ -152,8 +157,15 @@ void Scene::Add(Component * c)
 	components.push_back(c);
 }
 
+void Scene::BroadcastMessage(string message)
+{
+	for (GameObject* o : listeners) {
+		if (o->isActive())
+			o->BroadcastMessage(message);
+	}
 
 
+}
 
 void Scene::ClearTrash()
 {

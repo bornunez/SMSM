@@ -22,6 +22,9 @@
     <Filter Include="Archivos de origen\Audio">
       <UniqueIdentifier>{511d0586-b6f2-4bb2-abb0-1a25547914f4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Components">
+      <UniqueIdentifier>{7c835055-8122-4d10-8b2a-62854a881fc0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\MotorEngine\Game.h">
@@ -48,6 +51,9 @@
     <ClInclude Include="..\..\Src\MotorEngine\Movement.h">
       <Filter>Ejemplos</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\MeshRenderer.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
@@ -73,6 +79,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\Movement.cpp">
       <Filter>Ejemplos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\MeshRenderer.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

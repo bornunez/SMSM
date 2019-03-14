@@ -2,7 +2,7 @@
 #include "Component.h"
 #include "Scene.h"
 #include <OgreSceneManager.h>
-
+#include "Component.h"
 
 void GameObject::OnActive()
 {
@@ -47,16 +47,6 @@ void GameObject::ClearComponents()
 		components.remove(c);
 }
 
-// Crea una nueva entidad y la une al nodo al que esta asignado el GameObject
-void GameObject::AddMesh(string mesh)
-{
-	Ogre::Entity* aux = mSceneManager->createEntity(mesh);
-
-	mNode->attachObject(aux);
-
-	entities.push_back(aux);
-}
-
 Vector3 GameObject::getPosition()
 {
 	return mNode->getPosition();
@@ -75,6 +65,15 @@ void GameObject::RemoveComponent(Component * c)
 void GameObject::AddComponent(Component * c)
 {
 	components.push_back(c);
+	scene->Add(c);
+}
+
+void GameObject::BroadcastMessage(string message)
+{
+	for(Component* c : components)
+		if (c->Enabled()){
+			c->receiveMessage(message);
+		}
 
 }
 
@@ -85,6 +84,12 @@ void GameObject::SetActive(bool act)
 		OnActive();
 	else if (!act && active)
 		OnInactive();
+}
+
+void GameObject::AddEntity(Ogre::Entity * entity)
+{
+	mNode->attachObject(entity);
+	entities.push_back(entity);
 }
 
 void GameObject::AddChild(GameObject * child)

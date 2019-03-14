@@ -48,8 +48,9 @@ public:
 
 
 	//Manejo de entidades
-	void AddMesh(string mesh);
+
 	//void AddMesh(string mesh, Vector3 scale);
+	void AddEntity(Ogre::Entity* entity);
 
 	//Manejo del transform
 	Ogre::Vector3 getPosition();
@@ -59,7 +60,7 @@ public:
 	std::list<Component*> getComponents() { return components; }
 	void RemoveComponent(Component* c);
 	void AddComponent(Component* c);
-	void BroadcastMessage();
+	void BroadcastMessage(string message);
 
 	//Manejo del acivado
 	bool isActive() { return active; }
@@ -71,6 +72,9 @@ public:
 
 	//GETS Y SETS
 	Transform* GetTransform() { return transform; }
+
+	Scene* getScene() { return scene; }
+	Ogre::SceneManager* getSceneManager() { return mSceneManager; }
 	Ogre::SceneNode* getNode() { return mNode; }
 	Ogre::SceneNode* getParentNode() { return parentNode; }
 	void setParentNode(Ogre::SceneNode* pNode) { parentNode = pNode; }
