@@ -55,7 +55,7 @@ void Game::SetUpResources()
 
 	resourcesManager = ResourcesManager::GetInstance();
 
-	LocalizationManager locManager = *resourcesManager->GetLocalizationManager();
+	/*LocalizationManager locManager = *resourcesManager->GetLocalizationManager();
 
 	locManager.Init("./Assets/");
 
@@ -78,6 +78,7 @@ void Game::SetUpResources()
 	std::cout << locManager.GetString("button_exit") << endl;
 
 	std::cout << "------------------------------------------" << endl;
+	*/
 }
 
 void Game::InitWindow() 
