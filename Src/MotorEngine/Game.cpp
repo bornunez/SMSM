@@ -37,21 +37,47 @@ void Game::SetUpResources()
 	Ogre::ConfigFile cf;
 	cf.load(mResourcesCfg);
 
-		Ogre::String name, type, sec;
+	Ogre::String name, type, sec;
 
-		Ogre::ConfigFile::SettingsBySection_::const_iterator secIt;
-		for (secIt = cf.getSettingsBySection().begin(); secIt != cf.getSettingsBySection().end(); ++secIt) {
-			sec = secIt->first;
-			const Ogre::ConfigFile::SettingsMultiMap& settings = secIt->second;
-			Ogre::ConfigFile::SettingsMultiMap::const_iterator i;
+	Ogre::ConfigFile::SettingsBySection_::const_iterator secIt;
+	for (secIt = cf.getSettingsBySection().begin(); secIt != cf.getSettingsBySection().end(); ++secIt) {
+		sec = secIt->first;
+		const Ogre::ConfigFile::SettingsMultiMap& settings = secIt->second;
+		Ogre::ConfigFile::SettingsMultiMap::const_iterator i;
 
-			for (i = settings.begin(); i != settings.end(); i++)
-			{
-				type = i->first;
-				name = Ogre::FileSystemLayer::resolveBundlePath(i->second);
-				Ogre::ResourceGroupManager::getSingleton().addResourceLocation(name, type, sec);
-			}
+		for (i = settings.begin(); i != settings.end(); i++)
+		{
+			type = i->first;
+			name = Ogre::FileSystemLayer::resolveBundlePath(i->second);
+			Ogre::ResourceGroupManager::getSingleton().addResourceLocation(name, type, sec);
 		}
+	}
+
+	resourcesManager = ResourcesManager::GetInstance();
+
+	LocalizationManager locManager = *resourcesManager->GetLocalizationManager();
+
+	locManager.Init("./Assets/");
+
+	locManager.RegisterLanguage("ES", "_es");
+	locManager.RegisterLanguage("EN", "_en");
+	locManager.SelectLanguage("ES");
+
+	locManager.RegisterFile("main_menu");
+
+	locManager.LoadFromFiles();
+
+	std::cout << "\n---------- Localization Testing ----------" << endl;
+
+	std::cout << locManager.GetString("button_play") << endl;
+	std::cout << locManager.GetString("button_exit") << endl;
+
+	locManager.SelectLanguage("EN");
+
+	std::cout << locManager.GetString("button_play") << endl;
+	std::cout << locManager.GetString("button_exit") << endl;
+
+	std::cout << "------------------------------------------" << endl;
 }
 
 void Game::InitWindow() 
@@ -77,7 +103,7 @@ void Game::Play()
 	while (!endGame) {
 		MessagePump();
 		mWindow->update(); 
-		printf(" PRE RENDER");
+		//printf(" PRE RENDER");
 		mRoot->renderOneFrame();
 		testScene->Update();			// Actualiza la escena de prueba
 	}

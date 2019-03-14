@@ -25,6 +25,9 @@
     <Filter Include="Components">
       <UniqueIdentifier>{7c835055-8122-4d10-8b2a-62854a881fc0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\ResourcesManager">
+      <UniqueIdentifier>{78c739d0-14ac-407b-afc8-dde2a1dafd99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\MotorEngine\Game.h">
@@ -54,6 +57,18 @@
     <ClInclude Include="..\..\Src\MotorEngine\MeshRenderer.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\json.hpp">
+      <Filter>Core\ResourcesManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\JsonParser.h">
+      <Filter>Core\ResourcesManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\LocalizationManager.h">
+      <Filter>Core\ResourcesManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\ResourcesManager.h">
+      <Filter>Core\ResourcesManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
@@ -82,6 +97,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\MeshRenderer.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\JsonParser.cpp">
+      <Filter>Core\ResourcesManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\LocalizationManager.cpp">
+      <Filter>Core\ResourcesManager</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\ResourcesManager.cpp">
+      <Filter>Core\ResourcesManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
