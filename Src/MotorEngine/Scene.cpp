@@ -4,6 +4,7 @@
 #include "../../Projects/MotorEngine/Movement.h"
 #include "AudioManager.h"
 #include "MeshRenderer.h"
+#include "./Loaders/PrefabManager.h"
 
 Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 {
@@ -119,24 +120,30 @@ void Scene::Load()
 void Scene::LoadFromFile()
 {
 	//Cargar GameObjects
-	cout << "Cargando prefabs de archivo..." << endl << endl;
+	cout << "\n\n==================================================\n";
+	cout << "============    CARGA DE ESCENA       ============\n";
+	cout << "==================================================\n\n";
 	if (!sceneFile["GameObjects"].empty()) {
 		cout << "Existen GameObjects a cargar" << endl << endl;
 		for (auto &pref : sceneFile["GameObjects"])
 			if (pref.is_object()) {
-				//GameObject* o = ResourcesManager::GetInstance()->GetPrefabManager()->GetFromPrefab(pref["prefabName"], this, nullptr);
-				GameObject* o = new GameObject(this,pref["prefabName"]);
-				MeshRenderer* rend = new MeshRenderer(o, pref["model"]);
-				Add(o);
+				//GameObject* o = ResourcesManager::GetInstance()->GetPrefabManager()->GenerateGameObject(pref["prefabName"], this, nullptr);
+				GameObject* o = PrefabManager::getInstance()->GenerateGameObject(pref["prefabName"], this, nullptr);
 
-				o->AddComponent(rend);
-				o->setScale((float)pref["scale"]);
-				auto pos = pref["position"];
-				o->setPosition( Vector3(pos["x"], pos["y"], pos["z"]));
+				//Si existe un prefab con el nombre, lo rellenamos
+				if (o != nullptr) {
+					Add(o);
 
-				cout << "Loaded prefab: " << pref["prefabName"] << endl;
+					//o->AddComponent(rend);
+					o->setScale((float)pref["scale"]);
+					auto pos = pref["position"];
+					o->setPosition(Vector3(pos["x"], pos["y"], pos["z"]));
+
+					cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
+				}
 			}
 	}
+	cout << "==================================================\n\n";
 }
 
 void Scene::Start()

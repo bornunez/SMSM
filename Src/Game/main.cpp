@@ -1,10 +1,12 @@
 
 #include "Game.h"
+#include "Loader/MyComponentLoader.h"
 /*#include <btBulletDynamicsCommon.h>*/
 
 int main() {
 
-	Game game;
+	MyComponentLoader* mCompLoader = new MyComponentLoader();
+	Game game(mCompLoader);
 	game.Play();
 
 	return 0;

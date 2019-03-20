@@ -13,7 +13,9 @@
 #include <Windows.h>
 #include "ResourcesManager/ResourcesManager.h"
 
+
 class Scene;
+class ComponentLoader;
 
 
 using namespace Ogre;
@@ -30,6 +32,7 @@ private:
 	Scene* testScene;					// Escena de prueba para probar funcionalidad
 
 	ResourcesManager* resourcesManager;
+	ComponentLoader* componentLoader;
 
 	void SetUpResources();				
 	void InitWindow();
@@ -38,7 +41,7 @@ private:
 
 	
 public:
-	Game();
+	Game(ComponentLoader* _componentLoader);
 	~Game();
 
 	void Play();

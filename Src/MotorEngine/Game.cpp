@@ -1,9 +1,10 @@
 ﻿#include "Game.h"
 #include "Scene.h"
 #include "./Loaders/PrefabManager.h"
+#include "./Loaders/ComponentLoader.h"
 
 
-Game::Game() : mRoot(0), mResourcesCfg(Ogre::BLANKSTRING), mPluginsCfg(Ogre::BLANKSTRING)
+Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BLANKSTRING), mPluginsCfg(Ogre::BLANKSTRING), componentLoader(_componentLoader)
 {
 
 #ifdef _DEBUG
@@ -59,7 +60,7 @@ void Game::SetUpResources()
 	/*
 		CARGAR EN EL BUFFER LOS PREFABS
 	*/
-	PrefabManager::getInstance()->SetRootFolder("Assets/prefabs/");
+	PrefabManager::getInstance()->Init("Assets/prefabs/",componentLoader);
 
 
 	/*LocalizationManager locManager = *resourcesManager->GetLocalizationManager();

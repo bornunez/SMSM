@@ -1,7 +1,10 @@
+#pragma once
 //#include "Game.h"
-#include "..\Component.h"
+
 #include "..\ResourcesManager//JsonParser.h"
 #include <list>
+#include "../Component.h"
+#include "../GameObject.h"
 
 class ComponentLoader
 {
@@ -9,7 +12,7 @@ public:
 	ComponentLoader();
 	~ComponentLoader();
 
-	virtual std::list<Component*> LoadComponents(json json, GameObject* gameObject) {};
-	virtual Component* ParseComponent(json json, GameObject* gameObject) {};
+	virtual std::list<Component*> LoadComponents(json json, GameObject* gameObject) { return std::list<Component*>(); };
+	virtual Component* ParseComponent(json json, GameObject* gameObject) { return nullptr; };
 
 };

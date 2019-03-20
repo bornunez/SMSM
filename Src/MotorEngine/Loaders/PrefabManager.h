@@ -7,15 +7,13 @@
 #include "ComponentLoader.h"
 
 
-using json = nlohmann::json;
-
 class PrefabManager
 {
 private:
 	static PrefabManager* instance;
 	std::map<string, json> prefabs;
 	string rootFolder;
-	//ComponentLoader* componentLoader;
+	ComponentLoader* componentLoader;
 
 	
 public:
@@ -23,12 +21,14 @@ public:
 	virtual ~PrefabManager();
 
 	static PrefabManager* getInstance();
+
+	void Init(string path, ComponentLoader* compLoader);
 	void SetRootFolder(string path);
 
 	void LoadAllPrefabs();
 	void LoadPrefab(string path);
 
 
-	GameObject* GetFromPrefab(string prefabName, Scene* scene, GameObject* parent);
+	GameObject* GenerateGameObject(string prefabName, Scene* scene, GameObject* parent);
 };
 

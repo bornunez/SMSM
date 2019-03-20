@@ -1,3 +1,4 @@
+#include "..\Component.h"
 #include "ComponentLoader.h"
 
 ComponentLoader::ComponentLoader()

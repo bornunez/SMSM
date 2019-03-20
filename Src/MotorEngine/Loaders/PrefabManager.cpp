@@ -19,6 +19,12 @@ PrefabManager * PrefabManager::getInstance()
 	return instance;
 }
 
+void PrefabManager::Init(string path, ComponentLoader* compLoader)
+{
+	SetRootFolder(path);
+	componentLoader = compLoader;
+}
+
 void PrefabManager::SetRootFolder(string path)
 {
 	rootFolder = path;
@@ -62,19 +68,24 @@ void PrefabManager::LoadPrefab(string path)
 	cout << "Cargado prefab con nombre: " << aux["prefabName"] << endl << endl ;
 }
 
-GameObject * PrefabManager::GetFromPrefab(string prefabName, Scene * scene, GameObject * parent)
+GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene, GameObject * parent)
 {
-	////Primero intentamos encontrar el json del prefab. Si no existe devolvemos algun tipo de error
-	//std::map<string,json>::iterator it = prefabs.find(prefabName);
-	//GameObject* o = nullptr;
-	//if (it != prefabs.end()) {
-	//	json jsonObj = *it;
-	//	o = new GameObject(scene, jsonObj["name"],jsonObj["active"],parent);
-	//	//std::list<Component*> components = componentLoader->LoadComponents(jsonObj["components"], o);
-	//	
-	//}
-	//else {
+	//Primero intentamos encontrar el json del prefab. Si no existe devolvemos algun tipo de error
+	std::map<string,json>::iterator it = prefabs.find(prefabName);
+	GameObject* o = nullptr;
+	if (it != prefabs.end()) {
+		json jsonObj = (*it).second;
+		string objName = jsonObj["name"];
+		cout << "Loaded prefab [ " << prefabName << " ]" << " and named it [ " << objName << " ]" << endl;
+		o = new GameObject(scene, jsonObj["name"], jsonObj["active"],parent);
 
-	//}
+		componentLoader->LoadComponents(jsonObj["components"], o);
+		//std::list<Component*> components = componentLoader->LoadComponents(jsonObj["components"], o);
+		
+	}
+	else {
+		cout << "ERROR: Prefab [ " << prefabName << " ]" << " doesn't exists" << endl << endl;
+	}
 
+	return o;
 }
