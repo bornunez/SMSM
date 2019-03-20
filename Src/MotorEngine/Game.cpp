@@ -1,5 +1,6 @@
 ﻿#include "Game.h"
 #include "Scene.h"
+#include "./Loaders/PrefabManager.h"
 
 
 Game::Game() : mRoot(0), mResourcesCfg(Ogre::BLANKSTRING), mPluginsCfg(Ogre::BLANKSTRING)
@@ -27,7 +28,7 @@ Game::Game() : mRoot(0), mResourcesCfg(Ogre::BLANKSTRING), mPluginsCfg(Ogre::BLA
 
 	
 	//ESCENA DE PRUEBA
-	testScene = new Scene(this);
+	testScene = new Scene(this,"Assets/scenes/mainScene.json");
 
 }
 
@@ -54,6 +55,12 @@ void Game::SetUpResources()
 	}
 
 	resourcesManager = ResourcesManager::GetInstance();
+
+	/*
+		CARGAR EN EL BUFFER LOS PREFABS
+	*/
+	PrefabManager::getInstance()->SetRootFolder("Assets/prefabs/");
+
 
 	/*LocalizationManager locManager = *resourcesManager->GetLocalizationManager();
 
@@ -100,6 +107,7 @@ void Game::InitWindow()
 // Bucle del juego
 void Game::Play() 
 {
+	PrefabManager::getInstance()->LoadAllPrefabs();
 	testScene->Load();
 	while (!endGame) {
 		MessagePump();

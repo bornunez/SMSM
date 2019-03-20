@@ -4,10 +4,10 @@
 
 
 
-Component::Component(GameObject * _gameObject, bool _enabled) : gameObject(_gameObject), transform(gameObject->GetTransform()), enabled(_enabled)
+Component::Component(GameObject * _gameObject, bool _enabled) : gameObject(_gameObject), enabled(_enabled)
 {
 	scene = gameObject->getScene();
-	cout << "Component: " << gameObject->getName() << endl;
+	//cout << "Component: " << gameObject->getName() << endl;
 }
 
 Component::~Component()

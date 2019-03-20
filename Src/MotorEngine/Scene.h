@@ -5,6 +5,7 @@
 #include <list>
 #include <queue>
 #include "GameObject.h"
+#include "ResourcesManager/JsonParser.h"
 
 using namespace std;
 
@@ -32,13 +33,18 @@ private:
 	std::list<GameObject*> listeners;
 	queue<GameObject*> trash;
 
+	//Fichero de escena
+	string path;
+	json sceneFile;
+
 	void ClearTrash();
 	int i = 0;
 
 public:
-	Scene(Game* _g);
+	Scene(Game* _g, string _path);
 	~Scene();
 	void Load();
+	void LoadFromFile();
 	void Start();
 	void Update();			// Actualiza la escena
 	void Add(GameObject* o);
@@ -52,6 +58,6 @@ public:
 	
 	//GETS Y SETS
 	Ogre::SceneNode* getSceneNode() { return sceneNode; }
-
+	Ogre::SceneManager* getSceneManager() { return mSceneManager; }
 };
 

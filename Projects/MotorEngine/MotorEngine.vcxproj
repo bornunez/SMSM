@@ -24,6 +24,8 @@
     <ClInclude Include="..\..\Src\MotorEngine\AudioManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Game.h" />
     <ClInclude Include="..\..\Src\MotorEngine\GameObject.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\Loaders\ComponentLoader.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\Loaders\PrefabManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\MeshRenderer.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Movement.h" />
     <ClInclude Include="..\..\Src\MotorEngine\PhysicsManager.h" />
@@ -39,6 +41,8 @@
     <ClCompile Include="..\..\Src\MotorEngine\AudioManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\Loaders\ComponentLoader.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\Loaders\PrefabManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\MeshRenderer.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Movement.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\PhysicsManager.cpp" />

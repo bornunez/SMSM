@@ -20,8 +20,8 @@ void GameObject::OnInactive()
 	}
 }
 
-GameObject::GameObject(Scene * _scene, Ogre::SceneManager * _mSceneManager, string _name, bool _active, GameObject * _parent)
-	: scene(_scene), mSceneManager(_mSceneManager), name(_name), active(_active), parent(_parent)
+GameObject::GameObject(Scene * _scene, string _name, bool _active, GameObject * _parent)
+	: scene(_scene), mSceneManager(scene->getSceneManager()), name(_name), active(_active), parent(_parent)
 {
 	//Cogemos el nodo de la escena de la propia escena
 	sceneNode = scene->getSceneNode();
@@ -35,6 +35,11 @@ GameObject::GameObject(Scene * _scene, Ogre::SceneManager * _mSceneManager, stri
 	mNode = sceneNode->createChildSceneNode();
 
 
+}
+
+GameObject::GameObject(Scene * _scene)
+	: scene(_scene), mSceneManager(scene->getSceneManager()), name(""), active(true), parent(nullptr)
+{
 }
 
 GameObject::~GameObject()
@@ -55,6 +60,11 @@ Vector3 GameObject::getPosition()
 void GameObject::setPosition(Vector3 pos)
 {
 	mNode->setPosition(pos);
+}
+
+void GameObject::setScale(float scale)
+{
+	mNode->setScale(scale, scale, scale);
 }
 
 void GameObject::RemoveComponent(Component * c)

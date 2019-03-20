@@ -39,7 +39,8 @@ private:
 	void OnActive();
 	void OnInactive();
 public:
-	GameObject(Scene* _scene, Ogre::SceneManager* _mSceneManager,string _name, bool _active = true, GameObject* _parent = nullptr);
+	GameObject(Scene* _scene, string _name, bool _active = true, GameObject* _parent = nullptr);
+	GameObject(Scene* _scene);
 	~GameObject();
 	void ClearComponents();
 
@@ -55,6 +56,7 @@ public:
 	//Manejo del transform
 	Ogre::Vector3 getPosition();
 	void setPosition(Ogre::Vector3 pos);
+	void setScale(float scale);
 
 	//Manejo de Componentes
 	std::list<Component*> getComponents() { return components; }
@@ -71,7 +73,6 @@ public:
 
 
 	//GETS Y SETS
-	Transform* GetTransform() { return transform; }
 
 	Scene* getScene() { return scene; }
 	Ogre::SceneManager* getSceneManager() { return mSceneManager; }

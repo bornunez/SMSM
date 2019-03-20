@@ -40,6 +40,7 @@ private:
 public:
 	Game();
 	~Game();
+
 	void Play();
 
 	Root* getRoot() { return mRoot; }

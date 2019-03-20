@@ -5,7 +5,7 @@
 #include "AudioManager.h"
 #include "MeshRenderer.h"
 
-Scene::Scene(Game* _g) : g(_g)
+Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 {
 
 	// CREACION DE ESCENA DE PRUEBA
@@ -78,7 +78,7 @@ Scene::Scene(Game* _g) : g(_g)
 	AudioManager* audioManager = new AudioManager();
 	audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
 
-
+	sceneFile = JsonParser::ParseJsonFile(path);
 }
 
 
@@ -87,7 +87,11 @@ void Scene::Load()
 	/*
 	CARGA DE ESCENA POR FICHEROS / PONER LOS OBJETOS A MANO
 	*/
-	GameObject* o1 = new GameObject(this, mSceneManager,"Head");
+	LoadFromFile();
+	
+
+
+	GameObject* o1 = new GameObject(this,"Head");
 	MeshRenderer* head = new MeshRenderer(o1, "ogrehead.mesh");
 	Movement* m = new Movement(o1);
 	Add(o1);
@@ -99,7 +103,7 @@ void Scene::Load()
 
 
 
-	GameObject* child = new GameObject(this, mSceneManager, "Child");
+	GameObject* child = new GameObject(this, "Child");
 	MeshRenderer* cube = new MeshRenderer(child, "cube.mesh");
 	child->AddComponent(cube);
 	child->setPosition({ 0,-30,0 });
@@ -109,6 +113,29 @@ void Scene::Load()
 
 	for (Component* c : components) {
 		c->Awake();
+	}
+}
+
+void Scene::LoadFromFile()
+{
+	//Cargar GameObjects
+	cout << "Cargando prefabs de archivo..." << endl << endl;
+	if (!sceneFile["GameObjects"].empty()) {
+		cout << "Existen GameObjects a cargar" << endl << endl;
+		for (auto &pref : sceneFile["GameObjects"])
+			if (pref.is_object()) {
+				//GameObject* o = ResourcesManager::GetInstance()->GetPrefabManager()->GetFromPrefab(pref["prefabName"], this, nullptr);
+				GameObject* o = new GameObject(this,pref["prefabName"]);
+				MeshRenderer* rend = new MeshRenderer(o, pref["model"]);
+				Add(o);
+
+				o->AddComponent(rend);
+				o->setScale((float)pref["scale"]);
+				auto pos = pref["position"];
+				o->setPosition( Vector3(pos["x"], pos["y"], pos["z"]));
+
+				cout << "Loaded prefab: " << pref["prefabName"] << endl;
+			}
 	}
 }
 

@@ -14,7 +14,6 @@ class Component
 {
 protected:
 	GameObject * gameObject;
-	Transform* transform;
 	Scene* scene;
 	bool enabled;
 public:
@@ -24,7 +23,7 @@ public:
 	//Flujo de vida del componente. Estos metodos se implementan en el juego
 	virtual void Awake() {};
 	virtual void Start() {};
-	virtual void Update() { cout << "Update: " << gameObject->getName() << endl; };
+	virtual void Update() { };
 	virtual void LateUpdate() {};
 
 	virtual void OnDisable() {};
