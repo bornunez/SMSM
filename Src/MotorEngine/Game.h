@@ -12,6 +12,7 @@
 #include <OgreEntity.h>
 #include <Windows.h>
 #include "ResourcesManager/ResourcesManager.h"
+//#include "OISExample.h"
 
 
 class Scene;
@@ -30,6 +31,8 @@ private:
 	bool endGame = false;				// Controla cuando termina el juego, sacandolo del bucle principal
 
 	Scene* testScene;					// Escena de prueba para probar funcionalidad
+
+	//OISExample* oisex;
 
 	ResourcesManager* resourcesManager;
 	ComponentLoader* componentLoader;

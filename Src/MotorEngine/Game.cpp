@@ -1,4 +1,4 @@
-﻿#include "Game.h"
+#include "Game.h"
 #include "Scene.h"
 #include "./Loaders/PrefabManager.h"
 #include "./Loaders/ComponentLoader.h"
@@ -27,7 +27,10 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 	Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
 	Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 
-	
+	// ois input example
+	//oisex = new OISExample(mWindow);
+	//mRoot->addFrameListener(oisex);
+
 	//ESCENA DE PRUEBA
 	testScene = new Scene(this,"Assets/scenes/mainScene.json");
 
