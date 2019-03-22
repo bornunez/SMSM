@@ -31,6 +31,9 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 	//oisex = new OISExample(mWindow);
 	//mRoot->addFrameListener(oisex);
 
+	mInputM = new InputManager(mWindow);
+	mRoot->addFrameListener(mInputM);
+
 	//ESCENA DE PRUEBA
 	testScene = new Scene(this,"Assets/scenes/mainScene.json");
 
@@ -116,6 +119,7 @@ void Game::Play()
 	while (!endGame) {
 		MessagePump();
 		mWindow->update(); 
+
 		//printf(" PRE RENDER");
 		mRoot->renderOneFrame();
 		testScene->Update();			// Actualiza la escena de prueba

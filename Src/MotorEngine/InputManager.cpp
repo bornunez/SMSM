@@ -1,15 +1,15 @@
-#include "OISExample.h"
+#include "InputManager.h"
 #include <OgreException.h>
 #include <iostream>
 
-OISExample::OISExample(Ogre::RenderWindow* window)
+InputManager::InputManager(Ogre::RenderWindow* window)
 {
 	mWindow = window;
 	SetUpOIS();
 }
 
 
-OISExample::~OISExample()
+InputManager::~InputManager()
 {
 	if (mInputManager)
 	{
@@ -21,7 +21,7 @@ OISExample::~OISExample()
 	}
 }
 
-void OISExample::SetUpOIS() 
+void InputManager::SetUpOIS()
 {
 	std::cout<<("*** Initializing OIS ***");
 	OIS::ParamList pl;
@@ -39,19 +39,54 @@ void OISExample::SetUpOIS()
 
 }
 
-bool OISExample::frameRenderingQueued(const Ogre::FrameEvent & evt)
+bool InputManager::getKeyDown(OIS::KeyCode key)
+{
+	return mKeyboard->isKeyDown(key);
+}
+
+std::pair<int,int> InputManager::getMouseCoords()
+{
+	std::pair<int,int> mCoord = std::pair<int,int>(mMouse->getMouseState().X.abs, mMouse->getMouseState().Y.abs);
+	return mCoord;
+}
+
+float InputManager::getMouseX()
+{
+	return mMouse->getMouseState().X.abs;
+}
+
+float InputManager::getMouseY()
+{
+	return mMouse->getMouseState().Y.abs;
+}
+
+bool InputManager::getMLeftButton()
+{
+	return mMouse->getMouseState().buttons == 1;
+}
+
+bool InputManager::getMRightButton()
+{
+	return mMouse->getMouseState().buttons == 2;
+
+}
+
+bool InputManager::getMWheelButton()
+{
+	return mMouse->getMouseState().buttons == 4;
+}
+
+bool InputManager::frameRenderingQueued(const Ogre::FrameEvent & evt)
 {
 	if (mWindow->isClosed())
 		return false;
+
 	//Need to capture/update each device
 	mKeyboard->capture();
 	mMouse->capture();
-	//std::cout << "Mouse X: "<< mMouse->getMouseState().X.abs << " Y: " << mMouse->getMouseState().Y.abs << std::endl;
 
-	if (mKeyboard->isKeyDown(OIS::KC_A)) std::cout << "A pulsada";
-
-	if (mKeyboard->isKeyDown(OIS::KC_ESCAPE))
-		return false;
+	//if (mKeyboard->isKeyDown(OIS::KC_ESCAPE))
+	//	return false;
 
 	return true;
 	return false;

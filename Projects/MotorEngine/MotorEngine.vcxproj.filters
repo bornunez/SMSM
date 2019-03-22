@@ -81,6 +81,9 @@
     <ClInclude Include="..\..\Src\MotorEngine\OISExample.h">
       <Filter>Ejemplos</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\InputManager.h">
+      <Filter>Ejemplos</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
@@ -124,6 +127,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\Loaders\PrefabManager.cpp">
       <Filter>Core\Loaders</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\OISExample.cpp">
+      <Filter>Ejemplos</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\InputManager.cpp">
+      <Filter>Ejemplos</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

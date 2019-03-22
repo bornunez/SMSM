@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 #include <OgreRoot.h>
 #include <OgreConfigFile.h>
@@ -12,7 +12,8 @@
 #include <OgreEntity.h>
 #include <Windows.h>
 #include "ResourcesManager/ResourcesManager.h"
-//#include "OISExample.h"
+#include "OISExample.h"
+#include "InputManager.h"
 
 
 class Scene;
@@ -32,7 +33,8 @@ private:
 
 	Scene* testScene;					// Escena de prueba para probar funcionalidad
 
-	//OISExample* oisex;
+	OISExample* oisex;
+	InputManager* mInputM;
 
 	ResourcesManager* resourcesManager;
 	ComponentLoader* componentLoader;
