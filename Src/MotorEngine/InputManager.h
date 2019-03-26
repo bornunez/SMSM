@@ -20,6 +20,9 @@ public:
 
 	//KeyBoard
 	bool getKeyDown(OIS::KeyCode key);
+	bool getKeyPressed(OIS::KeyCode key);
+	bool getKeyUp(OIS::KeyCode key);
+
 
 	//Mouse Coords
 	std::pair<int,int> getMouseCoords();
@@ -27,10 +30,9 @@ public:
 	float getMouseY();
 
 	//Mouse Buttons
-	bool getMLeftButton();
-	bool getMRightButton();
-	bool getMWheelButton();
-	
+	bool getMouseButtonDown(OIS::MouseButtonID buttonID);
+	bool getMouseButtonPressed(OIS::MouseButtonID buttonID);
+	bool getMouseButtonUp(OIS::MouseButtonID buttonID);
 
 protected:
 	// Ogre::FrameListener
@@ -40,5 +42,8 @@ private:
 	OIS::InputManager* mInputManager;
 	OIS::Mouse* mMouse;
 	OIS::Keyboard* mKeyboard;
+
+	char prevKeyboard[256];
+	OIS::MouseState prevMouse;
 };
 

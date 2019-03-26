@@ -1,6 +1,7 @@
 #include "InputManager.h"
 #include <OgreException.h>
 #include <iostream>
+#include <math.h>
 
 InputManager::InputManager(Ogre::RenderWindow* window)
 {
@@ -33,15 +34,26 @@ void InputManager::SetUpOIS()
 	pl.insert(std::make_pair(std::string("WINDOW"), windowHndStr.str()));
 
 	mInputManager = OIS::InputManager::createInputSystem(pl);
-
+	
 	mKeyboard = static_cast<OIS::Keyboard*>(mInputManager->createInputObject(OIS::OISKeyboard, false));
 	mMouse = static_cast<OIS::Mouse*>(mInputManager->createInputObject(OIS::OISMouse, false));
-
+	mMouse->getMouseState().height = mWindow->getHeight();
+	mMouse->getMouseState().width = mWindow->getWidth();
 }
 
 bool InputManager::getKeyDown(OIS::KeyCode key)
 {
 	return mKeyboard->isKeyDown(key);
+}
+
+bool InputManager::getKeyPressed(OIS::KeyCode key)
+{
+	return (!prevKeyboard[key] && mKeyboard->isKeyDown(key));
+}
+
+bool InputManager::getKeyUp(OIS::KeyCode key)
+{
+	return (prevKeyboard[key] && !mKeyboard->isKeyDown(key));
 }
 
 std::pair<int,int> InputManager::getMouseCoords()
@@ -60,26 +72,30 @@ float InputManager::getMouseY()
 	return mMouse->getMouseState().Y.abs;
 }
 
-bool InputManager::getMLeftButton()
+bool InputManager::getMouseButtonDown(OIS::MouseButtonID buttonID)
 {
-	return mMouse->getMouseState().buttons == 1;
+	return mMouse->getMouseState().buttons == pow(2, (int)buttonID);
 }
 
-bool InputManager::getMRightButton()
+bool InputManager::getMouseButtonPressed(OIS::MouseButtonID buttonID)
 {
-	return mMouse->getMouseState().buttons == 2;
-
+	return (prevMouse.buttons != pow(2, (int)buttonID) && mMouse->getMouseState().buttons == pow(2, (int)buttonID));
 }
 
-bool InputManager::getMWheelButton()
+bool InputManager::getMouseButtonUp(OIS::MouseButtonID buttonID)
 {
-	return mMouse->getMouseState().buttons == 4;
+	return (prevMouse.buttons == pow(2, (int)buttonID) && mMouse->getMouseState().buttons != pow(2, (int)buttonID));
 }
+
 
 bool InputManager::frameRenderingQueued(const Ogre::FrameEvent & evt)
 {
 	if (mWindow->isClosed())
 		return false;
+
+	mKeyboard->copyKeyStates(prevKeyboard);
+	prevMouse = mMouse->getMouseState();
+
 
 	//Need to capture/update each device
 	mKeyboard->capture();

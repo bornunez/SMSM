@@ -27,16 +27,12 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 	Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
 	Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 
-	// ois input example
-	//oisex = new OISExample(mWindow);
-	//mRoot->addFrameListener(oisex);
-
-	mInputM = new InputManager(mWindow);
-	mRoot->addFrameListener(mInputM);
 
 	//ESCENA DE PRUEBA
 	testScene = new Scene(this,"Assets/scenes/mainScene.json");
 
+	mInputM = new InputManager(mWindow);
+	mRoot->addFrameListener(mInputM);
 }
 
 void Game::SetUpResources()
@@ -123,6 +119,17 @@ void Game::Play()
 		//printf(" PRE RENDER");
 		mRoot->renderOneFrame();
 		testScene->Update();			// Actualiza la escena de prueba
+
+		/*cout << mInputM->getMouseX() << " " << mInputM->getMouseY() << std::endl;
+
+		if (mInputM->getMouseButtonPressed(OIS::MouseButtonID::MB_Left)) std::cout << "Pulsado raton" << std::endl;
+		else if (mInputM->getMouseButtonDown(OIS::MouseButtonID::MB_Left)) std::cout << "Mantenido raton" << std::endl;
+		else if (mInputM->getMouseButtonUp(OIS::MouseButtonID::MB_Left)) std::cout << "Levantado raton" << std::endl;
+
+		if (mInputM->getKeyPressed(OIS::KeyCode::KC_A)) std::cout << "Pulsado A" << std::endl;
+		if (mInputM->getKeyDown(OIS::KeyCode::KC_A)) std::cout << "Mantenido A" << std::endl;
+		if (mInputM->getKeyUp(OIS::KeyCode::KC_A)) std::cout << "Levantado A" << std::endl;
+		*/
 	}
 }
 
