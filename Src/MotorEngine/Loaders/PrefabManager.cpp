@@ -148,4 +148,5 @@ GameObject * PrefabManager::Instantiate(string prefab, Scene * scene, GameObject
 	o->setPosition(position);
 	o->setScale(scale);
 	scene->Add(o);
+	return o;
 }

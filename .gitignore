@@ -8,14 +8,15 @@
 /Dependences/ogre-1.11.5/Build
 /Dependences/bullet-2.82-r2704/build3
 /Dependences/bullet-2.82-r2704/src
-/Dependences/OIS/lib
 /Dependences/ogre-1.11.5/CMake
 /Dependences/ogre-1.11.5/Docs
 /Dependences/ogre-1.11.5/Tests
 /Dependences/FMOD/lib
 /Dependences/OIS/oisbuild
 /Dependences/OIS/lib
-
+/Dependences/CEGUI/include
+/Dependences/CEGUI/lib
+/Dependences/CEGUI/src
 
 
 # User-specific files
