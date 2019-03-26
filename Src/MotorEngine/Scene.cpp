@@ -88,6 +88,7 @@ void Scene::Load()
 	CARGA DE ESCENA POR FICHEROS / PONER LOS OBJETOS A MANO
 	*/
 	LoadFromFile();
+	PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
 
 	for (Component* c : components) {
 		c->Awake();
