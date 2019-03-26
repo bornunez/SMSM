@@ -31,8 +31,8 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 	//ESCENA DE PRUEBA
 	testScene = new Scene(this,"Assets/scenes/mainScene.json");
 
-	mInputM = new InputManager(mWindow);
-	mRoot->addFrameListener(mInputM);
+	//mInputM = new InputManager(mWindow);
+	//mRoot->addFrameListener(mInputM);
 }
 
 void Game::SetUpResources()
