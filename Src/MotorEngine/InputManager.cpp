@@ -3,7 +3,9 @@
 #include <iostream>
 #include <math.h>
 
-InputManager::InputManager(Ogre::RenderWindow* window)
+InputManager* InputManager::instance = nullptr;
+
+InputManager::InputManager(Ogre::RenderWindow * window)
 {
 	mWindow = window;
 	SetUpOIS();
@@ -19,6 +21,18 @@ InputManager::~InputManager()
 
 		OIS::InputManager::destroyInputSystem(mInputManager);
 		mInputManager = 0;
+	}
+}
+
+InputManager * InputManager::getInstance()
+{
+	return instance;
+}
+
+void InputManager::createInstance(Ogre::RenderWindow * window)
+{
+	if (instance == nullptr) {
+		instance = new InputManager(window);
 	}
 }
 

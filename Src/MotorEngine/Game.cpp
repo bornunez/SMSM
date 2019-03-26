@@ -31,7 +31,9 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 	//ESCENA DE PRUEBA
 	testScene = new Scene(this,"Assets/scenes/mainScene.json");
 
-	mInputM = new InputManager(mWindow);
+	InputManager::createInstance(mWindow);
+
+	mInputM = InputManager::getInstance();
 	mRoot->addFrameListener(mInputM);
 }
 
@@ -120,7 +122,7 @@ void Game::Play()
 		mRoot->renderOneFrame();
 		testScene->Update();			// Actualiza la escena de prueba
 
-		/*cout << mInputM->getMouseX() << " " << mInputM->getMouseY() << std::endl;
+		//cout << mInputM->getMouseX() << " " << mInputM->getMouseY() << std::endl;
 
 		if (mInputM->getMouseButtonPressed(OIS::MouseButtonID::MB_Left)) std::cout << "Pulsado raton" << std::endl;
 		else if (mInputM->getMouseButtonDown(OIS::MouseButtonID::MB_Left)) std::cout << "Mantenido raton" << std::endl;
@@ -129,7 +131,7 @@ void Game::Play()
 		if (mInputM->getKeyPressed(OIS::KeyCode::KC_A)) std::cout << "Pulsado A" << std::endl;
 		if (mInputM->getKeyDown(OIS::KeyCode::KC_A)) std::cout << "Mantenido A" << std::endl;
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_A)) std::cout << "Levantado A" << std::endl;
-		*/
+		
 	}
 }
 

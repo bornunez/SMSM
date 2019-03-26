@@ -13,10 +13,10 @@ class InputManager : public Ogre::FrameListener
 {
 
 public:
-	InputManager(Ogre::RenderWindow* window);
+	static InputManager* getInstance();
 	~InputManager();
+	static void createInstance(Ogre::RenderWindow* window);
 
-	void SetUpOIS();
 
 	//KeyBoard
 	bool getKeyDown(OIS::KeyCode key);
@@ -45,5 +45,10 @@ private:
 
 	char prevKeyboard[256];
 	OIS::MouseState prevMouse;
+
+	static InputManager* instance;
+	InputManager(Ogre::RenderWindow* window);
+	void SetUpOIS();
+
 };
 
