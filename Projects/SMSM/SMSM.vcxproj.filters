@@ -16,6 +16,9 @@
     <Filter Include="Loaders">
       <UniqueIdentifier>{6f741e51-69ff-4340-b9e9-8de590060331}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Componentes">
+      <UniqueIdentifier>{bdf6c371-9da7-4e27-a473-0a07ba27b0fa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\main.cpp">

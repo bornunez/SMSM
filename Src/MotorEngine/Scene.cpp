@@ -3,7 +3,6 @@
 #include "GameObject.h"
 #include "../../Projects/MotorEngine/Movement.h"
 #include "AudioManager.h"
-#include "MeshRenderer.h"
 #include "./Loaders/PrefabManager.h"
 
 Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
@@ -62,8 +61,8 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	//secondNode->attachObject(ogreEntity2);
 	//secondNode->setScale(0.05, 0.05, 0.05);
 
-	btRigidBody* rb1 = phyManager->CreateBoxCollider(secondNode, 0, btVector3(3, 0, 0), btQuaternion(), 0.5, btVector3(3,3,3));
-	phyManager->AddRigidBodyToGroup(rb1, 1);
+	/*btRigidBody* rb1 = phyManager->CreateBoxCollider(secondNode, 0, btVector3(3, 0, 0), btQuaternion(), 0.5, btVector3(3,3,3));
+	phyManager->AddRigidBodyToGroup(rb1, 1);*/
 
 	// Crear luz
 
@@ -89,28 +88,6 @@ void Scene::Load()
 	CARGA DE ESCENA POR FICHEROS / PONER LOS OBJETOS A MANO
 	*/
 	LoadFromFile();
-	
-
-
-	GameObject* o1 = new GameObject(this,"Head");
-	MeshRenderer* head = new MeshRenderer(o1, "ogrehead.mesh");
-	Movement* m = new Movement(o1);
-	Add(o1);
-	o1->AddComponent(m);
-	o1->AddComponent(head);
-	AddListener(o1);
-
-	o1->getNode()->setScale(0.25, 0.25, 0.25);
-
-
-
-	GameObject* child = new GameObject(this, "Child");
-	MeshRenderer* cube = new MeshRenderer(child, "cube.mesh");
-	child->AddComponent(cube);
-	child->setPosition({ 0,-30,0 });
-	child->getNode()->setScale(0.25, 0.25, 0.25);
-
-	o1->AddChild(child);
 
 	for (Component* c : components) {
 		c->Awake();
@@ -128,17 +105,11 @@ void Scene::LoadFromFile()
 		for (auto &pref : sceneFile["GameObjects"])
 			if (pref.is_object()) {
 				//GameObject* o = ResourcesManager::GetInstance()->GetPrefabManager()->GenerateGameObject(pref["prefabName"], this, nullptr);
-				GameObject* o = PrefabManager::getInstance()->GenerateGameObject(pref["prefabName"], this, nullptr);
+				GameObject* o = PrefabManager::getInstance()->ParseGameObject(pref, this, nullptr);
 
 				//Si existe un prefab con el nombre, lo rellenamos
 				if (o != nullptr) {
 					Add(o);
-
-					//o->AddComponent(rend);
-					o->setScale((float)pref["scale"]);
-					auto pos = pref["position"];
-					o->setPosition(Vector3(pos["x"], pos["y"], pos["z"]));
-
 					cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
 				}
 			}
@@ -181,9 +152,9 @@ void Scene::Add(GameObject * o)
 {
 	//Añadimos el obeto a la escena
 	gameObjects.push_back(o);
-	//Y tambien sus componentes
-	for (Component* c : o->getComponents())
-		components.push_back(c);
+	////Y tambien sus componentes
+	//for (Component* c : o->getComponents())
+	//	components.push_back(c);
 }
 
 void Scene::Add(Component * c)
