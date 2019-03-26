@@ -29,6 +29,7 @@
     <ClInclude Include="..\..\Src\MotorEngine\Loaders\PrefabManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\MeshRenderer.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Movement.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\MyCamera.h" />
     <ClInclude Include="..\..\Src\MotorEngine\OISExample.h" />
     <ClInclude Include="..\..\Src\MotorEngine\PhysicsManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\json.hpp" />
@@ -48,6 +49,7 @@
     <ClCompile Include="..\..\Src\MotorEngine\Loaders\PrefabManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\MeshRenderer.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Movement.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\MyCamera.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\OISExample.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\JsonParser.cpp" />
