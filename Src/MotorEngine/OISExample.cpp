@@ -43,10 +43,10 @@ bool OISExample::frameRenderingQueued(const Ogre::FrameEvent & evt)
 {
 	if (mWindow->isClosed())
 		return false;
-
 	//Need to capture/update each device
 	mKeyboard->capture();
 	mMouse->capture();
+	//std::cout << "Mouse X: "<< mMouse->getMouseState().X.abs << " Y: " << mMouse->getMouseState().Y.abs << std::endl;
 
 	if (mKeyboard->isKeyDown(OIS::KC_A)) std::cout << "A pulsada";
 
