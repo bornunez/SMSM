@@ -2,6 +2,7 @@
 #include <list>
 #include "GameObject.h"
 #include <string>
+#include "./ResourcesManager/JsonParser.h"
 
 #include <iostream>
 using namespace std;
@@ -18,6 +19,7 @@ protected:
 	bool enabled;
 public:
 	Component(GameObject* _gameObject,bool _enabled = true);
+	virtual void LoadFromFile(json obj);
 	~Component();
 
 	//Flujo de vida del componente. Estos metodos se implementan en el juego

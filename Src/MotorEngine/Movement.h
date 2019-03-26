@@ -6,6 +6,7 @@ class Movement :
 {
 public:
 	Movement(GameObject* o);
+	virtual void LoadFromFile(json obj);
 	virtual ~Movement();
 
 	virtual void receiveMessage(string message);

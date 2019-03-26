@@ -9,6 +9,23 @@ MeshRenderer::MeshRenderer(GameObject * _gameObject, string _meshName, string _m
 {
 }
 
+MeshRenderer::MeshRenderer(GameObject * _gameObject) : Component(_gameObject)
+{
+}
+
+void MeshRenderer::LoadFromFile(json obj)
+{
+	Component::LoadFromFile(obj);
+	string mesh = obj["mesh"];
+	meshName = mesh;
+
+	if (obj.find("material") != obj.end()) {
+		string mat = obj["material"];
+		materialName = mat;
+	}
+
+}
+
 MeshRenderer::~MeshRenderer()
 {
 }  

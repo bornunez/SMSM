@@ -8,6 +8,6 @@ public:
 	virtual ~MyComponentLoader();
 
 	virtual std::list<Component*> LoadComponents(json json, GameObject* gameObject);
-	virtual Component* ParseComponent(json json, GameObject* gameObject);
+	virtual Component* ParseComponent(json comp, GameObject* gameObject);
 };
 

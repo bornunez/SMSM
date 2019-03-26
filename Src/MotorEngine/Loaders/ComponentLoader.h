@@ -5,6 +5,7 @@
 #include <list>
 #include "../Component.h"
 #include "../GameObject.h"
+#include "../MeshRenderer.h"
 
 class ComponentLoader
 {

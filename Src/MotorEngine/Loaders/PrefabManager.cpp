@@ -75,17 +75,77 @@ GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene,
 	GameObject* o = nullptr;
 	if (it != prefabs.end()) {
 		json jsonObj = (*it).second;
-		string objName = jsonObj["name"];
-		cout << "Loaded prefab [ " << prefabName << " ]" << " and named it [ " << objName << " ]" << endl;
-		o = new GameObject(scene, jsonObj["name"], jsonObj["active"],parent);
-
-		componentLoader->LoadComponents(jsonObj["components"], o);
-		//std::list<Component*> components = componentLoader->LoadComponents(jsonObj["components"], o);
-		
+		cout << "Loading prefab [ " << prefabName << " ]" << " as [ " << jsonObj["name"] << " ]" << endl;
+		o = GenerateGameObject(jsonObj, scene, parent);
 	}
 	else {
 		cout << "ERROR: Prefab [ " << prefabName << " ]" << " doesn't exists" << endl << endl;
 	}
 
 	return o;
+}
+
+GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObject * parent)
+{
+	GameObject* o = nullptr;
+	string objName = obj["name"];
+	
+	o = new GameObject(scene, obj["name"], obj["active"], parent);
+
+	auto components = componentLoader->LoadComponents(obj["components"], o);
+
+	for (Component* c : components) {
+		o->AddComponent(c);
+	}
+
+	//Cargamos tambien todos los hijos
+	if (obj.contains("children")) {
+		for (auto &child : obj["children"])
+			if (child.is_object()) {
+				GameObject* c = nullptr;
+				c = ParseGameObject(child, scene, o);
+				if (c != nullptr) {
+					o->AddChild(c);
+					scene->Add(c);
+				}
+			}
+	}
+	return o;
+
+}
+
+GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject * parent)
+{
+	//Primero tenemos que ver si es un objeto de por si o redirecciona a un prefab
+	GameObject* o = nullptr;
+	if (obj.contains("prefab")) {
+		string prefName = obj["prefab"];
+		o = GenerateGameObject(prefName, scene, parent);
+	}
+	else {
+		o = GenerateGameObject(obj, scene, parent);
+	}
+
+	//Si existe un objeto, pasamos a añadirlo a la escena y a posicionarlo
+	if (o != nullptr) {
+		scene->Add(o);
+		if (obj.contains("position")) {
+			auto pos = obj["position"];
+			o->setPosition(Vector3(pos["x"], pos["y"], pos["z"]));
+		}
+		if(obj.contains("scale"))
+			o->setScale((float)obj["scale"]);
+	}
+
+
+	return nullptr;
+}
+
+GameObject * PrefabManager::Instantiate(string prefab, Scene * scene, GameObject * parent, Vector3 position, float scale)
+{
+	GameObject* o = nullptr;
+	o = GenerateGameObject(prefab, scene, parent);
+	o->setPosition(position);
+	o->setScale(scale);
+	scene->Add(o);
 }

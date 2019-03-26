@@ -6,6 +6,10 @@ Movement::Movement(GameObject* o) : Component(o)
 {
 }
 
+void Movement::LoadFromFile(json obj)
+{
+}
+
 
 Movement::~Movement()
 {

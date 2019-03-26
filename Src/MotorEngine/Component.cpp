@@ -10,6 +10,12 @@ Component::Component(GameObject * _gameObject, bool _enabled) : gameObject(_game
 	//cout << "Component: " << gameObject->getName() << endl;
 }
 
+void Component::LoadFromFile(json obj)
+{
+	if (obj.contains("enabled"))
+		enabled = obj["enabled"];
+}
+
 Component::~Component()
 {
 }
