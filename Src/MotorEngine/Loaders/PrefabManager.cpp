@@ -129,14 +129,23 @@ GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject 
 	//Si existe un objeto, pasamos a añadirlo a la escena y a posicionarlo
 	if (o != nullptr) {
 		scene->Add(o);
-		if(obj.contains("scale"))
-			o->setScale((float)obj["scale"]);
 		if (obj.contains("position")) {
 			auto pos = obj["position"];
 			o->setPosition(Vector3(pos["x"], pos["y"], pos["z"]));
 		}
+		if(obj.contains("scale"))
+			o->setScale((float)obj["scale"]);
 	}
 
 
 	return nullptr;
+}
+
+GameObject * PrefabManager::Instantiate(string prefab, Scene * scene, GameObject * parent, Vector3 position, float scale)
+{
+	GameObject* o = nullptr;
+	o = GenerateGameObject(prefab, scene, parent);
+	o->setPosition(position);
+	o->setScale(scale);
+	scene->Add(o);
 }

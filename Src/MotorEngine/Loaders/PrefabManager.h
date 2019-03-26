@@ -32,6 +32,6 @@ public:
 	GameObject* GenerateGameObject(string prefabName, Scene* scene, GameObject* parent);
 	GameObject* GenerateGameObject(json obj, Scene* scene, GameObject* parent);
 	GameObject* ParseGameObject(json obj, Scene* scene, GameObject* parent);
-	GameObject* Instantiate(json obj, Scene* scene, GameObject* parent);
+	GameObject* Instantiate(string prefab, Scene* scene, GameObject* parent,Vector3 position,float scale);
 };
 
