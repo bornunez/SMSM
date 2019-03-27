@@ -76,12 +76,12 @@ std::pair<int,int> InputManager::getMouseCoords()
 	return mCoord;
 }
 
-float InputManager::getMouseX()
+int InputManager::getMouseX()
 {
 	return mMouse->getMouseState().X.abs;
 }
 
-float InputManager::getMouseY()
+int InputManager::getMouseY()
 {
 	return mMouse->getMouseState().Y.abs;
 }
