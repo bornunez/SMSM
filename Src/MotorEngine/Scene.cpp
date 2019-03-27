@@ -1,7 +1,7 @@
 #include "Scene.h"
 #include "Component.h"
 #include "GameObject.h"
-#include "../../Projects/MotorEngine/Movement.h"
+#include "Movement.h"
 #include "AudioManager.h"
 #include "./Loaders/PrefabManager.h"
 
@@ -16,7 +16,7 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	// Crea el nodo de la escena como hijo de root
 	sceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
 
-	phyManager = new PhysicsManager();
+	//phyManager = new PhysicsManager();
 
 	//Crea un nodo de escena, hijo de root
 	//mSceneManager->getRootSceneNode()->createChildSceneNode();
@@ -42,27 +42,6 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 
 	//// Escena
 	Ogre::Entity* ogreEntity = mSceneManager->createEntity("ogrehead.mesh");
-
-	/*testNode = sceneNode->createChildSceneNode();
-	testNode->attachObject(ogreEntity);
-	testNode->setScale(0.1, 0.1, 0.1);*/
-
-	////Cada nodo acaba teniendo una entidad y un rigidbody asociado, que puede colocar en un grupo o en otro para poder realizar acciones sobre un conjunto
-	////de rigidbodies al mismo tiempo
-	//
-	//btRigidBody* rb =  phyManager->CreateSphereCollider(testNode, 100, btVector3(0, 20, 0), btQuaternion(), 0.8f, 2);
-	//phyManager->AddRigidBodyToGroup(rb, 0);
-
-
-	//SECOND HEAD
-	//Ogre::Entity* ogreEntity2 = mSceneManager->createEntity("cube.mesh");
-
-	//secondNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
-	//secondNode->attachObject(ogreEntity2);
-	//secondNode->setScale(0.05, 0.05, 0.05);
-
-	/*btRigidBody* rb1 = phyManager->CreateBoxCollider(secondNode, 0, btVector3(3, 0, 0), btQuaternion(), 0.5, btVector3(3,3,3));
-	phyManager->AddRigidBodyToGroup(rb1, 1);*/
 
 	// Crear luz
 
@@ -128,11 +107,9 @@ void Scene::Start()
 // Mueve el cubo a un lado en x.
 void Scene::Update() 
 {
-	phyManager->Update();
+	//phyManager->Update();
 
 	//testNode->setPosition(testNode->getPosition().x + 1,testNode->getPosition().y, testNode->getPosition().z);
-
-	//phyManager->AddDiscreteImpulse(btVector3(1, 1, 0), 20, 0);
 
 	//Recorremos los updates de los objetos activos
 	//cout << "Nº Componentes: " << components.size() << endl;
@@ -145,6 +122,9 @@ void Scene::Update()
 	for (Component* c : components) {
 		if (c->isActiveAndEnabled()) c->LateUpdate();
 	}
+
+	phyManager->LateUpdate();
+
 	//Finalmente limpiamos todos los objetos pendientes de borrar
 	ClearTrash();
 }

@@ -1,14 +1,18 @@
 #pragma once
 #include <btBulletDynamicsCommon.h>
-#include <vector>
 #include "Game.h"
+#include "myMotionState.h"
+#include "RigidBodyComponent.h"
 
 struct bulletObject {
-	int id;
-	btRigidBody* rb;
-	bool hit;
+	
+	RigidBodyComponent* _rb;	// Permitirá llamar al collisionHandler del objeto al colisionar
+	Ogre::SceneNode* _node;		// Servirá para detectar nuestro bullet object
+	int _id;					// Servirá para saber el tipo de objeto que tenemos
+	bool hit = false;			// Servirá para que la colision se detecte solo una vez, al cabo de x tiempo se restituirá
+								// Es para evitar colisiones continuas
 
-	bulletObject(int ID, btRigidBody* body) : id(ID), rb(body), hit(false) {}
+	bulletObject(RigidBodyComponent* rb, Ogre::SceneNode* obj, int id) { _rb = rb, _node = obj; _id = id; }
 };
 
 class PhysicsManager
@@ -17,55 +21,43 @@ public:
 	PhysicsManager();
 	virtual ~PhysicsManager();	
 	void Update();
+	void LateUpdate();
+
 	void DetectCollision();
-	void addRigidBody(btRigidBody* rb);
-	void addCollisionShape(btCollisionShape* sh);
 
-	//GETS
-	int getCollisionObjectCount() { return collisionShapes.size(); }
-	btDiscreteDynamicsWorld* getDynamicsWorld() { return dynamicsWorld; }
+	//GETS	
+	btDiscreteDynamicsWorld* getDynamicsWorld() { return _world; }
 
-	//Deberían ser métodos básicos del los objetos, ya que no necesitan interaccion desde el physics manager
-	void Move(btRigidBody* rb,SceneNode* node, btVector3 dir, float speed);
-	void Rotate(btRigidBody * rb, SceneNode * node, btQuaternion rot, float speed);
+	btRigidBody* CreateBoxCollider(RigidBodyComponent* rb, int id, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btVector3 size);
+	btRigidBody* CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btScalar radius);
+	btRigidBody* CreateCapsuleCollider(RigidBodyComponent* rb, int id, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btScalar height, btScalar radius);
+	btRigidBody* CreatePlaneCollider(RigidBodyComponent* rb, int id, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btVector3 normalDir, btScalar thickness);
 	
-	int AddRigidBodyToGroup(btRigidBody* rb, int group);
-	void RemoveRigidBody(btRigidBody* rb);
-
-	btRigidBody* CreateBoxCollider(SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btVector3 size);
-	btRigidBody* CreateSphereCollider(SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btScalar radius);
-	btRigidBody* CreateCapsuleCollider(SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btScalar height, btScalar radius);
-	btRigidBody* CreatePlaneCollider(SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btVector3 normalDir, btScalar thickness);
-	
-	
-
 private:
-	btDefaultCollisionConfiguration * collisionConfiguration;
-	btCollisionDispatcher* dispatcher;
-	btBroadphaseInterface* overlappingPairCache;
-	btSequentialImpulseConstraintSolver* solver;
-	btDiscreteDynamicsWorld* dynamicsWorld;
+	btDefaultCollisionConfiguration * _collisionConf;
+	btCollisionDispatcher* _dispatcher;
+	btBroadphaseInterface* _broadphase;
+	btSequentialImpulseConstraintSolver* _solver;
+	btDiscreteDynamicsWorld* _world;
 
-	btAlignedObjectArray<btCollisionShape*> collisionShapes;
+	//Al parecer antes existian dos shapes distintas, la estatica y la dinámica, se concretó en una en función de la masa del rigidbody asociado
+	std::deque<btCollisionShape*> _shapes;
+	std::deque<btRigidBody*> _bodies;
+	std::deque<bulletObject*> _bulletObjects;
+
 	//Método que completa el objeto físico
 	btRigidBody* CreatePhysicObject(btCollisionShape* collisionShape, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor);
 
-	//Tenia pensado tener vectores de bulletObjects
-	//el vector de elementos estaticos
-	//el vector de enemigos
-	//el vector con el personaje
-	//el vector con ...	en función del juego
-	std::vector<std::vector<bulletObject*>> rigidBodiesGroups;
 };
 
-struct rCallBack : public btCollisionWorld::ContactResultCallback
-{
-	btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObject*
-		colObj0, int partId0, int index0, const btCollisionObject* colObj1, int partId1,
-		int index1)
-	{
-		btVector3 ptA = cp.getPositionWorldOnA();
-		btVector3 ptB = cp.getPositionWorldOnB();
-		return 0;
-	}
-};
+//struct rCallBack : public btCollisionWorld::ContactResultCallback
+//{
+//	btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObject*
+//		colObj0, int partId0, int index0, const btCollisionObject* colObj1, int partId1,
+//		int index1)
+//	{
+//		btVector3 ptA = cp.getPositionWorldOnA();
+//		btVector3 ptB = cp.getPositionWorldOnB();
+//		return 0;
+//	}
+//};
