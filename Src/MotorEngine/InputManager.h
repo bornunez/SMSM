@@ -22,7 +22,7 @@ public:
 		Crea una instancia del InputManager si aun no existe una.
 		Recibe la ventana de la aplicacion, en la que captura el input.
 		*/
-	static void createInstance(Ogre::RenderWindow* window);
+	static void CreateInstance(Ogre::RenderWindow* window);
 
 
 	//KeyBoard
@@ -61,6 +61,17 @@ public:
 		*/
 	int getMouseY();
 
+	/**
+		Modifica las cordenadas del raton 
+		Recibe las coordenadas a usar como X e Y
+		*/
+	void setMouseCoords(int x, int y);
+
+	/**
+		Mueve las coordenadas del raton al centro de la ventana
+		*/
+	void CenterMouse();
+
 	//Mouse Buttons
 	/**
 		Indica si un boton del raton esta siendo pulsado.
@@ -96,5 +107,14 @@ private:
 	InputManager(Ogre::RenderWindow* window);
 	void SetUpOIS();
 
+	template<class TYPE> inline TYPE BIT(const TYPE & x)
+	{
+		return TYPE(1) << x;
+	}
+
+	template<class TYPE> inline bool IsBitSet(const TYPE & x, const TYPE & y)
+	{
+		return 0 != (x & y);
+	}
 };
 
