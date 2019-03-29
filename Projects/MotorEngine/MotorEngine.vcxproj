@@ -39,6 +39,8 @@
     <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\ResourcesManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\RigidBodyComponent.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Scene.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\TimeManager.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\TimeSwitch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Component.cpp" />
@@ -60,6 +62,8 @@
     <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\ResourcesManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\RigidBodyComponent.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Scene.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\TimeManager.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\TimeSwitch.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

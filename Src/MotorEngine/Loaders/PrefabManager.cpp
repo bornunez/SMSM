@@ -94,9 +94,9 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 
 	auto components = componentLoader->LoadComponents(obj["components"], o);
 
-	for (Component* c : components) {
-		o->AddComponent(c);
-	}
+	//for (Component* c : components) {
+	//	o->AddComponent(c);
+	//}
 
 	//Cargamos tambien todos los hijos
 	if (obj.contains("children")) {
@@ -145,8 +145,10 @@ GameObject * PrefabManager::Instantiate(string prefab, Scene * scene, GameObject
 {
 	GameObject* o = nullptr;
 	o = GenerateGameObject(prefab, scene, parent);
-	o->setPosition(position);
-	o->setScale(scale);
-	scene->Add(o);
+	if (o != nullptr) {
+		o->setPosition(position);
+		o->setScale(scale);
+		scene->Add(o);
+	}
 	return o;
 }

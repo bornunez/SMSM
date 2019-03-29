@@ -32,7 +32,7 @@ private:
 
 	Scene* testScene;					// Escena de prueba para probar funcionalidad
 
-//	InputManager* mInputM;
+	InputManager* mInputM;
 
 	ResourcesManager* resourcesManager;
 	ComponentLoader* componentLoader;

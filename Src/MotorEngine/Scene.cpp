@@ -23,7 +23,7 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 
 	// Crear la camara
 	Camera* cam = mSceneManager->createCamera("Cam");
-	cam->setNearClipDistance(6);
+	cam->setNearClipDistance(2);
 
 
 
@@ -41,18 +41,20 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
 
 	//// Escena
-	Ogre::Entity* ogreEntity = mSceneManager->createEntity("ogrehead.mesh");
+	//Ogre::Entity* ogreEntity = mSceneManager->createEntity("ogrehead.mesh");
+	//Ogre::Entity* ogreEntity2 = mSceneManager->createEntity("Cubo.mesh");
 
+	parroThings(mSceneManager);
 	// Crear luz
 
 	Light* luz = mSceneManager->createLight("Luz");
 	luz->setType(Ogre::Light::LT_DIRECTIONAL);
-	luz->setDiffuseColour(0.75, 0.75, 0.75);
+	luz->setDiffuseColour(1.75, 1.75, 1.75);
 
 	mLightNode = mCamNode->createChildSceneNode("nLuz");
 	mLightNode->attachObject(luz);
 
-	mLightNode->setDirection(Ogre::Vector3(-1, 0, -1));  //vec3.normalise();
+	mLightNode->setDirection(Ogre::Vector3(1, -1, -1));  //vec3.normalise();
 
 	AudioManager* audioManager = new AudioManager();
 	audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
@@ -61,13 +63,19 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 }
 
 
+void Scene::parroThings(SceneManager* mSceneManager)
+{
+	//BICHO
+	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, { 0,0,0 }, 0.1);
+}
+
 void Scene::Load()
 {
-	/*
-	CARGA DE ESCENA POR FICHEROS / PONER LOS OBJETOS A MANO
-	*/
+	///*
+	//CARGA DE ESCENA POR FICHEROS / PONER LOS OBJETOS A MANO
+	//*/
 	LoadFromFile();
-	PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
+	//PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
 
 	for (Component* c : components) {
 		c->Awake();
