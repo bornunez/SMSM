@@ -96,5 +96,14 @@ private:
 	InputManager(Ogre::RenderWindow* window);
 	void SetUpOIS();
 
+	template<class TYPE> inline TYPE BIT(const TYPE & x)
+	{
+		return TYPE(1) << x;
+	}
+
+	template<class TYPE> inline bool IsBitSet(const TYPE & x, const TYPE & y)
+	{
+		return 0 != (x & y);
+	}
 };
 

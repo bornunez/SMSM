@@ -88,17 +88,17 @@ int InputManager::getMouseY()
 
 bool InputManager::getMouseButtonDown(OIS::MouseButtonID buttonID)
 {
-	return mMouse->getMouseState().buttons == pow(2, (int)buttonID);
+	return IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID));
 }
 
 bool InputManager::getMouseButtonPressed(OIS::MouseButtonID buttonID)
 {
-	return (prevMouse.buttons != pow(2, (int)buttonID) && mMouse->getMouseState().buttons == pow(2, (int)buttonID));
+	return (!IsBitSet(prevMouse.buttons, BIT((int)buttonID)) && IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID)));
 }
 
 bool InputManager::getMouseButtonUp(OIS::MouseButtonID buttonID)
 {
-	return (prevMouse.buttons == pow(2, (int)buttonID) && mMouse->getMouseState().buttons != pow(2, (int)buttonID));
+	return (IsBitSet(prevMouse.buttons, BIT((int)buttonID)) && !IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID)));
 }
 
 
