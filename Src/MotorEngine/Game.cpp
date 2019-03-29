@@ -32,7 +32,7 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 	//ESCENA DE PRUEBA
 	testScene = new Scene(this,"Assets/scenes/mainScene.json");
 
-	InputManager::createInstance(mWindow);
+	InputManager::CreateInstance(mWindow);
 	mInputM = InputManager::getInstance();
 	mRoot->addFrameListener(mInputM);
 }

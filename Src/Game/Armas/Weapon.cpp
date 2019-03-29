@@ -38,7 +38,7 @@ void Weapon::Update()
 
 void Weapon::handleInput()
 {
-	if (InputManager::getInstance()->getMouseButtonDown(OIS::MouseButtonID::MB_Left))
+	if (InputManager::getInstance()->getMouseButtonPressed(OIS::MouseButtonID::MB_Left))
 	{
 		shoot();
 	}
