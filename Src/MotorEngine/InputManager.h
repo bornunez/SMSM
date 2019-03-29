@@ -22,7 +22,7 @@ public:
 		Crea una instancia del InputManager si aun no existe una.
 		Recibe la ventana de la aplicacion, en la que captura el input.
 		*/
-	static void createInstance(Ogre::RenderWindow* window);
+	static void CreateInstance(Ogre::RenderWindow* window);
 
 
 	//KeyBoard
@@ -60,6 +60,17 @@ public:
 		Devuelve la cordenada Y del raton
 		*/
 	int getMouseY();
+
+	/**
+		Modifica las cordenadas del raton 
+		Recibe las coordenadas a usar como X e Y
+		*/
+	void setMouseCoords(int x, int y);
+
+	/**
+		Mueve las coordenadas del raton al centro de la ventana
+		*/
+	void CenterMouse();
 
 	//Mouse Buttons
 	/**

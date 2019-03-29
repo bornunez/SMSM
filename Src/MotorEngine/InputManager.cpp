@@ -29,7 +29,7 @@ InputManager * InputManager::getInstance()
 	return instance;
 }
 
-void InputManager::createInstance(Ogre::RenderWindow * window)
+void InputManager::CreateInstance(Ogre::RenderWindow * window)
 {
 	if (instance == nullptr) {
 		instance = new InputManager(window);
@@ -84,6 +84,18 @@ int InputManager::getMouseX()
 int InputManager::getMouseY()
 {
 	return mMouse->getMouseState().Y.abs;
+}
+
+void InputManager::setMouseCoords(int x, int y)
+{
+	OIS::MouseState &mutableMouseState = const_cast<OIS::MouseState &>(mMouse->getMouseState());
+	mutableMouseState.X.abs = x;
+	mutableMouseState.Y.abs = y;
+}
+
+void InputManager::CenterMouse()
+{
+	setMouseCoords(mWindow->getWidth() / 2, mWindow->getHeight() / 2);
 }
 
 bool InputManager::getMouseButtonDown(OIS::MouseButtonID buttonID)
