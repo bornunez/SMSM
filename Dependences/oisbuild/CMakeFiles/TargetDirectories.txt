@@ -1,6 +1,0 @@
-C:/Users/Diego/Desktop/proyecto 3/oisbuild/CMakeFiles/OIS.dir
-C:/Users/Diego/Desktop/proyecto 3/oisbuild/CMakeFiles/FFConsoleApp.dir
-C:/Users/Diego/Desktop/proyecto 3/oisbuild/CMakeFiles/ConsoleApp.dir
-C:/Users/Diego/Desktop/proyecto 3/oisbuild/CMakeFiles/INSTALL.dir
-C:/Users/Diego/Desktop/proyecto 3/oisbuild/CMakeFiles/ALL_BUILD.dir
-C:/Users/Diego/Desktop/proyecto 3/oisbuild/CMakeFiles/ZERO_CHECK.dir
