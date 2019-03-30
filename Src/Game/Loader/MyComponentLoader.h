@@ -1,5 +1,6 @@
 #pragma once
 #include "../../MotorEngine/Loaders/ComponentLoader.h"
+#include "../Armas/Weapon.h"
 
 class MyComponentLoader : public ComponentLoader
 {

@@ -13,25 +13,82 @@ class InputManager : public Ogre::FrameListener
 {
 
 public:
+	/**
+		Devuelve una instancia del InputManager
+		*/
 	static InputManager* getInstance();
 	~InputManager();
-	static void createInstance(Ogre::RenderWindow* window);
+	/**
+		Crea una instancia del InputManager si aun no existe una.
+		Recibe la ventana de la aplicacion, en la que captura el input.
+		*/
+	static void CreateInstance(Ogre::RenderWindow* window);
 
 
 	//KeyBoard
+	/**
+		Indica si una tecla esta siendo pulsada.
+		Recibe el OIS::KeyCode correspondiente a la tecla.
+		*/
 	bool getKeyDown(OIS::KeyCode key);
+
+	/**
+		Indica si una tecla acaba de ser pulsada.
+		Recibe el OIS::KeyCode correspondiente a la tecla.
+		*/
 	bool getKeyPressed(OIS::KeyCode key);
+
+	/**
+		Indica si una tecla acaba de ser soltada.
+		Recibe el OIS::KeyCode correspondiente a la tecla.
+		*/
 	bool getKeyUp(OIS::KeyCode key);
 
 
 	//Mouse Coords
+	/**
+		Devuelve las cordenadas del raton en un pair<float,float>
+		*/
 	std::pair<int,int> getMouseCoords();
-	float getMouseX();
-	float getMouseY();
+
+	/**
+		Devuelve la cordenada X del raton
+		*/
+	int getMouseX();
+
+	/**
+		Devuelve la cordenada Y del raton
+		*/
+	int getMouseY();
+
+	/**
+		Modifica las cordenadas del raton 
+		Recibe las coordenadas a usar como X e Y
+		*/
+	void setMouseCoords(int x, int y);
+
+	/**
+		Mueve las coordenadas del raton al centro de la ventana
+		*/
+	void CenterMouse();
 
 	//Mouse Buttons
+	/**
+		Indica si un boton del raton esta siendo pulsado.
+		Recibe el OIS::MouseButtonID correspondiente al boton.
+		*/
 	bool getMouseButtonDown(OIS::MouseButtonID buttonID);
+
+	/**
+		Indica si un boton del raton acaba de ser pulsado.
+		Recibe el OIS::MouseButtonID correspondiente al boton.
+		*/
 	bool getMouseButtonPressed(OIS::MouseButtonID buttonID);
+
+	/**
+		Indica si un boton del raton acaba de ser soltado.
+		Recibe el OIS::MouseButtonID correspondiente al boton.
+		*/
 	bool getMouseButtonUp(OIS::MouseButtonID buttonID);
 
 protected:
@@ -50,5 +107,14 @@ private:
 	InputManager(Ogre::RenderWindow* window);
 	void SetUpOIS();
 
+	template<class TYPE> inline TYPE BIT(const TYPE & x)
+	{
+		return TYPE(1) << x;
+	}
+
+	template<class TYPE> inline bool IsBitSet(const TYPE & x, const TYPE & y)
+	{
+		return 0 != (x & y);
+	}
 };
 

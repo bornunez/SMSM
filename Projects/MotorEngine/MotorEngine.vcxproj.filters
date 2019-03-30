@@ -31,6 +31,9 @@
     <Filter Include="Core\Loaders">
       <UniqueIdentifier>{5ada20a2-3424-4a10-b318-5995adc2d9a8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Core\Utilities">
+      <UniqueIdentifier>{6fac59bd-173d-4ac3-ae80-1e968ca71ef6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\MotorEngine\Game.h">
@@ -56,9 +59,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\Movement.h">
       <Filter>Ejemplos</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\MotorEngine\MeshRenderer.h">
-      <Filter>Components</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\json.hpp">
       <Filter>Core\ResourcesManager</Filter>
@@ -96,6 +96,15 @@
     <ClInclude Include="..\..\Src\MotorEngine\EnemyRigidBody.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\MeshRenderer.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\TimeManager.h">
+      <Filter>Core\Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\TimeSwitch.h">
+      <Filter>Core\Utilities</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
@@ -121,9 +130,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\Movement.cpp">
       <Filter>Ejemplos</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\MotorEngine\MeshRenderer.cpp">
-      <Filter>Components</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\JsonParser.cpp">
       <Filter>Core\ResourcesManager</Filter>
@@ -157,6 +163,15 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\EnemyRigidBody.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\MeshRenderer.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\TimeManager.cpp">
+      <Filter>Core\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\TimeSwitch.cpp">
+      <Filter>Core\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

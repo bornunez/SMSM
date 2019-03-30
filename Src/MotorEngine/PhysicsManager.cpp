@@ -78,7 +78,7 @@ void PhysicsManager::Update()
 
 void PhysicsManager::LateUpdate()
 {
-	_world->stepSimulation(1.f / 60.f, 10);
+	//_world->stepSimulation(1.f / 60.f, 10);
 }
 
 void PhysicsManager::DetectCollision() {

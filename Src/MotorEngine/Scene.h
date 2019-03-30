@@ -35,7 +35,7 @@ private:
 	//Fichero de escena
 	string path;
 	json sceneFile;
-
+	void parroThings(SceneManager* mSceneManager);
 	void ClearTrash();
 	int i = 0;
 

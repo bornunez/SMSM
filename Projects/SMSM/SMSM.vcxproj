@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp" />
     <ClCompile Include="..\..\Src\Game\Loader\MyComponentLoader.cpp" />
     <ClCompile Include="..\..\Src\Game\main.cpp" />
   </ItemGroup>
@@ -28,6 +29,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\Game\Armas\Weapon.h" />
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
