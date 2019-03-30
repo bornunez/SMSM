@@ -17,7 +17,6 @@ private:
 	Ogre::SceneManager* mSceneManager;
 	Ogre::SceneNode* sceneNode;
 	Game * g;
-	PhysicsManager* phyManager;
 
 	//Class Camera
 	Ogre::SceneNode* mCamNode = nullptr;

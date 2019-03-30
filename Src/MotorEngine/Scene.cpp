@@ -16,8 +16,6 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	// Crea el nodo de la escena como hijo de root
 	sceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
 
-	//phyManager = new PhysicsManager();
-
 	//Crea un nodo de escena, hijo de root
 	//mSceneManager->getRootSceneNode()->createChildSceneNode();
 
@@ -58,6 +56,43 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
 
 	sceneFile = JsonParser::ParseJsonFile(path);
+
+
+	//GameObject *gameObject = new GameObject(this,"CHOCHO");
+	//RigidBodyComponent * rb = new RigidBodyComponent(gameObject);
+
+	//Ogre::Entity * e = mSceneManager->createEntity("ogrehead.mesh");
+
+	//gameObject->AddEntity(e);
+
+	//// Rotacion default al final
+	//phyManager->CreateBoxCollider(rb, 1, gameObject->getNode(), 10, btVector3(gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z), btQuaternion(1,0,0,0), 1, btVector3(1,1,1));
+
+	/*Ogre::Entity * e = mSceneManager->createEntity("ogrehead.mesh");
+	Ogre::SceneNode * node = mSceneManager->getRootSceneNode()->createChildSceneNode("HolaHolita");
+
+	node->attachObject(e);
+
+	btTransform t;
+	t.setIdentity();
+	t.setOrigin(btVector3(node->getPosition().x, node->getPosition().y, node->getPosition().z));
+	btCollisionShape * sh = new btBoxShape(btVector3(1, 1, 1));
+
+	btScalar mass(1);
+	btVector3 localIner(0, 0, 0);
+	
+	myMotionState *state = new myMotionState(t, node);
+
+	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, state, sh, localIner);
+	btRigidBody *body = new btRigidBody(rbInfo);
+	body->setRestitution(1);
+
+
+	phyManager->getDynamicsWorld()->addRigidBody(body);
+
+	phyManager->getShapes().push_back(sh);
+
+	body->setUserPointer(node);*/
 }
 
 
@@ -89,6 +124,16 @@ void Scene::LoadFromFile()
 
 				//Si existe un prefab con el nombre, lo rellenamos
 				if (o != nullptr) {
+					RigidBodyComponent * rb = new RigidBodyComponent(o);
+
+					Ogre::Entity * e = mSceneManager->createEntity("ogrehead.mesh");
+
+					o->AddEntity(e);
+
+					// Rotacion default al final
+					PhysicsManager::Instance()->CreateBoxCollider(rb, 1, o->getNode(), 10, btVector3(o->getPosition().x, o->getPosition().y, o->getPosition().z), btQuaternion(1, 0, 0, 0), 1, btVector3(1, 1, 1));
+
+					
 					Add(o);
 					cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
 				}
@@ -107,7 +152,7 @@ void Scene::Start()
 // Mueve el cubo a un lado en x.
 void Scene::Update() 
 {
-	//phyManager->Update();
+	PhysicsManager::Instance()->Update();
 
 	//testNode->setPosition(testNode->getPosition().x + 1,testNode->getPosition().y, testNode->getPosition().z);
 
@@ -123,7 +168,7 @@ void Scene::Update()
 		if (c->isActiveAndEnabled()) c->LateUpdate();
 	}
 
-	phyManager->LateUpdate();
+	//phyManager->LateUpdate();
 
 	//Finalmente limpiamos todos los objetos pendientes de borrar
 	ClearTrash();

@@ -91,6 +91,9 @@
       <Filter>Core</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\RigidBodyComponent.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\EnemyRigidBody.h">
       <Filter>Components</Filter>
     </ClInclude>
   </ItemGroup>
@@ -150,6 +153,9 @@
       <Filter>Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\RigidBodyComponent.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\EnemyRigidBody.cpp">
       <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>

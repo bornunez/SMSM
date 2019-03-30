@@ -1,6 +1,8 @@
 #include "PhysicsManager.h"
 #include <iostream>
 
+PhysicsManager* PhysicsManager::instance = nullptr;
+
 //Este manager inicializará el mundo fisico, y se encargará de comprobar las colisiones
 PhysicsManager::PhysicsManager()
 {
@@ -39,6 +41,15 @@ PhysicsManager::~PhysicsManager()
 	delete _collisionConf;
 }
 
+PhysicsManager* PhysicsManager::Instance()
+{
+	if (instance == nullptr) {
+		instance = new PhysicsManager();
+	}
+	
+	return instance;
+}
+
 void PhysicsManager::Update()
 {
 	_world->stepSimulation(1.f / 60.f, 10);
@@ -61,7 +72,7 @@ void PhysicsManager::Update()
 		}
 	}
 
-	DetectCollision();
+	//DetectCollision();
 	
 }
 
@@ -163,7 +174,7 @@ btRigidBody * PhysicsManager::CreatePhysicObject(btCollisionShape* collisionShap
 {
 	btTransform startTransform;
 	startTransform.setIdentity();
-	startTransform.setRotation(originalRotation);
+	//startTransform.setRotation(originalRotation);
 	
 	btVector3 localInertia(0, 0, 0);
 
@@ -171,13 +182,16 @@ btRigidBody * PhysicsManager::CreatePhysicObject(btCollisionShape* collisionShap
 	collisionShape->calculateLocalInertia(mass, localInertia);
 
 	//actually contruvc the body and add it to the dynamics world
-	myMotionState *state = new myMotionState(startTransform, node);
+	btDefaultMotionState *state = new btDefaultMotionState(startTransform);
 
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, state, collisionShape, localInertia);
 	btRigidBody *body = new btRigidBody(rbInfo);
 	body->setRestitution(restitutionFactor);
-	body->setUserPointer(node);
+	
 
 	_world->addRigidBody(body);
+
+	body->setUserPointer(node);
+
 	return body;
 }

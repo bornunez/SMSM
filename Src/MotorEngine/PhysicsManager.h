@@ -20,6 +20,9 @@ class PhysicsManager
 public:
 	PhysicsManager();
 	virtual ~PhysicsManager();	
+
+	static PhysicsManager* Instance();
+
 	void Update();
 	void LateUpdate();
 
@@ -27,12 +30,14 @@ public:
 
 	//GETS	
 	btDiscreteDynamicsWorld* getDynamicsWorld() { return _world; }
+	std::deque<btCollisionShape*> getShapes() { return _shapes; }
 
 	btRigidBody* CreateBoxCollider(RigidBodyComponent* rb, int id, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btVector3 size);
 	btRigidBody* CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btScalar radius);
 	btRigidBody* CreateCapsuleCollider(RigidBodyComponent* rb, int id, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btScalar height, btScalar radius);
 	btRigidBody* CreatePlaneCollider(RigidBodyComponent* rb, int id, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor, btVector3 normalDir, btScalar thickness);
 	
+
 private:
 	btDefaultCollisionConfiguration * _collisionConf;
 	btCollisionDispatcher* _dispatcher;
@@ -45,19 +50,9 @@ private:
 	std::deque<btRigidBody*> _bodies;
 	std::deque<bulletObject*> _bulletObjects;
 
+	static PhysicsManager *instance;
+
 	//Método que completa el objeto físico
 	btRigidBody* CreatePhysicObject(btCollisionShape* collisionShape, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor);
 
 };
-
-//struct rCallBack : public btCollisionWorld::ContactResultCallback
-//{
-//	btScalar addSingleResult(btManifoldPoint& cp, const btCollisionObject*
-//		colObj0, int partId0, int index0, const btCollisionObject* colObj1, int partId1,
-//		int index1)
-//	{
-//		btVector3 ptA = cp.getPositionWorldOnA();
-//		btVector3 ptB = cp.getPositionWorldOnB();
-//		return 0;
-//	}
-//};
