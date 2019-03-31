@@ -1,5 +1,5 @@
 #include "MyComponentLoader.h"
-
+#include "../Components/ExampleComp.h"
 
 MyComponentLoader::MyComponentLoader()
 {

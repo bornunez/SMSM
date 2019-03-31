@@ -137,6 +137,9 @@ GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject 
 			auto pos = obj["position"];
 			o->setPosition(Vector3(pos["x"], pos["y"], pos["z"]));
 		}
+		if (obj.contains("active")) {
+			o->SetActive(obj["active"]);
+		}
 		if(obj.contains("scale"))
 			o->setScale((float)obj["scale"]);
 	}

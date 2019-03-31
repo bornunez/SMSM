@@ -60,6 +60,9 @@ public:
 
 	//Manejo de Componentes
 	std::list<Component*> getComponents() { return components; }
+
+
+
 	void RemoveComponent(Component* c);
 	void AddComponent(Component* c);
 	void BroadcastMessage(string message);
@@ -70,6 +73,7 @@ public:
 
 	//Manejo de hijos
 	void AddChild(GameObject* child);
+	std::list<GameObject*> getChilds() { return children; }
 
 
 	//GETS Y SETS

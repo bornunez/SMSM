@@ -44,8 +44,5 @@
     <ClInclude Include="..\..\Src\Game\Armas\Weapon.h">
       <Filter>Armas</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Game\Componentes\EnemyRigidBody.h">
-      <Filter>Componentes</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

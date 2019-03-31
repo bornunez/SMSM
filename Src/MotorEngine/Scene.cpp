@@ -42,7 +42,6 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	//Ogre::Entity* ogreEntity = mSceneManager->createEntity("ogrehead.mesh");
 	//Ogre::Entity* ogreEntity2 = mSceneManager->createEntity("Cubo.mesh");
 
-	parroThings(mSceneManager);
 	// Crear luz
 
 	Light* luz = mSceneManager->createLight("Luz");
@@ -101,7 +100,7 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 void Scene::parroThings(SceneManager* mSceneManager)
 {
 	//BICHO
-	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, { 0,0,0 }, 0.1);
+	PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, { 0,0,0 }, 0.1);
 }
 
 void Scene::Load()
@@ -110,6 +109,8 @@ void Scene::Load()
 	//CARGA DE ESCENA POR FICHEROS / PONER LOS OBJETOS A MANO
 	//*/
 	LoadFromFile();
+
+	parroThings(mSceneManager);
 	//PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
 
 	for (Component* c : components) {
@@ -206,6 +207,15 @@ void Scene::BroadcastMessage(string message)
 	}
 
 
+}
+
+GameObject * Scene::getGameObject(string name)
+{
+	bool found = false;
+	auto it = gameObjects.begin();
+	while (!found && it != gameObjects.end())
+		found = (*it)->getName() == name;
+	return found ? *it : nullptr;
 }
 
 void Scene::ClearTrash()

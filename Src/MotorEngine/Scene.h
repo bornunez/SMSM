@@ -58,5 +58,7 @@ public:
 	//GETS Y SETS
 	Ogre::SceneNode* getSceneNode() { return sceneNode; }
 	Ogre::SceneManager* getSceneManager() { return mSceneManager; }
+
+	GameObject* getGameObject(string name);
 };
 
