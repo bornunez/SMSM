@@ -33,6 +33,9 @@
     <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp">
       <Filter>Armas</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\EnemyRigidBody.cpp">
+      <Filter>Componentes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -40,6 +43,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Armas\Weapon.h">
       <Filter>Armas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\EnemyRigidBody.h">
+      <Filter>Componentes</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

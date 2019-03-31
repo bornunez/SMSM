@@ -132,14 +132,16 @@ void Scene::LoadFromFile()
 
 				//Si existe un prefab con el nombre, lo rellenamos
 				if (o != nullptr) {
-					RigidBodyComponent * rb = new RigidBodyComponent(o);
 
-					Ogre::Entity * e = mSceneManager->createEntity("ogrehead.mesh");
+					//ESTO NO ES AQUI, ya se encarga el prefab manager
+					//RigidBodyComponent * rb = new RigidBodyComponent(o);
 
-					o->AddEntity(e);
+					//Ogre::Entity * e = mSceneManager->createEntity("ogrehead.mesh");
 
-					// Rotacion default al final
-					PhysicsManager::Instance()->CreateBoxCollider(rb, 1, o->getNode(), 10, btVector3(o->getPosition().x, o->getPosition().y, o->getPosition().z), btQuaternion(1, 0, 0, 0), 1, btVector3(1, 1, 1));
+					//o->AddEntity(e);
+
+					//// Rotacion default al final
+					//PhysicsManager::Instance()->CreateBoxCollider(rb, 1, o->getNode(), 10, btVector3(o->getPosition().x, o->getPosition().y, o->getPosition().z), btQuaternion(1, 0, 0, 0), 1, btVector3(1, 1, 1));
 
 					
 					Add(o);

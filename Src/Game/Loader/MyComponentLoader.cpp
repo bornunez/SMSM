@@ -31,8 +31,10 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 	//Crear instancia del componente en funcion del tipo
 	if (c_type == "meshRenderer")
 		c = new MeshRenderer(gameObject);
-	if (c_type == "Weapon")
+	else if (c_type == "Weapon")
 		c = new Weapon(gameObject);
+	else if (c_type == "EnemyRB")
+		c = new EnemyRigidBody(gameObject);
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);

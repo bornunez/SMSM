@@ -78,10 +78,9 @@ GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene,
 		cout << "Loading prefab [ " << prefabName << " ]" << " as [ " << jsonObj["name"] << " ]" << endl;
 		o = GenerateGameObject(jsonObj, scene, parent);
 
-		//THIS WORKS!!
-		//RigidBodyComponent * rb = new RigidBodyComponent(o);
-
-		//PhysicsManager::Instance()->CreateBoxCollider(rb, 1, o->getNode(), 10, btVector3(o->getPosition().x, o->getPosition().y, o->getPosition().z), btQuaternion(1, 0, 0, 0), 1, btVector3(1, 1, 1));
+		//Esto parametros y el hecho de tener o no rigidbody debe leerlos de archivo
+		/*RigidBodyComponent * rb = new RigidBodyComponent(o);
+		PhysicsManager::Instance()->CreateBoxCollider(rb, 1, o->getNode(), 10, btVector3(o->getPosition().x, o->getPosition().y, o->getPosition().z), btQuaternion(1, 0, 0, 0), 1, btVector3(1, 1, 1));*/
 	}
 	else {
 		cout << "ERROR: Prefab [ " << prefabName << " ]" << " doesn't exists" << endl << endl;
