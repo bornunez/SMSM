@@ -22,6 +22,7 @@
     <ClInclude Include="..\..\Src\MotorEngine\Component.h" />
     <ClInclude Include="..\..\Src\MotorEngine\AudioEngine.h" />
     <ClInclude Include="..\..\Src\MotorEngine\AudioManager.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\Components\MapLoader.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Game.h" />
     <ClInclude Include="..\..\Src\MotorEngine\GameObject.h" />
     <ClInclude Include="..\..\Src\MotorEngine\InputManager.h" />
@@ -46,6 +47,7 @@
     <ClCompile Include="..\..\Src\MotorEngine\Component.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\AudioEngine.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\AudioManager.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\Components\MapLoader.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\InputManager.cpp" />

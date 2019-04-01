@@ -1,0 +1,32 @@
+{
+	"prefabName":"Head",
+	"name":"Cube",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"ogrehead.mesh"
+		}
+	],
+	"children":[
+		{
+			"name":"CubeChild",
+			"active":true,
+			"isListener":true,
+			"components":[
+				{
+					"type":"meshRenderer",
+					"mesh":"ogrehead.mesh"
+				}
+			],
+			"scale":0.05,
+			"position":{"x":5, "y":5, "z":0}
+		},
+		{
+			"prefab":"Cube",
+			"position": {"x":5, "y":-5, "z":0},
+			"scale": 0.1
+		}
+	]
+}

@@ -18,7 +18,7 @@ protected:
 	Scene* scene;
 	bool enabled;
 public:
-	Component(GameObject* _gameObject,bool _enabled = true);
+	Component(GameObject* _gameObject, bool _enabled = true);
 	virtual void LoadFromFile(json obj);
 	~Component();
 

@@ -102,6 +102,9 @@
     <ClInclude Include="..\..\Src\MotorEngine\TimeSwitch.h">
       <Filter>Core\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\Components\MapLoader.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
@@ -166,6 +169,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\TimeSwitch.cpp">
       <Filter>Core\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\Components\MapLoader.cpp">
+      <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

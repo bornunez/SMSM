@@ -124,6 +124,7 @@ void Scene::LoadFromFile()
 	cout << "\n\n==================================================\n";
 	cout << "============    CARGA DE ESCENA       ============\n";
 	cout << "==================================================\n\n";
+	cout << "Cargando escena " << sceneFile["sceneName"] << endl << endl;
 	if (!sceneFile["GameObjects"].empty()) {
 		cout << "Existen GameObjects a cargar" << endl << endl;
 		for (auto &pref : sceneFile["GameObjects"])
@@ -133,18 +134,6 @@ void Scene::LoadFromFile()
 
 				//Si existe un prefab con el nombre, lo rellenamos
 				if (o != nullptr) {
-
-					//ESTO NO ES AQUI, ya se encarga el prefab manager
-					//RigidBodyComponent * rb = new RigidBodyComponent(o);
-
-					//Ogre::Entity * e = mSceneManager->createEntity("ogrehead.mesh");
-
-					//o->AddEntity(e);
-
-					//// Rotacion default al final
-					//PhysicsManager::Instance()->CreateBoxCollider(rb, 1, o->getNode(), 10, btVector3(o->getPosition().x, o->getPosition().y, o->getPosition().z), btQuaternion(1, 0, 0, 0), 1, btVector3(1, 1, 1));
-
-					
 					Add(o);
 					cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
 				}
