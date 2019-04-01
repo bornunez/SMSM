@@ -26,17 +26,18 @@ public:
 
 
 	//KeyBoard
-	/**
-		Indica si una tecla esta siendo pulsada.
-		Recibe el OIS::KeyCode correspondiente a la tecla.
-		*/
-	bool getKeyDown(OIS::KeyCode key);
 
 	/**
 		Indica si una tecla acaba de ser pulsada.
 		Recibe el OIS::KeyCode correspondiente a la tecla.
 		*/
-	bool getKeyPressed(OIS::KeyCode key);
+	bool getKeyDown(OIS::KeyCode key);
+
+	/**
+		Indica si una tecla esta siendo pulsada.
+		Recibe el OIS::KeyCode correspondiente a la tecla.
+		*/
+	bool getKey(OIS::KeyCode key);
 
 	/**
 		Indica si una tecla acaba de ser soltada.
@@ -73,17 +74,18 @@ public:
 	void CenterMouse();
 
 	//Mouse Buttons
-	/**
-		Indica si un boton del raton esta siendo pulsado.
-		Recibe el OIS::MouseButtonID correspondiente al boton.
-		*/
-	bool getMouseButtonDown(OIS::MouseButtonID buttonID);
 
 	/**
 		Indica si un boton del raton acaba de ser pulsado.
 		Recibe el OIS::MouseButtonID correspondiente al boton.
 		*/
-	bool getMouseButtonPressed(OIS::MouseButtonID buttonID);
+	bool getMouseButtonDown(OIS::MouseButtonID buttonID);
+
+	/**
+		Indica si un boton del raton esta siendo pulsado.
+		Recibe el OIS::MouseButtonID correspondiente al boton.
+		*/
+	bool getMouseButton(OIS::MouseButtonID buttonID);
 
 	/**
 		Indica si un boton del raton acaba de ser soltado.
