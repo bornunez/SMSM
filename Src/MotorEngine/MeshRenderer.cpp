@@ -80,7 +80,21 @@ void MeshRenderer::Update()
 		}
 	}
 }
-
+bool MeshRenderer::isPlaying(string name)
+{
+	bool playing = false;
+	int i = 0;
+	while(i < animationStates.size())
+	{
+		if (animationStates[i]->getAnimationName() == name && animationStates[i]->getEnabled())
+		{
+			playing = true;
+			i = animationStates.size();
+		}
+		i++;
+	}
+	return playing;
+}
 void MeshRenderer::PlayAnimation(string name, bool loop, bool continued)
 {
 	for (int i = 0; i < animationStates.size(); i++)
@@ -99,6 +113,6 @@ void MeshRenderer::StopAnimation(bool stop)
 {
 	for (int i = 0; i < animationStates.size(); i++)
 	{
-		animationStates[i]->setEnabled(false);
+		animationStates[i]->setEnabled(!stop);
 	}
 }

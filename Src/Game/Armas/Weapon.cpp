@@ -24,8 +24,15 @@ void Weapon::LoadFromFile(json obj)
 		}
 	}
 	magazine = obj["magazine"];
+	moveSpeed = obj["moveSpeed"];
+	runSpeed = obj["runSpeed"];
+
 	timePerShot = obj["timePerShoot"];
+	shootSpeed = obj["shootSpeed"];
+
 	reloadTime = obj["reloadTime"];
+	reloadSpeed = obj["reloadSpeed"];
+
 	bulletsAmount = obj["numBullets"];
 	dispersion = obj["dispersion"];
 }
@@ -42,6 +49,29 @@ void Weapon::handleInput()
 	{
 		shoot();
 	}
+	if ((meshRend->AnimationHasEnded("Shoot") || meshRend->AnimationHasEnded("Reload") || animationPassed == "Move"))
+	{
+		if (InputManager::getInstance()->getKeyPressed(OIS::KeyCode::KC_W) || 
+			(InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_W) && (animationPassed == "Shoot" || animationPassed == "Reload")))
+		{
+			animationPassed = "Move";
+			meshRend->PlayAnimation("Move", true, false);
+			meshRend->AnimationSpeed(moveSpeed);
+		}
+		else if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_W))
+		{
+			animationPassed = "Move";
+			meshRend->PlayAnimation("Move", true, true);
+			meshRend->AnimationSpeed(moveSpeed);
+		}
+	}
+	if (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_W) && meshRend->isPlaying("Move"))
+	{
+		animationPassed = "Move";
+		meshRend->PlayAnimation("Move", true, false);
+		meshRend->StopAnimation(true);
+		meshRend->AnimationSpeed(moveSpeed);
+	}
 }
 void Weapon::reloads()
 {
@@ -50,11 +80,6 @@ void Weapon::reloads()
 		if (actTimePerShot > timePerShot)
 		{
 			canShoot = true;
-			if (meshRend->AnimationHasEnded("Shoot") || meshRend->AnimationHasEnded("Reload"))
-			{
-				meshRend->PlayAnimation("Move", true, false);
-				meshRend->AnimationSpeed(1.75);
-			}
 		}
 		else actTimePerShot += TimeManager::getInstance()->getDeltaTime();
 	}
@@ -72,8 +97,9 @@ void Weapon::shoot()
 		canShoot = false;
 		if (actMagazine < magazine)
 		{
+			animationPassed = "Shoot";
 			meshRend->PlayAnimation("Shoot", false);
-			meshRend->AnimationSpeed(2.75);
+			meshRend->AnimationSpeed(shootSpeed);
 			std::cout << "DISPARO";
 			actMagazine += 1;
 			actTimePerShot = 0;
@@ -87,8 +113,9 @@ void Weapon::shoot()
 
 void Weapon::reload()
 {
+	animationPassed = "Reload";
 	meshRend->PlayAnimation("Reload", false);
-	meshRend->AnimationSpeed(2.5);
+	meshRend->AnimationSpeed(reloadSpeed);
 	actMagazine = 0;
 	actReloadTime = 0;
 }
