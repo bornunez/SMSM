@@ -57,12 +57,12 @@ void InputManager::SetUpOIS()
 
 bool InputManager::getKeyDown(OIS::KeyCode key)
 {
-	return mKeyboard->isKeyDown(key);
+	return (!prevKeyboard[key] && mKeyboard->isKeyDown(key));
 }
 
-bool InputManager::getKeyPressed(OIS::KeyCode key)
+bool InputManager::getKey(OIS::KeyCode key)
 {
-	return (!prevKeyboard[key] && mKeyboard->isKeyDown(key));
+	return mKeyboard->isKeyDown(key);
 }
 
 bool InputManager::getKeyUp(OIS::KeyCode key)
@@ -100,12 +100,12 @@ void InputManager::CenterMouse()
 
 bool InputManager::getMouseButtonDown(OIS::MouseButtonID buttonID)
 {
-	return IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID));
+	return (!IsBitSet(prevMouse.buttons, BIT((int)buttonID)) && IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID)));
 }
 
-bool InputManager::getMouseButtonPressed(OIS::MouseButtonID buttonID)
+bool InputManager::getMouseButton(OIS::MouseButtonID buttonID)
 {
-	return (!IsBitSet(prevMouse.buttons, BIT((int)buttonID)) && IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID)));
+	return IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID));
 }
 
 bool InputManager::getMouseButtonUp(OIS::MouseButtonID buttonID)

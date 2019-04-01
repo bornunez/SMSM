@@ -124,12 +124,12 @@ void Game::Play()
 		testScene->Update();			// Actualiza la escena de prueba
 		TimeManager::getInstance()->Update();
 		//cout << mInputM->getMouseX() << " " << mInputM->getMouseY() << std::endl;
-		if (mInputM->getMouseButtonPressed(OIS::MouseButtonID::MB_Left)) std::cout << "Pulsado raton" << std::endl;
-		else if (mInputM->getMouseButtonDown(OIS::MouseButtonID::MB_Left)) std::cout << "Mantenido raton" << std::endl;
+		if (mInputM->getMouseButtonDown(OIS::MouseButtonID::MB_Left)) std::cout << "Pulsado raton" << std::endl;
+		else if (mInputM->getMouseButton(OIS::MouseButtonID::MB_Left)) std::cout << "Mantenido raton" << std::endl;
 		else if (mInputM->getMouseButtonUp(OIS::MouseButtonID::MB_Left)) std::cout << "Levantado raton" << std::endl;
 
-		if (mInputM->getKeyPressed(OIS::KeyCode::KC_A)) std::cout << "Pulsado A" << std::endl;
-		if (mInputM->getKeyDown(OIS::KeyCode::KC_A)) std::cout << "Mantenido A" << std::endl;
+		if (mInputM->getKeyDown(OIS::KeyCode::KC_A)) std::cout << "Pulsado A" << std::endl;
+		if (mInputM->getKey(OIS::KeyCode::KC_A)) std::cout << "Mantenido A" << std::endl;
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_A)) std::cout << "Levantado A" << std::endl;
 	}
 }
