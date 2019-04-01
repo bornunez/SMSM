@@ -45,20 +45,20 @@ void Weapon::Update()
 
 void Weapon::handleInput()
 {
-	if (InputManager::getInstance()->getMouseButtonDown(OIS::MouseButtonID::MB_Left))
+	if (InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left))
 	{
 		shoot();
 	}
 	if ((meshRend->AnimationHasEnded("Shoot") || meshRend->AnimationHasEnded("Reload") || animationPassed == "Move"))
 	{
-		if (InputManager::getInstance()->getKeyPressed(OIS::KeyCode::KC_W) || 
-			(InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_W) && (animationPassed == "Shoot" || animationPassed == "Reload")))
+		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_W) || 
+			(InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) && (animationPassed == "Shoot" || animationPassed == "Reload")))
 		{
 			animationPassed = "Move";
 			meshRend->PlayAnimation("Move", true, false);
 			meshRend->AnimationSpeed(moveSpeed);
 		}
-		else if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_W))
+		else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W))
 		{
 			animationPassed = "Move";
 			meshRend->PlayAnimation("Move", true, true);

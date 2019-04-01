@@ -7,6 +7,11 @@
 			"scale": 0.1
 		},
 		{
+			"prefab":"Escopeta",
+			"position": {"x":3, "y":-5, "z":35},
+			"scale": 1
+		},
+		{
 			"name":"CubeChild",
 			"active":true,
 			"isListener":true,
