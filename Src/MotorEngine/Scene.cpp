@@ -28,8 +28,8 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
 	mCamNode->attachObject(cam);
 
-	mCamNode->setPosition(0, 0, 80);
-	mCamNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
+	mCamNode->setPosition(10*0.5, 1, 10*0.5);
+	mCamNode->lookAt(Ogre::Vector3(-300, 0, -300), Ogre::Node::TS_WORLD);
 
 	// Crear ViewPort
 	Ogre::Viewport* vp = g->getRenderWindow()->addViewport(cam);

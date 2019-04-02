@@ -1,12 +1,12 @@
 {
-	"prefabName":"Cube",
-	"name":"Cube",
+	"prefabName":"Tree",
+	"name":"Tree1",
 	"active":true,
 	"isListener":true,
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"Cubo.mesh"
+			"mesh":"Tree1.mesh"
 		}
 	]
 }
