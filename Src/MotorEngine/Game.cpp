@@ -118,7 +118,7 @@ void Game::Play()
 	while (!endGame) {
 		MessagePump();
 		mWindow->update(); 
-
+		TimeManager::getInstance()->Update();
 		//printf(" PRE RENDER");
 		mRoot->renderOneFrame();
 		testScene->Update();			// Actualiza la escena de prueba
