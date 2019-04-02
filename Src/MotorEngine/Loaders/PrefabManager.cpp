@@ -77,6 +77,10 @@ GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene,
 		json jsonObj = (*it).second;
 		cout << "Loading prefab [ " << prefabName << " ]" << " as [ " << jsonObj["name"] << " ]" << endl;
 		o = GenerateGameObject(jsonObj, scene, parent);
+
+		//Esto parametros y el hecho de tener o no rigidbody debe leerlos de archivo
+		/*RigidBodyComponent * rb = new RigidBodyComponent(o);
+		PhysicsManager::Instance()->CreateBoxCollider(rb, 1, o->getNode(), 10, btVector3(o->getPosition().x, o->getPosition().y, o->getPosition().z), btQuaternion(1, 0, 0, 0), 1, btVector3(1, 1, 1));*/
 	}
 	else {
 		cout << "ERROR: Prefab [ " << prefabName << " ]" << " doesn't exists" << endl << endl;
@@ -94,9 +98,9 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 
 	auto components = componentLoader->LoadComponents(obj["components"], o);
 
-	for (Component* c : components) {
-		o->AddComponent(c);
-	}
+	//for (Component* c : components) {
+	//	o->AddComponent(c);
+	//}
 
 	//Cargamos tambien todos los hijos
 	if (obj.contains("children")) {
@@ -133,6 +137,9 @@ GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject 
 			auto pos = obj["position"];
 			o->setPosition(Vector3(pos["x"], pos["y"], pos["z"]));
 		}
+		if (obj.contains("active")) {
+			o->SetActive(obj["active"]);
+		}
 		if(obj.contains("scale"))
 			o->setScale((float)obj["scale"]);
 	}
@@ -145,8 +152,10 @@ GameObject * PrefabManager::Instantiate(string prefab, Scene * scene, GameObject
 {
 	GameObject* o = nullptr;
 	o = GenerateGameObject(prefab, scene, parent);
-	o->setPosition(position);
-	o->setScale(scale);
-	scene->Add(o);
+	if (o != nullptr) {
+		o->setPosition(position);
+		o->setScale(scale);
+		scene->Add(o);
+	}
 	return o;
 }

@@ -1,0 +1,30 @@
+{
+	"sceneName":"mainScene",
+	"GameObjects": [
+		{
+			"prefab":"Head",
+			"position": {"x":5, "y":0, "z":0},
+			"scale": 0.1
+		},
+		{
+			"prefab":"Escopeta",
+			"position": {"x":3, "y":-5, "z":35},
+			"scale": 1
+		},
+		{
+			"name":"CubeChild",
+			"active":true,
+			"isListener":true,
+			"scale":0.01,
+			"position":{"x":0, "y":5, "z":0},
+
+			"components":[
+				{
+					"type":"meshRenderer",
+					"mesh":"cube.mesh"
+				}
+			]
+		}
+
+	]
+}

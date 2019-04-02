@@ -1,0 +1,12 @@
+{
+	"prefabName":"Cube",
+	"name":"Cube",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"cube.mesh"
+		}
+	]
+}

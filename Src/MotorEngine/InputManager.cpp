@@ -29,7 +29,7 @@ InputManager * InputManager::getInstance()
 	return instance;
 }
 
-void InputManager::createInstance(Ogre::RenderWindow * window)
+void InputManager::CreateInstance(Ogre::RenderWindow * window)
 {
 	if (instance == nullptr) {
 		instance = new InputManager(window);
@@ -57,12 +57,12 @@ void InputManager::SetUpOIS()
 
 bool InputManager::getKeyDown(OIS::KeyCode key)
 {
-	return mKeyboard->isKeyDown(key);
+	return (!prevKeyboard[key] && mKeyboard->isKeyDown(key));
 }
 
-bool InputManager::getKeyPressed(OIS::KeyCode key)
+bool InputManager::getKey(OIS::KeyCode key)
 {
-	return (!prevKeyboard[key] && mKeyboard->isKeyDown(key));
+	return mKeyboard->isKeyDown(key);
 }
 
 bool InputManager::getKeyUp(OIS::KeyCode key)
@@ -86,14 +86,26 @@ int InputManager::getMouseY()
 	return mMouse->getMouseState().Y.abs;
 }
 
-bool InputManager::getMouseButtonDown(OIS::MouseButtonID buttonID)
+void InputManager::setMouseCoords(int x, int y)
 {
-	return IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID));
+	OIS::MouseState &mutableMouseState = const_cast<OIS::MouseState &>(mMouse->getMouseState());
+	mutableMouseState.X.abs = x;
+	mutableMouseState.Y.abs = y;
 }
 
-bool InputManager::getMouseButtonPressed(OIS::MouseButtonID buttonID)
+void InputManager::CenterMouse()
+{
+	setMouseCoords(mWindow->getWidth() / 2, mWindow->getHeight() / 2);
+}
+
+bool InputManager::getMouseButtonDown(OIS::MouseButtonID buttonID)
 {
 	return (!IsBitSet(prevMouse.buttons, BIT((int)buttonID)) && IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID)));
+}
+
+bool InputManager::getMouseButton(OIS::MouseButtonID buttonID)
+{
+	return IsBitSet(mMouse->getMouseState().buttons, BIT((int)buttonID));
 }
 
 bool InputManager::getMouseButtonUp(OIS::MouseButtonID buttonID)

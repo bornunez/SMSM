@@ -2,6 +2,7 @@
 #include <OgreSceneManager.h>
 #include "GameObject.h"
 #include "Scene.h"
+#include "TimeManager.h"
 
 
 MeshRenderer::MeshRenderer(GameObject * _gameObject, string _meshName, string _materialName, bool _enabled) : 
@@ -40,4 +41,78 @@ void MeshRenderer::Awake()
 		entity->setMaterialName(materialName);
 	}
 	scene->BroadcastMessage("Hola");
+}
+bool MeshRenderer::AnimationHasEnded(string name)
+{
+	bool ended = false;
+	for (int i = 0; i < animationStates.size(); i++)
+	{
+		if (animationStates[i]->getAnimationName() == name && animationStates[i]->getEnabled())
+		{
+			if (animationStates[i]->hasEnded()) ended = true;
+		}
+	}
+	return ended;
+}
+void MeshRenderer::InitAnimations(float velocity)
+{
+	animationVelocity = velocity;
+	int numAnimations = 0;
+	AnimationStateSet* aux = entity->getAllAnimationStates();
+	auto it = aux->getAnimationStateIterator().begin();
+	while (it != aux->getAnimationStateIterator().end()) {
+		auto s = it->first;
+		animationStates.push_back(aux->getAnimationStates().at(s));
+		animationStates[numAnimations]->setLoop(false);
+		animationStates[numAnimations]->setEnabled(false);
+		numAnimations++;
+		++it;
+	}
+}
+
+void MeshRenderer::Update()
+{
+	for (int i = 0; i < animationStates.size(); i++)
+	{
+		if (animationStates[i]->getEnabled())
+		{
+			animationStates[i]->addTime(TimeManager::getInstance()->getDeltaTime()*animationVelocity);
+		}
+	}
+}
+bool MeshRenderer::isPlaying(string name)
+{
+	bool playing = false;
+	int i = 0;
+	while(i < animationStates.size())
+	{
+		if (animationStates[i]->getAnimationName() == name && animationStates[i]->getEnabled())
+		{
+			playing = true;
+			i = animationStates.size();
+		}
+		i++;
+	}
+	return playing;
+}
+void MeshRenderer::PlayAnimation(string name, bool loop, bool continued)
+{
+	for (int i = 0; i < animationStates.size(); i++)
+	{
+		if (animationStates[i]->getAnimationName() == name)
+		{
+			animationStates[i]->setEnabled(true);
+			animationStates[i]->setLoop(loop);
+			if (!continued)
+				animationStates[i]->setTimePosition(0);
+		}
+		else animationStates[i]->setEnabled(false);
+	}
+}
+void MeshRenderer::StopAnimation(bool stop)
+{
+	for (int i = 0; i < animationStates.size(); i++)
+	{
+		animationStates[i]->setEnabled(!stop);
+	}
 }

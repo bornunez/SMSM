@@ -19,6 +19,9 @@
     <Filter Include="Componentes">
       <UniqueIdentifier>{bdf6c371-9da7-4e27-a473-0a07ba27b0fa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Armas">
+      <UniqueIdentifier>{b40fe1ec-a3a7-496a-84f6-3903f1932b00}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\main.cpp">
@@ -27,10 +30,22 @@
     <ClCompile Include="..\..\Src\Game\Loader\MyComponentLoader.cpp">
       <Filter>Loaders</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp">
+      <Filter>Armas</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\EnemyRigidBody.cpp">
+      <Filter>Componentes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
       <Filter>Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Armas\Weapon.h">
+      <Filter>Armas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\EnemyRigidBody.h">
+      <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

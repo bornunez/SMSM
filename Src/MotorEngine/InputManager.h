@@ -22,21 +22,22 @@ public:
 		Crea una instancia del InputManager si aun no existe una.
 		Recibe la ventana de la aplicacion, en la que captura el input.
 		*/
-	static void createInstance(Ogre::RenderWindow* window);
+	static void CreateInstance(Ogre::RenderWindow* window);
 
 
 	//KeyBoard
-	/**
-		Indica si una tecla esta siendo pulsada.
-		Recibe el OIS::KeyCode correspondiente a la tecla.
-		*/
-	bool getKeyDown(OIS::KeyCode key);
 
 	/**
 		Indica si una tecla acaba de ser pulsada.
 		Recibe el OIS::KeyCode correspondiente a la tecla.
 		*/
-	bool getKeyPressed(OIS::KeyCode key);
+	bool getKeyDown(OIS::KeyCode key);
+
+	/**
+		Indica si una tecla esta siendo pulsada.
+		Recibe el OIS::KeyCode correspondiente a la tecla.
+		*/
+	bool getKey(OIS::KeyCode key);
 
 	/**
 		Indica si una tecla acaba de ser soltada.
@@ -61,18 +62,30 @@ public:
 		*/
 	int getMouseY();
 
-	//Mouse Buttons
 	/**
-		Indica si un boton del raton esta siendo pulsado.
-		Recibe el OIS::MouseButtonID correspondiente al boton.
+		Modifica las cordenadas del raton 
+		Recibe las coordenadas a usar como X e Y
 		*/
-	bool getMouseButtonDown(OIS::MouseButtonID buttonID);
+	void setMouseCoords(int x, int y);
+
+	/**
+		Mueve las coordenadas del raton al centro de la ventana
+		*/
+	void CenterMouse();
+
+	//Mouse Buttons
 
 	/**
 		Indica si un boton del raton acaba de ser pulsado.
 		Recibe el OIS::MouseButtonID correspondiente al boton.
 		*/
-	bool getMouseButtonPressed(OIS::MouseButtonID buttonID);
+	bool getMouseButtonDown(OIS::MouseButtonID buttonID);
+
+	/**
+		Indica si un boton del raton esta siendo pulsado.
+		Recibe el OIS::MouseButtonID correspondiente al boton.
+		*/
+	bool getMouseButton(OIS::MouseButtonID buttonID);
 
 	/**
 		Indica si un boton del raton acaba de ser soltado.

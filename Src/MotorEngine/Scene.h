@@ -17,7 +17,6 @@ private:
 	Ogre::SceneManager* mSceneManager;
 	Ogre::SceneNode* sceneNode;
 	Game * g;
-	PhysicsManager* phyManager;
 
 	//Class Camera
 	Ogre::SceneNode* mCamNode = nullptr;
@@ -36,7 +35,7 @@ private:
 	//Fichero de escena
 	string path;
 	json sceneFile;
-
+	void parroThings(SceneManager* mSceneManager);
 	void ClearTrash();
 	int i = 0;
 
@@ -59,5 +58,7 @@ public:
 	//GETS Y SETS
 	Ogre::SceneNode* getSceneNode() { return sceneNode; }
 	Ogre::SceneManager* getSceneManager() { return mSceneManager; }
+
+	GameObject* getGameObject(string name);
 };
 

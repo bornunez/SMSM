@@ -1,5 +1,5 @@
 #include "MyComponentLoader.h"
-
+#include "../Components/ExampleComp.h"
 
 MyComponentLoader::MyComponentLoader()
 {
@@ -31,9 +31,15 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 	//Crear instancia del componente en funcion del tipo
 	if (c_type == "meshRenderer")
 		c = new MeshRenderer(gameObject);
+	else if (c_type == "Weapon")
+		c = new Weapon(gameObject);
+	else if (c_type == "EnemyRB")
+		c = new EnemyRigidBody(gameObject);
 
-	if (c != nullptr)
+	if (c != nullptr) {
+		gameObject->AddComponent(c);
 		c->LoadFromFile(comp);
+	}
 
 	return c;
 

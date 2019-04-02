@@ -17,7 +17,8 @@
 /Dependences/CEGUI/include
 /Dependences/CEGUI/lib
 /Dependences/CEGUI/src
-
+/Exes/*
+!/Exes/Assets/
 
 # User-specific files
 *.suo

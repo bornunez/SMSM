@@ -1,0 +1,27 @@
+{
+	"prefabName":"Escopeta",
+	"name":"Escopeta",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"Escopeta.mesh"
+		},
+		{
+			"type":"Weapon",
+			"magazine":5,
+			"moveSpeed":1.75,
+			"runSpeed":2,
+			
+			"timePerShoot":0.55,
+			"shootSpeed":2.75,
+			
+			"reloadTime":1.75,
+			"reloadSpeed":2.5,
+			
+			"numBullets":1,
+			"dispersion":0
+		}
+	]
+}

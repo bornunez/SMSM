@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\EnemyRigidBody.cpp" />
     <ClCompile Include="..\..\Src\Game\Loader\MyComponentLoader.cpp" />
     <ClCompile Include="..\..\Src\Game\main.cpp" />
   </ItemGroup>
@@ -28,6 +30,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\Game\Armas\Weapon.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\EnemyRigidBody.h" />
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -82,16 +86,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)Dependences\OIS\includes;$(SolutionDir)Src\MotorEngine;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependences\OIS\includes;$(SolutionDir)Src\MotorEngine;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Libs\MotorEngine\$(Configuration);$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\build3\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\lib;$(SolutionDir)Dependences\OIS\lib;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Exes\$(Configuration)</OutDir>
+    <OutDir>$(SolutionDir)Exes\</OutDir>
     <IntDir>$(SolutionDir)Inter\$(ProjectName)\$(Configuration)</IntDir>
     <TargetName>$(ProjectName)_d</TargetName>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)Src\MotorEngine;$(SolutionDir)Dependences\OIS\includes;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Src\MotorEngine;$(SolutionDir)Dependences\OIS\includes;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src</IncludePath>
     <LibraryPath>$(SolutionDir)Libs\MotorEngine\$(Configuration);$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\build3\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\lib;$(SolutionDir)Dependences\OIS\lib;$(LibraryPath)</LibraryPath>
-    <OutDir>$(SolutionDir)Exes\$(Configuration)</OutDir>
+    <OutDir>$(SolutionDir)Exes\</OutDir>
     <IntDir>$(SolutionDir)Inter\$(ProjectName)\$(Configuration)</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

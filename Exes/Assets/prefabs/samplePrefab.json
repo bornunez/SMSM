@@ -1,0 +1,23 @@
+{
+	"prefabName": "samplePrefabName",
+	"name": "sampleName",
+	"active": true,
+	"isListener": true,
+	"components":[
+		{
+			"type":"sampleComponent",
+			"sampleParam": 1,
+			"sampleParam2": "sampleparam2"
+		},
+		{
+			"type":"sampleComponen2t",
+			"intParam": 1,
+			"boolParam": true
+		},
+		{
+			"type":"meshRenderer",
+			"mesh":"ogrehead.mesh",
+			"materialName":"material1.mat"
+		}
+	]
+}
