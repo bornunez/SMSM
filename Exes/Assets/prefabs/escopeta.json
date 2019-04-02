@@ -14,7 +14,7 @@
 			"moveSpeed":1.75,
 			"runSpeed":2,
 			
-			"timePerShoot":0.55,
+			"timePerShoot":0.6,
 			"shootSpeed":2.75,
 			
 			"reloadTime":1.75,

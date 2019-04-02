@@ -61,12 +61,23 @@ void Weapon::handleInput()
 		}
 		else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W))
 		{
-			animationPassed = "Move";
-			meshRend->PlayAnimation("Move", true, true);
-			meshRend->AnimationSpeed(moveSpeed);
+			if (!InputManager::getInstance()->getKey(OIS::KeyCode::KC_LSHIFT))
+			{
+				animationPassed = "Move";
+				meshRend->PlayAnimation("Move", true, true);
+				meshRend->AnimationSpeed(moveSpeed);
+			}
+			else
+			{
+				animationPassed = "Run";
+				meshRend->PlayAnimation("Run", true, true);
+				meshRend->AnimationSpeed(runSpeed);
+			}
+
 		}
 	}
-	if (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_W) && meshRend->isPlaying("Move"))
+	if ((InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_W) && meshRend->isPlaying("Move")) 
+		|| (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_LSHIFT) && meshRend->isPlaying("Run")))
 	{
 		animationPassed = "Move";
 		meshRend->PlayAnimation("Move", true, false);
