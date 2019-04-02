@@ -45,6 +45,7 @@ void Weapon::Update()
 
 void Weapon::handleInput()
 {
+	//Handlea el input
 	if (InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left))
 	{
 		shoot();
