@@ -100,7 +100,7 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 void Scene::parroThings(SceneManager* mSceneManager)
 {
 	//BICHO
-	PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, { 0,0,0 }, 0.1);
+	PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
 }
 
 void Scene::Load()
