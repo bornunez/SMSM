@@ -1,7 +1,7 @@
 #include "Weapon.h"
 #include "../../Src/MotorEngine/MeshRenderer.h"
 #include "../../../Src/MotorEngine/InputManager.h"
-
+#include "../../../Src/MotorEngine/Scene.h"
 
 Weapon::~Weapon()
 {
@@ -114,6 +114,7 @@ void Weapon::shoot()
 
 void Weapon::reload()
 {
+	scene->Destroy(gameObject);
 	animationPassed = "Reload";
 	meshRend->PlayAnimation("Reload", false);
 	meshRend->AnimationSpeed(reloadSpeed);

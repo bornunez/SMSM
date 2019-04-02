@@ -42,6 +42,10 @@ void MeshRenderer::Awake()
 	}
 	scene->BroadcastMessage("Hola");
 }
+void MeshRenderer::OnDestroy()
+{
+	//gameObject->getNode()->detachObject()
+}
 bool MeshRenderer::AnimationHasEnded(string name)
 {
 	bool ended = false;

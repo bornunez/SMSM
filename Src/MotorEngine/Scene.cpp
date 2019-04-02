@@ -188,6 +188,11 @@ void Scene::Add(Component * c)
 	components.push_back(c);
 }
 
+void Scene::Destroy(GameObject * o)
+{
+	trash.push(o);
+}
+
 void Scene::BroadcastMessage(string message)
 {
 	for (GameObject* o : listeners) {
@@ -223,6 +228,7 @@ void Scene::ClearTrash()
 			delete	c;
 		}
 		//Una vez vaciado el objeto, lo quitamos de la escena y finalmente lo borramos
+		mSceneManager->destroySceneNode(o->getNode());
 		gameObjects.remove(o);
 		delete o;
 	}

@@ -4,12 +4,12 @@
 #include "PhysicsManager.h"
 #include <list>
 #include <queue>
-#include "GameObject.h"
 #include "ResourcesManager/JsonParser.h"
 
 using namespace std;
 
 class Component;
+class Game;
 
 class Scene
 {
