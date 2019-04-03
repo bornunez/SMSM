@@ -1,28 +1,20 @@
 #include "MyCamera.h"
 
-// Constructor poniendo el viewport en una ventana
-MyCamera::MyCamera(string camName, SceneNode* rootNode, SceneManager* sceneManager, RenderWindow* renderWindow) : name(camName), sm(sceneManager), rw(renderWindow)
+// Load from file del componente
+void MyCamera::LoadFromFile(json obj)
 {
-	Initialize(camName, rootNode, sceneManager);
-
-	vp = renderWindow->addViewport(cam);
-}
-
-// Constructor poniendo el viewport en una textura
-MyCamera::MyCamera(string camName, SceneNode* rootNode, SceneManager* sceneManager, RenderTexture* renderTexture) : name(camName), sm(sceneManager), rt(renderTexture)
-{
-	Initialize(camName, rootNode, sceneManager);
-
-	vp = renderTexture->addViewport(cam);
+	Initialize(obj["name"]);
 }
 
 // Inicializa la camara para los constructores
-void MyCamera::Initialize(string camName, SceneNode* rootNode, SceneManager* sceneManager)
+void MyCamera::Initialize(string camName)
 {
-	cam = sceneManager->createCamera(camName);
+	// NODOS - - - - - - - - - - - - - - - - - - - - - - - -
+	name = camName;
+	cam = gameObject->getSceneManager()->createCamera(camName);
 
 	// Crea el nodo principal para la camara, que solo se encargará de la posicion
-	cameraNode = rootNode->createChildSceneNode();
+	cameraNode = gameObject->getNode()->createChildSceneNode();
 
 	// Crea el nodo para el Yaw
 	cameraYawNode = cameraNode->createChildSceneNode();
@@ -39,6 +31,10 @@ void MyCamera::Initialize(string camName, SceneNode* rootNode, SceneManager* sce
 	cam->setFarClipDistance(10000); // Dist. lejana
 	cam->setFOVy(Degree(60)); // FOV de la camara 
 	cam->setAutoAspectRatio(true);
+
+	// VIEWPORT  - - - - - - - - - - - - - - - - - - - - - -
+	vp = gameObject->getScene()->getGame()->getRenderWindow()->addViewport(cam);
+	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
 }
 
 // Destructor de la clase, destruye los nodos y la camara
@@ -57,12 +53,6 @@ MyCamera::~MyCamera()
 		rt->removeAllViewports();
 }
 
-// Metodo para cambiar la posicion de la camara
-void MyCamera::SetPosition(Real x, Real y, Real z)
-{
-	cameraNode->setPosition(x, y, z);
-}
-
 // Hacer yaw
 void MyCamera::Yaw(Real degrees)
 {
@@ -79,4 +69,10 @@ void MyCamera::Pitch(Real degrees)
 void MyCamera::Roll(Real degrees)
 {
 	cameraRollNode->roll(Degree(degrees));
+}
+
+// Look At
+void MyCamera::LookAt(Vector3 target, Node::TransformSpace transform_space)
+{
+	cameraNode->lookAt(target, transform_space);
 }

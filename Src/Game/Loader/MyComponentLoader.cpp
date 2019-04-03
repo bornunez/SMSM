@@ -37,6 +37,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new EnemyRigidBody(gameObject);
 	else if (c_type == "MapLoader")
 		c = new MapLoader(gameObject);
+	else if (c_type == "Camera")
+		c = new MyCamera(gameObject);
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);
@@ -44,5 +46,4 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 	}
 
 	return c;
-
 }
