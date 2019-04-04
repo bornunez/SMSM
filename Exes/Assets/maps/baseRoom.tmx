@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="1" tileheight="1" infinite="0" nextlayerid="3" nextobjectid="88">
+ <tileset firstgid="1" source="sample.tsx"/>
+ <layer id="1" name="Capa de Patrones 1" width="20" height="20">
+  <data encoding="base64" compression="zlib">
+   eJxjYBgFo2AUjIJRMApIBwAGQAAB
+  </data>
+ </layer>
+ <objectgroup id="2" name="Borders">
+  <object id="4" gid="276" x="0" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="5" gid="276" x="1" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="6" gid="276" x="3" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="7" gid="276" x="2" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="8" gid="276" x="0" y="2" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="9" gid="276" x="0" y="4" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="12" gid="276" x="0" y="3" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="13" gid="276" x="0" y="5" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="14" gid="276" x="0" y="6" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="15" gid="276" x="0" y="7" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="16" gid="276" x="0" y="9" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="17" gid="276" x="0" y="8" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="18" gid="276" x="0" y="10" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="19" gid="276" x="0" y="12" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="20" gid="276" x="0" y="11" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="21" gid="276" x="0" y="15" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="23" gid="276" x="0" y="13" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="24" gid="276" x="0" y="14" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="25" gid="276" x="0" y="16" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="26" gid="276" x="0" y="17" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="27" gid="276" x="0" y="18" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="31" gid="276" x="0" y="19" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="32" gid="276" x="0" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="33" gid="276" x="1" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="34" gid="276" x="3" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="35" gid="276" x="2" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="36" gid="276" x="4" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="37" gid="276" x="5" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="38" gid="276" x="6" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="39" gid="276" x="8" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="40" gid="276" x="7" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="41" gid="276" x="9" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="42" gid="276" x="10" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="43" gid="276" x="11" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="44" gid="276" x="12" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="45" gid="276" x="13" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="46" gid="276" x="14" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="47" gid="276" x="15" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="48" gid="276" x="16" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="50" gid="276" x="17" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="51" gid="276" x="18" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="52" gid="276" x="19" y="20" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="53" gid="276" x="19" y="19" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="54" gid="276" x="19" y="18" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="55" gid="276" x="19" y="17" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="56" gid="276" x="19" y="16" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="57" gid="276" x="19" y="15" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="58" gid="276" x="19" y="14" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="59" gid="276" x="19" y="12" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="60" gid="276" x="19" y="13" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="61" gid="276" x="19" y="11" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="62" gid="276" x="19" y="10" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="63" gid="276" x="19" y="8" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="64" gid="276" x="19" y="9" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="65" gid="276" x="19" y="7" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="66" gid="276" x="19" y="6" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="67" gid="276" x="19" y="5" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="68" gid="276" x="19" y="4" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="69" gid="276" x="19" y="3" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="70" gid="276" x="19" y="2" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="71" gid="276" x="19" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="72" gid="276" x="18" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="73" gid="276" x="17" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="74" gid="276" x="16" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="75" gid="276" x="15" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="76" gid="276" x="14" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="77" gid="276" x="11" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="78" gid="276" x="12" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="79" gid="276" x="13" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="80" gid="276" x="4" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="81" gid="276" x="5" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="82" gid="276" x="6" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="83" gid="276" x="7" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="84" gid="276" x="8" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="85" gid="276" x="9" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+  <object id="86" gid="276" x="10" y="1" width="1" height="1">
+   <properties>
+    <property name="prefab" value="Tree"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

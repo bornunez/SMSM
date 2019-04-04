@@ -25,4 +25,5 @@ public:
 	~MeshRenderer();
 
 	virtual void Awake();
+	void OnDestroy();
 };

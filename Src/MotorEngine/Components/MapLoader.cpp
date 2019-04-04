@@ -14,7 +14,7 @@ void MapLoader::Awake()
 void MapLoader::LoadFromFile(json obj)
 {
 	//Init
-	mapFile = JsonParser::ParseJsonFile(mapFile["path"]);
+	mapFile = JsonParser::ParseJsonFile(obj["path"]);
 
 	//Cargar GameObjects
 	cout << "\n\n==================================================\n";
@@ -27,28 +27,29 @@ void MapLoader::LoadFromFile(json obj)
 			if (pref.is_object()) {
 				//Recorre objects
 				if (pref.contains("objects")) {
-					for (auto &obj : pref["objects"]){
+					float scale = 1;
+					if (obj.contains("scale"))
+						scale = obj["scale"];
+					cout << "Scala del mapa: " << scale << endl;
+					for (auto &mapObj : pref["objects"]){
 						//Recorre Properties
-						if (obj.contains("properties")) {
-							for (auto &prop : obj["properties"]) {
+						if (mapObj.contains("properties")) {
+							// Crea el objeto a escala 1 e y 0
+							for (auto &prop : mapObj["properties"]) {
 								if (prop.contains("name") && prop["name"] == "prefab") {
 									// Crea el prefab asignado al nombre "value"
 
 									//Numero por el que hay que dividir x e y para obtener posiciones reales
-									int divPos = obj["width"];
+									int divPos = mapObj["width"];
 
-									// Crea el objeto a escala 1 e y 0
-									float scale = 1;
-									if (mapFile.contains("scale"))
-										scale = mapFile["scale"];
-									GameObject* o = PrefabManager::getInstance()->Instantiate(prop["value"], mapScene, nullptr, Vector3(obj["x"] / divPos, 0, obj["y"] / divPos),scale );
+									GameObject* o = PrefabManager::getInstance()->Instantiate(prop["value"], scene, nullptr, Vector3(mapObj["x"] / divPos, 0, mapObj["y"] / divPos),scale );
 
-									//Si existe un prefab con el nombre, lo rellenamos
-									if (o != nullptr) {
-										mapScene->Add(o);
+									////Si existe un prefab con el nombre, lo rellenamos
+									//if (o != nullptr) {
+									//	mapScene->Add(o);
 
-										cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
-									}
+									//	cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
+									//}
 								}
 							}
 						}

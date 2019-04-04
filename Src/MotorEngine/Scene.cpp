@@ -26,8 +26,8 @@ Scene::Scene(Game* _g) : g(_g)
 	mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
 	mCamNode->attachObject(cam);
 
-	mCamNode->setPosition(0, 0, 80);
-	mCamNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
+	mCamNode->setPosition(10*0.5, 1, 10*0.5);
+	mCamNode->lookAt(Ogre::Vector3(-300, 0, -300), Ogre::Node::TS_WORLD);
 
 	// Crear ViewPort
 	//Ogre::Viewport* vp = g->getRenderWindow()->addViewport(cam);
@@ -103,7 +103,7 @@ void Scene::Release()
 void Scene::parroThings(SceneManager* mSceneManager)
 {
 	//BICHO
-	PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, { 0,0,0 }, 0.1);
+	PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
 }
 
 void Scene::Load(json sceneFile)
@@ -197,6 +197,11 @@ void Scene::Add(Component * c)
 	components.push_back(c);
 }
 
+void Scene::Destroy(GameObject * o)
+{
+	trash.push(o);
+}
+
 void Scene::BroadcastMessage(string message)
 {
 	for (GameObject* o : listeners) {
@@ -232,6 +237,7 @@ void Scene::ClearTrash()
 			delete	c;
 		}
 		//Una vez vaciado el objeto, lo quitamos de la escena y finalmente lo borramos
+		mSceneManager->destroySceneNode(o->getNode());
 		gameObjects.remove(o);
 		delete o;
 	}

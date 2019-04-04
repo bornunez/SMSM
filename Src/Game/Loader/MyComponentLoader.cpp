@@ -35,6 +35,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new Weapon(gameObject);
 	else if (c_type == "EnemyRB")
 		c = new EnemyRigidBody(gameObject);
+	else if (c_type == "MapLoader")
+		c = new MapLoader(gameObject);
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);

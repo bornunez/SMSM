@@ -1,7 +1,7 @@
 #include "Weapon.h"
 #include "../../Src/MotorEngine/MeshRenderer.h"
 #include "../../../Src/MotorEngine/InputManager.h"
-
+#include "../../../Src/MotorEngine/Scene.h"
 
 Weapon::~Weapon()
 {
@@ -45,6 +45,7 @@ void Weapon::Update()
 
 void Weapon::handleInput()
 {
+	//Handlea el input
 	if (InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left))
 	{
 		shoot();
@@ -60,12 +61,23 @@ void Weapon::handleInput()
 		}
 		else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W))
 		{
-			animationPassed = "Move";
-			meshRend->PlayAnimation("Move", true, true);
-			meshRend->AnimationSpeed(moveSpeed);
+			if (!InputManager::getInstance()->getKey(OIS::KeyCode::KC_LSHIFT))
+			{
+				animationPassed = "Move";
+				meshRend->PlayAnimation("Move", true, true);
+				meshRend->AnimationSpeed(moveSpeed);
+			}
+			else
+			{
+				animationPassed = "Run";
+				meshRend->PlayAnimation("Run", true, true);
+				meshRend->AnimationSpeed(runSpeed);
+			}
+
 		}
 	}
-	if (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_W) && meshRend->isPlaying("Move"))
+	if ((InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_W) && meshRend->isPlaying("Move")) 
+		|| (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_LSHIFT) && meshRend->isPlaying("Run")))
 	{
 		animationPassed = "Move";
 		meshRend->PlayAnimation("Move", true, false);
@@ -113,6 +125,7 @@ void Weapon::shoot()
 
 void Weapon::reload()
 {
+	scene->Destroy(gameObject);
 	animationPassed = "Reload";
 	meshRend->PlayAnimation("Reload", false);
 	meshRend->AnimationSpeed(reloadSpeed);
