@@ -17,7 +17,7 @@
 
 class Scene;
 class ComponentLoader;
-
+class GameSceneManager;
 
 using namespace Ogre;
 
@@ -28,12 +28,12 @@ private:
 	Ogre::String mResourcesCfg;			// Contiene el nombre del archivo resources.cfg
 	Ogre::String mPluginsCfg;			// Contiene el nombre del archivo plugins.cfg
 	Ogre::RenderWindow* mWindow;		// Ventana del juego
+	Ogre::Viewport* viewport;			// Viewport de la ventana
 	bool endGame = false;				// Controla cuando termina el juego, sacandolo del bucle principal
-
-	Scene* testScene;					// Escena de prueba para probar funcionalidad
 
 	InputManager* mInputM;
 
+	GameSceneManager* sceneManager;
 	ResourcesManager* resourcesManager;
 	ComponentLoader* componentLoader;
 
@@ -51,5 +51,6 @@ public:
 
 	Root* getRoot() { return mRoot; }
 	RenderWindow* getRenderWindow() { return mWindow; }
+	Ogre::Viewport* getViewport() { return viewport; }
 };
 

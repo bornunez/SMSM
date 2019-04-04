@@ -3,6 +3,7 @@
 #include "./Loaders/PrefabManager.h"
 #include "./Loaders/ComponentLoader.h"
 #include "TimeManager.h"
+#include "GameSceneManager.h"
 
 
 Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BLANKSTRING), mPluginsCfg(Ogre::BLANKSTRING), componentLoader(_componentLoader)
@@ -24,13 +25,15 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 
 	InitWindow();
 
+	viewport = mWindow->addViewport(nullptr);
+
 	// Inicializar recursos
 	Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
 	Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 
 
 	//ESCENA DE PRUEBA
-	testScene = new Scene(this,"Assets/scenes/mainScene.json");
+	//testScene = new Scene(this,"Assets/scenes/mainScene.json");
 
 	InputManager::CreateInstance(mWindow);
 	mInputM = InputManager::getInstance();
@@ -66,6 +69,8 @@ void Game::SetUpResources()
 	*/
 	PrefabManager::getInstance()->Init("Assets/prefabs/",componentLoader);
 
+	sceneManager = new GameSceneManager(this, "Assets/scenes/");
+	sceneManager->Init();
 
 	/*LocalizationManager locManager = *resourcesManager->GetLocalizationManager();
 
@@ -113,15 +118,28 @@ void Game::InitWindow()
 void Game::Play() 
 {
 	PrefabManager::getInstance()->LoadAllPrefabs();
-	testScene->Load();
-	testScene->Start();
+
+	// Scenes
+	sceneManager->LoadScene("mainScene"); // Load the scene
+	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current scene)
+
+	//sceneManager->LoadScene("secondScene"); // Load the scene
+	//sceneManager->ChangeScene("secondScene"); // Set it to active (makes this the current scene)
+
+	//testScene->Load();
+	//testScene->Start();
+
 	while (!endGame) {
 		MessagePump();
 		mWindow->update(); 
 
 		//printf(" PRE RENDER");
 		mRoot->renderOneFrame();
-		testScene->Update();			// Actualiza la escena de prueba
+
+		// Current scene update
+		if(sceneManager->GetActiveScene() != nullptr)
+			sceneManager->GetActiveScene()->Update();
+		//testScene->Update();			// Actualiza la escena de prueba
 
 		//cout << mInputM->getMouseX() << " " << mInputM->getMouseY() << std::endl;
 		/*
