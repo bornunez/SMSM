@@ -121,13 +121,11 @@ void Game::Play()
 
 	// Scenes
 	sceneManager->LoadScene("mainScene"); // Load the scene
-	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current scene)
+	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
 
+	// Another scene to test changing between scenes
 	//sceneManager->LoadScene("secondScene"); // Load the scene
-	//sceneManager->ChangeScene("secondScene"); // Set it to active (makes this the current scene)
-
-	//testScene->Load();
-	//testScene->Start();
+	//sceneManager->ChangeScene("secondScene"); // Set it to active (makes this the current active scene)
 
 	while (!endGame) {
 		MessagePump();
@@ -139,7 +137,6 @@ void Game::Play()
 		// Current scene update
 		if(sceneManager->GetActiveScene() != nullptr)
 			sceneManager->GetActiveScene()->Update();
-		//testScene->Update();			// Actualiza la escena de prueba
 
 		//cout << mInputM->getMouseX() << " " << mInputM->getMouseY() << std::endl;
 		
