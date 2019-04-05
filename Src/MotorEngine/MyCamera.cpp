@@ -45,12 +45,6 @@ MyCamera::~MyCamera()
 	sm->destroySceneNode(cameraPitchNode);
 	sm->destroySceneNode(cameraYawNode);
 	sm->destroySceneNode(cameraNode);
-
-	if (rw != nullptr)
-		rw->removeAllViewports();
-
-	if (rt != nullptr)
-		rt->removeAllViewports();
 }
 
 // Hacer yaw

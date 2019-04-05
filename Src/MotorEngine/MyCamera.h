@@ -16,7 +16,6 @@ class MyCamera : public Component
 {
 public:
 	MyCamera(GameObject* obj) : Component(obj) {};
-	//MyCamera(string camName, SceneNode *rootNode, SceneManager* sceneManager, RenderWindow* renderWindow);
 	~MyCamera();
 
 	// Devuelve la camara de ogre para poder realizar operaciones mas concretas
@@ -65,8 +64,6 @@ private:
 
 	// Viewport
 	Viewport* vp = nullptr;
-	RenderWindow* rw = nullptr;
-	RenderTexture* rt = nullptr;
 
 	// Metodo inicializador
 	void Initialize(string camName);
