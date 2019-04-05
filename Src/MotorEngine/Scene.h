@@ -17,6 +17,8 @@ private:
 	Ogre::SceneManager* mSceneManager;
 	Ogre::SceneNode* sceneNode;
 	Game * g;
+	Ogre::Viewport* vp;
+	Camera* cam;
 
 	//Class Camera
 	Ogre::SceneNode* mCamNode = nullptr;
@@ -32,18 +34,20 @@ private:
 	std::list<GameObject*> listeners;
 	queue<GameObject*> trash;
 
-	//Fichero de escena
-	string path;
-	json sceneFile;
 	void parroThings(SceneManager* mSceneManager);
 	void ClearTrash();
 	int i = 0;
 
+	void LoadFromFile(json sceneFile);
+
 public:
-	Scene(Game* _g, string _path);
+	Scene(Game* _g);
 	~Scene();
-	void Load();
-	void LoadFromFile();
+	void Release();
+
+	void Load(json sceneFile);
+	void SetActive(bool active);
+
 	void Start();
 	void Update();			// Actualiza la escena
 	void Add(GameObject* o);

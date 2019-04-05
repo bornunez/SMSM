@@ -5,7 +5,7 @@
 #include "AudioManager.h"
 #include "./Loaders/PrefabManager.h"
 
-Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
+Scene::Scene(Game* _g) : g(_g)
 {
 
 	// CREACION DE ESCENA DE PRUEBA
@@ -20,10 +20,8 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	//mSceneManager->getRootSceneNode()->createChildSceneNode();
 
 	// Crear la camara
-	Camera* cam = mSceneManager->createCamera("Cam");
+	cam = mSceneManager->createCamera("Cam");
 	cam->setNearClipDistance(2);
-
-
 
 	mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
 	mCamNode->attachObject(cam);
@@ -32,8 +30,9 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	mCamNode->lookAt(Ogre::Vector3(-300, 0, -300), Ogre::Node::TS_WORLD);
 
 	// Crear ViewPort
-	Ogre::Viewport* vp = g->getRenderWindow()->addViewport(cam);
+	//Ogre::Viewport* vp = g->getRenderWindow()->addViewport(cam);
 
+	vp = g->getViewport();
 	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
 
 	cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
@@ -55,8 +54,6 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 
 	AudioManager* audioManager = new AudioManager();
 	audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
-
-	sceneFile = JsonParser::ParseJsonFile(path);
 
 
 	//GameObject *gameObject = new GameObject(this,"CHOCHO");
@@ -96,6 +93,12 @@ Scene::Scene(Game* _g, string _path) : g(_g), path(_path)
 	body->setUserPointer(node);*/
 }
 
+Scene::~Scene() {}
+
+void Scene::Release()
+{
+	//ToDo: release memory used by the scene
+}
 
 void Scene::parroThings(SceneManager* mSceneManager)
 {
@@ -103,12 +106,12 @@ void Scene::parroThings(SceneManager* mSceneManager)
 	PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
 }
 
-void Scene::Load()
+void Scene::Load(json sceneFile)
 {
-	///*
+
 	//CARGA DE ESCENA POR FICHEROS / PONER LOS OBJETOS A MANO
-	//*/
-	LoadFromFile();
+
+	LoadFromFile(sceneFile);
 
 	parroThings(mSceneManager);
 	//PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
@@ -118,7 +121,7 @@ void Scene::Load()
 	}
 }
 
-void Scene::LoadFromFile()
+void Scene::LoadFromFile(json sceneFile)
 {
 	//Cargar GameObjects
 	cout << "\n\n==================================================\n";
@@ -140,6 +143,12 @@ void Scene::LoadFromFile()
 			}
 	}
 	cout << "==================================================\n\n";
+}
+
+void Scene::SetActive(bool active)
+{
+	vp->setCamera(cam);
+	// ToDo: activar o desactivar componentes
 }
 
 void Scene::Start()
@@ -232,18 +241,4 @@ void Scene::ClearTrash()
 		gameObjects.remove(o);
 		delete o;
 	}
-}
-
-
-
-
-
-
-
-
-
-
-
-Scene::~Scene()
-{
 }

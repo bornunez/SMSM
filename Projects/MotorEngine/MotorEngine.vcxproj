@@ -25,6 +25,7 @@
     <ClInclude Include="..\..\Src\MotorEngine\Components\MapLoader.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Game.h" />
     <ClInclude Include="..\..\Src\MotorEngine\GameObject.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\GameSceneManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\InputManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Loaders\ComponentLoader.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Loaders\PrefabManager.h" />
@@ -50,6 +51,7 @@
     <ClCompile Include="..\..\Src\MotorEngine\Components\MapLoader.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\GameSceneManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\InputManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Loaders\ComponentLoader.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Loaders\PrefabManager.cpp" />

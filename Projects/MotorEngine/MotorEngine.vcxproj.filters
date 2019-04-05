@@ -105,6 +105,9 @@
     <ClInclude Include="..\..\Src\MotorEngine\Components\MapLoader.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\GameSceneManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
@@ -172,6 +175,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\Components\MapLoader.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\GameSceneManager.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
