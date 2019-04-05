@@ -1,5 +1,6 @@
 #include "MyComponentLoader.h"
 #include "../Components/ExampleComp.h"
+#include "../../../Src/MotorEngine/Components/MyLight.h"
 
 MyComponentLoader::MyComponentLoader()
 {
@@ -37,6 +38,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new EnemyRigidBody(gameObject);
 	else if (c_type == "MapLoader")
 		c = new MapLoader(gameObject);
+	else if (c_type == "Light")
+		c = new MyLight(gameObject);
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);

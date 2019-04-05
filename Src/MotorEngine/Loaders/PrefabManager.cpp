@@ -94,7 +94,10 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 	GameObject* o = nullptr;
 	string objName = obj["name"];
 	
-	o = new GameObject(scene, obj["name"], obj["active"], parent);
+	bool act = true;
+	if (obj.contains("active"))
+		act = obj["active"];
+	o = new GameObject(scene, obj["name"], act, parent);
 
 	auto components = componentLoader->LoadComponents(obj["components"], o);
 

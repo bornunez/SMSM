@@ -1,0 +1,12 @@
+{
+	"prefabName":"Tree2",
+	"name":"Tree2",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"Tree2.mesh"
+		}
+	]
+}

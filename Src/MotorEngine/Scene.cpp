@@ -27,7 +27,7 @@ Scene::Scene(Game* _g) : g(_g)
 	mCamNode->attachObject(cam);
 
 	mCamNode->setPosition(10*0.5, 1, 10*0.5);
-	mCamNode->lookAt(Ogre::Vector3(-300, 0, -300), Ogre::Node::TS_WORLD);
+	mCamNode->lookAt(Ogre::Vector3(-1, 0, -1), Ogre::Node::TS_WORLD);
 
 	// Crear ViewPort
 	//Ogre::Viewport* vp = g->getRenderWindow()->addViewport(cam);
@@ -43,14 +43,14 @@ Scene::Scene(Game* _g) : g(_g)
 
 	// Crear luz
 
-	Light* luz = mSceneManager->createLight("Luz");
-	luz->setType(Ogre::Light::LT_DIRECTIONAL);
-	luz->setDiffuseColour(1.75, 1.75, 1.75);
+	//Light* luz = mSceneManager->createLight("Luz");
+	//luz->setType(Ogre::Light::LT_DIRECTIONAL);
+	//luz->setDiffuseColour(1.75, 1.75, 1.75);
 
-	mLightNode = mCamNode->createChildSceneNode("nLuz");
-	mLightNode->attachObject(luz);
+	//mLightNode = mCamNode->createChildSceneNode("nLuz");
+	//mLightNode->attachObject(luz);
 
-	mLightNode->setDirection(Ogre::Vector3(1, -1, -1));  //vec3.normalise();
+	//mLightNode->setDirection(Ogre::Vector3(1, -1, -1));  //vec3.normalise();
 
 	AudioManager* audioManager = new AudioManager();
 	audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
