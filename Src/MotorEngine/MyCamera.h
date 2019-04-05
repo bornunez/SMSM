@@ -1,19 +1,21 @@
 #pragma once
+#include "Component.h"
+#include "Scene.h"
+#include "GameObject.h"
 #include <OgreSceneNode.h>
 #include <OgreSceneManager.h>
 #include <OgreCamera.h>
 #include <OgreRenderTexture.h>
 #include <OgreRenderWindow.h>
+#include <string>
 
 using namespace std;
 using namespace Ogre;
 
-class MyCamera
+class MyCamera : public Component
 {
 public:
-	MyCamera() {};
-	MyCamera(string camName, SceneNode *rootNode, SceneManager* sceneManager, RenderWindow* renderWindow);
-	MyCamera(string camName, SceneNode *rootNode, SceneManager* sceneManager, RenderTexture* renderTexture);
+	MyCamera(GameObject* obj) : Component(obj) {};
 	~MyCamera();
 
 	// Devuelve la camara de ogre para poder realizar operaciones mas concretas
@@ -26,26 +28,30 @@ public:
 	SceneNode* GetCameraRollNode() { return cameraRollNode; };
 
 	// Translaciones y rotaciones
-	void SetPosition(Real x, Real y, Real z);
 	void Yaw(Real degrees);
 	void Pitch(Real degrees);
 	void Roll(Real degrees);
+	void LookAt(Vector3 target, Node::TransformSpace transform_space = Ogre::Node::TS_WORLD);
 
 	// FOV
-	Degree GetFOV() { cam->getFOVy(); };
+	Degree GetFOV() { return cam->getFOVy(); };
 	void SetFOV(Real degrees) { cam->setFOVy(Degree(degrees)); };
 
 	// Aspect Ratio
-	Real GetAspectRatio() { cam->getAspectRatio(); };
+	Real GetAspectRatio() { return cam->getAspectRatio(); };
 	void SetAspectRatio(Real ratio) { cam->setAspectRatio(ratio); };
 
 	// Viewport
 	Viewport* GetViewport() { return vp; };
+	void SetVPBackgroundColour(Ogre::ColourValue colour) { vp->setBackgroundColour(colour); };
+
+	// Component method
+	void LoadFromFile(json obj);
 
 private:
 	// Camara de ogre
 	Camera* cam;
-	string name;
+	std::string name;
 
 	// Nodos para el correcto funcionamiento de la camara
 	SceneNode *cameraNode;
@@ -58,10 +64,8 @@ private:
 
 	// Viewport
 	Viewport* vp = nullptr;
-	RenderWindow* rw = nullptr;
-	RenderTexture* rt = nullptr;
 
 	// Metodo inicializador
-	void Initialize(string camName, SceneNode *rootNode, SceneManager* sceneManager);
+	void Initialize(string camName);
 };
 
