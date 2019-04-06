@@ -1,4 +1,5 @@
 #pragma once
+#include <btBulletDynamicsCommon.h>
 #include "Component.h"
 #include "TimeManager.h"
 
@@ -21,6 +22,8 @@ protected:
 	bool hit = false;
 	bool isTrigger = true;
 	float recoilTime = 0.1f;
+
+	btRigidBody* physicRB;
 
 private:
 	float timeSinceLastHit = 0;

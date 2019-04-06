@@ -68,8 +68,10 @@
 					"isTrigger":false,
 					"sizeX":3,
 					"sizeY":0.05,
-					"sizeZ":3
-					
+					"sizeZ":3,
+					"offsetX":0,
+					"offsetY":0,
+					"offsetZ":0					
 				}
 			]
 		}
