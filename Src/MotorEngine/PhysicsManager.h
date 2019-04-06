@@ -1,27 +1,50 @@
 #pragma once
 #include <btBulletDynamicsCommon.h>
+#include "../../../bullet-2.82-r2704/src/BulletCollision/NarrowPhaseCollision/btRaycastCallback.h"
+#include "../../../bullet-2.82-r2704/src/BulletCollision/Gimpact/btGImpactShape.h"
+#include "myDebugDrawer.h"
+
 #include "Game.h"
 #include "RigidBodyComponent.h"
+#include <map>
+#include <vector>
 
-struct bulletObject {
-	
-	RigidBodyComponent* _rb;	// Permitirá llamar al collisionHandler del objeto al colisionar
+
+class bulletObject {
+
+public:
+	RigidBodyComponent * _rb;	// Permitirá llamar al collisionHandler del objeto al colisionar
 	Ogre::SceneNode* _node;		// Servirá para detectar nuestro bullet object
 	int _id;					// Servirá para saber el tipo de objeto que tenemos
 
 	bulletObject(RigidBodyComponent* rb, Ogre::SceneNode* obj, int id) { _rb = rb, _node = obj; _id = id; }
+	void clearBulletObject() { _rb = nullptr; _node = nullptr; }
+};
+
+struct debugObjects {
+	Ogre::SceneNode* _node;
+	btVector3 _scale;
+	double _radius;
+	int _id;
+};
+
+struct rayCast {
+
+	btVector3 from_;
+	btVector3 to_;
+	bool hit_;
+	std::string name_;
 };
 
 class PhysicsManager
 {
 public:
 	PhysicsManager();
-	virtual ~PhysicsManager();	
+	virtual ~PhysicsManager();
 
 	static PhysicsManager* Instance();
 
 	void Update();
-	void LateUpdate();
 
 	void DetectCollision();
 
@@ -29,11 +52,22 @@ public:
 	btDiscreteDynamicsWorld* getDynamicsWorld() { return _world; }
 	std::deque<btCollisionShape*> getShapes() { return _shapes; }
 
-	btRigidBody* CreateBoxCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float sizeX, float sizeY, float sizeZ, float rotX=1, float rotY=0, float rotZ=0);
+	//RigidBodies
+
+	//Añadir
+	btRigidBody* CreateBoxCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float sizeX, float sizeY, float sizeZ, float rotX = 1, float rotY = 0, float rotZ = 0);
 	btRigidBody* CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float radius, float rotX = 1, float rotY = 0, float rotZ = 0);
 	btRigidBody* CreateCapsuleCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float height, float radius, float rotX = 1, float rotY = 0, float rotZ = 0);
-	btRigidBody* CreatePlaneCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float normalX, float normalY, float normalZ,float thickness, float rotX = 1, float rotY = 0, float rotZ = 0);
 	
+	//Eliminar
+	void removeRigidBody(SceneNode * node); //Para eliminar el rigidbody asociado a un nodo de la escena
+	void clearRigidBodies();				//Elimina los rigidbodies asociados a los nodos al final del update
+
+											//Raycasts
+	void CreateRaycast(btVector3 from, btVector3 to, bool hit, std::string name);
+	void updateRaycast(btVector3 from, btVector3 to, std::string name);
+	void getRaycast(btVector3& from, btVector3& to, bool& hit, std::string name);
+
 
 private:
 	btDefaultCollisionConfiguration * _collisionConf;
@@ -51,5 +85,24 @@ private:
 
 	//Método que completa el objeto físico
 	btRigidBody* CreatePhysicObject(btCollisionShape* collisionShape, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor);
+	std::deque<Ogre::SceneNode*> rigidBodiesToRemove_;
 
+
+	//RAYCASTS
+
+	std::deque<Ogre::SceneNode*> CastAllRays();			//Método para coger el primer objeto que colisiona con el rayo	
+	void allHitRaycast(btVector3 from, btVector3 to);	//Metodo para mostrar visualmente
+
+	Ogre::SceneNode* firstRaycastHit(btVector3 from, btVector3 to);
+	std::deque<rayCast> rayCasts_;
+
+
+	//DEBUG
+	bool debug_ = false;
+	myDebugDrawer* dbg_drawer;
+	void CreateDebugObject(Ogre::SceneNode * node, int id, float radius, btVector3 scale);
+
+	void debugMode();
+	void toggleDebug();
+	std::deque<debugObjects> _debugObjects;
 };

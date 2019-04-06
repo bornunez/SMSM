@@ -87,9 +87,6 @@
     <ClInclude Include="..\..\Src\MotorEngine\MyCamera.h">
       <Filter>Core</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\MotorEngine\myMotionState.h">
-      <Filter>Core</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\RigidBodyComponent.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -110,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\Components\MyLight.h">
       <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\myDebugDrawer.h">
+      <Filter>Core\Utilities</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -161,9 +161,6 @@
     <ClCompile Include="..\..\Src\MotorEngine\MyCamera.cpp">
       <Filter>Core</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\MotorEngine\myMotionState.cpp">
-      <Filter>Core</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\RigidBodyComponent.cpp">
       <Filter>Core</Filter>
     </ClCompile>
@@ -184,6 +181,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\Components\MyLight.cpp">
       <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\myDebugDrawer.cpp">
+      <Filter>Core\Utilities</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

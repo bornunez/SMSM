@@ -3,6 +3,7 @@
 
 #include "../Armas/Weapon.h"
 #include "../Componentes/EnemyRigidBody.h"
+#include "../Componentes/ObstacleRigidBody.h"
 #include "../../MotorEngine/MyCamera.h"
 
 class MyComponentLoader : public ComponentLoader

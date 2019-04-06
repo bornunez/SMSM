@@ -1,17 +1,13 @@
 #pragma once
 #include "../../../Src/MotorEngine/RigidBodyComponent.h"
 
-
-class EnemyRigidBody :
+class ObstacleRigidBody:
 	public RigidBodyComponent
 {
 public:
-	EnemyRigidBody(GameObject *gameObject_) : RigidBodyComponent(gameObject_) {};
+	ObstacleRigidBody(GameObject *gameObject_) : RigidBodyComponent(gameObject_) {};
 	void LoadFromFile(json obj);
 	virtual void collisionHandler(int id);
-	virtual ~EnemyRigidBody();
-
-private:
-	int counter = 0;
+	virtual ~ObstacleRigidBody();
 };
 

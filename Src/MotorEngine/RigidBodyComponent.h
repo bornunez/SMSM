@@ -7,6 +7,7 @@ class RigidBodyComponent :
 {
 public:
 	RigidBodyComponent(GameObject* _gameObject) : Component(_gameObject) {};
+	virtual void LoadFromFile(json obj);
 	virtual ~RigidBodyComponent();
 
 	//En función del identificador que reciba el metodo que hereda de esta clase realizará un efecto u otro
@@ -14,8 +15,11 @@ public:
 	virtual void Update();
 	void resetHitState();
 
+	bool getIsTrigger() { return isTrigger; };
+
 protected:
 	bool hit = false;
+	bool isTrigger = true;
 	float recoilTime = 0.1f;
 
 private:

@@ -7,7 +7,6 @@
 
 Scene::Scene(Game* _g) : g(_g)
 {
-
 	// CREACION DE ESCENA DE PRUEBA
 
 	// Crear SceneManager
@@ -15,9 +14,6 @@ Scene::Scene(Game* _g) : g(_g)
 
 	// Crea el nodo de la escena como hijo de root
 	sceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
-
-	//Crea un nodo de escena, hijo de root
-	//mSceneManager->getRootSceneNode()->createChildSceneNode();
 
 	// Crear la camara
 	cam = mSceneManager->createCamera("Cam");
@@ -37,60 +33,10 @@ Scene::Scene(Game* _g) : g(_g)
 
 	cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
 
-	//// Escena
-	//Ogre::Entity* ogreEntity = mSceneManager->createEntity("ogrehead.mesh");
-	//Ogre::Entity* ogreEntity2 = mSceneManager->createEntity("Cubo.mesh");
-
-	// Crear luz
-
-	//Light* luz = mSceneManager->createLight("Luz");
-	//luz->setType(Ogre::Light::LT_DIRECTIONAL);
-	//luz->setDiffuseColour(1.75, 1.75, 1.75);
-
-	//mLightNode = mCamNode->createChildSceneNode("nLuz");
-	//mLightNode->attachObject(luz);
-
-	//mLightNode->setDirection(Ogre::Vector3(1, -1, -1));  //vec3.normalise();
-
 	AudioManager* audioManager = new AudioManager();
 	audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
 
-
-	//GameObject *gameObject = new GameObject(this,"CHOCHO");
-	//RigidBodyComponent * rb = new RigidBodyComponent(gameObject);
-
-	//Ogre::Entity * e = mSceneManager->createEntity("ogrehead.mesh");
-
-	//gameObject->AddEntity(e);
-
-	//// Rotacion default al final
-	//phyManager->CreateBoxCollider(rb, 1, gameObject->getNode(), 10, btVector3(gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z), btQuaternion(1,0,0,0), 1, btVector3(1,1,1));
-
-	/*Ogre::Entity * e = mSceneManager->createEntity("ogrehead.mesh");
-	Ogre::SceneNode * node = mSceneManager->getRootSceneNode()->createChildSceneNode("HolaHolita");
-
-	node->attachObject(e);
-
-	btTransform t;
-	t.setIdentity();
-	t.setOrigin(btVector3(node->getPosition().x, node->getPosition().y, node->getPosition().z));
-	btCollisionShape * sh = new btBoxShape(btVector3(1, 1, 1));
-
-	btScalar mass(1);
-	btVector3 localIner(0, 0, 0);
-	
-	myMotionState *state = new myMotionState(t, node);
-
-	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, state, sh, localIner);
-	btRigidBody *body = new btRigidBody(rbInfo);
-	body->setRestitution(1);
-
-
-	phyManager->getDynamicsWorld()->addRigidBody(body);
-
-	phyManager->getShapes().push_back(sh);
-
-	body->setUserPointer(node);*/
+	myDebugDrawer::Instance(mSceneManager);
 }
 
 Scene::~Scene() {}
@@ -143,10 +89,15 @@ void Scene::LoadFromFile(json sceneFile)
 			}
 	}
 
+	// Termporalmente solo funciona en Debug asi que dejo esto funcionando en debug y no hay que estar comentandolo al cambiar
+	// la configuaracion
+
+#ifdef _DEBUG
 	if (sceneFile.contains("Skybox")) {
 		json skyObj = sceneFile["Skybox"];
 		mSceneManager->setSkyDome(true, "SMSM/Skybox");
 	}
+#endif
 	cout << "==================================================\n\n";
 }
 

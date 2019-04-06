@@ -20,9 +20,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp" />
-    <ClCompile Include="..\..\Src\Game\Componentes\EnemyRigidBody.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\ObstacleRigidBody.cpp" />
     <ClCompile Include="..\..\Src\Game\Loader\MyComponentLoader.cpp" />
     <ClCompile Include="..\..\Src\Game\main.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\EnemyRigidBody.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MotorEngine\MotorEngine.vcxproj">
@@ -31,8 +32,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Armas\Weapon.h" />
-    <ClInclude Include="..\..\Src\Game\Componentes\EnemyRigidBody.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\ObstacleRigidBody.h" />
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\EnemyRigidBody.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

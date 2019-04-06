@@ -22,6 +22,9 @@
     <Filter Include="Armas">
       <UniqueIdentifier>{b40fe1ec-a3a7-496a-84f6-3903f1932b00}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Componentes\RigidBodyComponents">
+      <UniqueIdentifier>{854f9ab4-2754-4f64-bdec-20c037434ab8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\main.cpp">
@@ -33,8 +36,11 @@
     <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp">
       <Filter>Armas</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\Game\Componentes\EnemyRigidBody.cpp">
-      <Filter>Componentes</Filter>
+    <ClCompile Include="..\..\Src\MotorEngine\EnemyRigidBody.cpp">
+      <Filter>Componentes\RigidBodyComponents</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\ObstacleRigidBody.cpp">
+      <Filter>Componentes\RigidBodyComponents</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -44,8 +50,11 @@
     <ClInclude Include="..\..\Src\Game\Armas\Weapon.h">
       <Filter>Armas</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Game\Componentes\EnemyRigidBody.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\..\Src\MotorEngine\EnemyRigidBody.h">
+      <Filter>Componentes\RigidBodyComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\ObstacleRigidBody.h">
+      <Filter>Componentes\RigidBodyComponents</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
