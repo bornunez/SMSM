@@ -1,5 +1,6 @@
 {
 	"sceneName":"mainScene",
+	"Skybox":{"material":"Skybox" },	
 	"GameObjects": [
 		
 		{
@@ -21,14 +22,39 @@
 		},
 		{
 			"name":"light",
-			"position":{"x":10,"y":0,"z":10},
+			"active":true,
+			"position":{"x":5,"y":0,"z":5},
 			"components":[
 				{
 					"type":"Light",
 					"name":"Point_0",
-					"lightTpye":"spotlight",
-					"diffuse":{"r":1,"g":1,"b":1},
-					"dir":{"x":-1,"y":0,"z":-1}
+					"lightTpye":"point",
+					"diffuse":{"r":1,"g":0.2,"b":0.2},
+					"attenuation":{"range":100	,"const":0.1,"linear":0.25,"quad":0}
+				}
+			]
+		},
+		{
+			"name":"dirlight",
+			"active":true,
+			"components":[
+				{
+					"type":"Light",
+					"name":"Dir_0",
+					"lightTpye":"directional",
+					"diffuse":{"r":0.8,"g":0.8,"b":0.8},
+					"dir":{"x":-1,"y":-1,"z":-1}
+				}
+			]
+		},
+		{
+			"name":"Plane",
+			"position":{"x":0,"y":0,"z":0},
+			"scale":100,
+			"components":[
+				{
+					"type":"meshRenderer",
+					"mesh":"Plane.mesh"
 				}
 			]
 		}

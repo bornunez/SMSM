@@ -33,6 +33,7 @@ public:
 	virtual void LoadFromFile(json obj);
 	virtual ~MyLight();
 
+	virtual void OnEnable();
 	Ogre::Light::LightTypes getType(string type);
 };
 

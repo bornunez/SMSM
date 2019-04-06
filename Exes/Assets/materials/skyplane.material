@@ -1,0 +1,13 @@
+material SMSM/Skybox
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+            texture sky.jpg
+            }
+        }   
+    }
+}

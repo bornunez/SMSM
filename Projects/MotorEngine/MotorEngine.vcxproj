@@ -132,7 +132,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Dependences\CEGUI\src;$(SolutionDir)Dependences\CEGUI\includes;$(SolutionDir)Dependences\FMOD\inc;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(SolutionDir)Dependences\bullet-2.82-r2704\build3\src;$(SolutionDir)Dependences\OIS\includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\src;$(SolutionDir)Dependences\CEGUI\src;$(SolutionDir)Dependences\CEGUI\includes;$(SolutionDir)Dependences\FMOD\inc;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(SolutionDir)Dependences\bullet-2.82-r2704\build3\src;$(SolutionDir)Dependences\OIS\includes;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependences\CEGUI\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\lib;$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\build3\lib\$(Configuration);$(SolutionDir)Dependences\OIS\lib;$(LibraryPath)</LibraryPath>
     <IntDir>$(SolutionDir)Inter\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)Libs\MotorEngine\$(Configuration)\</OutDir>
@@ -140,7 +140,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)Dependences\CEGUI\src;$(SolutionDir)Dependences\CEGUI\includes;$(SolutionDir)Dependences\FMOD\inc;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(SolutionDir)Dependences\bullet-2.82-r2704\build3\src;$(SolutionDir)Dependences\OIS\includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependences\CEGUI\src;$(SolutionDir)Dependences\CEGUI\includes;$(SolutionDir)Dependences\FMOD\inc;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\src;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(SolutionDir)Dependences\bullet-2.82-r2704\build3\src;$(SolutionDir)Dependences\OIS\includes;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependences\CEGUI\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\lib;$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(SolutionDir)Dependences\OIS\lib;$(LibraryPath)</LibraryPath>
     <IntDir>$(SolutionDir)Inter\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)Libs\MotorEngine\$(Configuration)\</OutDir>
@@ -180,7 +180,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\src;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
     </ClCompile>
     <Link>
@@ -202,7 +202,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\OIS\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\OIS\includes;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\include;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
     </ClCompile>
     <Link>

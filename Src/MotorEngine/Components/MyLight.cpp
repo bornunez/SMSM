@@ -13,10 +13,10 @@ void MyLight::LoadFromFile(json obj)
 	if (obj.contains("name"))
 		light = scnMgr->createLight(obj["name"]);
 	else
-		cout << "ERROR: La luz tiene que tener un nombre" << endl;
+		std::cout << "ERROR: La luz tiene que tener un nombre" << endl;
 
 	//Se lo vinculamos al GO
-	gameObject->getNode()->attachObject(light);
+	
 
 	//Y parseamos los parametros en funcion del tipo
 	if (obj.contains("lightTpye")) {
@@ -24,7 +24,11 @@ void MyLight::LoadFromFile(json obj)
 		light->setType(type);
 	}
 	else
-		cout << "ERROR: La luz necesita un tipo " << endl;
+		std::cout<< "ERROR: La luz necesita un tipo " << endl;
+
+	if(gameObject->isActive())
+		gameObject->getNode()->attachObject(light);
+	light->setVisible(gameObject->isActive());
 
 	if (obj.contains("specular")) {
 		json spec = obj["specular"];
@@ -44,14 +48,35 @@ void MyLight::LoadFromFile(json obj)
 		gameObject->getNode()->setDirection(pos["x"], pos["y"], pos["z"]);
 	}
 
-	light->setAttenuation(50, 1,0.1, 0);
+	if (obj.contains("attenuation")) {
+		json at = obj["attenuation"];
+		int range = 1000;
+		float constant, linear, quad;
+		constant = linear = quad = 0;
 
-	cout << light->getAttenuationConstant() << " " << light->getAttenuationLinear() << " " << light->getAttenuationQuadric() << " " << light->getAttenuationRange()<< endl;
+		if (at.contains("range"))
+			range = at["range"];
+		if (at.contains("const"))
+			constant = at["const"];
+		if (at.contains("linear"))
+			linear = at["linear"];
+		if (at.contains("quad"))
+			quad = at["quad"];
+		light->setAttenuation(range, constant,linear, quad);
+	}
+
+	std::cout<< light->getAttenuationConstant() << " " << light->getAttenuationLinear() << " " << light->getAttenuationQuadric() << " " << light->getAttenuationRange()<< endl;
 
 }
 
 MyLight::~MyLight()
 {
+}
+
+void MyLight::OnEnable()
+{
+	cout << "Enabled [ " << gameObject->getName() << " ] " << endl;
+	gameObject->getNode()->attachObject(light);
 }
 
 Ogre::Light::LightTypes MyLight::getType(string type)
@@ -65,7 +90,7 @@ Ogre::Light::LightTypes MyLight::getType(string type)
 	else if (type == "directional")
 		lightType = Ogre::Light::LT_DIRECTIONAL;
 	else
-		cout << "Error en el tipo de luz" << endl;
+		std::cout << "Error en el tipo de luz" << endl;
 
 	return lightType;
 }

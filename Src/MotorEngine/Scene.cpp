@@ -26,7 +26,7 @@ Scene::Scene(Game* _g) : g(_g)
 	mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
 	mCamNode->attachObject(cam);
 
-	mCamNode->setPosition(10*0.5, 1, 10*0.5);
+	mCamNode->setPosition(15*0.5, 1, 15*0.5);
 	mCamNode->lookAt(Ogre::Vector3(-1, 0, -1), Ogre::Node::TS_WORLD);
 
 	// Crear ViewPort
@@ -141,6 +141,11 @@ void Scene::LoadFromFile(json sceneFile)
 					cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
 				}
 			}
+	}
+
+	if (sceneFile.contains("Skybox")) {
+		json skyObj = sceneFile["Skybox"];
+		mSceneManager->setSkyDome(true, "SMSM/Skybox");
 	}
 	cout << "==================================================\n\n";
 }

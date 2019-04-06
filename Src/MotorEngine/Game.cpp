@@ -19,6 +19,7 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 
 	//Crear root
 	mRoot = new Ogre::Root(mPluginsCfg);
+	//mRoot->loadPlugin("Codec_STBI_d");
 
 	//Cargar recursos
 	SetUpResources();
