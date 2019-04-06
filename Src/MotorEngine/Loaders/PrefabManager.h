@@ -29,8 +29,8 @@ public:
 	void LoadPrefab(string path);
 
 
-	GameObject* GenerateGameObject(string prefabName, Scene* scene, GameObject* parent);
-	GameObject* GenerateGameObject(json obj, Scene* scene, GameObject* parent);
+	GameObject* GenerateGameObject(string prefabName, Scene* scene, GameObject* parent, Vector3 position = { 0,0,0 }, float scale = 1);
+	GameObject* GenerateGameObject(json obj, Scene* scene, GameObject* parent, Vector3 position = { 0,0,0 }, float scale = 1);
 	GameObject* ParseGameObject(json obj, Scene* scene, GameObject* parent);
 	GameObject* Instantiate(string prefab, Scene* scene, GameObject* parent,Vector3 position,float scale);
 };
