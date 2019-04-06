@@ -16,8 +16,9 @@ public:
 	RigidBodyComponent * _rb;	// Permitirá llamar al collisionHandler del objeto al colisionar
 	Ogre::SceneNode* _node;		// Servirá para detectar nuestro bullet object
 	int _id;					// Servirá para saber el tipo de objeto que tenemos
+	btVector3 _offSet;			// Permitirá ajustar la parte visual respecto a la física más facilmente con mallas no cúbicas
 
-	bulletObject(RigidBodyComponent* rb, Ogre::SceneNode* obj, int id) { _rb = rb, _node = obj; _id = id; }
+	bulletObject(RigidBodyComponent* rb, Ogre::SceneNode* obj, int id, btVector3 offSet) { _rb = rb, _node = obj; _id = id; _offSet = offSet; }
 	void clearBulletObject() { _rb = nullptr; _node = nullptr; }
 };
 
@@ -55,10 +56,11 @@ public:
 	//RigidBodies
 
 	//Añadir
-	btRigidBody* CreateBoxCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float sizeX, float sizeY, float sizeZ, float rotX = 1, float rotY = 0, float rotZ = 0);
-	btRigidBody* CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float radius, float rotX = 1, float rotY = 0, float rotZ = 0);
-	btRigidBody* CreateCapsuleCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float height, float radius, float rotX = 1, float rotY = 0, float rotZ = 0);
-	
+	btRigidBody* CreateBoxCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float sizeX, float sizeY, float sizeZ, float offsetX = 1, float offsetY = 0, float offsetZ = 0, float rotX = 1, float rotY = 0, float rotZ = 0);
+	btRigidBody* CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float radius, float offsetX = 1, float offsetY = 0, float offsetZ = 0, float rotX = 1, float rotY = 0, float rotZ = 0);
+	btRigidBody* CreateCapsuleCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float height, float radius, float offsetX = 1, float offsetY = 0, float offsetZ = 0, float rotX = 1, float rotY = 0, float rotZ = 0);
+	btRigidBody* CreateMeshCollider(RigidBodyComponent* rb, int id, SceneNode * node, string mesh, float mass, float posX, float posY, float posZ, float restitutionFactor, float scale, float rotX = 1, float rotY = 0, float rotZ = 0);
+
 	//Eliminar
 	void removeRigidBody(SceneNode * node); //Para eliminar el rigidbody asociado a un nodo de la escena
 	void clearRigidBodies();				//Elimina los rigidbodies asociados a los nodos al final del update
@@ -80,6 +82,8 @@ private:
 	std::deque<btCollisionShape*> _shapes;
 	std::deque<btRigidBody*> _bodies;
 	std::deque<bulletObject*> _bulletObjects;
+
+	bulletObject* getBulletObject(Ogre::SceneNode* node);
 
 	static PhysicsManager *instance;
 

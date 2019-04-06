@@ -77,11 +77,17 @@ void PhysicsManager::Update()
 			if (userPointer) {
 				btQuaternion orientation = trans.getRotation();
 				Ogre::SceneNode *sceneNode = static_cast<Ogre::SceneNode *>(userPointer);
-				sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
+				bulletObject* b = getBulletObject(sceneNode);
+				if(b==nullptr)
+					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
+				else
+					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX() + b->_offSet.x(), trans.getOrigin().getY() + b->_offSet.y(), trans.getOrigin().getZ() + b->_offSet.z()));
+				
 				sceneNode->setOrientation(Ogre::Quaternion(orientation.getW(), orientation.getX(), orientation.getY(), orientation.getZ()));
 			}
 		}
 	}
+	
 
 	if (debug_) {
 		myDebugDrawer::Instance()->clearLines();
@@ -152,13 +158,13 @@ void PhysicsManager::DetectCollision() {
 
 
 
-btRigidBody * PhysicsManager::CreateBoxCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float sizeX, float sizeY, float sizeZ, float rotX, float rotY, float rotZ)
+btRigidBody * PhysicsManager::CreateBoxCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float sizeX, float sizeY, float sizeZ, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ)
 {
 	btCollisionShape *newRigidShape;
 	newRigidShape = new btBoxShape(btVector3(sizeX, sizeY, sizeZ));
 	_shapes.push_back(newRigidShape);
 
-	bulletObject* b = new bulletObject(rb, node, id);
+	bulletObject* b = new bulletObject(rb, node, id, btVector3(offsetX, offsetY, offsetZ));
 	_bulletObjects.push_back(b);
 
 	btVector3 v(sizeX, sizeY, sizeZ);
@@ -167,13 +173,13 @@ btRigidBody * PhysicsManager::CreateBoxCollider(RigidBodyComponent* rb, int id, 
 	return CreatePhysicObject(newRigidShape, node, mass, btVector3(posX, posY, posZ), btQuaternion(rotX, rotY, rotZ, 0), restitutionFactor);
 }
 
-btRigidBody * PhysicsManager::CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float radius, float rotX, float rotY, float rotZ)
+btRigidBody * PhysicsManager::CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float radius, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ)
 {
 	btCollisionShape *newRigidShape;
 	newRigidShape = new btSphereShape(radius);
 	_shapes.push_back(newRigidShape);
 
-	bulletObject* b = new bulletObject(rb, node, id);
+	bulletObject* b = new bulletObject(rb, node, id, btVector3(offsetX, offsetY, offsetZ));
 	_bulletObjects.push_back(b);
 
 	btVector3 v(radius, radius, radius);
@@ -182,16 +188,31 @@ btRigidBody * PhysicsManager::CreateSphereCollider(RigidBodyComponent* rb, int i
 	return CreatePhysicObject(newRigidShape, node, mass, btVector3(posX, posY, posZ), btQuaternion(rotX, rotY, rotZ, 0), restitutionFactor);
 }
 
-btRigidBody * PhysicsManager::CreateCapsuleCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float height, float radius, float rotX, float rotY, float rotZ)
+btRigidBody * PhysicsManager::CreateCapsuleCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float height, float radius, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ)
 {
 	btCollisionShape *newRigidShape;
 	newRigidShape = new btCapsuleShape(height, radius);
 	_shapes.push_back(newRigidShape);
 
-	bulletObject* b = new bulletObject(rb, node, id);
+	bulletObject* b = new bulletObject(rb, node, id, btVector3(offsetX, offsetY, offsetZ));
 	_bulletObjects.push_back(b);
 
 	return CreatePhysicObject(newRigidShape, node, mass, btVector3(posX, posY, posZ), btQuaternion(rotX, rotY, rotZ, 0), restitutionFactor);
+}
+
+btRigidBody * PhysicsManager::CreateMeshCollider(RigidBodyComponent * rb, int id, SceneNode * node, string mesh, float mass, float posX, float posY, float posZ, float restitutionFactor, float scale, float rotX, float rotY, float rotZ)
+{
+
+	//btConvexHullShape convexHullShape( m_pPositions->GetVertexData(), m_pPositions->GetNumVertices(), m_pPositions->GetStride() * sizeof(float));
+	////create a hull approximation
+	//convexHullShape.setMargin(0);  // this is to compensate for a bug in bullet
+	//btShapeHull* hull = new btShapeHull(&convexHullShape);
+	//hull->buildHull(0);    // note: parameter is ignored by buildHull
+	//btConvexHullShape* pConvexHullShape = new btConvexHullShape(
+	//	(const btScalar*)hull->getVertexPointer(), hull->numVertices(), sizeof(btVector3));
+	//m_pDynamicShape = pConvexHullShape;
+	//delete hull;
+	return nullptr;
 }
 
 void PhysicsManager::removeRigidBody(SceneNode * node)
@@ -373,6 +394,25 @@ void PhysicsManager::toggleDebug()
 	debug_ = !debug_;
 }
 
+
+bulletObject * PhysicsManager::getBulletObject(Ogre::SceneNode * node)
+{
+	bool found = false;
+	int j = 0;
+
+	while (j < _bulletObjects.size() && !found) {
+
+		if (_bulletObjects[j]->_node == node) {
+			found = true;
+		}
+		else
+			j++;
+	}
+	if (found)
+		return _bulletObjects[j];
+	else
+		return nullptr;
+}
 
 btRigidBody * PhysicsManager::CreatePhysicObject(btCollisionShape* collisionShape, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor)
 {

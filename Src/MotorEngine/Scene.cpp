@@ -89,15 +89,10 @@ void Scene::LoadFromFile(json sceneFile)
 			}
 	}
 
-	// Termporalmente solo funciona en Debug asi que dejo esto funcionando en debug y no hay que estar comentandolo al cambiar
-	// la configuaracion
-
-#ifdef _DEBUG
 	if (sceneFile.contains("Skybox")) {
 		json skyObj = sceneFile["Skybox"];
 		mSceneManager->setSkyDome(true, "SMSM/Skybox");
 	}
-#endif
 	cout << "==================================================\n\n";
 }
 
@@ -112,6 +107,7 @@ void Scene::Start()
 	for (Component* c : components) {
 		c->Start();
 	}
+
 }
 
 // Mueve el cubo a un lado en x.
