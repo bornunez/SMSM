@@ -50,11 +50,26 @@
 		{
 			"name":"Plane",
 			"position":{"x":0,"y":0,"z":0},
-			"scale":100,
+			"scale":3,
 			"components":[
 				{
 					"type":"meshRenderer",
 					"mesh":"Plane.mesh"
+				},
+				{
+					"type":"ObstacleRB",
+					"shape":0,
+					"id":10,
+					"mass":0,
+					"positionX":3,
+					"positionY":-0.1,
+					"positionZ":3,
+					"restFactor":0,
+					"isTrigger":false,
+					"sizeX":3,
+					"sizeY":0.05,
+					"sizeZ":3
+					
 				}
 			]
 		}

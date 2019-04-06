@@ -6,13 +6,10 @@ void RigidBodyComponent::LoadFromFile(json obj)
 {
 	int shape = obj["shape"];
 	int id = obj["id"];
-	float mass = obj["mass"];				// Masa a cero para objetos estaticos
-	std::cout << gameObject->getPosition().x << std::endl;
-	std::cout << gameObject->getPosition().y << std::endl;
-	std::cout << gameObject->getPosition().x << std::endl;
-	float originalPosX = gameObject->getPosition().x;//obj["positionX"];
-	float originalPosY = gameObject->getPosition().y; //obj["positionY"];
-	float originalPosZ = gameObject->getPosition().z; //obj["positionZ"];
+	float mass = obj["mass"];
+	float originalPosX = obj["positionX"];
+	float originalPosY = obj["positionY"];
+	float originalPosZ = obj["positionZ"];
 	float restitutionFactor = obj["restFactor"];
 	isTrigger = obj["isTrigger"];
 
