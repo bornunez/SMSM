@@ -71,7 +71,8 @@
 					"sizeZ":3,
 					"offsetX":0,
 					"offsetY":0,
-					"offsetZ":0					
+					"offsetZ":0,
+					"filePos":true
 				}
 			]
 		}

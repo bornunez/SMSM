@@ -25,6 +25,23 @@ protected:
 
 	btRigidBody* physicRB;
 
+	int shape;
+	int id;
+	float mass;
+	float originalPosX;
+	float originalPosY;
+	float originalPosZ;
+	float restitutionFactor;
+	float offSetX;
+	float offSetY;
+	float offSetZ;
+
+	float sizeX;
+	float sizeY;
+	float sizeZ;
+	float height;
+	float radius;
+
 private:
 	float timeSinceLastHit = 0;
 };
