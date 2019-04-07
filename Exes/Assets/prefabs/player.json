@@ -26,7 +26,9 @@
 			"sizeZ":0.1
 		},
 		{
-			"type":"PlayerMov"
+			"type":"PlayerMov",
+			"maxRotSpeed":10,
+			"movSpeed":0.5
 		}
 	],
 	"children":[
