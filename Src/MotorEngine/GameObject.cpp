@@ -27,14 +27,14 @@ GameObject::GameObject(Scene * _scene, string _name, bool _active, GameObject * 
 	sceneNode = scene->getSceneNode();
 
 	//Y luego configuramos nuestro nodo padre de tal modo que si no existe se pone como hijo de la escena
-	if (parent != nullptr)
+	if (parent != nullptr) {
 		parentNode = parent->getNode();
-	else
+		mNode = parentNode->createChildSceneNode();
+	}
+	else {
 		parentNode = sceneNode;
-
-	mNode = sceneNode->createChildSceneNode();
-
-
+		mNode = sceneNode->createChildSceneNode();
+	}
 }
 
 GameObject::GameObject(Scene * _scene)
