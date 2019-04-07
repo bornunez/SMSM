@@ -16,22 +16,22 @@ Scene::Scene(Game* _g) : g(_g)
 	sceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
 
 	// Crear la camara
-	cam = mSceneManager->createCamera("Cam");
-	cam->setNearClipDistance(0.01);
+	//cam = mSceneManager->createCamera("Cam");
+	//cam->setNearClipDistance(0.01);
 
-	mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
-	mCamNode->attachObject(cam);
+	//mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
+	//mCamNode->attachObject(cam);
 
-	mCamNode->setPosition(10 * 0.5, 1, 10 * 0.5+5);
-	mCamNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
+	//mCamNode->setPosition(10 * 0.5, 1, 10 * 0.5+5);
+	//mCamNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
 
 	// Crear ViewPort
 	//Ogre::Viewport* vp = g->getRenderWindow()->addViewport(cam);
 
-	vp = g->getViewport();
-	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
+	//vp = g->getViewport();
+	//vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
 
-	cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
+	//cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
 
 	//AudioManager* audioManager = new AudioManager();
 	//audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
@@ -50,10 +50,10 @@ void Scene::parroThings(SceneManager* mSceneManager)
 {
 	//BICHO
 	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
-	PrefabManager::getInstance()->Instantiate("Pistola", this, nullptr, { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
-	PrefabManager::getInstance()->Instantiate("Pistola2", this, nullptr, { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
-	PrefabManager::getInstance()->Instantiate("testEnemy", this, nullptr, { 10 * 0.5, 1, 10 * 0.5 }, 0.5);
 
+	//PrefabManager::getInstance()->Instantiate("Pistola", this, nullptr, { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+	//PrefabManager::getInstance()->Instantiate("Pistola2", this, nullptr, { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+	PrefabManager::getInstance()->Instantiate("testEnemy", this, nullptr, { 10 * 0.5, 1, 10 * 0.5 }, 0.5);
 }
 
 void Scene::Load(json sceneFile)
@@ -63,12 +63,12 @@ void Scene::Load(json sceneFile)
 
 	LoadFromFile(sceneFile);
 
+	parroThings(mSceneManager);
 	//PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
 
 	for (Component* c : components) {
 		c->Awake();
 	}
-	parroThings(mSceneManager);
 }
 
 void Scene::LoadFromFile(json sceneFile)
@@ -102,7 +102,7 @@ void Scene::LoadFromFile(json sceneFile)
 
 void Scene::SetActive(bool active)
 {
-	vp->setCamera(cam);
+	//vp->setCamera(cam);
 	// ToDo: activar o desactivar componentes
 }
 
