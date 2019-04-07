@@ -9,6 +9,8 @@ class PlayerMov : public Component
 {
 private:
 	PlayerCollision * playerColl;
+	float maxRotSpeed = 10;
+	float movSpeed = 0.5;
 
 public:
 	PlayerMov(GameObject* obj) : Component(obj) {};

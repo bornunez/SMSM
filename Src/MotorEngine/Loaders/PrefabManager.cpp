@@ -141,11 +141,10 @@ GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject 
 	else {
 		o = GenerateGameObject(obj, scene, parent,pos,scale);
 	}
-	if(o!= nullptr)
+	if (o != nullptr) {
 		scene->Add(o);
-
-	//Si existe un objeto, pasamos a añadirlo a la escena y a posicionarlo
-
+		return o;
+	}
 
 	return nullptr;
 }

@@ -50,6 +50,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new PlayerMov(gameObject);
 	else if (c_type == "PlayerCollision")
 		c = new PlayerCollision(gameObject);
+	else if (c_type == "testEnemy")
+		c = new EnemyTest(gameObject);
 
 
 	if (c != nullptr) {
