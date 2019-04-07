@@ -26,6 +26,7 @@ void Weapon::LoadFromFile(json obj)
 		}
 		it++;
 	}
+	//MeshRenderer* c = dynamic_cast<MeshRenderer*>(gameObject->getComponent<MeshRenderer>());
 	magazine = obj["magazine"];
 	moveSpeed = obj["moveSpeed"];
 	runSpeed = obj["runSpeed"];
@@ -36,7 +37,7 @@ void Weapon::LoadFromFile(json obj)
 
 	reloadTime = obj["reloadTime"];
 	reloadSpeed = obj["reloadSpeed"];
-
+		
 	bulletsAmount = obj["numBullets"];
 	dispersion = obj["dispersion"];
 }
@@ -143,6 +144,8 @@ void Weapon::PhysicShoot()
 		}
 	}
 	else PrefabManager::getInstance()->Instantiate("Bullet", scene, nullptr, (gameObject->getPosition() + Vector3(0, 0.05, -0.5)), 0.01);
+	cout << "Disparo en: [ " <<gameObject->getGlobalPosition().x << ", "<< gameObject->getGlobalPosition().y <<", " << gameObject->getGlobalPosition().z << " ]" << endl;
+	scene->Instantiate("Bullet", (gameObject->getGlobalPosition()+Vector3(0, -0.2, -0.5)), 0.05);
 }
 void Weapon::AudioShoot()
 {

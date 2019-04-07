@@ -36,6 +36,7 @@ private:
 
 	void parroThings(SceneManager* mSceneManager);
 	void ClearTrash();
+	bool started = false;
 	int i = 0;
 
 	void LoadFromFile(json sceneFile);
@@ -49,10 +50,12 @@ public:
 	void SetActive(bool active);
 
 	void Start();
+	bool IsStarted() { return started; }
 	void Update();			// Actualiza la escena
 	void Add(GameObject* o);
 	void Add(Component* c);
-	void Instantiate(GameObject* o);
+	GameObject* Instantiate(GameObject* o, Vector3 position = { 0,0,0 }, float scale = 1, GameObject* parent = nullptr);
+	GameObject* Instantiate(string prefab, Vector3 position = { 0,0,0 }, float scale = 1, GameObject* parent = nullptr);
 	void Destroy(GameObject* o);
 
 	//Manejo de Mensajes

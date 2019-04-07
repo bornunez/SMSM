@@ -53,10 +53,8 @@ void Scene::parroThings(SceneManager* mSceneManager)
 	//PrefabManager::getInstance()->Instantiate("Pistola", this, nullptr, { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
 	//PrefabManager::getInstance()->Instantiate("Pistola2", this, nullptr, { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
 	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
-
-	//PrefabManager::getInstance()->Instantiate("Pistola", this, nullptr, { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
-	//PrefabManager::getInstance()->Instantiate("Pistola2", this, nullptr, { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
-	PrefabManager::getInstance()->Instantiate("testEnemy", this, nullptr, { 10 * 0.5, 1, 10 * 0.5 }, 0.5);
+	/*Instantiate("Pistola", { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+	Instantiate("Pistola2", { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);*/
 }
 
 void Scene::Load(json sceneFile)
@@ -70,7 +68,10 @@ void Scene::Load(json sceneFile)
 	//PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
 
 	for (Component* c : components) {
-		c->Awake();
+		if (!c->isAwake()) {
+			c->Awake();
+			c->setAwake();
+		}
 	}
 }
 
@@ -111,10 +112,13 @@ void Scene::SetActive(bool active)
 
 void Scene::Start()
 {
+	started = true;
 	for (Component* c : components) {
-		c->Start();
+		if (c->isActiveAndEnabled() && !c->isStarted()) {
+			c->Start();
+			c->setStarted();
+		}
 	}
-
 }
 
 // Mueve el cubo a un lado en x.
@@ -125,7 +129,7 @@ void Scene::Update()
 	//testNode->setPosition(testNode->getPosition().x + 1,testNode->getPosition().y, testNode->getPosition().z);
 
 	//Recorremos los updates de los objetos activos
-	//cout << "Nº Componentes: " << components.size() << endl;
+	//cout << "Nï¿½ Componentes: " << components.size() << endl;
 	for (Component* c : components) {
 		/*cout << "Active: " << c->getGameObject()->isActive() << endl;
 		cout << "Enabled: " << c->Enabled() << endl;*/
@@ -144,7 +148,7 @@ void Scene::Update()
 
 void Scene::Add(GameObject * o)
 {
-	//Añadimos el obeto a la escena
+	//Aï¿½adimos el obeto a la escena
 	gameObjects.push_back(o);
 	////Y tambien sus componentes
 	//for (Component* c : o->getComponents())
@@ -154,6 +158,40 @@ void Scene::Add(GameObject * o)
 void Scene::Add(Component * c)
 {
 	components.push_back(c);
+}
+
+GameObject* Scene::Instantiate(GameObject * o, Vector3 position, float scale, GameObject * parent)
+{
+	if (o != nullptr) {
+		if (parent != nullptr) {
+			parent->AddChild(o);
+		}
+		o->setPosition(position);
+		o->setScale(scale);
+		Add(o);
+
+		//Llamamos al awake del objeto, independientemente de si esta activo o no
+		for (Component* c : o->getComponents()) {
+			if (!c->isAwake()) {
+				c->Awake();
+				c->setAwake();
+			}
+		}
+		//Llamamos al start solo de los objetos y componentes que esten activos
+		for (Component* c : o->getComponents()) {
+			if (c->isActiveAndEnabled() && !c->isStarted()) {
+				c->Start();
+				c->setAwake();
+			}
+		}
+	}
+}
+
+GameObject* Scene::Instantiate(string prefab, Vector3 position, float scale, GameObject * parent)
+{
+	GameObject* o = PrefabManager::getInstance()->Instantiate(prefab, this, parent, position, scale);
+	o = Instantiate(o, position, scale, parent);
+	return o;
 }
 
 void Scene::Destroy(GameObject * o)
@@ -173,10 +211,12 @@ void Scene::BroadcastMessage(string message)
 
 GameObject * Scene::getGameObject(string name)
 {
-	bool found = false;
 	auto it = gameObjects.begin();
-	while (!found && it != gameObjects.end())
-		found = (*it)->getName() == name;
+	while (it != gameObjects.end() && (*it)->getName() != name)
+		it++;
+	bool found = it != gameObjects.end();
+	if (!found)
+		cout << "ERROR: No se ha encontrado el objeto [ " << name << " ]" << endl;
 	return found ? *it : nullptr;
 }
 

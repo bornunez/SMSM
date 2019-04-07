@@ -43,6 +43,10 @@ void Component::SetEnabled(bool _enabled)
 	}
 	//Del mismo modo, solo cuando pasemos de estar inactivos a estar activos, se llamara al OnEnable
 	else if(!enabled && _enabled) {
+		if (!started) {
+			started = true;
+			Start();
+		}
 		OnEnable();
 	}
 	//Finalmente, actualizamos 

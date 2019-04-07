@@ -52,14 +52,19 @@ public:
 
 	//void AddMesh(string mesh, Vector3 scale);
 	void AddEntity(Ogre::Entity* entity);
+	void RemoveEntity(Ogre::Entity* entity);
 
 	//Manejo del transform
 	Ogre::Vector3 getPosition();
+	Ogre::Vector3 getGlobalPosition();
 	void setPosition(Ogre::Vector3 pos);
 	void setScale(float scale);
 
 	//Manejo de Componentes
 	std::list<Component*> getComponents() { return components; }
+
+	//template<class T>
+	//Component* getComponent();
 
 
 
@@ -90,3 +95,15 @@ public:
 	void setName(string _name) { name = _name; }
 };
 
+//template<class T>
+//inline Component * GameObject::getComponent()
+//{
+//	auto it = components.begin();
+//	while (it != components.end() && static_cast<T>((*it)) == nullptr)
+//		it++;
+//
+//	if (it != components.end())
+//		return (*it);
+//	else
+//		return nullptr;
+//}
