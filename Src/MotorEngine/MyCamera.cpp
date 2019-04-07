@@ -30,7 +30,7 @@ void MyCamera::Initialize(string camName)
 	cameraRollNode->attachObject(cam);
 
 	// VALORES POR DEFECTO - - - - - - - - - - - - - - - - -
-	cam->setNearClipDistance(0.1); // Dist. cercana
+	cam->setNearClipDistance(0.01); // Dist. cercana
 	cam->setFarClipDistance(10000); // Dist. lejana
 	cam->setFOVy(Degree(60)); // FOV de la camara 
 	cam->setAutoAspectRatio(true);

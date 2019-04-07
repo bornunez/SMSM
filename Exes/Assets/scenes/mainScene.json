@@ -18,7 +18,7 @@
 		{
 			"prefab":"Player",
 			"position": {"x":5, "y":0, "z":5},
-			"scale": 0.1
+			"scale": 0.2
 		},
 		{
 			"name":"light",
@@ -66,9 +66,9 @@
 					"positionZ":3,
 					"restFactor":0,
 					"isTrigger":false,
-					"sizeX":10,
+					"sizeX":30,
 					"sizeY":0.05,
-					"sizeZ":10,
+					"sizeZ":30,
 					"offsetX":0,
 					"offsetY":0,
 					"offsetZ":0,

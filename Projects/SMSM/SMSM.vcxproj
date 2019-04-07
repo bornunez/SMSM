@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp" />
     <ClCompile Include="..\..\Src\Game\Armas\WeaponBullet.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\EnemyTest.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\ObstacleRigidBody.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\PlayerMov.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerCollision.cpp" />
@@ -36,6 +37,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Armas\Weapon.h" />
     <ClInclude Include="..\..\Src\Game\Armas\WeaponBullet.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\EnemyTest.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\ObstacleRigidBody.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\PlayerMov.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerCollision.h" />

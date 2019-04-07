@@ -8,8 +8,6 @@ void PlayerMov::LoadFromFile(json obj)
 {
 	//maxRotSpeed = obj["maxRotSpeed"];
 	//movSpeed = obj["movSpeed"];
-
-	
 }
 
 void PlayerMov::Update()

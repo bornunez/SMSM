@@ -16,22 +16,22 @@ Scene::Scene(Game* _g) : g(_g)
 	sceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
 
 	// Crear la camara
-	cam = mSceneManager->createCamera("Cam");
-	cam->setNearClipDistance(0.01);
+	//cam = mSceneManager->createCamera("Cam");
+	//cam->setNearClipDistance(0.01);
 
-	mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
-	mCamNode->attachObject(cam);
+	//mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
+	//mCamNode->attachObject(cam);
 
-	mCamNode->setPosition(10 * 0.5, 1, 10 * 0.5+5);
-	mCamNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
+	//mCamNode->setPosition(10 * 0.5, 1, 10 * 0.5+5);
+	//mCamNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
 
 	// Crear ViewPort
 	//Ogre::Viewport* vp = g->getRenderWindow()->addViewport(cam);
 
-	vp = g->getViewport();
-	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
+	//vp = g->getViewport();
+	//vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
 
-	cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
+	//cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
 
 	//AudioManager* audioManager = new AudioManager();
 	//audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
@@ -61,6 +61,7 @@ void Scene::Load(json sceneFile)
 
 	LoadFromFile(sceneFile);
 
+	parroThings(mSceneManager);
 	//PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
 
 	for (Component* c : components) {
@@ -69,7 +70,6 @@ void Scene::Load(json sceneFile)
 			c->setAwake();
 		}
 	}
-	parroThings(mSceneManager);
 }
 
 void Scene::LoadFromFile(json sceneFile)
@@ -103,7 +103,7 @@ void Scene::LoadFromFile(json sceneFile)
 
 void Scene::SetActive(bool active)
 {
-	vp->setCamera(cam);
+	//vp->setCamera(cam);
 	// ToDo: activar o desactivar componentes
 }
 
@@ -126,7 +126,7 @@ void Scene::Update()
 	//testNode->setPosition(testNode->getPosition().x + 1,testNode->getPosition().y, testNode->getPosition().z);
 
 	//Recorremos los updates de los objetos activos
-	//cout << "Nº Componentes: " << components.size() << endl;
+	//cout << "Nï¿½ Componentes: " << components.size() << endl;
 	for (Component* c : components) {
 		/*cout << "Active: " << c->getGameObject()->isActive() << endl;
 		cout << "Enabled: " << c->Enabled() << endl;*/
@@ -145,7 +145,7 @@ void Scene::Update()
 
 void Scene::Add(GameObject * o)
 {
-	//Añadimos el obeto a la escena
+	//Aï¿½adimos el obeto a la escena
 	gameObjects.push_back(o);
 	////Y tambien sus componentes
 	//for (Component* c : o->getComponents())
