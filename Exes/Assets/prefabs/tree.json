@@ -7,6 +7,23 @@
 		{
 			"type":"meshRenderer",
 			"mesh":"Tree1.mesh"
+		},
+		{
+			"type":"ObstacleRB",
+			"shape":0,
+			"id":0,
+			"mass":0,
+			"restFactor":0,
+			"positionX":0,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":1,
+			"offsetZ":0,
+			"isTrigger":false,
+			"sizeX":0.5,
+			"sizeY":1,
+			"sizeZ":0.5
 		}
 	]
 }

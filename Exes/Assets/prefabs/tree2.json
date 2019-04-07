@@ -18,7 +18,7 @@
 			"positionY":0,
 			"positionZ":0,
 			"offsetX":0,
-			"offsetY":0,
+			"offsetY":1,
 			"offsetZ":0,
 			"isTrigger":false,
 			"sizeX":0.5,

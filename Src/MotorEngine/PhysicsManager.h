@@ -27,6 +27,7 @@ struct debugObjects {
 	btVector3 _scale;
 	double _radius;
 	int _id;
+	btTransform _t;
 };
 
 struct rayCast {

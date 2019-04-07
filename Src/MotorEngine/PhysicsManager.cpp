@@ -73,15 +73,19 @@ void PhysicsManager::Update()
 			btTransform trans;
 			body->getMotionState()->getWorldTransform(trans);
 
+			// Actualizamos el transform asociado a cada debugObject
+			_debugObjects[i]._t = trans;
+
 			void *userPointer = body->getUserPointer();
 			if (userPointer) {
 				btQuaternion orientation = trans.getRotation();
 				Ogre::SceneNode *sceneNode = static_cast<Ogre::SceneNode *>(userPointer);
+
 				bulletObject* b = getBulletObject(sceneNode);
 				if(b==nullptr)
 					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
 				else
-					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX() + b->_offSet.x(), trans.getOrigin().getY() + b->_offSet.y(), trans.getOrigin().getZ() + b->_offSet.z()));
+					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX() - b->_offSet.x(), trans.getOrigin().getY() - b->_offSet.y(), trans.getOrigin().getZ() - b->_offSet.z()));
 				
 				sceneNode->setOrientation(Ogre::Quaternion(orientation.getW(), orientation.getX(), orientation.getY(), orientation.getZ()));
 			}
@@ -103,12 +107,10 @@ void PhysicsManager::Update()
 	{
 		for (int i = 0; i < _debugObjects.size(); i++)
 		{
-			Ogre::SceneNode* n = _debugObjects[i]._node;
-
 			btVector3 v;
-			v.setX(n->getPosition().x);
-			v.setY(n->getPosition().y);
-			v.setZ(n->getPosition().z);
+			v.setX(_debugObjects[i]._t.getOrigin().x());
+			v.setY(_debugObjects[i]._t.getOrigin().y());
+			v.setZ(_debugObjects[i]._t.getOrigin().z());
 
 			if (_debugObjects[i]._id == 0)
 				myDebugDrawer::Instance()->drawCube(v, _debugObjects[i]._scale);
