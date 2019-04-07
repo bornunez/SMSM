@@ -64,6 +64,16 @@ Vector3 GameObject::getPosition()
 	return mNode->getPosition();
 }
 
+Ogre::Vector3 GameObject::getGlobalPosition()
+{
+	Ogre::Vector3 pos;
+	if (parent)
+		pos = parent->getGlobalPosition() + getPosition();
+	else
+		pos = scene->getSceneNode()->convertLocalToWorldPosition(getPosition());
+	return pos;
+}
+
 void GameObject::setPosition(Vector3 pos)
 {
 	mNode->setPosition(pos);

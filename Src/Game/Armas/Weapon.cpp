@@ -131,7 +131,8 @@ void Weapon::shoot()
 }
 void Weapon::PhysicShoot()
 {
-	scene->Instantiate("Bullet", (gameObject->getPosition()+Vector3(0, 0.05, -0.5)), 0.05);
+	cout << "Disparo en: [ " <<gameObject->getGlobalPosition().x << ", "<< gameObject->getGlobalPosition().y <<", " << gameObject->getGlobalPosition().z << " ]" << endl;
+	scene->Instantiate("Bullet", (gameObject->getGlobalPosition()+Vector3(0, -0.2, -0.5)), 0.05);
 }
 void Weapon::AudioShoot()
 {

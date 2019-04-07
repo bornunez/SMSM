@@ -50,8 +50,8 @@ void Scene::parroThings(SceneManager* mSceneManager)
 {
 	//BICHO
 	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
-	Instantiate("Pistola", { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
-	Instantiate("Pistola2", { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+	/*Instantiate("Pistola", { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+	Instantiate("Pistola2", { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);*/
 }
 
 void Scene::Load(json sceneFile)

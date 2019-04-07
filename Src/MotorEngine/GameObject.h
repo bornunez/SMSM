@@ -56,6 +56,7 @@ public:
 
 	//Manejo del transform
 	Ogre::Vector3 getPosition();
+	Ogre::Vector3 getGlobalPosition();
 	void setPosition(Ogre::Vector3 pos);
 	void setScale(float scale);
 

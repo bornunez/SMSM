@@ -30,7 +30,6 @@ void MeshRenderer::LoadFromFile(json obj)
 
 	entity = gameObject->getSceneManager()->createEntity(meshName);
 	
-	//std::cout << "CargadaAwake: " << meshName << " Nombre: " << gameObject->getName() << endl;
 	// Asigna el material a la mesh
 }
 
@@ -41,6 +40,7 @@ MeshRenderer::~MeshRenderer()
 
 void MeshRenderer::Start()
 {
+	std::cout << "Mesh Start: " << meshName << " Nombre: " << gameObject->getName() << endl;
 	if (!started) {
 		gameObject->AddEntity(entity);
 	}
