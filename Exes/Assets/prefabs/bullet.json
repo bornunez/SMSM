@@ -13,7 +13,7 @@
 			"shape":2,
 			"id":0,
 			"mass":1,
-			"restFactor":0.1,
+			"restFactor":0.5,
 			"positionX":0,
 			"positionY":0,
 			"positionZ":0,
@@ -22,7 +22,7 @@
 			"offsetZ":0,
 			"isTrigger":true,
 			"radius":0.05,
-			"gravity":-10,
+			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2
 		}

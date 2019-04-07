@@ -82,6 +82,7 @@ void PhysicsManager::Update()
 				Ogre::SceneNode *sceneNode = static_cast<Ogre::SceneNode *>(userPointer);
 
 				bulletObject* b = getBulletObject(sceneNode);
+
 				if(b==nullptr)
 					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
 				else
@@ -151,9 +152,11 @@ void PhysicsManager::DetectCollision() {
 		}
 
 		// Solo mandamos el aviso si no son
-		if (foundA && foundB /*&& _bulletObjects[Aidx]->_rb->getIsTrigger() && _bulletObjects[Bidx]->_rb->getIsTrigger()*/) {
-			_bulletObjects[Aidx]->_rb->collisionHandler(_bulletObjects[Bidx]->_id);
-			_bulletObjects[Bidx]->_rb->collisionHandler(_bulletObjects[Aidx]->_id);
+		if (foundA && foundB) {
+			if(_bulletObjects[Aidx]->_rb->getIsTrigger())
+				_bulletObjects[Aidx]->_rb->collisionHandler(_bulletObjects[Bidx]->_id);
+			if(_bulletObjects[Bidx]->_rb->getIsTrigger())
+				_bulletObjects[Bidx]->_rb->collisionHandler(_bulletObjects[Aidx]->_id);
 		}
 	}
 }
@@ -198,6 +201,9 @@ btRigidBody * PhysicsManager::CreateCapsuleCollider(RigidBodyComponent* rb, int 
 
 	bulletObject* b = new bulletObject(rb, node, id, btVector3(offsetX, offsetY, offsetZ));
 	_bulletObjects.push_back(b);
+
+	btVector3 v(radius, height, radius);
+	CreateDebugObject(node, 0, 0, v);
 
 	return CreatePhysicObject(newRigidShape, node, mass, btVector3(posX, posY, posZ), btQuaternion(rotX, rotY, rotZ, 0), restitutionFactor);
 }
