@@ -1,15 +1,9 @@
 #include "WeaponBullet.h"
 
 
-WeaponBullet::WeaponBullet(GameObject* obj):Component(obj)
+WeaponBullet::WeaponBullet(GameObject* obj):RigidBodyComponent(obj)
 {
-	//rb = new RigidBodyComponent(gameObject);
-	//PhysicsManager::Instance()->CreateSphereCollider(rb, 0, gameObject->getNode(), 1, 
-	//	4.85, 0.8+0.05, 4.6 + 5-0.5, 1, 1);
-	rb = new RigidBodyComponent(gameObject);
-	PhysicsManager::Instance()->CreateSphereCollider(rb, 0, gameObject->getNode(), 1,
-		 gameObject->getNode()->getPosition().x-1, gameObject->getNode()->getPosition().y, gameObject->getNode()->getPosition().z, 1, 0.1);
-	std::cout << gameObject->getNode()->getPosition();
+
 }
 
 
@@ -17,7 +11,31 @@ WeaponBullet::~WeaponBullet()
 {
 }
 
+void WeaponBullet::LoadFromFile(json obj)
+{
+	RigidBodyComponent::LoadFromFile(obj);
+	physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, gameObject->getNode()->getPosition().x, gameObject->getNode()->getPosition().y, gameObject->getNode()->getPosition().z, restitutionFactor, radius, offSetX, offSetY, offSetZ);
+	
+	//Params from file
+	physicRB->setGravity(btVector3(0, obj["gravity"], 0));
+	physicRB->setDamping(obj["linDamp"], obj["angDamp"]);
+}
+
+void WeaponBullet::collisionHandler(int id)
+{
+	if (!hit) {
+		std::cout << "--> SOY UNA BALA Y HE COLISIONADO <--" << std::endl;
+		hit = true;
+		physicRB->clearForces();
+	}
+}
+
 void WeaponBullet::Update()
 {
-	rb->physicRB->applyCentralImpulse({ 0, 0, 1 });
+	if(!hit)
+		physicRB->applyCentralImpulse({ 0, 0, -10 });
+	else //Se posria hacer aqui un contador para que desapareciese la bala
+	{
+		
+	}
 }

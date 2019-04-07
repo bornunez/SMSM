@@ -1,14 +1,15 @@
 #pragma once
 #include "../../Src/MotorEngine/TimeSwitch.h"
-#include "../../../Src/MotorEngine/Component.h"
 #include "../../../Src/MotorEngine/Scene.h"
-class WeaponBullet:public Component
+#include "../../../Src/MotorEngine/RigidBodyComponent.h"
+
+class WeaponBullet:public RigidBodyComponent
 {
-private:
-	RigidBodyComponent* rb;
 public:
 	WeaponBullet(GameObject* obj);
 	~WeaponBullet();
+	void LoadFromFile(json obj);
+	virtual void collisionHandler(int id);
 	virtual void Update();
 };
 

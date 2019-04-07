@@ -63,7 +63,7 @@ PhysicsManager* PhysicsManager::Instance()
 
 void PhysicsManager::Update()
 {
-	_world->stepSimulation(1.f / 60.f, 10);
+	_world->stepSimulation(1.f / 60.f, 1);
 
 	for (int i = 0; i< _shapes.size(); i++) {
 		btCollisionObject* obj = _world->getCollisionObjectArray()[i];
@@ -151,7 +151,7 @@ void PhysicsManager::DetectCollision() {
 		}
 
 		// Solo mandamos el aviso si no son
-		if (foundA && foundB && _bulletObjects[Aidx]->_rb->getIsTrigger() && _bulletObjects[Bidx]->_rb->getIsTrigger()) {
+		if (foundA && foundB /*&& _bulletObjects[Aidx]->_rb->getIsTrigger() && _bulletObjects[Bidx]->_rb->getIsTrigger()*/) {
 			_bulletObjects[Aidx]->_rb->collisionHandler(_bulletObjects[Bidx]->_id);
 			_bulletObjects[Bidx]->_rb->collisionHandler(_bulletObjects[Aidx]->_id);
 		}
