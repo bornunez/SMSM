@@ -32,7 +32,7 @@ void PlayerMov::handleInput()
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_D)) {
 		playerColl->getRB()->applyCentralImpulse(btVector3(0.5, 0, 0));
 	}
-
+;
 	// Para el movimiento de forma brusca si no se pulsa una tecla, temporal, necesitamos un anykey
 	if(!InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) &&
 		!InputManager::getInstance()->getKey(OIS::KeyCode::KC_A) &&

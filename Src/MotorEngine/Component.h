@@ -43,5 +43,5 @@ public:
 
 	//Gets y sets
 	GameObject* getGameObject() { return gameObject; }
-
+	Scene * getScene() { return scene; }
 };

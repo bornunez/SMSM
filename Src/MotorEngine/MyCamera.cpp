@@ -9,6 +9,9 @@ void MyCamera::LoadFromFile(json obj)
 // Inicializa la camara para los constructores
 void MyCamera::Initialize(string camName)
 {
+	// Asigna el VP del game
+	vp = getScene()->getGame()->getViewport();
+
 	// NODOS - - - - - - - - - - - - - - - - - - - - - - - -
 	name = camName;
 	cam = gameObject->getSceneManager()->createCamera(camName);
@@ -32,8 +35,12 @@ void MyCamera::Initialize(string camName)
 	cam->setFOVy(Degree(60)); // FOV de la camara 
 	cam->setAutoAspectRatio(true);
 
+	//cameraRollNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
+
 	// VIEWPORT  - - - - - - - - - - - - - - - - - - - - - -
-	vp = gameObject->getScene()->getGame()->getRenderWindow()->addViewport(cam);
+	vp->setCamera(cam);
+	
+	//vp = gameObject->getScene()->getGame()->getRenderWindow()->addViewport(cam);
 	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
 }
 
