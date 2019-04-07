@@ -61,12 +61,12 @@ void Scene::Load(json sceneFile)
 
 	LoadFromFile(sceneFile);
 
-	parroThings(mSceneManager);
 	//PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
 
 	for (Component* c : components) {
 		c->Awake();
 	}
+	parroThings(mSceneManager);
 }
 
 void Scene::LoadFromFile(json sceneFile)
