@@ -138,8 +138,11 @@ void Game::Play()
 		mRoot->renderOneFrame();
 
 		// Current scene update
-		if(sceneManager->GetActiveScene() != nullptr)
+		if (sceneManager->GetActiveScene() != nullptr) {
+			if (!sceneManager->GetActiveScene()->IsStarted())
+				sceneManager->GetActiveScene()->Start();
 			sceneManager->GetActiveScene()->Update();
+		}
 
 		//cout << mInputM->getMouseX() << " " << mInputM->getMouseY() << std::endl;
 		

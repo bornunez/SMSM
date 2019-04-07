@@ -52,6 +52,7 @@ public:
 
 	//void AddMesh(string mesh, Vector3 scale);
 	void AddEntity(Ogre::Entity* entity);
+	void RemoveEntity(Ogre::Entity* entity);
 
 	//Manejo del transform
 	Ogre::Vector3 getPosition();

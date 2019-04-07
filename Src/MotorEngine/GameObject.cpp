@@ -6,17 +6,24 @@
 
 void GameObject::OnActive()
 {
+	active = true;
 	//Avisamos a todos los componentes activos de que nos hemos activado
 	for (Component* c : components) {
-		c->OnEnable();
+		if (c->isEnabled()) {
+			if (!c->isStarted())
+				c->Start();
+			c->OnEnable();
+		}
 	}
 }
 
 void GameObject::OnInactive()
 {
+	active = false;
 	//Avisamos a todos los componentes activos de que nos desactivamos
 	for (Component* c : components) {
-		c->OnDisable();
+		if(c->isEnabled())
+			c->OnDisable();
 	}
 }
 
@@ -81,7 +88,7 @@ void GameObject::AddComponent(Component * c)
 void GameObject::BroadcastMessage(string message)
 {
 	for(Component* c : components)
-		if (c->Enabled()){
+		if (c->isEnabled()){
 			c->receiveMessage(message);
 		}
 
@@ -94,12 +101,34 @@ void GameObject::SetActive(bool act)
 		OnActive();
 	else if (!act && active)
 		OnInactive();
+
 }
 
 void GameObject::AddEntity(Ogre::Entity * entity)
 {
-	mNode->attachObject(entity);
-	entities.push_back(entity);
+	auto it = entities.begin();
+	while (it != entities.end() && *it != entity)
+		it++;
+	if (it != entities.end())
+		cout << "ERROR: La entidad: " << entity->getName() << " del objeto " << name << " ya ha sido añadida" << endl;
+	else {
+		mNode->attachObject(entity);
+		entities.push_back(entity);
+	}
+}
+
+void GameObject::RemoveEntity(Ogre::Entity * entity)
+{
+	auto it = entities.begin();
+	while (it != entities.end() && *it != entity)
+		it++;
+	if (it != entities.end()) {
+		mNode->detachObject(entity);
+		entities.remove(entity);
+	}
+	else {
+		cout << "ERROR: La entidad: " << entity->getName() << " del objeto " << name << " ya ha sido eliminada" << endl;
+	}
 }
 
 void GameObject::AddChild(GameObject * child)

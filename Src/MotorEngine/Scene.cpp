@@ -50,8 +50,8 @@ void Scene::parroThings(SceneManager* mSceneManager)
 {
 	//BICHO
 	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
-	PrefabManager::getInstance()->Instantiate("Pistola", this, nullptr, { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
-	PrefabManager::getInstance()->Instantiate("Pistola2", this, nullptr, { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+	Instantiate("Pistola", { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+	Instantiate("Pistola2", { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
 }
 
 void Scene::Load(json sceneFile)
@@ -64,7 +64,10 @@ void Scene::Load(json sceneFile)
 	//PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
 
 	for (Component* c : components) {
-		c->Awake();
+		if (!c->isAwake()) {
+			c->Awake();
+			c->setAwake();
+		}
 	}
 	parroThings(mSceneManager);
 }
@@ -106,10 +109,13 @@ void Scene::SetActive(bool active)
 
 void Scene::Start()
 {
+	started = true;
 	for (Component* c : components) {
-		c->Start();
+		if (c->isActiveAndEnabled() && !c->isStarted()) {
+			c->Start();
+			c->setStarted();
+		}
 	}
-
 }
 
 // Mueve el cubo a un lado en x.
@@ -149,6 +155,40 @@ void Scene::Add(GameObject * o)
 void Scene::Add(Component * c)
 {
 	components.push_back(c);
+}
+
+GameObject* Scene::Instantiate(GameObject * o, Vector3 position, float scale, GameObject * parent)
+{
+	if (o != nullptr) {
+		if (parent != nullptr) {
+			parent->AddChild(o);
+		}
+		o->setPosition(position);
+		o->setScale(scale);
+		Add(o);
+
+		//Llamamos al awake del objeto, independientemente de si esta activo o no
+		for (Component* c : o->getComponents()) {
+			if (!c->isAwake()) {
+				c->Awake();
+				c->setAwake();
+			}
+		}
+		//Llamamos al start solo de los objetos y componentes que esten activos
+		for (Component* c : o->getComponents()) {
+			if (c->isActiveAndEnabled() && !c->isStarted()) {
+				c->Start();
+				c->setAwake();
+			}
+		}
+	}
+}
+
+GameObject* Scene::Instantiate(string prefab, Vector3 position, float scale, GameObject * parent)
+{
+	GameObject* o = PrefabManager::getInstance()->Instantiate(prefab, this, parent, position, scale);
+	o = Instantiate(o, position, scale, parent);
+	return o;
 }
 
 void Scene::Destroy(GameObject * o)

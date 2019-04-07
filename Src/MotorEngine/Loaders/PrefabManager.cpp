@@ -153,14 +153,6 @@ GameObject * PrefabManager::Instantiate(string prefab, Scene * scene, GameObject
 {
 	GameObject* o = nullptr;
 	o = GenerateGameObject(prefab, scene, parent,position,scale);
-	if (o != nullptr) {
-		scene->Add(o);
-		for (Component* c : o->getComponents()) {
-			c->Awake();
-		}
-		for (Component* c : o->getComponents()) {
-			c->Start();
-		}
-	}
+	
 	return o;
 }

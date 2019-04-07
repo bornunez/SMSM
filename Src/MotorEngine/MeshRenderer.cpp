@@ -24,29 +24,39 @@ void MeshRenderer::LoadFromFile(json obj)
 		string mat = obj["material"];
 		materialName = mat;
 	}
+	if (materialName != "") {
+		entity->setMaterialName(materialName);
+	}
 
+	entity = gameObject->getSceneManager()->createEntity(meshName);
+	
+	//std::cout << "CargadaAwake: " << meshName << " Nombre: " << gameObject->getName() << endl;
+	// Asigna el material a la mesh
 }
 
 MeshRenderer::~MeshRenderer()
 {
 }  
 
-void MeshRenderer::Awake()
+
+void MeshRenderer::Start()
 {
-	if (entity == nullptr)
-	{
-		entity = gameObject->getSceneManager()->createEntity(meshName);
+	if (!started) {
 		gameObject->AddEntity(entity);
-		std::cout << "CargadaAwake: " << meshName << " Nombre: " << gameObject->getName() << endl;
-		// Asigna el material a la mesh
-		if (materialName != "") {
-			entity->setMaterialName(materialName);
-		}
 	}
 }
+
 void MeshRenderer::OnDestroy()
 {
 	//gameObject->getNode()->detachObject()
+}
+void MeshRenderer::OnDisable()
+{
+	gameObject->RemoveEntity(entity);
+}
+void MeshRenderer::OnEnable()
+{
+	gameObject->AddEntity(entity);
 }
 bool MeshRenderer::AnimationHasEnded(string name)
 {

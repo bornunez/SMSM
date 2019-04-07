@@ -36,7 +36,7 @@ void Weapon::LoadFromFile(json obj)
 
 	reloadTime = obj["reloadTime"];
 	reloadSpeed = obj["reloadSpeed"];
-
+		
 	bulletsAmount = obj["numBullets"];
 	dispersion = obj["dispersion"];
 }
@@ -131,7 +131,7 @@ void Weapon::shoot()
 }
 void Weapon::PhysicShoot()
 {
-	PrefabManager::getInstance()->Instantiate("Bullet", scene, nullptr, (gameObject->getPosition()+Vector3(0, 0.05, -0.5)), 0.05);
+	scene->Instantiate("Bullet", (gameObject->getPosition()+Vector3(0, 0.05, -0.5)), 0.05);
 }
 void Weapon::AudioShoot()
 {

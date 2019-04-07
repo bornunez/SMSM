@@ -24,6 +24,9 @@ public:
 	virtual void LoadFromFile(json obj);
 	~MeshRenderer();
 
-	virtual void Awake();
+	virtual void Start();
 	void OnDestroy();
+
+	void OnDisable();
+	void OnEnable();
 };
