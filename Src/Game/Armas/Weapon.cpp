@@ -45,6 +45,7 @@ void Weapon::Update()
 {
 	reloads();
 	handleInput();
+	SpecialReload();
 }
 
 void Weapon::handleInput()
@@ -131,7 +132,17 @@ void Weapon::shoot()
 }
 void Weapon::PhysicShoot()
 {
-	PrefabManager::getInstance()->Instantiate("Bullet", scene, nullptr, (gameObject->getPosition()+Vector3(0, 0.05, -0.5)), 0.05);
+	if (bulletsAmount > 1)
+	{
+		for (int i = 0; i < bulletsAmount; i++)
+		{
+			int disp = dispersion;
+			float randX = rand() % (disp)-(disp / 2);
+			float randY = rand() % (disp)-(disp / 2);
+			PrefabManager::getInstance()->Instantiate("Bullet", scene, nullptr, (gameObject->getPosition() + Vector3(randX*0.01, 0.05 + randY * 0.01, -0.5)), 0.01);
+		}
+	}
+	else PrefabManager::getInstance()->Instantiate("Bullet", scene, nullptr, (gameObject->getPosition() + Vector3(0, 0.05, -0.5)), 0.01);
 }
 void Weapon::AudioShoot()
 {
@@ -147,4 +158,18 @@ void Weapon::reload()
 	meshRend->AnimationSpeed(reloadSpeed);
 	actMagazine = 0;
 	actReloadTime = 0;
+	if (gameObject->getName() == "Escopeta")
+	{
+		actSpecialReload = 0;
+		specialReloading = true;
+	}
+}
+void Weapon::SpecialReload()
+{
+	if (specialReloading && actSpecialReload < specialReloadTime) actSpecialReload += TimeManager::getInstance()->getDeltaTime();
+	else if(specialReloading)
+	{
+		PrefabManager::getInstance()->Instantiate("ShotgunReloadBullet", scene, nullptr, (gameObject->getPosition() + Vector3(-0.1, 0.05, -0.5)), 0.01);
+		specialReloading = false;
+	}
 }

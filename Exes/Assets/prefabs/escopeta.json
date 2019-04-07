@@ -15,14 +15,14 @@
 			"runSpeed":2,
 			"dualInt":0,
 			
-			"timePerShoot":0.7,
-			"shootSpeed":3,
+			"timePerShoot":0.8,
+			"shootSpeed":2.5,
 			
 			"reloadTime":1.75,
 			"reloadSpeed":2.5,
 			
-			"numBullets":1,
-			"dispersion":0
+			"numBullets":6,
+			"dispersion":4
 		}
 	]
 }

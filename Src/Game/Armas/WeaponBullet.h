@@ -5,6 +5,8 @@
 
 class WeaponBullet:public RigidBodyComponent
 {
+private:
+	float speed = 1;
 public:
 	WeaponBullet(GameObject* obj);
 	~WeaponBullet();

@@ -28,17 +28,6 @@
 		{
 			"type":"PlayerMov"
 		}
-	],
-	"children":[
-		{
-			"prefab":"Pistola",
-			"position": {"x":5, "y":-5, "z":0},
-			"scale": 0.1
-		},
-		{
-			"prefab":"Pistola2",
-			"position": {"x":5, "y":-5, "z":0},
-			"scale": 0.1
-		}
 	]
+
 }

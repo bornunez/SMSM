@@ -1,12 +1,12 @@
 {
-	"prefabName":"Bullet",
-	"name":"Bullet",
+	"prefabName":"ShotgunReloadBullet",
+	"name":"ShotgunReloadBullet",
 	"active":true,
 	"isListener":true,
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"Bullet.mesh"
+			"mesh":"Escopeta.mesh"
 		},
 		{
 			"type":"WeaponBullet",
@@ -25,7 +25,7 @@
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"speed": 20
+			"speed": 2
 		}
 	]
 }

@@ -39,6 +39,10 @@ private:
 	void AudioShoot();
 	void PhysicShoot();
 	void reloads();
+
+	float specialReloadTime = 0.6;
+	float actSpecialReload = 0.6;
+	bool specialReloading = false;
 public:
 	Weapon(GameObject* obj) : Component(obj) {};
 	~Weapon();
@@ -48,5 +52,6 @@ public:
 	void Start();
 	void shoot();
 	void reload();
+	void SpecialReload();
 };
 
