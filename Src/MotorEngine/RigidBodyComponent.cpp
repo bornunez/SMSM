@@ -23,19 +23,16 @@ void RigidBodyComponent::LoadFromFile(json obj)
 		case 0: {
 			sizeX = obj["sizeX"];
 			sizeY = obj["sizeY"];
-			sizeZ = obj["sizeZ"];
-			//physicRB = PhysicsManager::Instance()->CreateBoxCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, sizeX, sizeY, sizeZ, offSetX, offSetY, offSetZ);
+			sizeZ = obj["sizeZ"];			
 			break;
 		}
 		case 1: {
 			height = obj["height"];
 			radius = obj["radius"];
-			//physicRB = PhysicsManager::Instance()->CreateCapsuleCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, height, radius, offSetX, offSetY, offSetZ);
 			break;
 		}
 		case 2: {
-			radius = obj["radius"];
-			//physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, radius, offSetX, offSetY, offSetZ);
+			radius = obj["radius"];			
 			break;
 		}
 	}

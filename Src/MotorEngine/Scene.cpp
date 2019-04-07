@@ -34,7 +34,7 @@ Scene::Scene(Game* _g) : g(_g)
 	cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
 
 	AudioManager* audioManager = new AudioManager();
-	audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
+	audioManager->playSound("CorazonPartio", false, 0.05, CHANNEL::Default);
 
 	myDebugDrawer::Instance(mSceneManager);
 }

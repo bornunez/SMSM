@@ -6,9 +6,9 @@ void ObstacleRigidBody::LoadFromFile(json obj)
 	RigidBodyComponent::LoadFromFile(obj);
 
 	if (!obj.contains("filePos")) {
-		originalPosX = gameObject->getNode()->getPosition().x;
-		originalPosY = gameObject->getNode()->getPosition().y;
-		originalPosZ = gameObject->getNode()->getPosition().z;		
+		originalPosX = gameObject->getNode()->getPosition().x + obj["offsetX"];
+		originalPosY = gameObject->getNode()->getPosition().y + obj["offsetY"];
+		originalPosZ = gameObject->getNode()->getPosition().z + obj["offsetZ"];
 	}
 
 	switch (shape)
