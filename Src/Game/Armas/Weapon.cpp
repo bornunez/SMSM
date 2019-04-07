@@ -144,7 +144,6 @@ void Weapon::AudioShoot()
 }
 void Weapon::reload()
 {
-	GameObject* plane = scene->getGameObject("Plane");
 	plane->SetActive(true);
 	animationPassed = "Reload";
 	meshRend->PlayAnimation("Reload", false);
