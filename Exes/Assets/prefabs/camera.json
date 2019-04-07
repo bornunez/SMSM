@@ -1,0 +1,12 @@
+{
+	"prefabName":"Camera",
+	"name":"Camera",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"Camera",
+			"name":"playerCamera"
+		}
+	]
+}

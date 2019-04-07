@@ -15,6 +15,7 @@ public:
 	virtual void Update();
 	void resetHitState();
 	bool getIsTrigger() { return isTrigger; };
+	btRigidBody* getRB() { return physicRB; };
 
 protected:
 	bool hit = false;

@@ -5,6 +5,8 @@
 #include "../Componentes/EnemyRigidBody.h"
 #include "../Componentes/ObstacleRigidBody.h"
 #include "../../MotorEngine/MyCamera.h"
+#include "../Componentes/Player/PlayerCollision.h"
+#include "../Componentes/Player/PlayerMov.h"
 
 class MyComponentLoader : public ComponentLoader
 {

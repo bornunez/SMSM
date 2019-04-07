@@ -24,6 +24,7 @@ void Weapon::LoadFromFile(json obj)
 			found = true;
 			meshRend = c;
 		}
+		it++;
 	}
 	magazine = obj["magazine"];
 	moveSpeed = obj["moveSpeed"];

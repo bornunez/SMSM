@@ -25,6 +25,9 @@
     <Filter Include="Componentes\RigidBodyComponents">
       <UniqueIdentifier>{854f9ab4-2754-4f64-bdec-20c037434ab8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Componentes\Player">
+      <UniqueIdentifier>{a2ca5d9e-ee4d-4eeb-afb4-53fb3d4abf63}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\main.cpp">
@@ -45,6 +48,12 @@
     <ClCompile Include="..\..\Src\Game\Armas\WeaponBullet.cpp">
       <Filter>Armas</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\PlayerMov.cpp">
+      <Filter>Componentes\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerCollision.cpp">
+      <Filter>Componentes\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -61,6 +70,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Armas\WeaponBullet.h">
       <Filter>Armas</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\PlayerMov.h">
+      <Filter>Componentes\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerCollision.h">
+      <Filter>Componentes\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

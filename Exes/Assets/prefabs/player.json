@@ -1,0 +1,49 @@
+{
+	"prefabName":"Player",
+	"name":"Player",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"Cubo.mesh"
+		},
+		{
+			"type":"PlayerCollision",
+			"shape":0,
+			"id":0,
+			"mass":1,
+			"restFactor":1,
+			"positionX":0,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0,
+			"offsetZ":0,
+			"isTrigger":true,
+			"sizeX":0.1,
+			"sizeY":0.1,
+			"sizeZ":0.1
+		},
+		{
+			"type":"PlayerMov"
+		}
+	],
+	"children":[
+		{
+			"prefab":"Pistola",
+			"position": {"x":5, "y":-5, "z":0},
+			"scale": 0.1
+		},
+		{
+			"prefab":"Pistola2",
+			"position": {"x":5, "y":-5, "z":0},
+			"scale": 0.1
+		},
+		{
+			"prefab":"Camera",
+			"position": {"x":0, "y":0, "z":0},
+			"scale": 0.1
+		}
+	]
+}

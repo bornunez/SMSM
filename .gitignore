@@ -346,3 +346,5 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 Dependences/ogre-1\.11\.5/OgreBuild\.zip
+
+Src/MotorEngine/Scene\.cpp

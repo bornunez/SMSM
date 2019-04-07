@@ -38,7 +38,7 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new ObstacleRigidBody(gameObject);
 	else if (c_type == "EnemyRB")
 		c = new EnemyRigidBody(gameObject);
-		else if (c_type == "WeaponBullet")
+	else if (c_type == "WeaponBullet")
 		c = new WeaponBullet(gameObject);
 	else if (c_type == "MapLoader")
 		c = new MapLoader(gameObject);
@@ -46,6 +46,11 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new MyCamera(gameObject);
 	else if (c_type == "Light")
 		c = new MyLight(gameObject);
+	else if (c_type == "PlayerMov") 
+		c = new PlayerMov(gameObject);
+	else if (c_type == "PlayerCollision")
+		c = new PlayerCollision(gameObject);
+
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);

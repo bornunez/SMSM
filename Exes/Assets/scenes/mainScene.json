@@ -16,6 +16,11 @@
 			]
 		},
 		{
+			"prefab":"Player",
+			"position": {"x":5, "y":0, "z":5},
+			"scale": 0.1
+		},
+		{
 			"name":"light",
 			"active":true,
 			"position":{"x":5,"y":0,"z":5},
@@ -45,7 +50,7 @@
 		{
 			"name":"Plane",
 			"position":{"x":3,"y":-0.1,"z":3},
-			"scale":3,
+			"scale":10,
 			"components":[
 				{
 					"type":"meshRenderer",
@@ -61,9 +66,9 @@
 					"positionZ":3,
 					"restFactor":0,
 					"isTrigger":false,
-					"sizeX":3,
+					"sizeX":10,
 					"sizeY":0.05,
-					"sizeZ":3,
+					"sizeZ":10,
 					"offsetX":0,
 					"offsetY":0,
 					"offsetZ":0,
