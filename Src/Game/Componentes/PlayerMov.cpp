@@ -6,11 +6,10 @@ PlayerMov::~PlayerMov()
 
 void PlayerMov::LoadFromFile(json obj)
 {
-	maxRotSpeed = obj["maxRotSpeed"];
-	movSpeed = obj["movSpeed"];
+	//maxRotSpeed = obj["maxRotSpeed"];
+	//movSpeed = obj["movSpeed"];
 
-	//maxRotSpeed = 10;
-	//movSpeed = 0.5;
+	
 }
 
 void PlayerMov::Update()
@@ -22,10 +21,10 @@ void PlayerMov::handleInput()
 {
 	
 
-	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_LEFT) && playerColl->getRB()->getAngularVelocity().y() < maxRotSpeed) {
+	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_LEFT) && playerColl->getRB()->getAngularVelocity().y() < 10/*maxRotSpeed*/) {
 		playerColl->getRB()->applyTorqueImpulse(btVector3(0, 0.05, 0));
 	}
-	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_RIGHT) && playerColl->getRB()->getAngularVelocity().y() > -maxRotSpeed) {
+	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_RIGHT) && playerColl->getRB()->getAngularVelocity().y() > -10/*maxRotSpeed*/) {
 		playerColl->getRB()->applyTorqueImpulse(btVector3(0, -0.05, 0));
 	}
 	else if(!InputManager::getInstance()->getKey(OIS::KeyCode::KC_RIGHT) && !InputManager::getInstance()->getKey(OIS::KeyCode::KC_LEFT)){
@@ -37,16 +36,16 @@ void PlayerMov::handleInput()
 	//Ogre::Quaternion orientation = getGameObject()->getNode()->getOrientation();
 	//orientation. Falta coger orientacion del jugador y mover en base a eso
 
-		playerColl->getRB()->applyCentralImpulse(btVector3(0, 0, -movSpeed));
+		playerColl->getRB()->applyCentralImpulse(btVector3(0, 0, -0.5/*movSpeed*/));
 	}
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_S)) {
-		playerColl->getRB()->applyCentralImpulse(btVector3(0, 0, movSpeed));
+		playerColl->getRB()->applyCentralImpulse(btVector3(0, 0, 0.5/*movSpeed*/));
 	}
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_A)) {
-		playerColl->getRB()->applyCentralImpulse(btVector3(-movSpeed, 0, 0));
+		playerColl->getRB()->applyCentralImpulse(btVector3(-0.5/*movSpeed*/, 0, 0));
 	}
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_D)) {
-		playerColl->getRB()->applyCentralImpulse(btVector3(movSpeed, 0, 0));
+		playerColl->getRB()->applyCentralImpulse(btVector3(0.5/*movSpeed*/, 0, 0));
 	}
 ;
 	// Para el movimiento de forma brusca si no se pulsa una tecla, temporal, necesitamos un anykey
