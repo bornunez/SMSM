@@ -33,14 +33,16 @@ MeshRenderer::~MeshRenderer()
 
 void MeshRenderer::Awake()
 {
-	entity = gameObject->getSceneManager()->createEntity(meshName);
-	gameObject->AddEntity(entity);
-
-	// Asigna el material a la mesh
-	if (materialName != "") {
-		entity->setMaterialName(materialName);
+	if (entity == nullptr)
+	{
+		entity = gameObject->getSceneManager()->createEntity(meshName);
+		gameObject->AddEntity(entity);
+		std::cout << "CargadaAwake: " << meshName << " Nombre: " << gameObject->getName() << endl;
+		// Asigna el material a la mesh
+		if (materialName != "") {
+			entity->setMaterialName(materialName);
+		}
 	}
-	scene->BroadcastMessage("Hola");
 }
 void MeshRenderer::OnDestroy()
 {
