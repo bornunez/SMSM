@@ -1,23 +1,27 @@
 #include "AudioManager.h"
-
+AudioManager* AudioManager::instance = 0;
 
 
 AudioManager::AudioManager()
 {
-	sound = new SoundSystemClass(100, 1);
-	cargaSonidos();	
-}
 
+}
 
 AudioManager::~AudioManager()
 {
 }
 
+void AudioManager::init()
+{
+	sound = new SoundSystemClass(100, 1);
+	cargaSonidos();
+}
 void AudioManager::cargaSonidos()
 {
 	string path = ".\\Assets\\Audio\\";
 
 	sounds["CorazonPartio"] = path + "alejandro-sanz-corazon-partio-letra.mp3";
+	sounds["GunShoot"] = path + "PISTOL-SHOOT.wav";
 }
 
 void AudioManager::getSound(string fileName)

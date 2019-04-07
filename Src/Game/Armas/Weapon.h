@@ -1,6 +1,8 @@
 #pragma once
 #include "../../Src/MotorEngine/TimeManager.h"
 #include "../../../Src/MotorEngine/Component.h"
+#include "WeaponBullet.h"
+
 class MeshRenderer;
 class Weapon : public Component
 {
@@ -8,6 +10,7 @@ private:
 	string animationPassed = "null";
 
 	bool canShoot = false;
+	int dualInt = 0;
 	//Run
 	float moveSpeed = 1;
 	float runSpeed = 1;
@@ -33,6 +36,8 @@ private:
 	float dispersion = 0;
 
 	MeshRenderer* meshRend;
+	void AudioShoot();
+	void PhysicShoot();
 	void reloads();
 public:
 	Weapon(GameObject* obj) : Component(obj) {};

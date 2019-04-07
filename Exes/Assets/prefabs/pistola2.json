@@ -1,25 +1,25 @@
 {
-	"prefabName":"Escopeta",
-	"name":"Escopeta",
+	"prefabName":"Pistola2",
+	"name":"Pistola2",
 	"active":true,
 	"isListener":true,
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"Escopeta.mesh"
+			"mesh":"Pistola.mesh"
 		},
 		{
 			"type":"Weapon",
-			"magazine":5,
+			"magazine":6,
 			"moveSpeed":1.75,
 			"runSpeed":2,
-			"dualInt":0,
+			"dualInt":1,
 			
-			"timePerShoot":0.7,
-			"shootSpeed":3,
+			"timePerShoot":0.4,
+			"shootSpeed":2.75,
 			
-			"reloadTime":1.75,
-			"reloadSpeed":2.5,
+			"reloadTime":0.75,
+			"reloadSpeed":1.3,
 			
 			"numBullets":1,
 			"dispersion":0

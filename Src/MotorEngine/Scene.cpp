@@ -17,13 +17,13 @@ Scene::Scene(Game* _g) : g(_g)
 
 	// Crear la camara
 	cam = mSceneManager->createCamera("Cam");
-	cam->setNearClipDistance(2);
+	cam->setNearClipDistance(0.01);
 
 	mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
 	mCamNode->attachObject(cam);
 
-	mCamNode->setPosition(15*0.5, 1, 15*0.5);
-	mCamNode->lookAt(Ogre::Vector3(-1, 0, -1), Ogre::Node::TS_WORLD);
+	mCamNode->setPosition(10 * 0.5, 1, 10 * 0.5+5);
+	mCamNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
 
 	// Crear ViewPort
 	//Ogre::Viewport* vp = g->getRenderWindow()->addViewport(cam);
@@ -33,8 +33,8 @@ Scene::Scene(Game* _g) : g(_g)
 
 	cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
 
-	AudioManager* audioManager = new AudioManager();
-	audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
+	//AudioManager* audioManager = new AudioManager();
+	//audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
 
 	myDebugDrawer::Instance(mSceneManager);
 }
@@ -49,7 +49,9 @@ void Scene::Release()
 void Scene::parroThings(SceneManager* mSceneManager)
 {
 	//BICHO
-	PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
+	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
+	PrefabManager::getInstance()->Instantiate("Pistola", this, nullptr, { 4.85, 0.8, 4.6+5 }, 0.05);
+	PrefabManager::getInstance()->Instantiate("Pistola2", this, nullptr, { 5.15, 0.8, 4.6+5 }, 0.05);
 }
 
 void Scene::Load(json sceneFile)

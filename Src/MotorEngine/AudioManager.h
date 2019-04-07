@@ -7,6 +7,16 @@ using namespace std;
 class AudioManager
 {
 public:
+	static AudioManager* getInstance()
+	{
+		if (instance == 0)
+		{
+			instance = new AudioManager();
+		}
+
+		return instance;
+	};
+	void init();
 	SoundSystemClass soundSystem;
 	std::map<string, string> sounds;
 	AudioManager();
@@ -17,6 +27,7 @@ public:
 	void changePan(float pan, CHANNEL channel);
 	void change3DPosition(int relX, int relY, int relZ, CHANNEL channel = CHANNEL::Default);
 private:
+	static AudioManager* instance;
 	string actualSound = "";
 	void getSound(string fileName);
 	SoundSystemClass* sound;

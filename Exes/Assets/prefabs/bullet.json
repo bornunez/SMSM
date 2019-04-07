@@ -1,0 +1,15 @@
+{
+	"prefabName":"Bullet",
+	"name":"Bullet",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"Bullet.mesh"
+		},
+		{
+			"type":"WeaponBullet"
+		}
+	]
+}

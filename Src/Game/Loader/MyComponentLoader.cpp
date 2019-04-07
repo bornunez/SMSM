@@ -38,6 +38,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new ObstacleRigidBody(gameObject);
 	else if (c_type == "EnemyRB")
 		c = new EnemyRigidBody(gameObject);
+		else if (c_type == "WeaponBullet")
+		c = new WeaponBullet(gameObject);
 	else if (c_type == "MapLoader")
 		c = new MapLoader(gameObject);
 	else if (c_type == "Camera")

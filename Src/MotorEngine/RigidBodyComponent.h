@@ -3,8 +3,7 @@
 #include "Component.h"
 #include "TimeManager.h"
 
-class RigidBodyComponent :
-	public Component
+class RigidBodyComponent : public Component
 {
 public:
 	RigidBodyComponent(GameObject* _gameObject) : Component(_gameObject) {};
@@ -15,7 +14,6 @@ public:
 	virtual void collisionHandler(int id) {};
 	virtual void Update();
 	void resetHitState();
-
 	bool getIsTrigger() { return isTrigger; };
 
 protected:

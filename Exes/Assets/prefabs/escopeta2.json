@@ -1,6 +1,6 @@
 {
-	"prefabName":"Escopeta",
-	"name":"Escopeta",
+	"prefabName":"Escopeta2",
+	"name":"Escopeta2",
 	"active":true,
 	"isListener":true,
 	"components":[
@@ -13,10 +13,10 @@
 			"magazine":5,
 			"moveSpeed":1.75,
 			"runSpeed":2,
-			"dualInt":0,
+			"dualInt":1,
 			
-			"timePerShoot":0.7,
-			"shootSpeed":3,
+			"timePerShoot":0.6,
+			"shootSpeed":2.75,
 			
 			"reloadTime":1.75,
 			"reloadSpeed":2.5,

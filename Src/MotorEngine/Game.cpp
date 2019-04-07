@@ -4,6 +4,7 @@
 #include "./Loaders/ComponentLoader.h"
 #include "TimeManager.h"
 #include "GameSceneManager.h"
+#include "AudioManager.h"
 
 
 Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BLANKSTRING), mPluginsCfg(Ogre::BLANKSTRING), componentLoader(_componentLoader)
@@ -119,7 +120,8 @@ void Game::InitWindow()
 void Game::Play() 
 {
 	PrefabManager::getInstance()->LoadAllPrefabs();
-
+	//Inicializacion del audio
+	AudioManager::getInstance()->init();
 	// Scenes
 	sceneManager->LoadScene("mainScene"); // Load the scene
 	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)

@@ -4,11 +4,6 @@
 	"GameObjects": [
 		
 		{
-			"prefab":"Escopeta",
-			"position": {"x":3, "y":-5, "z":35},
-			"scale": 1
-		},
-		{
 			"name":"MapLoader",
 			"active":true,
 			"isListener":true,

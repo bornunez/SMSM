@@ -1,3 +1,4 @@
+#pragma once
 #ifndef _AUDIO_ENGINE_H_
 #define _AUDIO_ENGINE_H_
 #include "fmod.hpp"
@@ -14,10 +15,9 @@
 //Lleva la gestión de canales y reproducción de sonidos
 
 #define PI 3.14159265359
-#pragma once
 typedef FMOD::Sound* SoundClass;
 
-enum CHANNEL{Default, Fondo, Disparos, Enemigos};
+enum CHANNEL{Default, Fondo, Disparos, Disparos2, Enemigos};
 
 class SoundSystemClass
 {
@@ -34,6 +34,7 @@ public:
 	FMOD::Channel* channel1;
 	FMOD::Channel* channel2;
 	FMOD::Channel* channel3;
+	FMOD::Channel* channel4;
 
 	SoundSystemClass(float _maxHearingDistance = 100, float _distanceMultiplicator = 1)
 	{
@@ -41,6 +42,7 @@ public:
 		channel1 = nullptr;
 		channel2 = nullptr;
 		channel3 = nullptr;
+		channel4 = nullptr;
 		maxHearingDistance = _maxHearingDistance;
 		distanceMultiplicator = _distanceMultiplicator;
 		if (FMOD::System_Create(&m_pSystem) != FMOD_OK)
@@ -77,11 +79,14 @@ public:
 		case CHANNEL::Disparos:
 			channel1->setPitch(velocity);
 			break;
-		case CHANNEL::Enemigos:
+		case CHANNEL::Disparos2:
 			channel2->setPitch(velocity);
 			break;
-		case CHANNEL::Fondo:
+		case CHANNEL::Enemigos:
 			channel3->setPitch(velocity);
+			break;
+		case CHANNEL::Fondo:
+			channel4->setPitch(velocity);
 			break;
 		}
 	}
@@ -105,13 +110,17 @@ public:
 			channel1->setVolume(volumen3D);
 			channel1->setPan(pan);
 			break;
-		case CHANNEL::Enemigos:
+		case CHANNEL::Disparos2:
 			channel2->setVolume(volumen3D);
 			channel2->setPan(pan);
 			break;
-		case CHANNEL::Fondo:
+		case CHANNEL::Enemigos:
 			channel3->setVolume(volumen3D);
 			channel3->setPan(pan);
+			break;
+		case CHANNEL::Fondo:
+			channel4->setVolume(volumen3D);
+			channel4->setPan(pan);
 			break;
 		}
 	}
@@ -125,11 +134,14 @@ public:
 		case CHANNEL::Disparos:
 			channel1->setPan(panValue);
 			break;
-		case CHANNEL::Enemigos:
+		case CHANNEL::Disparos2:
 			channel2->setPan(panValue);
 			break;
-		case CHANNEL::Fondo:
+		case CHANNEL::Enemigos:
 			channel3->setPan(panValue);
+			break;
+		case CHANNEL::Fondo:
+			channel4->setPan(panValue);
 			break;
 		}
 	}
@@ -158,15 +170,20 @@ public:
 			m_pSystem->playSound(pSound, NULL, false, &channel1);
 			channel1->setVolume(volume);
 			break;
-		case CHANNEL::Enemigos:
-			channel1->stop();
+		case CHANNEL::Disparos2:
+			channel2->stop();
 			m_pSystem->playSound(pSound, NULL, false, &channel2);
 			channel2->setVolume(volume);
 			break;
-		case CHANNEL::Fondo:
-			channel1->stop();
+		case CHANNEL::Enemigos:
+			channel3->stop();
 			m_pSystem->playSound(pSound, NULL, false, &channel3);
 			channel3->setVolume(volume);
+			break;
+		case CHANNEL::Fondo:
+			channel4->stop();
+			m_pSystem->playSound(pSound, NULL, false, &channel4);
+			channel4->setVolume(volume);
 			break;
 		}
 
@@ -201,19 +218,25 @@ public:
 			channel1->stop();
 			m_pSystem->playSound(pSound, NULL, false, &channel1);
 			channel1->setVolume(volumen3D);
-			channelPred->setPan(pan);
+			channel1->setPan(pan);
 			break;
-		case CHANNEL::Enemigos:
-			channel1->stop();
+		case CHANNEL::Disparos2:
+			channel2->stop();
 			m_pSystem->playSound(pSound, NULL, false, &channel2);
 			channel2->setVolume(volumen3D);
-			channelPred->setPan(pan);
+			channel2->setPan(pan);
 			break;
-		case CHANNEL::Fondo:
-			channel1->stop();
+		case CHANNEL::Enemigos:
+			channel3->stop();
 			m_pSystem->playSound(pSound, NULL, false, &channel3);
 			channel3->setVolume(volumen3D);
-			channelPred->setPan(pan);
+			channel3->setPan(pan);
+			break;
+		case CHANNEL::Fondo:
+			channel4->stop();
+			m_pSystem->playSound(pSound, NULL, false, &channel4);
+			channel4->setVolume(volumen3D);
+			channel4->setPan(pan);
 			break;
 		}
 	}

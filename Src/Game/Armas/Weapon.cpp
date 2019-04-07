@@ -1,7 +1,9 @@
 #include "Weapon.h"
-#include "../../Src/MotorEngine/MeshRenderer.h"
+//#include "../../Src/MotorEngine/MeshRenderer.h"
 #include "../../../Src/MotorEngine/InputManager.h"
 #include "../../../Src/MotorEngine/Scene.h"
+#include "../../../Src/MotorEngine/AudioManager.h"
+#include "../../../Src/MotorEngine/Loaders/PrefabManager.h"
 
 Weapon::~Weapon()
 {
@@ -26,6 +28,7 @@ void Weapon::LoadFromFile(json obj)
 	magazine = obj["magazine"];
 	moveSpeed = obj["moveSpeed"];
 	runSpeed = obj["runSpeed"];
+	dualInt = obj["dualInt"];
 
 	timePerShot = obj["timePerShoot"];
 	shootSpeed = obj["shootSpeed"];
@@ -46,7 +49,8 @@ void Weapon::Update()
 void Weapon::handleInput()
 {
 	//Handlea el input
-	if (InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left))
+	if ((InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left) && dualInt == 0)||
+		(InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Right) && dualInt == 1))
 	{
 		shoot();
 	}
@@ -109,6 +113,8 @@ void Weapon::shoot()
 		canShoot = false;
 		if (actMagazine < magazine)
 		{
+			AudioShoot();
+			PhysicShoot();
 			animationPassed = "Shoot";
 			meshRend->PlayAnimation("Shoot", false);
 			meshRend->AnimationSpeed(shootSpeed);
@@ -122,10 +128,19 @@ void Weapon::shoot()
 		}
 	}
 }
-
+void Weapon::PhysicShoot()
+{
+	PrefabManager::getInstance()->Instantiate("Bullet", scene, nullptr, (gameObject->getPosition()+Vector3(0, 0.05, -0.5)), 0.05);
+}
+void Weapon::AudioShoot()
+{
+	if(dualInt == 0)
+		AudioManager::getInstance()->playSound("GunShoot", false, 0.4, CHANNEL::Disparos);
+	else
+		AudioManager::getInstance()->playSound("GunShoot", false, 0.4, CHANNEL::Disparos2);
+}
 void Weapon::reload()
 {
-	scene->Destroy(gameObject);
 	animationPassed = "Reload";
 	meshRend->PlayAnimation("Reload", false);
 	meshRend->AnimationSpeed(reloadSpeed);
