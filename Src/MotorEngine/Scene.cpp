@@ -208,10 +208,12 @@ void Scene::BroadcastMessage(string message)
 
 GameObject * Scene::getGameObject(string name)
 {
-	bool found = false;
 	auto it = gameObjects.begin();
-	while (!found && it != gameObjects.end())
-		found = (*it)->getName() == name;
+	while (it != gameObjects.end() && (*it)->getName() != name)
+		it++;
+	bool found = it != gameObjects.end();
+	if (!found)
+		cout << "ERROR: No se ha encontrado el objeto [ " << name << " ]" << endl;
 	return found ? *it : nullptr;
 }
 

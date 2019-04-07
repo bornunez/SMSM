@@ -10,9 +10,12 @@ void GameObject::OnActive()
 	//Avisamos a todos los componentes activos de que nos hemos activado
 	for (Component* c : components) {
 		if (c->isEnabled()) {
-			if (!c->isStarted())
+			if (!c->isStarted()) {
 				c->Start();
-			c->OnEnable();
+				c->setStarted();
+			}
+			else
+				c->OnEnable();
 		}
 	}
 }

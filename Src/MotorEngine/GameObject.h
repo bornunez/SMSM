@@ -63,6 +63,9 @@ public:
 	//Manejo de Componentes
 	std::list<Component*> getComponents() { return components; }
 
+	//template<class T>
+	//Component* getComponent();
+
 
 
 	void RemoveComponent(Component* c);
@@ -92,3 +95,15 @@ public:
 	void setName(string _name) { name = _name; }
 };
 
+//template<class T>
+//inline Component * GameObject::getComponent()
+//{
+//	auto it = components.begin();
+//	while (it != components.end() && static_cast<T>((*it)) == nullptr)
+//		it++;
+//
+//	if (it != components.end())
+//		return (*it);
+//	else
+//		return nullptr;
+//}

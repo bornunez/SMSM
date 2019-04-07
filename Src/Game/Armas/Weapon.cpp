@@ -26,6 +26,7 @@ void Weapon::LoadFromFile(json obj)
 		}
 		it++;
 	}
+	//MeshRenderer* c = dynamic_cast<MeshRenderer*>(gameObject->getComponent<MeshRenderer>());
 	magazine = obj["magazine"];
 	moveSpeed = obj["moveSpeed"];
 	runSpeed = obj["runSpeed"];
@@ -143,6 +144,8 @@ void Weapon::AudioShoot()
 }
 void Weapon::reload()
 {
+	GameObject* plane = scene->getGameObject("Plane");
+	plane->SetActive(true);
 	animationPassed = "Reload";
 	meshRend->PlayAnimation("Reload", false);
 	meshRend->AnimationSpeed(reloadSpeed);

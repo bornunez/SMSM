@@ -49,6 +49,7 @@
 		},
 		{
 			"name":"Plane",
+			"active":false,
 			"position":{"x":3,"y":-0.1,"z":3},
 			"scale":10,
 			"components":[
