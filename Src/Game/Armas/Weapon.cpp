@@ -144,7 +144,6 @@ void Weapon::AudioShoot()
 }
 void Weapon::reload()
 {
-	plane->SetActive(true);
 	animationPassed = "Reload";
 	meshRend->PlayAnimation("Reload", false);
 	meshRend->AnimationSpeed(reloadSpeed);
