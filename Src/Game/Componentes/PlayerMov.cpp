@@ -6,8 +6,9 @@ PlayerMov::~PlayerMov()
 
 void PlayerMov::LoadFromFile(json obj)
 {
-	//maxRotSpeed = obj["maxRotSpeed"];
-	//movSpeed = obj["movSpeed"];
+	/*maxRotSpeed = obj["maxRotSpeed"];
+	movSpeed = obj["movSpeed"];
+	maxSpeed = obj["maxSpeed"];*/
 }
 
 void PlayerMov::Update()
@@ -17,8 +18,6 @@ void PlayerMov::Update()
 
 void PlayerMov::handleInput()
 {
-	
-
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_LEFT) && playerColl->getRB()->getAngularVelocity().y() < 10/*maxRotSpeed*/) {
 		playerColl->getRB()->applyTorqueImpulse(btVector3(0, 0.05, 0));
 	}
@@ -29,23 +28,27 @@ void PlayerMov::handleInput()
 		playerColl->getRB()->setAngularVelocity(btVector3(0, 0, 0));
 	}
 
-	
-	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W)) {
-	//Ogre::Quaternion orientation = getGameObject()->getNode()->getOrientation();
-	//orientation. Falta coger orientacion del jugador y mover en base a eso
+	// Player Direction
+	Vector3 dir = getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
+	btVector3 up = btVector3(0.0, 1.0, 0.0);
 
-		playerColl->getRB()->applyCentralImpulse(btVector3(0, 0, -0.5/*movSpeed*/));
+	// Forward and right vector
+	btVector3 forward = btVector3(dir.x, dir.y, dir.z);
+	btVector3 right = forward.cross(up);
+
+	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W)) {
+		playerColl->getRB()->applyCentralImpulse(forward);
 	}
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_S)) {
-		playerColl->getRB()->applyCentralImpulse(btVector3(0, 0, 0.5/*movSpeed*/));
+		playerColl->getRB()->applyCentralImpulse(-forward);
 	}
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_A)) {
-		playerColl->getRB()->applyCentralImpulse(btVector3(-0.5/*movSpeed*/, 0, 0));
+		playerColl->getRB()->applyCentralImpulse(-right);
 	}
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_D)) {
-		playerColl->getRB()->applyCentralImpulse(btVector3(0.5/*movSpeed*/, 0, 0));
+		playerColl->getRB()->applyCentralImpulse(right);
 	}
-;
+
 	// Para el movimiento de forma brusca si no se pulsa una tecla, temporal, necesitamos un anykey
 	if(!InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) &&
 		!InputManager::getInstance()->getKey(OIS::KeyCode::KC_A) &&

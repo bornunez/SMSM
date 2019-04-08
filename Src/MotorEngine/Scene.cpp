@@ -184,6 +184,8 @@ GameObject* Scene::Instantiate(GameObject * o, Vector3 position, float scale, Ga
 				c->setAwake();
 			}
 		}
+
+		return o;
 	}
 }
 

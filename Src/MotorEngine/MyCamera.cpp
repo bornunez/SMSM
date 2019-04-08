@@ -17,7 +17,7 @@ void MyCamera::Initialize(string camName)
 	cam = gameObject->getSceneManager()->createCamera(camName);
 
 	// Crea el nodo principal para la camara, que solo se encargará de la posicion
-	cameraNode = gameObject->getNode()->createChildSceneNode();
+	cameraNode = gameObject->getNode();
 
 	// Crea el nodo para el Yaw
 	cameraYawNode = cameraNode->createChildSceneNode();
