@@ -197,6 +197,7 @@ btRigidBody * PhysicsManager::CreateCapsuleCollider(RigidBodyComponent* rb, int 
 {
 	btCollisionShape *newRigidShape;
 	newRigidShape = new btCapsuleShape(height, radius);
+
 	_shapes.push_back(newRigidShape);
 
 	bulletObject* b = new bulletObject(rb, node, id, btVector3(offsetX, offsetY, offsetZ));

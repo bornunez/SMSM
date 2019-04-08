@@ -146,13 +146,13 @@ void Game::Play()
 
 		//cout << mInputM->getMouseX() << " " << mInputM->getMouseY() << std::endl;
 		
-		if (mInputM->getMouseButtonDown(OIS::MouseButtonID::MB_Left)) std::cout << "Pulsado raton" << std::endl;
+		/*if (mInputM->getMouseButtonDown(OIS::MouseButtonID::MB_Left)) std::cout << "Pulsado raton" << std::endl;
 		else if (mInputM->getMouseButton(OIS::MouseButtonID::MB_Left)) std::cout << "Mantenido raton" << std::endl;
 		else if (mInputM->getMouseButtonUp(OIS::MouseButtonID::MB_Left)) std::cout << "Levantado raton" << std::endl;
 
 		if (mInputM->getKeyDown(OIS::KeyCode::KC_A)) std::cout << "Pulsado A" << std::endl;
 		if (mInputM->getKey(OIS::KeyCode::KC_A)) std::cout << "Mantenido A" << std::endl;
-		if (mInputM->getKeyUp(OIS::KeyCode::KC_A)) std::cout << "Levantado A" << std::endl;
+		if (mInputM->getKeyUp(OIS::KeyCode::KC_A)) std::cout << "Levantado A" << std::endl;*/
 		
 	}
 }

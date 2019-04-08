@@ -22,7 +22,7 @@ void WeaponBullet::LoadFromFile(json obj)
 	physicRB->setGravity(btVector3(0, obj["gravity"], 0));
 	physicRB->setDamping(obj["linDamp"], obj["angDamp"]);
 	speed = obj["speed"];
-	physicRB->applyTorqueImpulse({ 0, 0.1, 0 });
+	physicRB->applyTorqueImpulse(btVector3(0, 0.1, 0));
 }
 
 void WeaponBullet::collisionHandler(int id)
