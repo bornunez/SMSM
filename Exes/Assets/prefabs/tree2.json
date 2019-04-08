@@ -10,7 +10,7 @@
 		},
 		{
 			"type":"ObstacleRB",
-			"shape":1,
+			"shape":0,
 			"id":0,
 			"mass":0,
 			"restFactor":0,
@@ -21,8 +21,9 @@
 			"offsetY":1,
 			"offsetZ":0,
 			"isTrigger":false,
-			"radius":0.6,
-			"height":1
+			"sizeX":0.65,
+			"sizeY":1,
+			"sizeZ":0.65
 		}
 	]
 }

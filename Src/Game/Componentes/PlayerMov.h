@@ -16,6 +16,9 @@ private:
 public:
 	PlayerMov(GameObject* obj) : Component(obj) {};
 	~PlayerMov();
+
+	Vector3 getPlayerDirection();
+
 	void LoadFromFile(json obj);
 	virtual void Update();
 	void handleInput();

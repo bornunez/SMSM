@@ -4,6 +4,11 @@ PlayerMov::~PlayerMov()
 {
 }
 
+Vector3 PlayerMov::getPlayerDirection()
+{
+	return getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
+}
+
 void PlayerMov::LoadFromFile(json obj)
 {
 	/*maxRotSpeed = obj["maxRotSpeed"];
