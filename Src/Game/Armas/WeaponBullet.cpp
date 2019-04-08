@@ -27,6 +27,9 @@ void WeaponBullet::LoadFromFile(json obj)
 
 void WeaponBullet::collisionHandler(int id)
 {
+	//TEMPORAL PARA QUE SE PAREN LAS BALAS
+	hit = true;
+
 	if (id != 0)
 	{
 		if (!hit) {
