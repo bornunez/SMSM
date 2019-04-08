@@ -27,9 +27,9 @@
 			"offsetY":0,
 			"offsetZ":0,
 			"isTrigger":true,
-			"sizeX": 0.5,
-			"sizeY": 0.5,
-			"sizeZ": 0.5
+			"sizeX": 0.4,
+			"sizeY": 0.4,
+			"sizeZ": 0.4
 		}
 	]
 }
