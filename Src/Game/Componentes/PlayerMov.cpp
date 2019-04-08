@@ -6,8 +6,9 @@ PlayerMov::~PlayerMov()
 
 void PlayerMov::LoadFromFile(json obj)
 {
-	//maxRotSpeed = obj["maxRotSpeed"];
-	//movSpeed = obj["movSpeed"];
+	/*maxRotSpeed = obj["maxRotSpeed"];
+	movSpeed = obj["movSpeed"];
+	maxSpeed = obj["maxSpeed"];*/
 }
 
 void PlayerMov::Update()
@@ -31,8 +32,8 @@ void PlayerMov::handleInput()
 
 	
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W)) {
-	//Ogre::Quaternion orientation = getGameObject()->getNode()->getOrientation();
-	//orientation. Falta coger orientacion del jugador y mover en base a eso
+		//Ogre::Quaternion orientation = getGameObject()->getNode()->getOrientation();
+		//orientation. Falta coger orientacion del jugador y mover en base a eso
 
 		playerColl->getRB()->applyCentralImpulse(btVector3(0, 0, -0.5/*movSpeed*/));
 	}
@@ -45,7 +46,7 @@ void PlayerMov::handleInput()
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_D)) {
 		playerColl->getRB()->applyCentralImpulse(btVector3(0.5/*movSpeed*/, 0, 0));
 	}
-;
+	
 	// Para el movimiento de forma brusca si no se pulsa una tecla, temporal, necesitamos un anykey
 	if(!InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) &&
 		!InputManager::getInstance()->getKey(OIS::KeyCode::KC_A) &&
