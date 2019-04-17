@@ -16,11 +16,6 @@
 			]
 		},
 		{
-			"prefab":"Player",
-			"position": {"x":5, "y":0, "z":5},
-			"scale": 0.2
-		},
-		{
 			"prefab":"testEnemy",
 			"position": {"x":15, "y":0, "z":10},
 			"scale": 0.5

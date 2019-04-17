@@ -28,6 +28,9 @@
     <Filter Include="Componentes\Player">
       <UniqueIdentifier>{a2ca5d9e-ee4d-4eeb-afb4-53fb3d4abf63}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Mapa">
+      <UniqueIdentifier>{8d09af09-5c00-4ef0-8860-26d29a907708}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\main.cpp">
@@ -57,6 +60,15 @@
     <ClCompile Include="..\..\Src\Game\Componentes\EnemyTest.cpp">
       <Filter>Componentes</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Mapa\RoomManager.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Mapa\Room.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Mapa\Spawner.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -82,6 +94,15 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\EnemyTest.h">
       <Filter>Componentes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Mapa\RoomManager.h">
+      <Filter>Mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Mapa\Room.h">
+      <Filter>Mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Mapa\Spawner.h">
+      <Filter>Mapa</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

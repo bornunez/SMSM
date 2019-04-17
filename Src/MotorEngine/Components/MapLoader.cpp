@@ -36,14 +36,19 @@ void MapLoader::LoadFromFile(json obj)
 						if (mapObj.contains("properties")) {
 							// Crea el objeto a escala 1 e y 0
 							for (auto &prop : mapObj["properties"]) {
-								if (prop.contains("name") && prop["name"] == "prefab") {
+								float objScale = 1;
+								if (prop.contains("name") && prop["name"] == "scale")
+									objScale = prop["value"];
+								else if (prop.contains("name") && prop["name"] == "prefab") {
 									// Crea el prefab asignado al nombre "value"
 
 									//Numero por el que hay que dividir x e y para obtener posiciones reales
 									int divPos = mapObj["width"];
 
-									GameObject* o = PrefabManager::getInstance()->Instantiate(prop["value"], scene, nullptr, Vector3(mapObj["x"] / divPos, 0, mapObj["y"] / divPos),scale );
+									cout << "Instanciado objeto: " << prop["value"] << " en la posicion " << mapObj["x"]  << " , " << (int)mapObj["y"] / (int)divPos << endl;
+									GameObject* o = PrefabManager::getInstance()->Instantiate(prop["value"], scene, nullptr, Vector3(mapObj["x"] / divPos, 0, (int)mapObj["y"] / (int)divPos),objScale * scale );
 
+										
 									////Si existe un prefab con el nombre, lo rellenamos
 									//if (o != nullptr) {
 									//	mapScene->Add(o);

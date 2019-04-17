@@ -1,0 +1,21 @@
+#pragma once
+#include <vector>
+#include "Room.h"
+
+class RoomManager
+{
+private:
+	static RoomManager* instance;
+
+	Room* currRoom = nullptr;
+	std::list<Room*> rooms;
+	
+	Room* AddRoom(int index);
+public:
+	RoomManager();
+	~RoomManager();
+	static RoomManager* getInstance();
+
+	Room* GetRoom(int index);
+};
+
