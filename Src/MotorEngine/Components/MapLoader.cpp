@@ -32,6 +32,8 @@ void MapLoader::LoadFromFile(json obj)
 						scale = obj["scale"];
 					cout << "Scala del mapa: " << scale << endl;
 					for (auto &mapObj : pref["objects"]){
+						json newObj; //Objeto que vamos a construir, basicamente vamos a "construir" uno 
+
 						//Recorre Properties
 						if (mapObj.contains("properties")) {
 							// Crea el objeto a escala 1 e y 0
@@ -56,6 +58,7 @@ void MapLoader::LoadFromFile(json obj)
 									//	cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
 									//}
 								}
+
 							}
 						}
 					}
