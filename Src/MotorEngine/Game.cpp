@@ -5,6 +5,7 @@
 #include "TimeManager.h"
 #include "GameSceneManager.h"
 #include "AudioManager.h"
+#include "GUIManager.h"
 
 
 Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BLANKSTRING), mPluginsCfg(Ogre::BLANKSTRING), componentLoader(_componentLoader)
@@ -114,6 +115,12 @@ void Game::InitWindow()
 
 	//Crear ventana
 	mWindow = mRoot->initialise(true, "SMSM");
+
+	//Comentado porque no funciona correctamente
+
+	//GUIManager::Instance(mWindow, this);
+
+	//GUIManager::Instance()->Initialize();
 }
 
 // Bucle del juego
@@ -153,7 +160,7 @@ void Game::Play()
 		if (mInputM->getKeyDown(OIS::KeyCode::KC_A)) std::cout << "Pulsado A" << std::endl;
 		if (mInputM->getKey(OIS::KeyCode::KC_A)) std::cout << "Mantenido A" << std::endl;
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_A)) std::cout << "Levantado A" << std::endl;*/
-		
+		if (mInputM->getKeyUp(OIS::KeyCode::KC_ESCAPE)) endGame = true;
 	}
 }
 

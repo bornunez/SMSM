@@ -19,7 +19,7 @@ PhysicsManager::PhysicsManager()
 	//CreateRaycast(btVector3{ -10, 0, -10 }, btVector3{ 10, 10, 20 }, false, "RaycastTest");
 
 #ifdef _DEBUG
-	debug_ = true;
+	//debug_ = true;
 #endif
 
 	std::cout << " -- Physics world initialized -- " << std::endl;

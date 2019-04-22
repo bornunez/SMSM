@@ -27,6 +27,7 @@
     <ClInclude Include="..\..\Src\MotorEngine\Game.h" />
     <ClInclude Include="..\..\Src\MotorEngine\GameObject.h" />
     <ClInclude Include="..\..\Src\MotorEngine\GameSceneManager.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\GUIManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\InputManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Loaders\ComponentLoader.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Loaders\PrefabManager.h" />
@@ -54,6 +55,7 @@
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\GameSceneManager.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\GUIManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\InputManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Loaders\ComponentLoader.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Loaders\PrefabManager.cpp" />
@@ -132,7 +134,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\src;$(SolutionDir)Dependences\CEGUI\src;$(SolutionDir)Dependences\CEGUI\includes;$(SolutionDir)Dependences\FMOD\inc;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(SolutionDir)Dependences\bullet-2.82-r2704\build3\src;$(SolutionDir)Dependences\OIS\includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\src;$(SolutionDir)Dependences\CEGUI\Build\cegui\include;$(SolutionDir)Dependences\CEGUI\Build\cegui\src;$(SolutionDir)Dependences\FMOD\inc;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(SolutionDir)Dependences\bullet-2.82-r2704\build3\src;$(SolutionDir)Dependences\OIS\includes;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependences\CEGUI\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\lib;$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\build3\lib\$(Configuration);$(SolutionDir)Dependences\OIS\lib;$(LibraryPath)</LibraryPath>
     <IntDir>$(SolutionDir)Inter\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)Libs\MotorEngine\$(Configuration)\</OutDir>
@@ -140,7 +142,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)Dependences\CEGUI\src;$(SolutionDir)Dependences\CEGUI\includes;$(SolutionDir)Dependences\FMOD\inc;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\src;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(SolutionDir)Dependences\bullet-2.82-r2704\build3\src;$(SolutionDir)Dependences\OIS\includes;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Dependences\CEGUI\Build\cegui\include;$(SolutionDir)Dependences\CEGUI\Build\cegui\src;$(SolutionDir)Dependences\FMOD\inc;$(SolutionDir)Dependences\ogre-1.11.5\Build\include;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\src;$(SolutionDir)Dependences\ogre-1.11.5\PlugIns\STBICodec\include;$(SolutionDir)Dependences\ogre-1.11.5\OgreMain\include;$(SolutionDir)Dependences\bullet-2.82-r2704\src;$(SolutionDir)Dependences\bullet-2.82-r2704\build3\src;$(SolutionDir)Dependences\OIS\includes;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Dependences\CEGUI\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\lib;$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(SolutionDir)Dependences\OIS\lib;$(LibraryPath)</LibraryPath>
     <IntDir>$(SolutionDir)Inter\$(Configuration)\</IntDir>
     <OutDir>$(SolutionDir)Libs\MotorEngine\$(Configuration)\</OutDir>
@@ -188,7 +190,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\libs;$(SolutionDir)Dependences\OIS\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\libs;$(SolutionDir)Dependences\OIS\lib;$(SolutionDir)Dependences\CEGUI\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
@@ -212,7 +214,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalLibraryDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\libs;$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(SolutionDir)Dependences\OIS\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Dependences\ogre-1.11.5\Build\lib\$(Configuration);$(SolutionDir)Dependences\FMOD\libs;$(SolutionDir)Dependences\bullet-2.82-r2704\lib\$(Configuration);$(SolutionDir)Dependences\OIS\lib;$(SolutionDir)Dependences\CEGUI\lib\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>

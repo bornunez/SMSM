@@ -48,6 +48,7 @@ public:
 	~Game();
 
 	void Play();
+	void Quit() { endGame = true; }
 
 	Root* getRoot() { return mRoot; }
 	RenderWindow* getRenderWindow() { return mWindow; }

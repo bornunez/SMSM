@@ -111,6 +111,9 @@
     <ClInclude Include="..\..\Src\MotorEngine\myDebugDrawer.h">
       <Filter>Core\Utilities</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\GUIManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
@@ -184,6 +187,9 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\myDebugDrawer.cpp">
       <Filter>Core\Utilities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\GUIManager.cpp">
+      <Filter>Core</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -121,11 +121,14 @@ void Scene::Start()
 	}
 }
 
-// Mueve el cubo a un lado en x.
 void Scene::Update() 
 {
 	PhysicsManager::Instance()->Update();
 
+	// Comentado hasta que funcione
+	//GUIManager::Instance()->Update();
+	
+	
 	//testNode->setPosition(testNode->getPosition().x + 1,testNode->getPosition().y, testNode->getPosition().z);
 
 	//Recorremos los updates de los objetos activos

@@ -2,6 +2,7 @@
 
 #include "Game.h"
 #include "PhysicsManager.h"
+#include "GUIManager.h"
 #include <list>
 #include <queue>
 #include "ResourcesManager/JsonParser.h"

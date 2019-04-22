@@ -14,9 +14,8 @@
 /Dependences/FMOD/lib
 /Dependences/OIS/oisbuild
 /Dependences/OIS/lib
-/Dependences/CEGUI/include
-/Dependences/CEGUI/lib
-/Dependences/CEGUI/src
+/Dependences/CEGUI
+/Dependences/cegui-dependencies
 /Exes/*
 !/Exes/Assets/
 
