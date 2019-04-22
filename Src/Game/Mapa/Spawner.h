@@ -8,9 +8,10 @@ class Spawner : public Component
 private:
 	Room* room;
 	int index = -1;
-	vector<string> enemies;
+	std::vector<string> enemies;
 public:
 	Spawner(GameObject* o);
+	Spawner(GameObject* o,int _index);
 	~Spawner();
 	void LoadFromFile(json obj);
 

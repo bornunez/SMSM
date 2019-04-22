@@ -1,9 +1,9 @@
 #include "Room.h"
 
 
-Room::Room(int _index)
+Room::Room(int _index) : index(_index)
 {
-	index = _index;
+	
 }
 
 Room::~Room()

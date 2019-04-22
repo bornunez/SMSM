@@ -6,6 +6,13 @@ Spawner::Spawner(GameObject* o) : Component(o)
 {
 }
 
+Spawner::Spawner(GameObject * o, int _index) : Component(o), index(_index)
+{
+	//Una vez lo tengamos, nos agregamos a la sala correspondiente
+	room = RoomManager::getInstance()->GetRoom(index);
+	room->AddSpawner(this);
+}
+
 
 Spawner::~Spawner()
 {

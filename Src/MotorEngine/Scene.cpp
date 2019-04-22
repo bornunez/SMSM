@@ -160,6 +160,15 @@ void Scene::Add(Component * c)
 	components.push_back(c);
 }
 
+GameObject * Scene::GenerateEmptyGameObject(string name, GameObject * parent, Vector3 position, float scale)
+{
+	GameObject* o = new GameObject(this, name, true, parent);
+	Add(o);
+	o->setPosition(position);
+	o->setScale(scale);
+	return o;
+}
+
 GameObject* Scene::Instantiate(GameObject * o, Vector3 position, float scale, GameObject * parent)
 {
 	if (o != nullptr) {

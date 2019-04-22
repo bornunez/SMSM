@@ -54,6 +54,8 @@ public:
 	void Update();			// Actualiza la escena
 	void Add(GameObject* o);
 	void Add(Component* c);
+
+	GameObject* GenerateEmptyGameObject(string name, GameObject* parent = nullptr, Vector3 position = { 0,0,0 }, float scale = 1);
 	GameObject* Instantiate(GameObject* o, Vector3 position = { 0,0,0 }, float scale = 1, GameObject* parent = nullptr);
 	GameObject* Instantiate(string prefab, Vector3 position = { 0,0,0 }, float scale = 1, GameObject* parent = nullptr);
 	void Destroy(GameObject* o);
