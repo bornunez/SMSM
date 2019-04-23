@@ -92,7 +92,7 @@ void Scene::LoadFromFile(json sceneFile)
 				//Si existe un prefab con el nombre, lo rellenamos
 				if (o != nullptr) {
 					Add(o);
-					cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
+					cout << "Loaded prefab: " << pref["prefab"] << " succesfully" << endl << endl;
 				}
 			}
 	}

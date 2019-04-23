@@ -80,7 +80,7 @@ public:
 	void AddChild(GameObject* child);
 	std::list<GameObject*> getChilds() { return children; }
 
-
+	void Destroy();
 	//GETS Y SETS
 
 	Scene* getScene() { return scene; }

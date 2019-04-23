@@ -15,6 +15,8 @@ public:
 	~Spawner();
 	void LoadFromFile(json obj);
 
+	void AddEnemy(string e) { enemies.push_back(e); }
+
 	void Spawn();
 };
 

@@ -2,6 +2,7 @@
 #include "MapLoader.h"
 #include "..\Loaders\PrefabManager.h"
 #include "../../../Src/Game/Mapa/Spawner.h"
+#include "../../../Src/Game/Mapa/Entry.h"
 
 
 MapLoader::~MapLoader()
@@ -21,6 +22,7 @@ void MapLoader::LoadFromFile(json obj)
 	cout << "\n\n==================================================\n";
 	cout << "============      CARGA DE MAPA	       ============\n";
 	cout << "==================================================\n\n";
+	int tilewidth = mapFile["tilewidth"];
 
 	if (!mapFile["layers"].empty()) {
 		cout << "Existen GameObjects a cargar" << endl << endl;
@@ -36,8 +38,9 @@ void MapLoader::LoadFromFile(json obj)
 						json newObj; //Objeto que vamos a construir, basicamente vamos a "construir" uno 
 						float objScale = 1;
 						//Numero por el que hay que dividir x e y para obtener posiciones reales
-						int divPos = mapObj["width"];
-						Vector3 pos = Vector3(mapObj["x"] / divPos, 0, (int)mapObj["y"] / (int)divPos);
+						float width = mapObj["width"]/tilewidth;
+						float height = mapObj["height"]/tilewidth;
+						Vector3 pos = Vector3((int)mapObj["x"]/(int)tilewidth + width / 2, 0, (int)mapObj["y"]/(int)tilewidth + height/2);
 
 
 						//Recorre Properties
@@ -56,7 +59,8 @@ void MapLoader::LoadFromFile(json obj)
 									else if (propName == "prefab") {
 										// Crea el prefab asignado al nombre "value"
 										cout << "Instanciado objeto: " << prop["value"] << " en la posicion " << pos.x  << " , " << pos.z << endl;
-										GameObject* o = PrefabManager::getInstance()->Instantiate(prop["value"], scene, nullptr,pos, objScale * scale);		
+										GameObject* o = PrefabManager::getInstance()->Instantiate(prop["value"], scene, nullptr,pos, objScale * scale);	
+										scene->Add(o);
 									}
 
 									else if (propName == "spawner") {
@@ -64,7 +68,23 @@ void MapLoader::LoadFromFile(json obj)
 										int index = prop["value"];
 										GameObject* o = scene->GenerateEmptyGameObject("Spawner", nullptr, pos, objScale * scale);
 										Spawner* s = new Spawner(o,index);
+										for (auto &p : mapObj["properties"]) {
+											if (p["type"] == "bool") {
+												if (p["value"] == true)
+													s->AddEnemy(p["name"]);
+											}
+										}
+
 										o->AddComponent(s);
+									}
+
+									else if (propName == "entry") {
+										//Se genera una nueva entrada con el index asignado
+										int index = prop["value"];
+										GameObject* o = scene->GenerateEmptyGameObject("Entry", nullptr, pos, objScale*scale);
+										Entry* e = new Entry(o, index, width, height);
+										o->AddComponent(e);
+
 									}
 								}
 

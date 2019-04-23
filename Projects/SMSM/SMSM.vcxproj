@@ -25,8 +25,10 @@
     <ClCompile Include="..\..\Src\Game\Componentes\ObstacleRigidBody.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\PlayerMov.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerCollision.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.cpp" />
     <ClCompile Include="..\..\Src\Game\Loader\MyComponentLoader.cpp" />
     <ClCompile Include="..\..\Src\Game\main.cpp" />
+    <ClCompile Include="..\..\Src\Game\Mapa\Entry.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\Room.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\RoomManager.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\Spawner.cpp" />
@@ -44,7 +46,9 @@
     <ClInclude Include="..\..\Src\Game\Componentes\ObstacleRigidBody.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\PlayerMov.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerCollision.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.h" />
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h" />
+    <ClInclude Include="..\..\Src\Game\Mapa\Entry.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Room.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\RoomManager.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Spawner.h" />

@@ -8020,30 +8020,17 @@
                          "name":"spawner",
                          "type":"int",
                          "value":0
+                        }, 
+                        {
+                         "name":"testEnemy",
+                         "type":"bool",
+                         "value":true
                         }],
                  "rotation":0,
                  "type":"",
                  "visible":true,
                  "width":4,
                  "x":88,
-                 "y":176
-                }, 
-                {
-                 "gid":83,
-                 "height":4,
-                 "id":784,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"spawner",
-                         "type":"int",
-                         "value":0
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":4,
-                 "x":124,
                  "y":176
                 }, 
                 {
@@ -8062,6 +8049,115 @@
                  "width":8,
                  "x":104,
                  "y":220
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":846,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"testEnemy",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":124,
+                 "y":176
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":847,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"testEnemy",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":92,
+                 "y":120
+                }, 
+                {
+                 "height":8,
+                 "id":848,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"entry",
+                         "type":"int",
+                         "value":1
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8,
+                 "x":104,
+                 "y":144
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":851,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"testEnemy",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":104,
+                 "y":120
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":852,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":1
+                        }, 
+                        {
+                         "name":"testEnemy",
+                         "type":"bool",
+                         "value":true
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":116,
+                 "y":120
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -8070,7 +8166,7 @@
          "y":0
         }],
  "nextlayerid":5,
- "nextobjectid":846,
+ "nextobjectid":853,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.3",

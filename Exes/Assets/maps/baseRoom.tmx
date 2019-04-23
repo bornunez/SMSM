@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="5" nextobjectid="846">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="5" nextobjectid="853">
  <tileset firstgid="1" source="City.tsx"/>
  <layer id="3" name="Capa de Patrones 1" width="100" height="100">
   <data encoding="base64" compression="zlib">
@@ -2228,16 +2228,41 @@
   <object id="783" gid="83" x="88" y="176" width="4" height="4">
    <properties>
     <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="784" gid="83" x="124" y="176" width="4" height="4">
-   <properties>
-    <property name="spawner" type="int" value="0"/>
+    <property name="testEnemy" type="bool" value="true"/>
    </properties>
   </object>
   <object id="787" x="104" y="220" width="8" height="8">
    <properties>
     <property name="entry" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="846" gid="83" x="124" y="176" width="4" height="4">
+   <properties>
+    <property name="spawner" type="int" value="0"/>
+    <property name="testEnemy" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="847" gid="83" x="92" y="120" width="4" height="4">
+   <properties>
+    <property name="spawner" type="int" value="1"/>
+    <property name="testEnemy" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="848" x="104" y="144" width="8" height="8">
+   <properties>
+    <property name="entry" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="851" gid="83" x="104" y="120" width="4" height="4">
+   <properties>
+    <property name="spawner" type="int" value="1"/>
+    <property name="testEnemy" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="852" gid="83" x="116" y="120" width="4" height="4">
+   <properties>
+    <property name="spawner" type="int" value="1"/>
+    <property name="testEnemy" type="bool" value="true"/>
    </properties>
   </object>
  </objectgroup>

@@ -69,6 +69,12 @@
     <ClCompile Include="..\..\Src\Game\Mapa\Spawner.cpp">
       <Filter>Mapa</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Mapa\Entry.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.cpp">
+      <Filter>Componentes\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -103,6 +109,12 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Mapa\Spawner.h">
       <Filter>Mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Mapa\Entry.h">
+      <Filter>Mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.h">
+      <Filter>Componentes\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
