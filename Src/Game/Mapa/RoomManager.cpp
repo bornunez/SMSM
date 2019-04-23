@@ -7,6 +7,7 @@ Room * RoomManager::AddRoom(int index)
 	cout << "Creando sala [ " << index << " ]" << endl;
 	Room* r = new Room(index);
 	rooms.push_back(r);
+
 	return r;
 }
 
