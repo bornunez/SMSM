@@ -6,6 +6,8 @@ Room * RoomManager::AddRoom(int index)
 {
 	Room* r = new Room(index);
 	rooms.push_back(r);
+
+	return r;
 }
 
 RoomManager::RoomManager()

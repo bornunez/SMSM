@@ -79,9 +79,6 @@ void GUIManager::checkKeys()
 void GUIManager::Initialize()
 {
 	// Init CEGUI System
-	//CEGUI::System::create(CEGUI::OgreRenderer::bootstrapSystem(*static_cast<Ogre::RenderTarget*>(renderWindow_)));
-	//CEGUI::OgreRenderer::create();
-
 	renderer_ = &CEGUI::OgreRenderer::bootstrapSystem(*static_cast<Ogre::RenderTarget*>(renderWindow_));
 
 	// Load CEGUI Resources
