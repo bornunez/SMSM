@@ -118,9 +118,9 @@ void Game::InitWindow()
 
 	//Comentado porque no funciona correctamente
 
-	//GUIManager::Instance(mWindow, this);
+	GUIManager::Instance(mWindow, this);
 
-	//GUIManager::Instance()->Initialize();
+	GUIManager::Instance()->Initialize();
 }
 
 // Bucle del juego
