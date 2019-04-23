@@ -92,7 +92,7 @@ void Scene::LoadFromFile(json sceneFile)
 				//Si existe un prefab con el nombre, lo rellenamos
 				if (o != nullptr) {
 					Add(o);
-					cout << "Loaded prefab: " << pref["prefabName"] << " succesfully" << endl << endl;
+					cout << "Loaded prefab: " << pref["prefab"] << " succesfully" << endl << endl;
 				}
 			}
 	}
@@ -161,6 +161,15 @@ void Scene::Add(GameObject * o)
 void Scene::Add(Component * c)
 {
 	components.push_back(c);
+}
+
+GameObject * Scene::GenerateEmptyGameObject(string name, GameObject * parent, Vector3 position, float scale)
+{
+	GameObject* o = new GameObject(this, name, true, parent);
+	Add(o);
+	o->setPosition(position);
+	o->setScale(scale);
+	return o;
 }
 
 GameObject* Scene::Instantiate(GameObject * o, Vector3 position, float scale, GameObject * parent)

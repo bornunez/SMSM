@@ -6,7 +6,7 @@ material SMSM/Skybox
         {
             texture_unit
             {
-            texture sky.jpg
+                texture sky.jpg
             }
         }   
     }

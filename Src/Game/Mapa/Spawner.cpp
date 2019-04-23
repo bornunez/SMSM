@@ -1,9 +1,17 @@
 #include "Spawner.h"
 #include "Room.h"
 #include "RoomManager.h"
+#include "../../../Src/MotorEngine/Scene.h"
 
 Spawner::Spawner(GameObject* o) : Component(o)
 {
+}
+
+Spawner::Spawner(GameObject * o, int _index) : Component(o), index(_index)
+{
+	//Una vez lo tengamos, nos agregamos a la sala correspondiente
+	room = RoomManager::getInstance()->GetRoom(index);
+	room->AddSpawner(this);
 }
 
 
@@ -31,5 +39,6 @@ void Spawner::LoadFromFile(json obj)
 
 void Spawner::Spawn()
 {
-
+	int rnd = rand() % enemies.size();
+	scene->Instantiate(enemies.at(rnd), gameObject->getPosition()+Vector3(0,1,0),0.5);
 }
