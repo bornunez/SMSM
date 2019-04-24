@@ -117,10 +117,10 @@ void Game::InitWindow()
 	mWindow = mRoot->initialise(true, "SMSM");
 
 	//Comentado porque no funciona correctamente
-
+#ifdef NDEBUG
 	GUIManager::Instance(mWindow, this);
-
 	GUIManager::Instance()->Initialize();
+#endif
 }
 
 // Bucle del juego
@@ -130,8 +130,8 @@ void Game::Play()
 	//Inicializacion del audio
 	AudioManager::getInstance()->init();
 	// Scenes
-	sceneManager->LoadScene("mainScene"); // Load the scene
-	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
+	//sceneManager->LoadScene("mainScene"); // Load the scene
+	//sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
 
 	// Another scene to test changing between scenes
 	//sceneManager->LoadScene("secondScene"); // Load the scene
@@ -139,8 +139,11 @@ void Game::Play()
 
 	while (!endGame) {
 		MessagePump();
-		mWindow->update(); 
+		mWindow->update();
 		TimeManager::getInstance()->Update();
+#ifdef NDEBUG
+		GUIManager::Instance()->Update();
+#endif
 		//printf(" PRE RENDER");
 		mRoot->renderOneFrame();
 
@@ -151,17 +154,19 @@ void Game::Play()
 			sceneManager->GetActiveScene()->Update();
 		}
 
-		//cout << mInputM->getMouseX() << " " << mInputM->getMouseY() << std::endl;
-		
-		/*if (mInputM->getMouseButtonDown(OIS::MouseButtonID::MB_Left)) std::cout << "Pulsado raton" << std::endl;
-		else if (mInputM->getMouseButton(OIS::MouseButtonID::MB_Left)) std::cout << "Mantenido raton" << std::endl;
-		else if (mInputM->getMouseButtonUp(OIS::MouseButtonID::MB_Left)) std::cout << "Levantado raton" << std::endl;
-
-		if (mInputM->getKeyDown(OIS::KeyCode::KC_A)) std::cout << "Pulsado A" << std::endl;
-		if (mInputM->getKey(OIS::KeyCode::KC_A)) std::cout << "Mantenido A" << std::endl;
-		if (mInputM->getKeyUp(OIS::KeyCode::KC_A)) std::cout << "Levantado A" << std::endl;*/
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_ESCAPE)) endGame = true;
 	}
+}
+
+void Game::Quit()
+{
+	endGame = true;
+}
+
+void Game::LoadScene(std::string scene)
+{
+	sceneManager->LoadScene(scene);		// Load the scene
+	sceneManager->ChangeScene(scene);	// Set it to active (makes this the current active scene)
 }
 
 // Permite actuar con el raton sobre la ventana

@@ -41,14 +41,13 @@ private:
 	void InitWindow();
 	void MessagePump();
 
-
-	
 public:
 	Game(ComponentLoader* _componentLoader);
 	~Game();
 
 	void Play();
-	void Quit() { endGame = true; }
+	void Quit();
+	void LoadScene(std::string scene);
 
 	Root* getRoot() { return mRoot; }
 	RenderWindow* getRenderWindow() { return mWindow; }

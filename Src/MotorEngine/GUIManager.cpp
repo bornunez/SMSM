@@ -1,5 +1,4 @@
 #include "GUIManager.h"
-
 #include "Game.h"
 
 GUIManager* GUIManager::instance_ = nullptr;
@@ -7,23 +6,30 @@ GUIManager* GUIManager::instance_ = nullptr;
 GUIManager::GUIManager(Ogre::RenderWindow* w, Game* g)
 {
 	renderWindow_ = w;
+	g_ = g;
 
 	// Registramos las funciones de los botones con un nombre distintivo en un diccionario de funciones
-	functions["exit"] = &GUIManager::Exit;
-	functions["pause"] = &GUIManager::togglePause;
-	functions["menu"] = &GUIManager::toggleMenu;
+	functions["exit"]		= &GUIManager::Exit;
+	functions["mainScene"]	= &GUIManager::InitMainScene;
+	functions["pause"]		= &GUIManager::togglePause;
+	functions["menu"]		= &GUIManager::toggleMenu;
 }
 
 GUIManager::~GUIManager()
 {
+	// toDo: release memory
+
+
+
+	CEGUI::OgreRenderer::destroySystem();
 }
 
 GUIManager * GUIManager::Instance(Ogre::RenderWindow* w, Game* g)
 {
+	// Para no sobreescribir una instancia del GUIManager
 	if (instance_ == nullptr) {
 		instance_ = new GUIManager(w, g);
 	}
-
 	return instance_;
 }
 
@@ -45,7 +51,7 @@ void GUIManager::checkMouse()
 	if (InputManager::getInstance()->getMouseButtonDown(OIS::MouseButtonID::MB_Left)) {
 		CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseButtonDown(CEGUI::MouseButton::LeftButton);
 	}
-	else if (InputManager::getInstance()->getMouseButtonUp(OIS::MouseButtonID::MB_Left)) {
+	else if (!gameEnded && InputManager::getInstance()->getMouseButtonUp(OIS::MouseButtonID::MB_Left)) {
 		CEGUI::System::getSingleton().getDefaultGUIContext().injectMouseButtonUp(CEGUI::MouseButton::LeftButton);
 	}
 
@@ -104,40 +110,53 @@ void GUIManager::Initialize()
 	// Todo esto debe cargarse desde un archivo que modificamos desde un archivo
 
 
-	////Main menu window
-	//{
-	//	menuWnd = static_cast<CEGUI::FrameWindow*>(wmgr.createWindow("TaharezLook/FrameWindow", "testWindow"));
-	//	myRoot->addChild(menuWnd);
-	//	menuWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
-	//	menuWnd->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
-	//	menuWnd->setTitleBarEnabled(false);
-	//	menuWnd->setCloseButtonEnabled(false);
+	//Main menu window
+	{
+		menuWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "testWindow"));
+		myRoot->addChild(menuWnd);
+		menuWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
+		menuWnd->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
+		menuWnd->setTitleBarEnabled(false);
+		menuWnd->setCloseButtonEnabled(false);
 
-	//	//Main menu buttons
-	//	{
-	//		CEGUI::Window *quit = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
-	//		menuWnd->addChild(quit);
-	//		quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
-	//		quit->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-	//		quit->setText("Quit");
-	//		quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&GUIManager::Exit, this));
+		//Main menu buttons
+		{
+			CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+			menuWnd->addChild(quit);
+			quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
+			quit->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+			quit->setText("Quit");
+			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["exit"], this));
 
-	//		CEGUI::Window *start = wmgr.createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
-	//		menuWnd->addChild(start);
-	//		start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
-	//		start->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-	//		start->setText("Start");
-	//		start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(&GUIManager::toggleMenu, this));
-	//	}
-	//}
+			CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+			menuWnd->addChild(start);
+			start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
+			start->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+			start->setText("Start");
+			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["mainScene"], this));
+		}
+	}
 }
 
 
 
 void GUIManager::Exit()
 {
-	g_->Quit();
-	CEGUI::OgreRenderer::destroySystem();
+	if (g_ != nullptr) {
+		gameEnded = true;
+		g_->Quit();
+		//CEGUI::OgreRenderer::destroySystem();
+	}
+	else
+		std::cout << "El puntero a game es nulo but why" << std::endl;
+}
+
+void GUIManager::InitMainScene()
+{
+	if (g_ != nullptr)
+		g_->LoadScene("mainScene");
+	else
+		std::cout << "El puntero a game es nulo but why" << std::endl;
 }
 
 void GUIManager::ToggleWindow(std::string wndName)

@@ -15,27 +15,6 @@ Scene::Scene(Game* _g) : g(_g)
 	// Crea el nodo de la escena como hijo de root
 	sceneNode = mSceneManager->getRootSceneNode()->createChildSceneNode();
 
-	// Crear la camara
-	//cam = mSceneManager->createCamera("Cam");
-	//cam->setNearClipDistance(0.01);
-
-	//mCamNode = mSceneManager->getRootSceneNode()->createChildSceneNode("nCam");
-	//mCamNode->attachObject(cam);
-
-	//mCamNode->setPosition(10 * 0.5, 1, 10 * 0.5+5);
-	//mCamNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
-
-	// Crear ViewPort
-	//Ogre::Viewport* vp = g->getRenderWindow()->addViewport(cam);
-
-	//vp = g->getViewport();
-	//vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
-
-	//cam->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
-
-	//AudioManager* audioManager = new AudioManager();
-	//audioManager->playSound("CorazonPartio", false, 1, CHANNEL::Default);
-
 	myDebugDrawer::Instance(mSceneManager);
 }
 
@@ -124,10 +103,6 @@ void Scene::Start()
 void Scene::Update() 
 {
 	PhysicsManager::Instance()->Update();
-
-	// Comentado hasta que funcione
-	//GUIManager::Instance()->Update();
-	
 	
 	//testNode->setPosition(testNode->getPosition().x + 1,testNode->getPosition().y, testNode->getPosition().z);
 
