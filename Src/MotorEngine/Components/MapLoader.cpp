@@ -3,6 +3,7 @@
 #include "..\Loaders\PrefabManager.h"
 #include "../../../Src/Game/Mapa/Spawner.h"
 #include "../../../Src/Game/Mapa/Entry.h"
+#include "../../../Src/Game/Mapa/RoomManager.h"
 
 
 MapLoader::~MapLoader()
@@ -45,12 +46,12 @@ void MapLoader::LoadFromFile(json obj)
 
 						//Recorre Properties
 						if (mapObj.contains("properties")) {
+							GameObject* o = scene->GenerateEmptyGameObject("Empty", nullptr, pos, objScale*scale);
 							// Crea el objeto a escala 1 e y 0
 							for (auto &prop : mapObj["properties"]) {
 
 								if (prop.contains("name")) {
 									string propName = prop["name"];
-
 									//Escala del objeto local al mapa
 									if (propName == "scale")
 										objScale = prop["value"];
@@ -59,14 +60,14 @@ void MapLoader::LoadFromFile(json obj)
 									else if (propName == "prefab") {
 										// Crea el prefab asignado al nombre "value"
 										cout << "Instanciado objeto: " << prop["value"] << " en la posicion " << pos.x  << " , " << pos.z << endl;
-										GameObject* o = PrefabManager::getInstance()->Instantiate(prop["value"], scene, nullptr,pos, objScale * scale);	
-										scene->Add(o);
+										o = PrefabManager::getInstance()->Instantiate(prop["value"], scene, nullptr,pos, objScale * scale,o);
 									}
 
 									else if (propName == "spawner") {
 										//Generamos un spawner
 										int index = prop["value"];
-										GameObject* o = scene->GenerateEmptyGameObject("Spawner", nullptr, pos, objScale * scale);
+										o->setName("Spawner");
+
 										Spawner* s = new Spawner(o,index);
 										for (auto &p : mapObj["properties"]) {
 											if (p["type"] == "bool") {
@@ -81,11 +82,19 @@ void MapLoader::LoadFromFile(json obj)
 									else if (propName == "entry") {
 										//Se genera una nueva entrada con el index asignado
 										int index = prop["value"];
-										GameObject* o = scene->GenerateEmptyGameObject("Entry", nullptr, pos, objScale*scale);
+										o->setName("Entry");
 										Entry* e = new Entry(o, index, width, height);
 										o->AddComponent(e);
 
 									}
+
+									else if (propName == "gate") {
+										int index = prop["value"];
+										o->setName("Gate");
+										o->SetActive(false);
+										RoomManager::getInstance()->getInstance()->GetRoom(index)->AddGate(o);
+									}
+									
 								}
 
 							}

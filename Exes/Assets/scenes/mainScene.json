@@ -48,6 +48,15 @@
 			]
 		},
 		{
+			"name":"RoomSkip",
+			"active":true,
+			"components":[
+				{
+					"type":"SkipRoom"
+				}
+			]
+		},
+		{
 			"name":"Plane",
 			"position":{"x":50,"y":-0.1,"z":50},
 			"scale":100,

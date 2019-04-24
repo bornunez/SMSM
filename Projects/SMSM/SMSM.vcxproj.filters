@@ -75,6 +75,9 @@
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.cpp">
       <Filter>Componentes\Player</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Mapa\SkipRoom.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -115,6 +118,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.h">
       <Filter>Componentes\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Mapa\SkipRoom.h">
+      <Filter>Mapa</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -1,6 +1,7 @@
 #include "MyComponentLoader.h"
 #include "../Components/ExampleComp.h"
 #include "../../../Src/MotorEngine/Components/MyLight.h"
+#include "../Mapa/SkipRoom.h"
 
 MyComponentLoader::MyComponentLoader()
 {
@@ -46,12 +47,14 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new MyCamera(gameObject);
 	else if (c_type == "Light")
 		c = new MyLight(gameObject);
-	else if (c_type == "PlayerMov") 
+	else if (c_type == "PlayerMov")
 		c = new PlayerMov(gameObject);
 	else if (c_type == "PlayerCollision")
 		c = new PlayerCollision(gameObject);
 	else if (c_type == "testEnemy")
 		c = new EnemyTest(gameObject);
+	else if (c_type == "SkipRoom")
+		c = new SkipRoom(gameObject);
 
 
 	if (c != nullptr) {

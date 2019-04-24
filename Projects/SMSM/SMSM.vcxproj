@@ -31,6 +31,7 @@
     <ClCompile Include="..\..\Src\Game\Mapa\Entry.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\Room.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\RoomManager.cpp" />
+    <ClCompile Include="..\..\Src\Game\Mapa\SkipRoom.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\Spawner.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\EnemyRigidBody.cpp" />
   </ItemGroup>
@@ -51,6 +52,7 @@
     <ClInclude Include="..\..\Src\Game\Mapa\Entry.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Room.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\RoomManager.h" />
+    <ClInclude Include="..\..\Src\Game\Mapa\SkipRoom.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Spawner.h" />
     <ClInclude Include="..\..\Src\MotorEngine\EnemyRigidBody.h" />
   </ItemGroup>

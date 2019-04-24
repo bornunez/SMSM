@@ -8048,7 +8048,7 @@
                  "visible":true,
                  "width":8,
                  "x":104,
-                 "y":220
+                 "y":212
                 }, 
                 {
                  "gid":83,
@@ -8164,9 +8164,112 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":5,
+         "name":"Puertas",
+         "objects":[
+                {
+                 "gid":139,
+                 "height":4,
+                 "id":853,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"Tree2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":104,
+                 "y":164
+                }, 
+                {
+                 "gid":139,
+                 "height":4,
+                 "id":855,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"Tree2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":108,
+                 "y":164
+                }, 
+                {
+                 "gid":139,
+                 "height":4,
+                 "id":856,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"Tree2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":188,
+                 "y":224
+                }, 
+                {
+                 "gid":139,
+                 "height":4,
+                 "id":857,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":0
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"Tree2"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":192,
+                 "y":224
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":5,
- "nextobjectid":853,
+ "nextlayerid":6,
+ "nextobjectid":858,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.3",
