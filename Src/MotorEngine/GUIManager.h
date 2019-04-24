@@ -24,6 +24,8 @@ public:
 
 	void Initialize();	
 	void ToggleWindow(std::string wndName);
+	void HideWindow(std::string wndName);
+	void ShowWindow(std::string wndName);
 	void AddWindow(std::string wndName);
 	void CreateButton(std::string stateWnd, std::string buttonScheme, std::string image, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName);
 
@@ -32,7 +34,7 @@ public:
 	void Exit();
 	void InitMainScene();
 
-	//void destroySystem() { CEGUI::OgreRenderer::destroySystem(); }
+	bool getGameOn() { return gameHUD; }
 
 private:
 	static GUIManager * instance_;
@@ -50,6 +52,8 @@ private:
 	CEGUI::FrameWindow* gameWnd;
 
 	bool gameHUD = false;
+	bool pauseHUD = false;
+	bool menuHUD = false;
 
 	Ogre::RenderWindow* renderWindow_ = nullptr;
 	Game* g_ = nullptr;

@@ -36,7 +36,7 @@ GUIManager * GUIManager::Instance(Ogre::RenderWindow* w, Game* g)
 void GUIManager::Update()
 {
 	checkKeys();
-	checkMouse();
+	checkMouse();	
 }
 
 void GUIManager::checkMouse()
@@ -74,11 +74,14 @@ void GUIManager::checkMouse()
 
 void GUIManager::checkKeys()
 {
-	if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_ESCAPE)) {		//ESCAPE es el unico boton de teclado que queremos reconocer en los menus (para entrar o salir de la pausa)
-		CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyDown((CEGUI::Key::Scan)OIS::KeyCode::KC_ESCAPE);
-	}
-	else if (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_ESCAPE)) {
-		CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyUp((CEGUI::Key::Scan)OIS::KeyCode::KC_ESCAPE);
+	if (gameHUD) {
+		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_ESCAPE)) {		//ESCAPE es el unico boton de teclado que queremos reconocer en los menus (para entrar o salir de la pausa)
+			CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyDown((CEGUI::Key::Scan)OIS::KeyCode::KC_ESCAPE);			
+		}
+		else if (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_ESCAPE)) {
+			CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyUp((CEGUI::Key::Scan)OIS::KeyCode::KC_ESCAPE);
+			togglePause();
+		}
 	}
 }
 
@@ -112,10 +115,10 @@ void GUIManager::Initialize()
 
 	//Main menu window
 	{
-		menuWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "testWindow"));
+		menuWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "menuWindow"));
 		myRoot->addChild(menuWnd);
 		menuWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
-		menuWnd->setSize(CEGUI::USize(CEGUI::UDim(1.0f, 1.0f), CEGUI::UDim(1.0f, 1.0f)));
+		menuWnd->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
 		menuWnd->setTitleBarEnabled(false);
 		menuWnd->setCloseButtonEnabled(false);
 
@@ -136,35 +139,39 @@ void GUIManager::Initialize()
 			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["mainScene"], this));
 		}
 
+		stateWnds["mainMenu"] = menuWnd;
 		activeWnd = menuWnd;
 	}
 
-	////Main menu window
-	//{
-	//	pauseWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "testWindow"));
-	//	myRoot->addChild(pauseWnd);
-	//	pauseWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(0.2f, 0.2f), CEGUI::UDim(0.2f, 0.2f)));
-	//	pauseWnd->setSize(CEGUI::USize(CEGUI::UDim(0.6f, 0.6f), CEGUI::UDim(0.6f, 0.6f)));
-	//	pauseWnd->setTitleBarEnabled(false);
-	//	pauseWnd->setCloseButtonEnabled(false);
+	//Pause menu window
+	{
+		pauseWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "pauseWindow"));
+		myRoot->addChild(pauseWnd);
+		pauseWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(0.2f, 0.2f), CEGUI::UDim(0.2f, 0.2f)));
+		pauseWnd->setSize(CEGUI::USize(CEGUI::UDim(0.6f, 0.6f), CEGUI::UDim(0.6f, 0.6f)));
+		pauseWnd->setTitleBarEnabled(false);
+		pauseWnd->setCloseButtonEnabled(false);
 
-	//	//Pause menu buttons
-	//	{
-	//		CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
-	//		pauseWnd->addChild(quit);
-	//		quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
-	//		quit->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-	//		quit->setText("Quit");
-	//		quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["exit"], this));
+		//Pause menu buttons
+		{
+			CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+			pauseWnd->addChild(quit);
+			quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.4f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
+			quit->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
+			quit->setText("Menu");
+			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
+			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["menu"], this));			
 
-	//		CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
-	//		pauseWnd->addChild(start);
-	//		start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
-	//		start->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-	//		start->setText("Start");
-	//		start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["mainScene"], this));
-	//	}
-	//}
+			CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+			pauseWnd->addChild(start);
+			start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.4f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
+			start->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
+			start->setText("Continue");
+			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
+		}
+		stateWnds["pauseMenu"] = pauseWnd;
+		pauseWnd->hide();
+	}
 }
 
 
@@ -174,18 +181,16 @@ void GUIManager::Exit()
 	if (g_ != nullptr) {
 		gameEnded = true;
 		g_->Quit();
-		//CEGUI::OgreRenderer::destroySystem();
 	}
-	else
-		std::cout << "El puntero a game es nulo but why" << std::endl;
 }
 
 void GUIManager::InitMainScene()
 {
-	if (g_ != nullptr)
+	if (g_ != nullptr) {
+		HideWindow("mainMenu");
+		gameHUD = true;
 		g_->LoadScene("mainScene");
-	else
-		std::cout << "El puntero a game es nulo but why" << std::endl;
+	}
 }
 
 void GUIManager::ToggleWindow(std::string wndName)
@@ -204,6 +209,26 @@ void GUIManager::ToggleWindow(std::string wndName)
 			activeWnd = stateWnds[wndName];			//Ponemos la nueva como la activa
 			activeWnd->show();						//Activamos la nueva
 		}
+	}
+}
+
+void GUIManager::HideWindow(std::string wndName)
+{
+	if (stateWnds[wndName] != nullptr) {
+		stateWnds[wndName]->hide();
+	}
+	else {
+		std::cout << "No se encuentra la ventana en el diccionario" << std::endl;
+	}
+}
+
+void GUIManager::ShowWindow(std::string wndName)
+{
+	if (stateWnds[wndName] != nullptr) {
+		stateWnds[wndName]->show();
+	}
+	else {
+		std::cout << "No se encuentra la ventana en el diccionario" << std::endl;
 	}
 }
 
@@ -239,10 +264,28 @@ void GUIManager::CreateButton(std::string stateWnd ,std::string buttonScheme, st
 
 void GUIManager::toggleMenu()
 {
-	ToggleWindow("menu");
+	if (menuHUD) {
+		HideWindow("mainMenu");
+		gameHUD = true;
+	}
+	else {
+		ShowWindow("mainMenu");
+		gameHUD = false;
+	}
+
+	menuHUD = !menuHUD;
 }
 
 void GUIManager::togglePause()
-{
-	ToggleWindow("pause");
+{	
+	if (pauseHUD) {
+		HideWindow("pauseMenu");
+		gameHUD = true;
+	}
+	else {
+		ShowWindow("pauseMenu");
+		gameHUD = false;
+	}
+
+	pauseHUD = !pauseHUD;
 }

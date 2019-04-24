@@ -16,8 +16,6 @@ PhysicsManager::PhysicsManager()
 
 	_world->setGravity(btVector3(0, -40, 0));
 
-	//CreateRaycast(btVector3{ -10, 0, -10 }, btVector3{ 10, 10, 20 }, false, "RaycastTest");
-
 #ifdef _DEBUG
 	//debug_ = true;
 #endif
@@ -473,8 +471,8 @@ btRigidBody * PhysicsManager::CreatePhysicObject(btCollisionShape* collisionShap
 	body->setRestitution(restitutionFactor);
 
 
-	//_world->addRigidBody(body);
-	//_bodies.push_back(body);
+	_world->addRigidBody(body);
+	_bodies.push_back(body);
 	body->setUserPointer(node);
 
 	return body;
