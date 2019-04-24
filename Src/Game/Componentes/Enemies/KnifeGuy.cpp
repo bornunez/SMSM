@@ -39,12 +39,12 @@ void KnifeGuy::LoadFromFile(json obj)
 
 void KnifeGuy::Update()
 {
-	if (estado = state::ALIVE) {
+	if (estado == state::ALIVE) {
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		auxVec.normalise(); 
 		auxVec*=moveSpeed;
 
-		rb->applyCentralImpulse({auxVec.x, auxVec.y, auxVec.z});
+		rb->applyCentralImpulse({auxVec.x, auxVec.y, 0});
 	}
 }
 
@@ -58,7 +58,7 @@ void KnifeGuy::OnHit() {
 void KnifeGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
-	meshRend->PlayAnimation("Death", true);
+	meshRend->PlayAnimation("Death", false);
 }
 
 void KnifeGuy::Spawn()

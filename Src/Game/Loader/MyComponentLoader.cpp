@@ -54,7 +54,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new EnemyRigidBody(gameObject);
 	else if (c_type == "KnifeGuy")
 		c = new KnifeGuy(gameObject);
-
+	else if (c_type == "ShyGuy")
+		c = new ShyGuy(gameObject);
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);

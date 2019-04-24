@@ -1,0 +1,37 @@
+{
+	"prefabName":"ShyGuy",
+	"name":"ShyGuy",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"BichoVolador.mesh"
+		},
+		{
+			"type":"ShyGuy",
+			"moveSpeed":0.6,
+			"dist":3,
+			"gravity":-15,
+			"linDamp":0.2,
+			"angDamp":0.2
+		},
+		{
+			"type":"EnemyRigidBody",
+			"shape":0,
+			"id":0,
+			"mass":1,
+			"restFactor":0.5,
+			"positionX":-2,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0,
+			"offsetZ":0,
+			"isTrigger":true,
+			"sizeX": 0.4,
+			"sizeY": 0.4,
+			"sizeZ": 0.4
+		}
+	]
+}
