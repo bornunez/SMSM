@@ -151,6 +151,7 @@ void GUIManager::Initialize()
 		pauseWnd->setSize(CEGUI::USize(CEGUI::UDim(0.6f, 0.6f), CEGUI::UDim(0.6f, 0.6f)));
 		pauseWnd->setTitleBarEnabled(false);
 		pauseWnd->setCloseButtonEnabled(false);
+		pauseWnd->setSizingEnabled(false);
 
 		//Pause menu buttons
 		{
