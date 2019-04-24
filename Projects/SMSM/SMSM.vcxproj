@@ -21,7 +21,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp" />
     <ClCompile Include="..\..\Src\Game\Armas\WeaponBullet.cpp" />
-    <ClCompile Include="..\..\Src\Game\Componentes\EnemyTest.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\Enemy.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\EnemyRigidBody.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\EnemyTest.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\KnifeGuy.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\ObstacleRigidBody.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\PlayerMov.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerCollision.cpp" />
@@ -33,7 +37,6 @@
     <ClCompile Include="..\..\Src\Game\Mapa\RoomManager.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\SkipRoom.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\Spawner.cpp" />
-    <ClCompile Include="..\..\Src\MotorEngine\EnemyRigidBody.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MotorEngine\MotorEngine.vcxproj">
@@ -43,7 +46,11 @@
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Armas\Weapon.h" />
     <ClInclude Include="..\..\Src\Game\Armas\WeaponBullet.h" />
-    <ClInclude Include="..\..\Src\Game\Componentes\EnemyTest.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\Enemy.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\EnemyRigidBody.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\EnemyTest.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\KnifeGuy.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\ObstacleRigidBody.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\PlayerMov.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerCollision.h" />
@@ -54,7 +61,6 @@
     <ClInclude Include="..\..\Src\Game\Mapa\RoomManager.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\SkipRoom.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Spawner.h" />
-    <ClInclude Include="..\..\Src\MotorEngine\EnemyRigidBody.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

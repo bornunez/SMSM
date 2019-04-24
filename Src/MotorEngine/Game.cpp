@@ -117,10 +117,10 @@ void Game::InitWindow()
 	mWindow = mRoot->initialise(true, "SMSM");
 
 	//Comentado porque no funciona correctamente
-//#ifdef NDEBUG
-//	GUIManager::Instance(mWindow, this);
-//	GUIManager::Instance()->Initialize();
-//#endif
+#ifdef NDEBUG
+	GUIManager::Instance(mWindow, this);
+	GUIManager::Instance()->Initialize();
+#endif
 }
 
 // Bucle del juego
@@ -130,8 +130,8 @@ void Game::Play()
 	//Inicializacion del audio
 	AudioManager::getInstance()->init();
 	// Scenes
-	sceneManager->LoadScene("mainScene"); // Load the scene
-	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
+	//sceneManager->LoadScene("mainScene"); // Load the scene
+	//sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
 
 	// Another scene to test changing between scenes
 	//sceneManager->LoadScene("secondScene"); // Load the scene
@@ -139,22 +139,29 @@ void Game::Play()
 
 	while (!endGame) {
 		MessagePump();
-		mWindow->update();
-		TimeManager::getInstance()->Update();
-//#ifdef NDEBUG
-//		GUIManager::Instance()->Update();
-//#endif
-		//printf(" PRE RENDER");
+		
+#ifdef NDEBUG
+		GUIManager::Instance()->Update();
+#endif
 		mRoot->renderOneFrame();
 
-		// Current scene update
-		if (sceneManager->GetActiveScene() != nullptr) {
-			if (!sceneManager->GetActiveScene()->IsStarted())
-				sceneManager->GetActiveScene()->Start();
-			sceneManager->GetActiveScene()->Update();
+		if (GUIManager::Instance()->getGameOn()) {
+			mWindow->update();
+
+			TimeManager::getInstance()->Update();
+			
+			//printf(" PRE RENDER");
+			mRoot->renderOneFrame();
+
+			// Current scene update
+			if (sceneManager->GetActiveScene() != nullptr) {
+				if (!sceneManager->GetActiveScene()->IsStarted())
+					sceneManager->GetActiveScene()->Start();
+				sceneManager->GetActiveScene()->Update();
+			}
 		}
 
-		if (mInputM->getKeyUp(OIS::KeyCode::KC_ESCAPE)) endGame = true;
+		//if (mInputM->getKeyUp(OIS::KeyCode::KC_ESCAPE)) endGame = true;
 	}
 }
 

@@ -37,8 +37,6 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new Weapon(gameObject);
 	else if (c_type == "ObstacleRB")
 		c = new ObstacleRigidBody(gameObject);
-	else if (c_type == "EnemyRB")
-		c = new EnemyRigidBody(gameObject);
 	else if (c_type == "WeaponBullet")
 		c = new WeaponBullet(gameObject);
 	else if (c_type == "MapLoader")
@@ -53,9 +51,14 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new PlayerCollision(gameObject);
 	else if (c_type == "testEnemy")
 		c = new EnemyTest(gameObject);
+	else if (c_type == "EnemyRigidBody")
+		c = new EnemyRigidBody(gameObject);
+	else if (c_type == "KnifeGuy")
+		c = new KnifeGuy(gameObject);
+	else if (c_type == "ShyGuy")
+		c = new ShyGuy(gameObject);
 	else if (c_type == "SkipRoom")
 		c = new SkipRoom(gameObject);
-
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);

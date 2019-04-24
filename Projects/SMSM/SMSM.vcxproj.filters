@@ -31,6 +31,9 @@
     <Filter Include="Mapa">
       <UniqueIdentifier>{8d09af09-5c00-4ef0-8860-26d29a907708}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Componentes\Enemies">
+      <UniqueIdentifier>{d522f2a6-f454-4648-bc8d-9246d4265cee}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\main.cpp">
@@ -41,9 +44,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp">
       <Filter>Armas</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\MotorEngine\EnemyRigidBody.cpp">
-      <Filter>Componentes\RigidBodyComponents</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Game\Componentes\ObstacleRigidBody.cpp">
       <Filter>Componentes\RigidBodyComponents</Filter>
@@ -56,9 +56,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerCollision.cpp">
       <Filter>Componentes\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\Game\Componentes\EnemyTest.cpp">
-      <Filter>Componentes</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Game\Mapa\RoomManager.cpp">
       <Filter>Mapa</Filter>
@@ -78,6 +75,21 @@
     <ClCompile Include="..\..\Src\Game\Mapa\SkipRoom.cpp">
       <Filter>Mapa</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\Enemy.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\EnemyTest.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\KnifeGuy.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\EnemyRigidBody.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -85,9 +97,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Armas\Weapon.h">
       <Filter>Armas</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\MotorEngine\EnemyRigidBody.h">
-      <Filter>Componentes\RigidBodyComponents</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\ObstacleRigidBody.h">
       <Filter>Componentes\RigidBodyComponents</Filter>
@@ -100,9 +109,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerCollision.h">
       <Filter>Componentes\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Game\Componentes\EnemyTest.h">
-      <Filter>Componentes</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Mapa\RoomManager.h">
       <Filter>Mapa</Filter>
@@ -121,6 +127,21 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Mapa\SkipRoom.h">
       <Filter>Mapa</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\Enemy.h">
+      <Filter>Componentes\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\EnemyTest.h">
+      <Filter>Componentes\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\KnifeGuy.h">
+      <Filter>Componentes\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\EnemyRigidBody.h">
+      <Filter>Componentes\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.h">
+      <Filter>Componentes\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
