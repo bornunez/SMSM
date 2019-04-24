@@ -25,12 +25,14 @@ void KnifeGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
+
+
 }
 void KnifeGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	rb->setGravity(btVector3(0, obj["gravity"], 0));
-	rb->setDamping(obj["linDamp"], obj["angDamp"]);
+	//rb->setGravity(btVector3(0, obj["gravity"], 0));
+	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	moveSpeed = obj["moveSpeed"];
 }
 
