@@ -115,7 +115,7 @@ void GUIManager::Initialize()
 		menuWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "testWindow"));
 		myRoot->addChild(menuWnd);
 		menuWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
-		menuWnd->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
+		menuWnd->setSize(CEGUI::USize(CEGUI::UDim(1.0f, 1.0f), CEGUI::UDim(1.0f, 1.0f)));
 		menuWnd->setTitleBarEnabled(false);
 		menuWnd->setCloseButtonEnabled(false);
 
@@ -135,7 +135,36 @@ void GUIManager::Initialize()
 			start->setText("Start");
 			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["mainScene"], this));
 		}
+
+		activeWnd = menuWnd;
 	}
+
+	////Main menu window
+	//{
+	//	pauseWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "testWindow"));
+	//	myRoot->addChild(pauseWnd);
+	//	pauseWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(0.2f, 0.2f), CEGUI::UDim(0.2f, 0.2f)));
+	//	pauseWnd->setSize(CEGUI::USize(CEGUI::UDim(0.6f, 0.6f), CEGUI::UDim(0.6f, 0.6f)));
+	//	pauseWnd->setTitleBarEnabled(false);
+	//	pauseWnd->setCloseButtonEnabled(false);
+
+	//	//Pause menu buttons
+	//	{
+	//		CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+	//		pauseWnd->addChild(quit);
+	//		quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
+	//		quit->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+	//		quit->setText("Quit");
+	//		quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["exit"], this));
+
+	//		CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+	//		pauseWnd->addChild(start);
+	//		start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
+	//		start->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+	//		start->setText("Start");
+	//		start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["mainScene"], this));
+	//	}
+	//}
 }
 
 

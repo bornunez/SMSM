@@ -66,3 +66,23 @@ void RigidBodyComponent::resetHitState()
 		}
 	}
 }
+
+void RigidBodyComponent::Start()
+{
+	PhysicsManager::Instance()->addToWorld(physicRB);
+}
+
+void RigidBodyComponent::OnDestroy()
+{
+	PhysicsManager::Instance()->removeRigidBody(gameObject->getNode());
+}
+
+void RigidBodyComponent::OnDisable()
+{
+	PhysicsManager::Instance()->removeFromWorld(physicRB);
+}
+
+void RigidBodyComponent::OnEnable()
+{
+	PhysicsManager::Instance()->addToWorld(physicRB);
+}

@@ -17,6 +17,11 @@ public:
 	bool getIsTrigger() { return isTrigger; };
 	btRigidBody* getRB() { return physicRB; };
 
+	virtual void Start();
+	void OnDestroy();
+	void OnDisable();
+	void OnEnable();
+
 protected:
 	bool hit = false;
 	bool isTrigger = true;

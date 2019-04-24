@@ -231,7 +231,6 @@ void PhysicsManager::removeRigidBody(SceneNode * node)
 
 void PhysicsManager::clearRigidBodies()
 {
-
 	for (int h = 0; h < rigidBodiesToRemove_.size(); h++) {
 		int j = 0;
 
@@ -404,6 +403,39 @@ void PhysicsManager::toggleDebug()
 }
 
 
+void PhysicsManager::addToWorld(btRigidBody *body)
+{
+	_world->addRigidBody(body);
+	_bodies.push_back(body);
+}
+
+void PhysicsManager::removeFromWorld(btRigidBody * body)
+{
+	_world->removeRigidBody(body);
+	auto it = _bodies.begin();
+	bool found = false;
+	int i = 0;
+
+	while (!found && it!=_bodies.end()) {
+
+		btRigidBody* b = _bodies.at(i);
+
+		if (b == body) {
+			found = true;
+		}
+		else {
+			++it;
+			i++;
+		}
+	}
+
+	if (found) 
+		_bodies.erase(it);	
+	else
+		std::cout << "No se encuentra el rigidbody en el array" << std::endl;
+
+}
+
 bulletObject * PhysicsManager::getBulletObject(Ogre::SceneNode * node)
 {
 	bool found = false;
@@ -441,8 +473,8 @@ btRigidBody * PhysicsManager::CreatePhysicObject(btCollisionShape* collisionShap
 	body->setRestitution(restitutionFactor);
 
 
-	_world->addRigidBody(body);
-	_bodies.push_back(body);
+	//_world->addRigidBody(body);
+	//_bodies.push_back(body);
 	body->setUserPointer(node);
 
 	return body;
