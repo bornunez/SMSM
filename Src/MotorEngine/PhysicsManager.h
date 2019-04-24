@@ -62,6 +62,9 @@ public:
 	btRigidBody* CreateCapsuleCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float height, float radius, float offsetX = 1, float offsetY = 0, float offsetZ = 0, float rotX = 1, float rotY = 0, float rotZ = 0);
 	btRigidBody* CreateMeshCollider(RigidBodyComponent* rb, int id, SceneNode * node, string mesh, float mass, float posX, float posY, float posZ, float restitutionFactor, float scale, float rotX = 1, float rotY = 0, float rotZ = 0);
 
+	void addToWorld(btRigidBody *body);
+	void removeFromWorld(btRigidBody *body);
+
 	//Eliminar
 	void removeRigidBody(SceneNode * node); //Para eliminar el rigidbody asociado a un nodo de la escena
 	void clearRigidBodies();				//Elimina los rigidbodies asociados a los nodos al final del update

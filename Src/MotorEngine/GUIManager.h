@@ -42,8 +42,12 @@ private:
 	CEGUI::FrameWindow* activeWnd = nullptr;
 	CEGUI::FrameWindow* lastWnd = nullptr;
 	
-	//
+	//Menu example
 	CEGUI::FrameWindow* menuWnd;
+	//Pause example
+	CEGUI::FrameWindow* pauseWnd;
+	//GameHUD example
+	CEGUI::FrameWindow* gameWnd;
 
 	bool gameHUD = false;
 
