@@ -1,4 +1,5 @@
 #include "GameObject.h"
+#include "GameObject.h"
 #include "Component.h"
 #include "Scene.h"
 #include <OgreSceneManager.h>
@@ -70,7 +71,7 @@ Vector3 GameObject::getPosition()
 Ogre::Vector3 GameObject::getGlobalPosition()
 {
 	Ogre::Vector3 pos;
-	if (parent)
+	if (parent != nullptr)
 		pos = parent->getGlobalPosition() + getPosition();
 	else
 		pos = scene->getSceneNode()->convertLocalToWorldPosition(getPosition());
@@ -155,6 +156,11 @@ void GameObject::AddChild(GameObject * child)
 	child->setParent(this);
 	
 	children.push_back(child);
+}
+
+void GameObject::Destroy()
+{
+	scene->Destroy(this);
 }
 
 
