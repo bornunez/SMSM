@@ -69,6 +69,7 @@ void RigidBodyComponent::resetHitState()
 
 void RigidBodyComponent::Start()
 {
+	cout << "Cargado rigidbody " << gameObject->getName() << endl;
 	PhysicsManager::Instance()->addToWorld(physicRB);
 }
 
