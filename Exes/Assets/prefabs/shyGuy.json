@@ -6,7 +6,7 @@
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"BichoVolador.mesh"
+			"mesh":"Pocholo.mesh"
 		},
 		{
 			"type":"EnemyRigidBody",
@@ -27,8 +27,8 @@
 		},
 		{
 			"type":"ShyGuy",
-			"moveSpeed":0.6,
-			"dist":3,
+			"moveSpeed":8,
+			"dist":12,
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2

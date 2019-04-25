@@ -12,6 +12,7 @@ private:
 	float maxRotSpeed = 10;
 	float movSpeed = 0.5;
 	float maxSpeed = 20;
+	float speed = 0;
 
 public:
 	PlayerMov(GameObject* obj) : Component(obj) {};

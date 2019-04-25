@@ -11,6 +11,7 @@ Vector3 PlayerMov::getPlayerDirection()
 
 void PlayerMov::LoadFromFile(json obj)
 {
+	speed = obj["speed"];
 	/*maxRotSpeed = obj["maxRotSpeed"];
 	movSpeed = obj["movSpeed"];
 	maxSpeed = obj["maxSpeed"];*/
@@ -41,20 +42,17 @@ void PlayerMov::handleInput()
 	btVector3 forward = btVector3(dir.x, dir.y, dir.z);
 	btVector3 right = forward.cross(up);
 
-	//Para probar antes de hacerlo por lectura de json
-	int testVel = 10;
-
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W)) {
-		playerColl->getRB()->setLinearVelocity(forward *testVel);
+		playerColl->getRB()->setLinearVelocity(forward * speed);
 	}
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_S)) {
-		playerColl->getRB()->setLinearVelocity(-forward * testVel);
+		playerColl->getRB()->setLinearVelocity(-forward * speed);
 	}
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_A)) {
-		playerColl->getRB()->setLinearVelocity(-right * testVel);
+		playerColl->getRB()->setLinearVelocity(-right * speed);
 	}
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_D)) {
-		playerColl->getRB()->setLinearVelocity(right * testVel);
+		playerColl->getRB()->setLinearVelocity(right * speed);
 	}
 
 	// Para el movimiento de forma brusca si no se pulsa una tecla, temporal, necesitamos un anykey
