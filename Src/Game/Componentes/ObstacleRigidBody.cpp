@@ -11,7 +11,7 @@ void ObstacleRigidBody::LoadFromFile(json obj)
 		originalPosZ = gameObject->getNode()->getPosition().z + obj["offsetZ"];
 	}
 
-	switch (shape)
+	/*switch (shape)
 	{
 	case 0: {
 		physicRB = PhysicsManager::Instance()->CreateBoxCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, sizeX, sizeY, sizeZ, offSetX, offSetY, offSetZ);
@@ -25,10 +25,11 @@ void ObstacleRigidBody::LoadFromFile(json obj)
 		physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, radius, offSetX, offSetY, offSetZ);
 		break;
 	}
-	}
+	}*/
 
 	isTrigger = false;		// Los obstaculos no reaccionan al contactos
 }
+
 
 void ObstacleRigidBody::collisionHandler(int id)
 {

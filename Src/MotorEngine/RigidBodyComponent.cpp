@@ -69,20 +69,38 @@ void RigidBodyComponent::resetHitState()
 
 void RigidBodyComponent::Start()
 {
-	//PhysicsManager::Instance()->addToWorld(physicRB);
+	//Se crea y habilita por defecto el el rigidbody
+	switch (shape)
+	{
+		case 0: {
+			physicRB = PhysicsManager::Instance()->CreateBoxCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, sizeX, sizeY, sizeZ);
+			break;
+		}
+		case 1: {
+			physicRB = PhysicsManager::Instance()->CreateCapsuleCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, height, radius);
+			break;
+		}
+		case 2: {
+			physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, radius);
+			break;
+		}
+	}
 }
 
 void RigidBodyComponent::OnDestroy()
 {
-	//PhysicsManager::Instance()->removeRigidBody(gameObject->getNode());
+	//Eliminado
+	PhysicsManager::Instance()->removeRigidBody(gameObject->getNode());
 }
 
 void RigidBodyComponent::OnDisable()
 {
-	//PhysicsManager::Instance()->removeFromWorld(physicRB);
+	//Lo sacamos del mundo fisico
+	PhysicsManager::Instance()->removeFromWorld(physicRB);
 }
 
 void RigidBodyComponent::OnEnable()
 {
-	//PhysicsManager::Instance()->addToWorld(physicRB);
+	//Habilita el rb
+	PhysicsManager::Instance()->addToWorld(physicRB);
 }

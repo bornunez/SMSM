@@ -7,8 +7,10 @@ class PlayerCollision : public RigidBodyComponent
 public:
 	PlayerCollision(GameObject* obj);
 	~PlayerCollision();
-	void LoadFromFile(json obj);
+	//No hace nada más adicional que el metodo de su padre
+	/*void LoadFromFile(json obj);*/
 	virtual void collisionHandler(int id);
 	virtual void Update();
+	virtual void Start();
 };
 
