@@ -20,7 +20,7 @@ private:
 	//Listas de cosas que tiene el GO
 	std::list<Component*> components;
 	std::list<GameObject*> children;
-	std::list<Ogre::Entity*> entities; //Entidades de ogre que componen el GameObject
+	std::list<Ogre::MovableObject*> entities; //Entidades de ogre que componen el GameObject
 
 	//Punteros a cosas de arriba
 	Scene* scene;
@@ -51,8 +51,8 @@ public:
 	//Manejo de entidades
 
 	//void AddMesh(string mesh, Vector3 scale);
-	void AddEntity(Ogre::Entity* entity);
-	void RemoveEntity(Ogre::Entity* entity);
+	void AddEntity(Ogre::MovableObject* entity);
+	void RemoveEntity(Ogre::MovableObject* entity);
 
 	//Manejo del transform
 	Ogre::Vector3 getPosition();

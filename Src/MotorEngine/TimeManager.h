@@ -23,6 +23,7 @@ public:
 	~TimeManager();
 	void Update();
 	float getDeltaTime() { return deltaTime; };
+	void setDeltaTime(float time) { deltaTime = time; };
 	void setGlobalTime(float globTime) { globalTime = globTime; };
 	float getGlobalTime() { return globalTime; };
 	int getFPS() { return fps; };

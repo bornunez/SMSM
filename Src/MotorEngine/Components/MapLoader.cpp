@@ -41,7 +41,7 @@ void MapLoader::LoadFromFile(json obj)
 						//Numero por el que hay que dividir x e y para obtener posiciones reales
 						float width = mapObj["width"]/tilewidth;
 						float height = mapObj["height"]/tilewidth;
-						Vector3 pos = Vector3((int)mapObj["x"]/(int)tilewidth + width / 2, 0, (int)mapObj["y"]/(int)tilewidth + height/2);
+						Vector3 pos = Vector3((int)mapObj["x"]/(int)tilewidth + width / 2.0, 0, (int)mapObj["y"]/(int)tilewidth + height/2.0);
 
 
 						//Recorre Properties
@@ -83,6 +83,7 @@ void MapLoader::LoadFromFile(json obj)
 										//Se genera una nueva entrada con el index asignado
 										int index = prop["value"];
 										o->setName("Entry");
+										cout << "Nueva Entry en " << pos << " de tamaño " << width << " " << height << endl;
 										Entry* e = new Entry(o, index, width, height);
 										o->AddComponent(e);
 

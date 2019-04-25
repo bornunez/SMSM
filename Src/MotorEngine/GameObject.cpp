@@ -120,7 +120,7 @@ void GameObject::SetActive(bool act)
 
 }
 
-void GameObject::AddEntity(Ogre::Entity * entity)
+void GameObject::AddEntity(Ogre::MovableObject * entity)
 {
 	auto it = entities.begin();
 	while (it != entities.end() && *it != entity)
@@ -133,7 +133,7 @@ void GameObject::AddEntity(Ogre::Entity * entity)
 	}
 }
 
-void GameObject::RemoveEntity(Ogre::Entity * entity)
+void GameObject::RemoveEntity(Ogre::MovableObject * entity)
 {
 	auto it = entities.begin();
 	while (it != entities.end() && *it != entity)

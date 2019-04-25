@@ -44,7 +44,7 @@ void KnifeGuy::Update()
 		auxVec.normalise(); 
 		auxVec*=moveSpeed;
 
-		rb->applyCentralImpulse({auxVec.x, auxVec.y, 0});
+		rb->setLinearVelocity({auxVec.x, 0, auxVec.z});
 	}
 }
 
@@ -53,6 +53,8 @@ void KnifeGuy::OnHit() {
 	if (HP <= 0) {
 		OnDeath();
 	}
+	cout << "GOLPE A KNIFE GUY" << endl;
+	gameObject->Destroy();
 }
 
 void KnifeGuy::OnDeath() {

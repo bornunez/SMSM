@@ -1,12 +1,12 @@
 {
-	"prefabName":"Tree",
-	"name":"Tree1",
+	"prefabName":"SpawnedTree2",
+	"name":"SpawnedTree2",
 	"active":true,
 	"isListener":true,
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"Tree1.mesh"
+			"mesh":"Tree2.mesh"
 		},
 		{
 			"type":"ObstacleRB",
@@ -24,6 +24,12 @@
 			"sizeX":0.65,
 			"sizeY":1,
 			"sizeZ":0.65
+		},
+		{
+			"type":"ParticleSystem",
+			"script":"BigPoof",
+			"name":"BigPoof",
+			"duration":0.5
 		}
 	]
 }

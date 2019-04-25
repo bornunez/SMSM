@@ -9,7 +9,7 @@ private:
 
 protected:
 	int HP = 0;
-	int moveSpeed = 0;
+	float moveSpeed = 0;
 	GameObject* player = nullptr;
 	EnemyRigidBody* rbComp = nullptr;
 	btRigidBody* rb = nullptr;

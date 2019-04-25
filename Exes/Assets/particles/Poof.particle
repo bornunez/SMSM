@@ -1,0 +1,34 @@
+particle_system Poof
+{
+	material Particles/Cloud
+	particle_width 1.5
+	particle_height 1.5
+	quota 53
+	sorted true
+	billboard_type point
+	billboard_origin center
+
+	emitter Point
+	{
+		position 0.0 0.0 0.0
+		direction 1.0 0.0 0.0
+		angle 180
+		emission_rate 200
+		velocity_min 3
+		velocity_max 5
+		time_to_live_min 0.41
+		time_to_live_max 1.48
+		duration_min 0.22
+		duration_max 0.42
+		repeat_delay_min 2.92
+		repeat_delay_max 2.83
+		colour_range_start 1 1 1 1
+		colour_range_end 1 1 1 1
+	}
+	
+	affector Scaler
+	{
+		rate -5
+	}
+	
+}

@@ -7,6 +7,7 @@ class Room
 {
 private:
 	int index = -1;
+	bool cleared = false;
 	std::list<Spawner*> spawners;
 	std::list<GameObject*> gates;
 	std::list<GameObject*> entries;

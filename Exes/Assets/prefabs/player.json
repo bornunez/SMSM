@@ -21,7 +21,8 @@
 			"height":0.4
 		},
 		{
-			"type":"PlayerMov"
+			"type":"PlayerMov",
+			"speed":10
 		}
 	],
 	"children":[

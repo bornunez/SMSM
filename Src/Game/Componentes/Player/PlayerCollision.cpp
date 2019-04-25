@@ -20,6 +20,7 @@ void PlayerCollision::collisionHandler(int id)
 
 void PlayerCollision::Update()
 {
+	cout << " RB de objeto [ " << gameObject->getName() << " ] " << "en la posicion [ " << gameObject->getPosition() << " ]" << endl;
 	btTransform trans;
 	physicRB->getMotionState()->getWorldTransform(trans);
 	trans.setRotation(btQuaternion(0 ,trans.getRotation().y(), 0, trans.getRotation().w()));
