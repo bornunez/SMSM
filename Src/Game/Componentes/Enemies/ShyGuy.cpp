@@ -39,18 +39,25 @@ void ShyGuy::Update()
 {
 	if (estado != state::DEAD) {
 		Ogre::Vector3 auxVec = -(player->getPosition() - gameObject->getPosition());
-		float absDist = abs(auxVec.x) + abs(auxVec.y);
+		float absDist = abs(auxVec.x) + abs(auxVec.z);
 		if (estado == state::IDLE) {
-			if (absDist < dist)
+			if (absDist > dist*1.5) {
+				rb->setLinearVelocity({ -auxVec.x / 4, 0, -auxVec.z / 4 });
+			}
+			else if (absDist < dist) {
 				meshRend->PlayAnimation("Move", true);
-				estado == state::FLEEING;
+				estado = state::FLEEING;
+				rb->clearForces();
+			}
 		}
 		else if (estado == state::FLEEING) {
 			auxVec.normalise();
 			auxVec *= moveSpeed;
-			rb->applyCentralImpulse({ auxVec.x, auxVec.y, 0});
+			//aqui se le puede meter un multiplicador random en plan
+			//0.8, 1.2 para que haga un poco de s el bicho
+			rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
 			if (absDist > dist) {
-				estado == state::IDLE;
+				estado = state::IDLE;
 				rb->clearForces();
 				meshRend->StopAnimation(true);
 			}
