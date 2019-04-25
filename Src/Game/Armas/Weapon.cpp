@@ -140,10 +140,12 @@ void Weapon::PhysicShoot()
 			int disp = dispersion;
 			float randX = rand() % (disp)-(disp / 2);
 			float randY = rand() % (disp)-(disp / 2);
-			PrefabManager::getInstance()->Instantiate("Bullet", scene, nullptr, (gameObject->getPosition() + Vector3(randX*0.01, 0.05 + randY * 0.01, -0.5)), 0.01);
+			scene->Instantiate("Bullet",(gameObject->getPosition() + Vector3(randX*0.01, 0.05 + randY * 0.01, -0.5)), 0.01);
 		}
 	}
-	else PrefabManager::getInstance()->Instantiate("Bullet", scene, nullptr, (gameObject->getPosition() + Vector3(0, 0.05, -0.5)), 0.01);
+	else 
+		scene->Instantiate("Bullet", (gameObject->getPosition() + Vector3(0, 0.05, -0.5)), 0.01);
+	
 	cout << "Disparo en: [ " <<gameObject->getGlobalPosition().x << ", "<< gameObject->getGlobalPosition().y <<", " << gameObject->getGlobalPosition().z << " ]" << endl;
 	scene->Instantiate("Bullet", (gameObject->getGlobalPosition()+Vector3(0, -0.2, -0.5)), 0.05);
 }
