@@ -41,17 +41,20 @@ void PlayerMov::handleInput()
 	btVector3 forward = btVector3(dir.x, dir.y, dir.z);
 	btVector3 right = forward.cross(up);
 
+	//Para probar antes de hacerlo por lectura de json
+	int testVel = 10;
+
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W)) {
-		playerColl->getRB()->applyCentralImpulse(forward);
+		playerColl->getRB()->setLinearVelocity(forward *testVel);
 	}
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_S)) {
-		playerColl->getRB()->applyCentralImpulse(-forward);
+		playerColl->getRB()->setLinearVelocity(-forward * testVel);
 	}
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_A)) {
-		playerColl->getRB()->applyCentralImpulse(-right);
+		playerColl->getRB()->setLinearVelocity(-right * testVel);
 	}
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_D)) {
-		playerColl->getRB()->applyCentralImpulse(right);
+		playerColl->getRB()->setLinearVelocity(right * testVel);
 	}
 
 	// Para el movimiento de forma brusca si no se pulsa una tecla, temporal, necesitamos un anykey

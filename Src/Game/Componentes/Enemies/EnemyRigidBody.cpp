@@ -24,7 +24,7 @@ void EnemyRigidBody::Start() {
 void EnemyRigidBody::LoadFromFile(json obj)
 {
 	RigidBodyComponent::LoadFromFile(obj);
-	recoilTime = obj["recoilTime"];
+	//recoilTime = obj["recoilTime"];
 }
 
 void EnemyRigidBody::collisionHandler(int id)

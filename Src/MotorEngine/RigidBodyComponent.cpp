@@ -73,15 +73,15 @@ void RigidBodyComponent::Start()
 	switch (shape)
 	{
 		case 0: {
-			physicRB = PhysicsManager::Instance()->CreateBoxCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, sizeX, sizeY, sizeZ);
+			physicRB = PhysicsManager::Instance()->CreateBoxCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z, restitutionFactor, sizeX, sizeY, sizeZ);
 			break;
 		}
 		case 1: {
-			physicRB = PhysicsManager::Instance()->CreateCapsuleCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, height, radius);
+			physicRB = PhysicsManager::Instance()->CreateCapsuleCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z, restitutionFactor, height, radius);
 			break;
 		}
 		case 2: {
-			physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, radius);
+			physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z, restitutionFactor, radius);
 			break;
 		}
 	}

@@ -123,6 +123,7 @@ void Game::InitWindow()
 #endif
 }
 
+
 // Bucle del juego
 void Game::Play() 
 {

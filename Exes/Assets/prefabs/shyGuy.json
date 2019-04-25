@@ -9,14 +9,6 @@
 			"mesh":"BichoVolador.mesh"
 		},
 		{
-			"type":"ShyGuy",
-			"moveSpeed":0.6,
-			"dist":3,
-			"gravity":-15,
-			"linDamp":0.2,
-			"angDamp":0.2
-		},
-		{
 			"type":"EnemyRigidBody",
 			"shape":0,
 			"id":0,
@@ -32,6 +24,14 @@
 			"sizeX": 0.4,
 			"sizeY": 0.4,
 			"sizeZ": 0.4
+		},
+		{
+			"type":"ShyGuy",
+			"moveSpeed":0.6,
+			"dist":3,
+			"gravity":-15,
+			"linDamp":0.2,
+			"angDamp":0.2
 		}
 	]
 }
