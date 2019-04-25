@@ -70,6 +70,8 @@ void ShyGuy::OnHit() {
 	if (HP <= 0) {
 		OnDeath();
 	}
+
+	gameObject->Destroy();
 }
 
 void ShyGuy::OnDeath() {

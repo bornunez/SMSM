@@ -23,7 +23,8 @@
 			"isTrigger":true,
 			"sizeX": 0.4,
 			"sizeY": 0.4,
-			"sizeZ": 0.4
+			"sizeZ": 0.4,
+			"recoilTime": 0
 		},
 		{
 			"type":"ShyGuy",
