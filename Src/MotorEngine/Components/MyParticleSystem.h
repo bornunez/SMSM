@@ -25,7 +25,7 @@ public:
 	void OnDestroy();
 
 
-	void SetName(string _name) { name = _name; }
+	void SetName(string _name);
 	void SetScript(string _script) { script = _script; }
 };
 

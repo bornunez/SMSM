@@ -156,8 +156,10 @@ void Game::Play()
 
 			// Current scene update
 			if (sceneManager->GetActiveScene() != nullptr) {
-				if (!sceneManager->GetActiveScene()->IsStarted())
+				if (!sceneManager->GetActiveScene()->IsStarted()) {
 					sceneManager->GetActiveScene()->Start();
+					TimeManager::getInstance()->setDeltaTime(0);
+				}
 				sceneManager->GetActiveScene()->Update();
 			}
 		}

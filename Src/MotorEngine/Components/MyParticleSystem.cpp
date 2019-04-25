@@ -1,6 +1,8 @@
 #include "MyParticleSystem.h"
 #include <OgreSceneManager.h>
 #include "../TimeManager.h"
+#include <OgreParticleSystemManager.h>
+#include "../ResourcesManager/ParticleManager.h"
 
 
 MyParticleSystem::~MyParticleSystem()
@@ -62,4 +64,9 @@ void MyParticleSystem::OnDestroy()
 {
 	gameObject->RemoveEntity(sys);
 	sys->setEmitting(false);
+}
+
+void MyParticleSystem::SetName(string _name)
+{
+	name = ParticleManager::GetInstance()->getName(_name);
 }

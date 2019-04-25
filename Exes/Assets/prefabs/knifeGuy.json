@@ -31,6 +31,12 @@
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2
+		},
+		{
+			"type":"ParticleSystem",
+			"script":"Poof",
+			"name":"PS",
+			"duration":0.5
 		}
 	]
 }

@@ -10,7 +10,7 @@ material Particles/Cloud
 			
             texture_unit
             {
-                texture Cloud.jpg
+                texture Cloud.png
             }
         }   
     }

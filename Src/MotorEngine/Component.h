@@ -32,7 +32,7 @@ public:
 
 	virtual void OnDisable() {};
 	virtual void OnEnable() {};
-	virtual void OnDestroy() {};
+	virtual void OnDestroy() { cout << "Destruyendo [ " << "] del objeto [ " << gameObject->getName() << " ]" << endl; };
 
 	bool isActiveAndEnabled();
 	bool isAwake() { return awoke; }

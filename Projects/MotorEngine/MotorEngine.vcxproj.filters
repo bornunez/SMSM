@@ -114,6 +114,12 @@
     <ClInclude Include="..\..\Src\MotorEngine\GUIManager.h">
       <Filter>Core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\Components\MyParticleSystem.h">
+      <Filter>Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\ParticleManager.h">
+      <Filter>Core\ResourcesManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
@@ -190,6 +196,12 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\GUIManager.cpp">
       <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\Components\MyParticleSystem.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\ParticleManager.cpp">
+      <Filter>Core\ResourcesManager</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

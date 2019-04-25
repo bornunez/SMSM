@@ -102,7 +102,6 @@ void Scene::Start()
 
 void Scene::Update() 
 {
-	PhysicsManager::Instance()->Update();
 	
 	//testNode->setPosition(testNode->getPosition().x + 1,testNode->getPosition().y, testNode->getPosition().z);
 
@@ -118,6 +117,7 @@ void Scene::Update()
 		if (c->isActiveAndEnabled()) c->LateUpdate();
 	}
 
+	PhysicsManager::Instance()->Update();
 	//phyManager->LateUpdate();
 
 	//Finalmente limpiamos todos los objetos pendientes de borrar
@@ -168,7 +168,7 @@ GameObject* Scene::Instantiate(GameObject * o, Vector3 position, float scale, Ga
 		for (Component* c : o->getComponents()) {
 			if (c->isActiveAndEnabled() && !c->isStarted()) {
 				c->Start();
-				c->setAwake();
+				c->setStarted();
 			}
 		}
 

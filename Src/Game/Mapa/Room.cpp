@@ -15,8 +15,10 @@ void Room::OnEnter()
 	cout << "Se ha entrado en la sala " << index << endl;
 	RoomManager::getInstance()->SetActiveRoom(this);
 	//Quitamos las entradas
-	for (GameObject* g : entries)
+	for (GameObject* g : entries) {
+		entries.remove(g);
 		g->Destroy();
+	}
 	//Cerramos las salidas
 	for (GameObject* g : gates)
 		g->SetActive(true);

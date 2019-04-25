@@ -1,6 +1,7 @@
 #include "MyComponentLoader.h"
 #include "../Components/ExampleComp.h"
 #include "../../../Src/MotorEngine/Components/MyLight.h"
+#include "../../../Src/MotorEngine/Components/MyParticleSystem.h"
 #include "../Mapa/SkipRoom.h"
 
 MyComponentLoader::MyComponentLoader()
@@ -59,6 +60,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new ShyGuy(gameObject);
 	else if (c_type == "SkipRoom")
 		c = new SkipRoom(gameObject);
+	else if (c_type == "ParticleSystem")
+		c = new MyParticleSystem(gameObject);
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);

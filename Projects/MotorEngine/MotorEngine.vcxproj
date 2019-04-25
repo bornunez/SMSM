@@ -24,6 +24,7 @@
     <ClInclude Include="..\..\Src\MotorEngine\AudioManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Components\MapLoader.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Components\MyLight.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\Components\MyParticleSystem.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Game.h" />
     <ClInclude Include="..\..\Src\MotorEngine\GameObject.h" />
     <ClInclude Include="..\..\Src\MotorEngine\GameSceneManager.h" />
@@ -40,6 +41,7 @@
     <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\json.hpp" />
     <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\JsonParser.h" />
     <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\LocalizationManager.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\ParticleManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\ResourcesManager\ResourcesManager.h" />
     <ClInclude Include="..\..\Src\MotorEngine\RigidBodyComponent.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Scene.h" />
@@ -52,6 +54,7 @@
     <ClCompile Include="..\..\Src\MotorEngine\AudioManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Components\MapLoader.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Components\MyLight.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\Components\MyParticleSystem.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\GameSceneManager.cpp" />
@@ -67,6 +70,7 @@
     <ClCompile Include="..\..\Src\MotorEngine\PhysicsManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\JsonParser.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\LocalizationManager.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\ParticleManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\ResourcesManager\ResourcesManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\RigidBodyComponent.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Scene.cpp" />
