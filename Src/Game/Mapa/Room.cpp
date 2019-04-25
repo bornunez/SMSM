@@ -30,17 +30,21 @@ void Room::OnEnter()
 
 void Room::OnClear()
 {
-	cout << "Se ha salido de la sala " << index << endl;
 
-	//Quitamos las entradas
-	for (GameObject* g : entries)
-		g->Destroy();
-	//Cerramos las salidas
-	for (GameObject* g : gates)
-		g->Destroy();
+	if (!cleared) {
+		cout << "Se ha salido de la sala " << index << endl;
 
-	//Y spawneamos a los enemigos
-	for (Spawner* s : spawners)
-		s->getGameObject()->Destroy();
+		//Quitamos las entradas
+		for (GameObject* g : entries)
+			g->Destroy();
+		//Cerramos las salidas
+		for (GameObject* g : gates)
+			g->Destroy();
 
+		//Y spawneamos a los enemigos
+		for (Spawner* s : spawners)
+			s->getGameObject()->Destroy();
+
+		cleared = true;
+	}
 }
