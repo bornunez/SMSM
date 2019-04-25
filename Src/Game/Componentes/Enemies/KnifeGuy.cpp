@@ -53,6 +53,8 @@ void KnifeGuy::OnHit() {
 	if (HP <= 0) {
 		OnDeath();
 	}
+	cout << "GOLPE A KNIFE GUY" << endl;
+	gameObject->Destroy();
 }
 
 void KnifeGuy::OnDeath() {
