@@ -54,13 +54,15 @@ void KnifeGuy::OnHit() {
 		OnDeath();
 	}
 	cout << "GOLPE A KNIFE GUY" << endl;
-	gameObject->Destroy();
+	
 }
 
 void KnifeGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+
+	Enemy::OnDeath();
 }
 
 void KnifeGuy::Spawn()

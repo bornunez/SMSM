@@ -71,13 +71,14 @@ void ShyGuy::OnHit() {
 		OnDeath();
 	}
 
-	gameObject->Destroy();
 }
 
 void ShyGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+
+	Enemy::OnDeath();
 }
 
 void ShyGuy::Spawn()
