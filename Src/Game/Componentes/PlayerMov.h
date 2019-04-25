@@ -9,6 +9,7 @@ class PlayerMov : public Component
 {
 private:
 	PlayerCollision * playerColl;
+	btRigidBody* playerRb;
 	float maxRotSpeed = 10;
 	float movSpeed = 0.5;
 	float maxSpeed = 20;

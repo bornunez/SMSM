@@ -24,14 +24,14 @@ void PlayerMov::Update()
 
 void PlayerMov::handleInput()
 {
-	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_LEFT) && playerColl->getRB()->getAngularVelocity().y() < 10/*maxRotSpeed*/) {
-		playerColl->getRB()->applyTorqueImpulse(btVector3(0, 0.05, 0));
+	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_LEFT) && playerRb->getAngularVelocity().y() < 10/*maxRotSpeed*/) {
+		playerRb->applyTorqueImpulse(btVector3(0, 0.05, 0));
 	}
-	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_RIGHT) && playerColl->getRB()->getAngularVelocity().y() > -10/*maxRotSpeed*/) {
-		playerColl->getRB()->applyTorqueImpulse(btVector3(0, -0.05, 0));
+	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_RIGHT) && playerRb->getAngularVelocity().y() > -10/*maxRotSpeed*/) {
+		playerRb->applyTorqueImpulse(btVector3(0, -0.05, 0));
 	}
 	else if(!InputManager::getInstance()->getKey(OIS::KeyCode::KC_RIGHT) && !InputManager::getInstance()->getKey(OIS::KeyCode::KC_LEFT)){
-		playerColl->getRB()->setAngularVelocity(btVector3(0, 0, 0));
+		playerRb->setAngularVelocity(btVector3(0, 0, 0));
 	}
 
 	// Player Direction
@@ -42,30 +42,26 @@ void PlayerMov::handleInput()
 	btVector3 forward = btVector3(dir.x, dir.y, dir.z);
 	btVector3 right = forward.cross(up);
 
+	playerRb->setLinearVelocity(btVector3(0, 0, 0));
+
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W)) {
-		playerColl->getRB()->setLinearVelocity(forward * speed);
+		playerRb->setLinearVelocity(forward *speed);
 	}
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_S)) {
-		playerColl->getRB()->setLinearVelocity(-forward * speed);
-	}
-	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_A)) {
-		playerColl->getRB()->setLinearVelocity(-right * speed);
-	}
-	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_D)) {
-		playerColl->getRB()->setLinearVelocity(right * speed);
+		playerRb->setLinearVelocity(-forward * speed);
 	}
 
-	// Para el movimiento de forma brusca si no se pulsa una tecla, temporal, necesitamos un anykey
-	if(!InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) &&
-		!InputManager::getInstance()->getKey(OIS::KeyCode::KC_A) &&
-		!InputManager::getInstance()->getKey(OIS::KeyCode::KC_D) &&
-		!InputManager::getInstance()->getKey(OIS::KeyCode::KC_S))
-			playerColl->getRB()->setLinearVelocity(btVector3(0, 0, 0));
+	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_A)) {
+		playerRb->setLinearVelocity(-right * speed + playerRb->getLinearVelocity());
+	}
+	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_D)) {
+		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
+	}
 }
 
 void PlayerMov::Start()
 {
-	
+	playerRb = playerColl->getRB();
 }
 
 void PlayerMov::Awake()
@@ -83,4 +79,6 @@ void PlayerMov::Awake()
 		}
 		it++;
 	}
+
+	playerRb = playerColl->getRB();
 }
