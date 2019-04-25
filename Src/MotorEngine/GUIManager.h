@@ -27,6 +27,9 @@ public:
 	void HideWindow(std::string wndName);
 	void ShowWindow(std::string wndName);
 	void AddWindow(std::string wndName);
+
+	void FrameWndImage(std::string name);
+
 	void CreateButton(std::string stateWnd, std::string buttonScheme, std::string image, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName);
 
 	void toggleMenu();

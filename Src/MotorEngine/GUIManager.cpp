@@ -1,5 +1,7 @@
 #include "GUIManager.h"
 #include "Game.h"
+#include "Ogre.h"
+#include "OgreRectangle2D.h"
 
 GUIManager* GUIManager::instance_ = nullptr;
 
@@ -112,6 +114,8 @@ void GUIManager::Initialize()
 
 	// Todo esto debe cargarse desde un archivo que modificamos desde un archivo
 
+	//Se deberia llamar desde una entidad de la escena menu
+	//FrameWndImage("fondomenu");
 
 	//Main menu window
 	{
@@ -124,7 +128,7 @@ void GUIManager::Initialize()
 
 		//Main menu buttons
 		{
-			CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+			CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button");
 			menuWnd->addChild(quit);
 			quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
 			quit->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
@@ -243,6 +247,29 @@ void GUIManager::AddWindow(std::string wndName)
 		stateWnds[wndName]->setTitleBarEnabled(false);
 		stateWnds[wndName]->setCloseButtonEnabled(false);
 	}
+}
+
+void GUIManager::FrameWndImage(std::string name)
+{
+	Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create(name, "General");
+	material->getTechnique(0)->getPass(0)->createTextureUnitState(name);
+	material->getTechnique(0)->getPass(0)->setDepthCheckEnabled(false);
+	material->getTechnique(0)->getPass(0)->setDepthWriteEnabled(false);
+	material->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+
+	Ogre::Rectangle2D* rect = new Ogre::Rectangle2D(true);
+
+	rect->setCorners(-1.0, 1.0, 1.0, -1.0);
+	rect->setMaterial(material);
+
+	rect->setRenderQueueGroup(Ogre::RENDER_QUEUE_BACKGROUND);
+
+	Ogre::AxisAlignedBox aabInf;
+	aabInf.setInfinite();
+	rect->setBoundingBox(aabInf);
+
+	Ogre::SceneNode* node = g_->getRoot()->createSceneManager()->getRootSceneNode()->createChildSceneNode(name);
+	node->attachObject(rect);
 }
 
 // NOTA:
