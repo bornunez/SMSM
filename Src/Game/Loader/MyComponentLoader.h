@@ -10,6 +10,7 @@
 #include "../Componentes/Enemies/EnemyTest.h"
 #include "../Componentes/Enemies/EnemyRigidBody.h"
 #include "../Componentes/Enemies/KnifeGuy.h"
+#include "../Componentes/Enemies/ShyGuy.h"
 
 
 class MyComponentLoader : public ComponentLoader

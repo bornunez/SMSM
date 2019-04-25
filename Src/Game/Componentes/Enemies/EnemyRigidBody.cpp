@@ -23,41 +23,8 @@ void EnemyRigidBody::Start() {
 
 void EnemyRigidBody::LoadFromFile(json obj)
 {
-	//Estos parametros no deberian cargarse porque se cargan en el metodo del que hereda
-	/*int shape = obj["shape"];
-	int id = obj["id"];
-	float mass = obj["mass"];
-	float originalPosX = obj["positionX"];
-	float originalPosY = obj["positionY"];
-	float originalPosZ = obj["positionZ"];
-	float restitutionFactor = obj["restFactor"];*/
-
 	RigidBodyComponent::LoadFromFile(obj);
-
-	//Parametros
 	recoilTime = obj["recoilTime"];
-
-	//switch (shape)
-	//{
-	//	case 0: {
-	//		float sizeX = obj["sizeX"];
-	//		float sizeY = obj["sizeY"];
-	//		float sizeZ = obj["sizeZ"];
-	//		PhysicsManager::Instance()->CreateBoxCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, sizeX, sizeY, sizeZ);
-	//		break;
-	//	}
-	//	case 1: {
-	//		float height = obj["height"];
-	//		float radius = obj["radius"];
-	//		PhysicsManager::Instance()->CreateCapsuleCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, height, radius);
-	//		break;
-	//	}
-	//	case 2: {
-	//		float radius = obj["radius"];
-	//		PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, originalPosX, originalPosY, originalPosZ, restitutionFactor, radius);
-	//		break;
-	//	}
-	//}
 }
 
 void EnemyRigidBody::collisionHandler(int id)
@@ -86,7 +53,7 @@ void EnemyRigidBody::collisionHandler(int id)
 	}
 	else {
 		//Para evitar colisiones constantes, si queremos colisiones constantes, basta con reducir el recoil a 0
-		//std::cout << "Todavía estoy en recoil" << std::endl;
+		//std::cout << "Todavï¿½a estoy en recoil" << std::endl;
 	}
 }
 

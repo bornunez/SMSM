@@ -17,5 +17,7 @@ public:
 	static RoomManager* getInstance();
 
 	Room* GetRoom(int index);
-};
+	void SetActiveRoom(Room* r) { currRoom = r; }
+	Room* GetActiveRoom() { return currRoom; }	
+};	 
 

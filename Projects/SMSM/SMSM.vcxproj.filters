@@ -72,6 +72,9 @@
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.cpp">
       <Filter>Componentes\Player</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Mapa\SkipRoom.cpp">
+      <Filter>Mapa</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\Enemy.cpp">
       <Filter>Componentes\Enemies</Filter>
     </ClCompile>
@@ -82,6 +85,9 @@
       <Filter>Componentes\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\EnemyRigidBody.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.cpp">
       <Filter>Componentes\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
@@ -119,6 +125,9 @@
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.h">
       <Filter>Componentes\Player</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Mapa\SkipRoom.h">
+      <Filter>Mapa</Filter>
+    </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\Enemy.h">
       <Filter>Componentes\Enemies</Filter>
     </ClInclude>
@@ -129,6 +138,9 @@
       <Filter>Componentes\Enemies</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\EnemyRigidBody.h">
+      <Filter>Componentes\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.h">
       <Filter>Componentes\Enemies</Filter>
     </ClInclude>
   </ItemGroup>

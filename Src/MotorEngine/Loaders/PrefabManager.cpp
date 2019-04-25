@@ -68,7 +68,7 @@ void PrefabManager::LoadPrefab(string path)
 	cout << "Cargado prefab con nombre: " << aux["prefabName"] << endl << endl ;
 }
 
-GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene, GameObject * parent, Vector3 position, float scale)
+GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene, GameObject * parent, Vector3 position, float scale, GameObject * existingObj )
 {
 	//Primero intentamos encontrar el json del prefab. Si no existe devolvemos algun tipo de error
 	std::map<string,json>::iterator it = prefabs.find(prefabName);
@@ -76,7 +76,8 @@ GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene,
 	if (it != prefabs.end()) {
 		json jsonObj = (*it).second;
 		cout << "Loading prefab [ " << prefabName << " ]" << " as [ " << jsonObj["name"] << " ]" << endl;
-		o = GenerateGameObject(jsonObj, scene, parent,position,scale);
+		
+		o = GenerateGameObject(jsonObj, scene, parent,position,scale, existingObj);
 
 		//Esto parametros y el hecho de tener o no rigidbody debe leerlos de archivo
 		/*RigidBodyComponent * rb = new RigidBodyComponent(o);
@@ -89,7 +90,7 @@ GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene,
 	return o;
 }
 
-GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObject * parent, Vector3 position, float scale)
+GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObject * parent, Vector3 position, float scale,GameObject* existingObj)
 {
 	GameObject* o = nullptr;
 	string objName = obj["name"];
@@ -97,7 +98,13 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 	bool act = true;
 	if (obj.contains("active"))
 		act = obj["active"];
-	o = new GameObject(scene, obj["name"], act, parent);
+	if (existingObj == nullptr)
+		o = new GameObject(scene, obj["name"], act, parent);
+	else {
+		o = existingObj;
+		o->setName(objName);
+		o->setParent(parent);
+	}
 
 	o->setPosition(position);
 	o->setScale(scale);
@@ -120,7 +127,7 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 
 }
 
-GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject * parent)
+GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject * parent, GameObject * existingObj)
 {
 	//Sacamos la posicion del objeto
 	Vector3 pos = { 0,0,0 };
@@ -136,10 +143,10 @@ GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject 
 	GameObject* o = nullptr;
 	if (obj.contains("prefab")) {
 		string prefName = obj["prefab"];
-		o = GenerateGameObject(prefName, scene, parent,pos,scale);
+		o = GenerateGameObject(prefName, scene, parent,pos,scale,existingObj);
 	}
 	else {
-		o = GenerateGameObject(obj, scene, parent,pos,scale);
+		o = GenerateGameObject(obj, scene, parent,pos,scale, existingObj);
 	}
 	if (o != nullptr) {
 		scene->Add(o);
@@ -149,10 +156,10 @@ GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject 
 	return nullptr;
 }
 
-GameObject * PrefabManager::Instantiate(string prefab, Scene * scene, GameObject * parent, Vector3 position, float scale)
+GameObject * PrefabManager::Instantiate(string prefab, Scene * scene, GameObject * parent, Vector3 position, float scale, GameObject * existingObj)
 {
 	GameObject* o = nullptr;
-	o = GenerateGameObject(prefab, scene, parent,position,scale);
+	o = GenerateGameObject(prefab, scene, parent,position,scale,existingObj);
 	
 	return o;
 }

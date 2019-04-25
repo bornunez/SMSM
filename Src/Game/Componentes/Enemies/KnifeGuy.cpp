@@ -25,24 +25,26 @@ void KnifeGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
+
+
 }
 void KnifeGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	rb->setGravity(btVector3(0, obj["gravity"], 0));
-	rb->setDamping(obj["linDamp"], obj["angDamp"]);
+	//rb->setGravity(btVector3(0, obj["gravity"], 0));
+	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	moveSpeed = obj["moveSpeed"];
 }
 
 
 void KnifeGuy::Update()
 {
-	if (estado = state::ALIVE) {
+	if (estado == state::ALIVE) {
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		auxVec.normalise(); 
 		auxVec*=moveSpeed;
 
-		rb->applyCentralImpulse({auxVec.x, auxVec.y, auxVec.z});
+		rb->applyCentralImpulse({auxVec.x, auxVec.y, 0});
 	}
 }
 
@@ -56,7 +58,7 @@ void KnifeGuy::OnHit() {
 void KnifeGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
-	meshRend->PlayAnimation("Death", true);
+	meshRend->PlayAnimation("Death", false);
 }
 
 void KnifeGuy::Spawn()

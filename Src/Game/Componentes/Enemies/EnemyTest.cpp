@@ -5,6 +5,7 @@ EnemyTest::~EnemyTest()
 }
 void EnemyTest::Start()
 {
+	RigidBodyComponent::Start();
 	tm = TimeManager::getInstance();
 }
 void EnemyTest::LoadFromFile(json obj)
