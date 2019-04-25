@@ -61,6 +61,8 @@ PhysicsManager* PhysicsManager::Instance()
 
 void PhysicsManager::Update()
 {
+	clearRigidBodies();
+
 	_world->stepSimulation(1.f / 60.f, 1);
 
 	for (int i = 0; i< _shapes.size(); i++) {
@@ -100,7 +102,7 @@ void PhysicsManager::Update()
 
 	DetectCollision();
 
-	clearRigidBodies();
+	
 
 	if (debug_)
 	{
