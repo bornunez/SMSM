@@ -2238,8 +2238,8 @@
   </object>
   <object id="846" gid="83" x="124" y="176" width="4" height="4">
    <properties>
+    <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
-    <property name="testEnemy" type="bool" value="true"/>
    </properties>
   </object>
   <object id="847" gid="83" x="76" y="128" width="4" height="4">

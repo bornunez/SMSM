@@ -44,7 +44,7 @@ void KnifeGuy::Update()
 		auxVec.normalise(); 
 		auxVec*=moveSpeed;
 
-		rb->applyCentralImpulse({auxVec.x, auxVec.y, 0});
+		rb->setLinearVelocity({auxVec.x, 0, auxVec.z});
 	}
 }
 

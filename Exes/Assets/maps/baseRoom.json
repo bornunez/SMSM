@@ -8057,14 +8057,14 @@
                  "name":"",
                  "properties":[
                         {
+                         "name":"ShyGuy",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
                          "name":"spawner",
                          "type":"int",
                          "value":0
-                        }, 
-                        {
-                         "name":"testEnemy",
-                         "type":"bool",
-                         "value":true
                         }],
                  "rotation":0,
                  "type":"",
