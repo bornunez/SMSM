@@ -83,11 +83,13 @@ void PhysicsManager::Update()
 
 				bulletObject* b = getBulletObject(sceneNode);
 
-				if(b==nullptr)
-					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
-				else
+				//Player
+				if(b->_id == 0)
 					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX() - b->_offSet.x(), trans.getOrigin().getY() - b->_offSet.y(), trans.getOrigin().getZ() - b->_offSet.z()));
-				
+				else
+					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
+
+				sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
 				sceneNode->setOrientation(Ogre::Quaternion(orientation.getW(), orientation.getX(), orientation.getY(), orientation.getZ()));
 			}
 		}

@@ -11,10 +11,10 @@ GUIManager::GUIManager(Ogre::RenderWindow* w, Game* g)
 	g_ = g;
 
 	// Registramos las funciones de los botones con un nombre distintivo en un diccionario de funciones
-	functions["exit"]		= &GUIManager::Exit;
-	functions["mainScene"]	= &GUIManager::InitMainScene;
-	functions["pause"]		= &GUIManager::togglePause;
-	functions["menu"]		= &GUIManager::toggleMenu;
+	functions["exit"]			= &GUIManager::Exit;
+	functions["mainScene"]		= &GUIManager::InitMainScene;
+	functions["pause"]			= &GUIManager::togglePause;
+	functions["menu"]			= &GUIManager::toggleMenu;
 }
 
 GUIManager::~GUIManager()
@@ -165,7 +165,7 @@ void GUIManager::Initialize()
 			quit->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
 			quit->setText("Menu");
 			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
-			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["menu"], this));			
+			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["menu"], this));
 
 			CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
 			pauseWnd->addChild(start);
@@ -194,7 +194,7 @@ void GUIManager::InitMainScene()
 	if (g_ != nullptr) {
 		HideWindow("mainMenu");
 		gameHUD = true;
-		g_->LoadScene("mainScene");
+		g_->ReLoadScene("mainScene");
 	}
 }
 

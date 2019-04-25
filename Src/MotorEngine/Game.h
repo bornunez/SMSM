@@ -47,7 +47,8 @@ public:
 
 	void Play();
 	void Quit();
-	void LoadScene(std::string scene);
+	void ReLoadScene(std::string scene);
+	
 
 	Root* getRoot() { return mRoot; }
 	RenderWindow* getRenderWindow() { return mWindow; }

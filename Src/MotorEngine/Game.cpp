@@ -173,9 +173,9 @@ void Game::Quit()
 	endGame = true;
 }
 
-void Game::LoadScene(std::string scene)
+void Game::ReLoadScene(std::string scene)
 {
-	sceneManager->LoadScene(scene);		// Load the scene
+	sceneManager->RealoadScene(scene);		// Load the scene
 	sceneManager->ChangeScene(scene);	// Set it to active (makes this the current active scene)
 }
 

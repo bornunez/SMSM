@@ -1,0 +1,66 @@
+particle_system Bosque
+{
+	material Particles/Hidden
+	particle_width 10.0
+	particle_height 10.0
+	quota 80
+	cull_each false
+	sorted false
+	local_space false
+	iteration_interval 0.0
+	nonvisible_update_timeout 0.0
+	billboard_type point
+	billboard_origin center
+	billboard_rotation_type texcoord
+	point_rendering false
+	accurate_facing false
+
+	emitter Box
+	{
+		position 0.0 0.0 0.0
+		direction 0.0 0.0 1.0
+		angle 180
+		width 892.36
+		height 999.99
+		depth 971.9
+		emission_rate 14.74
+		velocity_min 187.61
+		velocity_max 222.07
+		time_to_live_min 8.83
+		time_to_live_max 10
+		duration_min 0
+		duration_max 0
+		repeat_delay_min 0
+		repeat_delay_max 0
+		colour_range_start 0 1 0 1
+		colour_range_end 0.666667 1 1 1
+	}
+
+	affector DirectionRandomiser
+	{
+		randomness 261.45
+		scope 100
+		keep_velocity false
+	}
+
+	affector Scaler
+	{
+		rate -6
+	}
+
+	affector ColourFader
+	{
+		red 0
+		green 0
+		blue 0
+		alpha -1
+	}
+
+	affector Rotator
+	{
+		rotation_speed_range_start 0
+		rotation_speed_range_end 89.06
+		rotation_range_start 3.64
+		rotation_range_end 95
+	}
+}
