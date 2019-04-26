@@ -40,6 +40,7 @@ void Weapon::LoadFromFile(json obj)
 		
 	bulletsAmount = obj["numBullets"];
 	dispersion = obj["dispersion"];
+	offset = Vector3(obj["shootPosX"], obj["shootPosY"], obj["shootPosZ"]);
 }
 
 void Weapon::Update()
@@ -143,11 +144,23 @@ void Weapon::PhysicShoot()
 			scene->Instantiate("Bullet",(gameObject->getPosition() + Vector3(randX*0.01, 0.05 + randY * 0.01, -0.5)), 0.01);
 		}
 	}
-	else 
-		scene->Instantiate("Bullet", (gameObject->getPosition() + Vector3(0, 0.05, -0.5)), 0.01);
+	//else 
+		//scene->Instantiate("Bullet", (gameObject->getPosition() + Vector3(0, 0.05, -0.5)), 0.01);
 	
-	cout << "Disparo en: [ " <<gameObject->getGlobalPosition().x << ", "<< gameObject->getGlobalPosition().y <<", " << gameObject->getGlobalPosition().z << " ]" << endl;
-	scene->Instantiate("Bullet", (gameObject->getGlobalPosition()+Vector3(0, -0.2, -0.5)), 0.05);
+	//cout << "Disparo en: [ " <<gameObject->getGlobalPosition().x << ", "<< gameObject->getGlobalPosition().y <<", " << gameObject->getGlobalPosition().z << " ]" << endl;
+	
+	//scene->Instantiate("Bullet", (gameObject->getGlobalPosition()+Vector3(0, -0.2, -0.5)), 0.05);
+
+	Vector3 dir = gameObject->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
+	dir *= offset.z;
+	//scene->Instantiate("Bullet", gameObject->getChild("ShootPoint")->getGlobalPosition(), 0.01);
+	// gameObject->getGlobalPosition() + forward*0.4 + Vector3(0, -0.22, 0), 0.01);
+	dir = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * dir;
+	//scene->Instantiate("Bullet", gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0), 0.1);
+	scene->Instantiate("Bullet", gameObject->getParent()->getGlobalPosition()+dir+Vector3(0, offset.y, 0), 0.01);
+	//cout << "Disparo en: [ " << gameObject->getParent()->getNode()->getPosition() +dir << " ]" << endl;
+	cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0);
+	//cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition();
 }
 void Weapon::AudioShoot()
 {

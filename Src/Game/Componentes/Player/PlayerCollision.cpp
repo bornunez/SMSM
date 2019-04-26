@@ -32,4 +32,5 @@ void PlayerCollision::Start()
 	RigidBodyComponent::Start();	//Se crea aqui y se asigna el physicRbs	
 	physicRB->setRollingFriction(0);
 	physicRB->setFriction(0);
+	physicRB->setAngularFactor(btVector3(0, 1, 0));
 }

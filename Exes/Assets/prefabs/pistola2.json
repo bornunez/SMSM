@@ -22,7 +22,10 @@
 			"reloadSpeed":1.3,
 			
 			"numBullets":1,
-			"dispersion":0
+			"dispersion":0,
+			"shootPosX": -10,
+			"shootPosY": 0.15,
+			"shootPosZ": 0.75
 		}
 	]
 }
