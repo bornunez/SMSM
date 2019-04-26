@@ -1,0 +1,12 @@
+{
+	"prefabName":"Grass1",
+	"name":"Grass1",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"grass1.mesh"
+		}
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"prefabName":"Lilrock2",
+	"name":"Lilrock2",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"lilrock2.mesh"
+		}
+	]
+}

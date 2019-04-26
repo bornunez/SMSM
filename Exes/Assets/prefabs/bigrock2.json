@@ -1,0 +1,12 @@
+{
+	"prefabName":"Bigrock2",
+	"name":"Bigrock2",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"bigrock2.mesh"
+		}
+	]
+}
