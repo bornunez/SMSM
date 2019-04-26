@@ -1,0 +1,13 @@
+{
+	"prefabName":"DeathPS",
+	"name":"DeathPS",
+	"active":true,
+	"components":[
+		{
+			"type":"ParticleSystem",
+			"script":"Death",
+			"name":"DeathPS",
+			"duration":0.5
+		}
+	]
+}

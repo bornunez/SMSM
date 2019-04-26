@@ -11,32 +11,34 @@ WeaponBullet::~WeaponBullet()
 {
 }
 
+void WeaponBullet::Start()
+{
+	RigidBodyComponent::Start();
+	physicRB->setGravity(btVector3(0, grav, 0));
+	physicRB->setDamping(linDamp, angDamp);
+	physicRB->applyTorqueImpulse(btVector3(0, 0.1, 0));
+}
+
 void WeaponBullet::LoadFromFile(json obj)
 {
 	RigidBodyComponent::LoadFromFile(obj);
-	physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, 
-		gameObject->getNode()->getPosition().x, gameObject->getNode()->getPosition().y, gameObject->getNode()->getPosition().z, 
-		restitutionFactor, radius, offSetX, offSetY, offSetZ);
-	
+
 	//Params from file
-	physicRB->setGravity(btVector3(0, obj["gravity"], 0));
-	physicRB->setDamping(obj["linDamp"], obj["angDamp"]);
+	grav = obj["gravity"];
+	linDamp = obj["linDamp"];
+	angDamp = obj["angDamp"];
 	speed = obj["speed"];
-	physicRB->applyTorqueImpulse(btVector3(0, 0.1, 0));
+	recoilTime = obj["recoilTime"];
 }
 
 void WeaponBullet::collisionHandler(int id)
 {
-	//TEMPORAL PARA QUE SE PAREN LAS BALAS
-	hit = true;
-
-	if (id != 0)
-	{
-		if (!hit) {
-			std::cout << "--> SOY UNA BALA Y HE COLISIONADO <--" << std::endl;
-			hit = true;
-			physicRB->clearForces();
-		}
+	//Destruye la bala cuando colisiona con algo
+	if (!hit) {
+		std::cout << "--> SOY UNA BALA Y HE COLISIONADO <--" << std::endl;
+		hit = true;
+		physicRB->clearForces();
+		gameObject->Destroy();
 	}
 }
 

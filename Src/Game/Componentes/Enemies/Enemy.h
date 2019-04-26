@@ -1,6 +1,8 @@
 #pragma once
 #include <vector>
 #include "../../../Src/MotorEngine/Scene.h"
+#include "../../Mapa/Room.h"
+#include "../../Mapa/RoomManager.h"
 
 class EnemyRigidBody;
 class Enemy : public Component
@@ -13,7 +15,7 @@ protected:
 	GameObject* player = nullptr;
 	EnemyRigidBody* rbComp = nullptr;
 	btRigidBody* rb = nullptr;
-
+	Room* currRoom = nullptr;
 public:
 	void Start();
 
@@ -22,7 +24,7 @@ public:
 	virtual void LoadFromFile(json obj) = 0;
 	virtual void Update() = 0;
 	virtual void OnHit() = 0;
-	virtual void OnDeath() = 0;
+	virtual void OnDeath();
 	virtual void Spawn() = 0;
 
 };

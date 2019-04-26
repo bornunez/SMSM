@@ -3,13 +3,17 @@
 #include "../../../Src/MotorEngine/Scene.h"
 #include "../../../Src/MotorEngine/RigidBodyComponent.h"
 
-class WeaponBullet:public RigidBodyComponent
+class WeaponBullet: public RigidBodyComponent
 {
 private:
 	float speed = 1;
+	int grav;
+	float linDamp, angDamp;
+
 public:
 	WeaponBullet(GameObject* obj);
 	~WeaponBullet();
+	void Start();
 	void LoadFromFile(json obj);
 	virtual void collisionHandler(int id);
 	virtual void Update();

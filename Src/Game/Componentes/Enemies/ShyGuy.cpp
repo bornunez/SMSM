@@ -23,6 +23,7 @@ void ShyGuy::Start() {
 	}
 
 	meshRend->InitAnimations();
+	meshRend->PlayAnimation("my_animation", true);
 }
 
 void ShyGuy::LoadFromFile(json obj)
@@ -71,13 +72,14 @@ void ShyGuy::OnHit() {
 		OnDeath();
 	}
 
-	gameObject->Destroy();
 }
 
 void ShyGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+
+	Enemy::OnDeath();
 }
 
 void ShyGuy::Spawn()

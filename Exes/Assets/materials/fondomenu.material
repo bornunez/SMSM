@@ -1,0 +1,13 @@
+material SMSM/fondomenu
+{
+    technique
+    {
+        pass
+        {
+            texture_unit
+            {
+                texture FondoMenu.jpg
+            }
+        }   
+    }
+}
