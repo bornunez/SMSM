@@ -6,7 +6,7 @@
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"Pocholo.mesh"
+			"mesh":"pocholo_clean.mesh"
 		},
 		{
 			"type":"EnemyRigidBody",
