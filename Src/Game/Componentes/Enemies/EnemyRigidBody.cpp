@@ -23,7 +23,7 @@ void EnemyRigidBody::Start() {
 
 void EnemyRigidBody::LoadFromFile(json obj)
 {
-	RigidBodyComponent::LoadFromFile(obj);
+	RigidBodyComponent::LoadFromFile(obj);	
 	recoilTime = obj["recoilTime"];
 }
 
@@ -43,6 +43,16 @@ void EnemyRigidBody::collisionHandler(int id)
 		//Para evitar colisiones constantes, si queremos colisiones constantes, basta con reducir el recoil a 0
 		//std::cout << "Todav�a estoy en recoil" << std::endl;
 	}
+}
+
+void EnemyRigidBody::Update()
+{
+	btTransform trans;
+	physicRB->getMotionState()->getWorldTransform(trans);
+
+	trans.setOrigin(btVector3(trans.getOrigin().x() - 1, trans.getOrigin().y(), trans.getOrigin().z()));
+
+	gameObject->getNode()->setPosition(trans.getOrigin().x(), trans.getOrigin().y(), trans.getOrigin().z());
 }
 
 EnemyRigidBody::~EnemyRigidBody()

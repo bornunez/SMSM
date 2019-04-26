@@ -6,12 +6,12 @@
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"Pocholo.mesh"
+			"mesh":"pocholo_cobarde.mesh"
 		},
 		{
 			"type":"EnemyRigidBody",
 			"shape":0,
-			"id":0,
+			"id":1,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":-2,
