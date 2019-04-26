@@ -1,6 +1,6 @@
 particle_system Death
 {
-	material Particles/Cloud
+	material Particles/Hurt
 	particle_width 0.5
 	particle_height 0.5
 	quota 53
@@ -29,6 +29,13 @@ particle_system Death
 	affector Scaler
 	{
 		rate -1
+	}
+	affector Rotator
+	{
+		rotation_speed_range_start -10
+		rotation_speed_range_end 10
+		rotation_range_start 0
+		rotation_range_end 360
 	}
 	
 }
