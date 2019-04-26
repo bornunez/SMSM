@@ -6,7 +6,7 @@
 	"components":[
 		{
 			"type":"PlayerCollision",
-			"shape":1,
+			"shape":0,
 			"id":0,
 			"mass":1,
 			"restFactor":1,
@@ -17,8 +17,9 @@
 			"offsetY":0,
 			"offsetZ":0,
 			"isTrigger":true,
-			"radius":0.2,
-			"height":0.4
+			"sizeX": 0.4,
+			"sizeY": 0.4,
+			"sizeZ": 0.4
 		},
 		{
 			"type":"PlayerMov",
