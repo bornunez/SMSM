@@ -23,7 +23,7 @@ void ShyGuy::Start() {
 	}
 
 	meshRend->InitAnimations();
-	meshRend->PlayAnimation("my_animation", true);
+	meshRend->PlayAnimation("Move", true);
 }
 
 void ShyGuy::LoadFromFile(json obj)

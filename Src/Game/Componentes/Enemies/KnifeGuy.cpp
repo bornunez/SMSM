@@ -24,7 +24,7 @@ void KnifeGuy::Start() {
 
 	meshRend->InitAnimations();
 
-	meshRend->PlayAnimation("my_animation", true);
+	meshRend->PlayAnimation("Move", true);
 
 
 }
