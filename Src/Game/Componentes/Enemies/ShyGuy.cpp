@@ -53,6 +53,14 @@ void ShyGuy::Update()
 		}
 		else if (estado == state::FLEEING) {
 			auxVec.normalise();
+			float angle = atan2(auxVec.x, auxVec.z);
+			btQuaternion q;
+			q.setX(0);
+			q.setY(1 * sin(angle / 2));
+			q.setZ(0);
+			q.setW(cos(angle / 2));
+
+			rb->getWorldTransform().setRotation(q);
 			auxVec *= moveSpeed;
 			//aqui se le puede meter un multiplicador random en plan
 			//0.8, 1.2 para que haga un poco de s el bicho

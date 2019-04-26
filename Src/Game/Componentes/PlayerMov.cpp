@@ -12,6 +12,8 @@ Vector3 PlayerMov::getPlayerDirection()
 void PlayerMov::LoadFromFile(json obj)
 {
 	speed = obj["speed"];
+	mouseSensitivity = obj["mouseSensitivity"];
+
 	/*maxRotSpeed = obj["maxRotSpeed"];
 	movSpeed = obj["movSpeed"];
 	maxSpeed = obj["maxSpeed"];*/
@@ -24,15 +26,32 @@ void PlayerMov::Update()
 
 void PlayerMov::handleInput()
 {
-	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_LEFT) && playerRb->getAngularVelocity().y() < 10/*maxRotSpeed*/) {
-		playerRb->applyTorqueImpulse(btVector3(0, 0.05, 0));
+	// PLAYER CAMERA ----------------------------------------------------------------------
+
+	int currentMouseX = InputManager::getInstance()->getMouseX();
+	float xInput = fabs(currentMouseX - lastMouseX) * mouseSensitivity;
+
+	if (currentMouseX > lastMouseX) { // Derecha
+		//cout << "Derecha: " << xInput << endl;
+		playerRb->setAngularVelocity(btVector3(0, -xInput, 0));
 	}
-	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_RIGHT) && playerRb->getAngularVelocity().y() > -10/*maxRotSpeed*/) {
-		playerRb->applyTorqueImpulse(btVector3(0, -0.05, 0));
+	else if (currentMouseX < lastMouseX) { // Izquierda
+		//cout << "Izquierda: " << xInput << endl;
+		playerRb->setAngularVelocity(btVector3(0, xInput, 0));
 	}
-	else if(!InputManager::getInstance()->getKey(OIS::KeyCode::KC_RIGHT) && !InputManager::getInstance()->getKey(OIS::KeyCode::KC_LEFT)){
+	else {
 		playerRb->setAngularVelocity(btVector3(0, 0, 0));
 	}
+
+	// Reset mouse if it hits a window border
+	if (currentMouseX == scene->getGame()->getRenderWindow()->getWidth() || currentMouseX == 0)
+		InputManager::getInstance()->CenterMouse();
+
+	// Update last mouse position
+	lastMouseX = InputManager::getInstance()->getMouseX();
+
+
+	// PLAYER MOVEMENT --------------------------------------------------------------------
 
 	// Player Direction
 	Vector3 dir = getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
@@ -44,6 +63,7 @@ void PlayerMov::handleInput()
 
 	playerRb->setLinearVelocity(btVector3(0, 0, 0));
 
+	// Forwards / backwards
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W)) {
 		playerRb->setLinearVelocity(forward *speed);
 	}
@@ -51,6 +71,7 @@ void PlayerMov::handleInput()
 		playerRb->setLinearVelocity(-forward * speed);
 	}
 
+	// Left / Right
 	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_A)) {
 		playerRb->setLinearVelocity(-right * speed + playerRb->getLinearVelocity());
 	}
@@ -62,6 +83,7 @@ void PlayerMov::handleInput()
 void PlayerMov::Start()
 {
 	playerRb = playerColl->getRB();
+	lastMouseX = InputManager::getInstance()->getMouseX();
 }
 
 void PlayerMov::Awake()
