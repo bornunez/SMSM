@@ -94,6 +94,8 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 {
 	GameObject* o = nullptr;
 	string objName = obj["name"];
+
+	cout << "Trying to load GO [ " << objName << " ]" << endl;
 	
 	bool act = true;
 	if (obj.contains("active"))
@@ -109,10 +111,12 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 	o->setPosition(position);
 	o->setScale(scale);
 
-	auto components = componentLoader->LoadComponents(obj["components"], o);
+	
+	componentLoader->LoadComponents(obj["components"], o);
 
 	//Cargamos tambien todos los hijos
 	if (obj.contains("children")) {
+		cout << "Trying to load childs" << endl;
 		for (auto &child : obj["children"])
 			if (child.is_object()) {
 				GameObject* c = nullptr;
@@ -122,7 +126,10 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 					scene->Add(c);
 				}
 			}
+		cout << "Succesfully loaded childs" << endl;
 	}
+
+	cout << "Succesfully loaded [ " << objName << " ]" << endl;
 	return o;
 
 }

@@ -23,6 +23,7 @@ std::list<Component*> MyComponentLoader::LoadComponents(json json, GameObject * 
 				if(c != nullptr)
 					components.push_back(c);
 		}
+	cout << "Succesfully loaded all components" << endl;
 	return components;
 }
 
@@ -32,7 +33,7 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 	string c_type = comp["type"];
 
 	//Crear instancia del componente en funcion del tipo
-	cout << "Intentando parsear [ " << c_type << " ]" << endl;
+	//cout << "Intentando parsear [ " << c_type << " ]" << endl;
 	if (c_type == "meshRenderer")
 		c = new MeshRenderer(gameObject);
 	else if (c_type == "Weapon")
@@ -68,6 +69,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		gameObject->AddComponent(c);
 		c->LoadFromFile(comp);
 	}
+
+	cout << "Succesfully loaded component [ " << c_type << " ]" << endl;
 
 	return c;
 }
