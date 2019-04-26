@@ -43,6 +43,7 @@ private:
 	float specialReloadTime = 0.6;
 	float actSpecialReload = 0.6;
 	bool specialReloading = false;
+	Vector3 offset;
 public:
 	Weapon(GameObject* obj) : Component(obj) {};
 	~Weapon();

@@ -40,7 +40,7 @@ void PlayerTrigger::Update()
 	Vector3 pos = gameObject->getGlobalPosition();
 	pos += Vector3(offset_x, 0, offset_y);
 
-	cout << "PlayerPos : " << playerPos << " TriggerPos : " << pos << endl;
+	//cout << "PlayerPos : " << playerPos << " TriggerPos : " << pos << endl;
 
 	if (playerPos.x > pos.x - width / 2 && playerPos.x < pos.x + width / 2) {
 		if (playerPos.z > pos.z - height / 2 && playerPos.z < pos.z + height / 2) {

@@ -9,6 +9,7 @@ private:
 	float speed = 1;
 	int grav;
 	float linDamp, angDamp;
+	Vector3 direccion;
 
 public:
 	WeaponBullet(GameObject* obj);
