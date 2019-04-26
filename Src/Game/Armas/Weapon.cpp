@@ -157,7 +157,7 @@ void Weapon::PhysicShoot()
 	// gameObject->getGlobalPosition() + forward*0.4 + Vector3(0, -0.22, 0), 0.01);
 	dir = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * dir;
 	//scene->Instantiate("Bullet", gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0), 0.1);
-	scene->Instantiate("Bullet", gameObject->getParent()->getGlobalPosition()+dir+Vector3(0, offset.y, 0), 0.1);
+	scene->Instantiate("Bullet", gameObject->getParent()->getGlobalPosition()+dir+Vector3(0, offset.y, 0), 0.01);
 	//cout << "Disparo en: [ " << gameObject->getParent()->getNode()->getPosition() +dir << " ]" << endl;
 	cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0);
 	//cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition();

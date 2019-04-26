@@ -18,6 +18,7 @@ void WeaponBullet::Start()
 	physicRB->setDamping(linDamp, angDamp);
 	physicRB->applyTorqueImpulse(btVector3(0, 0.1, 0));
 	direccion = scene->getGameObject("Player")->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
+
 }
 
 void WeaponBullet::LoadFromFile(json obj)
@@ -39,7 +40,7 @@ void WeaponBullet::collisionHandler(int id)
 		std::cout << "--> SOY UNA BALA Y HE COLISIONADO <--" << std::endl;
 		hit = true;
 		physicRB->clearForces();
-		gameObject->Destroy();
+		//gameObject->Destroy();
 	}
 }
 
