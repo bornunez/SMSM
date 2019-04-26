@@ -15,6 +15,10 @@ private:
 	float maxSpeed = 20;
 	float speed = 0;
 
+	// Mouse
+	float mouseSensitivity;
+	int lastMouseX;
+
 public:
 	PlayerMov(GameObject* obj) : Component(obj) {};
 	~PlayerMov();

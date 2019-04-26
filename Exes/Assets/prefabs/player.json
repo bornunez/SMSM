@@ -23,7 +23,8 @@
 		},
 		{
 			"type":"PlayerMov",
-			"speed":10
+			"speed":10,
+			"mouseSensitivity":0.1
 		}
 	],
 	"children":[
