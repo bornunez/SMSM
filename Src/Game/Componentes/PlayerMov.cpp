@@ -82,12 +82,6 @@ void PlayerMov::handleInput()
 
 void PlayerMov::Start()
 {
-	playerRb = playerColl->getRB();
-	lastMouseX = InputManager::getInstance()->getMouseX();
-}
-
-void PlayerMov::Awake()
-{
 	//Obtiene el componente collider del GO para usarlo en el movimiento
 	std::list<Component*> comps = gameObject->getComponents();
 	bool found = false;
@@ -103,4 +97,9 @@ void PlayerMov::Awake()
 	}
 
 	playerRb = playerColl->getRB();
+	lastMouseX = InputManager::getInstance()->getMouseX();
+}
+
+void PlayerMov::Awake()
+{
 }
