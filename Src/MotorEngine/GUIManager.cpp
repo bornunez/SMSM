@@ -104,8 +104,7 @@ void GUIManager::Initialize()
 	CEGUI::FontManager::getSingleton().createFromFile("DejaVuSans-10.font");
 	CEGUI::System::getSingleton().getDefaultGUIContext().setDefaultFont("DejaVuSans-10");
 	CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().setDefaultImage("TaharezLook/MouseArrow");
-	CEGUI::System::getSingleton().getDefaultGUIContext().setDefaultTooltipType("TaharezLook/Tooltip");
-
+	CEGUI::System::getSingleton().getDefaultGUIContext().setDefaultTooltipType("TaharezLook/Tooltip");	
 
 	// Create CEGUI root object
 	wmgr = &CEGUI::WindowManager::getSingleton();
@@ -194,6 +193,7 @@ void GUIManager::InitMainScene()
 	if (g_ != nullptr) {
 		HideWindow("mainMenu");
 		gameHUD = true;
+		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		g_->ReLoadScene("mainScene");
 	}
 }
@@ -249,6 +249,7 @@ void GUIManager::AddWindow(std::string wndName)
 	}
 }
 
+// Metodo para poder utilizar una imagen como fondo de una ventana de menu
 void GUIManager::FrameWndImage(std::string name)
 {
 	Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create(name, "General");
@@ -294,10 +295,12 @@ void GUIManager::toggleMenu()
 {
 	if (menuHUD) {
 		HideWindow("mainMenu");
+		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		gameHUD = true;
 	}
 	else {
 		ShowWindow("mainMenu");
+		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
 		gameHUD = false;
 	}
 
@@ -308,10 +311,12 @@ void GUIManager::togglePause()
 {	
 	if (pauseHUD) {
 		HideWindow("pauseMenu");
+		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		gameHUD = true;
 	}
 	else {
 		ShowWindow("pauseMenu");
+		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
 		gameHUD = false;
 	}
 

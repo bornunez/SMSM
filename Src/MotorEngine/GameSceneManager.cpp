@@ -65,6 +65,7 @@ void GameSceneManager::RealoadScene(string sceneName)
 	Scene* s = scenes_[sceneName];
 	if (s != nullptr)
 	{
+		std::cout << "Limpiamos la escena" << std::endl;
 		s->Release();
 		scenes_[sceneName] = nullptr;
 	}

@@ -103,7 +103,6 @@ void PhysicsManager::Update()
 	CastAllRays();
 
 	DetectCollision();
-
 	
 
 	if (debug_)

@@ -23,6 +23,12 @@ Scene::~Scene() {}
 void Scene::Release()
 {
 	//ToDo: release memory used by the scene
+	//Eliminar todos los GameObjects y sus componentes
+
+	//Al eliminar los componentes RB se acumularian en un vector del physicsManager
+
+	//Ese vector se procesa aqui y elimina los objetos fisicos del mundo
+	PhysicsManager::Instance()->clearRigidBodies();
 }
 
 void Scene::parroThings(SceneManager* mSceneManager)
