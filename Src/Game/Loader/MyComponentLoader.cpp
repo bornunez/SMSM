@@ -64,6 +64,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new SkipRoom(gameObject);
 	else if (c_type == "ParticleSystem")
 		c = new MyParticleSystem(gameObject);
+	else if (c_type == "GUILoader")
+		c = new GUILoader(gameObject);
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);

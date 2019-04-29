@@ -1,7 +1,6 @@
 #pragma once
 #include "../../../Src/MotorEngine/Component.h"
 #include "../../../Src/MotorEngine/GUIManager.h"
-#include <string>
 
 // Componente para la carga de elementos del gui para cada escena
 
@@ -15,13 +14,10 @@ public:
 	GUILoader(GameObject* obj) : Component(obj) {};
 	~GUILoader();
 
-	void LoadFromFile(json obj);
+	virtual void LoadFromFile(json obj);
 	virtual void Update();
 	virtual void Start();
 	virtual void OnEnable();
 	virtual void OnDisable();
-
-private:
-
 };
 

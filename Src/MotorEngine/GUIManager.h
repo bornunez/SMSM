@@ -31,16 +31,9 @@ public:
 
 	void AddWindow(std::string wndName, std::string frameWindowLook, int posX, int posy, int sizeX, int sizeY, std::string backgroundMatName = " ");
 	void FrameWndImage(std::string name, Ogre::Real left = -1.0, Ogre::Real top = 1.0, Ogre::Real right = 1.0, Ogre::Real down = -1.0);	//Corners values go from -1 to 1 from the center of the screen
-	void CreateButton(GUILoader * l, std::string stateWnd, std::string buttonScheme, std::string image, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName);
-
-	void toggleMenu();
-	void togglePause();
-	void Exit();
-	void InitMainScene();
+	void CreateButton(std::string stateWnd, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName);
 
 	bool getGameOn() { return gameHUD; }
-
-	void registerFuntion(void(GUILoader::*)() , std::string name);
 
 private:
 	static GUIManager * instance_;
@@ -70,6 +63,12 @@ private:
 	CEGUI::WindowManager* wmgr;
 	CEGUI::Window* myRoot;
 	CEGUI::OgreRenderer* renderer_;
+
+	// Funciones concretas para el videojuego
+	void toggleMenu();
+	void togglePause();
+	void Exit();
+	void InitMainScene();
 
 	// Solo temporal para el estilo de creación de botones
 	//GUILoader * loader;

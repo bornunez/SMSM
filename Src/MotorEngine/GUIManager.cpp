@@ -116,7 +116,8 @@ void GUIManager::Initialize()
 	//Se deberia llamar desde una entidad de la escena menu
 	//FrameWndImage("fondomenu");
 
-	//Main menu window
+	////Main menu window
+	// COMMENT EVENTUALLY --------------------------------------
 	{
 		menuWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "menuWindow"));
 		myRoot->addChild(menuWnd);
@@ -173,13 +174,12 @@ void GUIManager::Initialize()
 			start->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
 			start->setText("Continue");
 			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
+			start->setDisabled(true);
 		}
 		stateWnds["pauseMenu"] = pauseWnd;
 		pauseWnd->hide();
 	}
 }
-
-
 
 void GUIManager::Exit()
 {
@@ -197,10 +197,6 @@ void GUIManager::InitMainScene()
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		g_->ReLoadScene("mainScene");
 	}
-}
-
-void GUIManager::registerFuntion(void(GUILoader::*)(), std::string name)
-{
 }
 
 void GUIManager::ToggleWindow(std::string wndName)
@@ -250,9 +246,9 @@ void GUIManager::ShowWindow(std::string wndName)
 
 // Hay que pasar el nombre con el que esta mapeado el metodo dentro de la lista "functions"
 
-void GUIManager::CreateButton(GUILoader * l, std::string stateWnd, std::string buttonScheme, std::string buttonImage, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName)
+void GUIManager::CreateButton(std::string stateWnd, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName)
 {
-	CEGUI::Window *temp = wmgr->createWindow(buttonScheme, buttonImage);
+	CEGUI::Window *temp = wmgr->createWindow(buttonScheme);
 	stateWnds[stateWnd]->addChild(temp);
 	temp->setPosition(CEGUI::UVector2(CEGUI::UDim(pos_x, 0.0f), CEGUI::UDim(pos_y, 0.0f)));
 	temp->setSize(CEGUI::USize(CEGUI::UDim(size_x, 0), CEGUI::UDim(size_y, 0)));
@@ -263,7 +259,7 @@ void GUIManager::CreateButton(GUILoader * l, std::string stateWnd, std::string b
 void GUIManager::AddWindow(std::string wndName, std::string frameWindowLook, int posX, int posy, int sizeX, int sizeY, std::string backgroundMatName)
 {
 	if (stateWnds[wndName] == nullptr) {	// Si esa ventana no se ha creado ya
-		stateWnds[wndName] = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", wndName));	//
+		stateWnds[wndName] = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow(frameWindowLook, wndName));	//
 		myRoot->addChild(stateWnds[wndName]);
 		stateWnds[wndName]->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
 		stateWnds[wndName]->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
