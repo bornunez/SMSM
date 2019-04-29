@@ -15,6 +15,7 @@
 					"wndPosY":-0.2,
 					"wndSizeX":1.3,
 					"wndSizeY":1.3,
+					"backgroundMat":"FondoMenu.png",
 					"buttons":[
 						{
 							"buttonName":"startButton",

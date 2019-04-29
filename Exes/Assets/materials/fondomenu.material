@@ -6,7 +6,7 @@ material SMSM/fondomenu
         {
             texture_unit
             {
-                texture FondoMenu.jpg
+                texture FondoMenu.png
             }
         }   
     }

@@ -21,8 +21,6 @@ GUIManager::~GUIManager()
 {
 	// toDo: release memory
 
-
-
 	CEGUI::OgreRenderer::destroySystem();
 }
 
@@ -118,67 +116,67 @@ void GUIManager::Initialize()
 
 	////Main menu window
 	// COMMENT EVENTUALLY --------------------------------------
-	{
-		menuWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "menuWindow"));
-		myRoot->addChild(menuWnd);
-		menuWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
-		menuWnd->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
-		menuWnd->setTitleBarEnabled(false);
-		menuWnd->setCloseButtonEnabled(false);
+	//{
+	//	menuWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "menuWindow"));
+	//	myRoot->addChild(menuWnd);
+	//	menuWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
+	//	menuWnd->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
+	//	menuWnd->setTitleBarEnabled(false);
+	//	menuWnd->setCloseButtonEnabled(false);
 
-		//Main menu buttons
-		{
-			CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button");
-			menuWnd->addChild(quit);
-			quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
-			quit->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-			quit->setText("Quit");
-			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["exit"], this));
+	//	//Main menu buttons
+	//	{
+	//		CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button");
+	//		menuWnd->addChild(quit);
+	//		quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
+	//		quit->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+	//		quit->setText("Quit");
+	//		quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["exit"], this));
 
-			CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
-			menuWnd->addChild(start);
-			start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
-			start->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
-			start->setText("Start");
-			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["mainScene"], this));
-		}
+	//		CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+	//		menuWnd->addChild(start);
+	//		start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
+	//		start->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
+	//		start->setText("Start");
+	//		start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["mainScene"], this));
+	//	}
 
-		stateWnds["mainMenu"] = menuWnd;
-		activeWnd = menuWnd;
-	}
+	//	stateWnds["MenuWnd"] = menuWnd;
+	//	activeWnd = menuWnd;
+	//}
 
-	//Pause menu window
-	{
-		pauseWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "pauseWindow"));
-		myRoot->addChild(pauseWnd);
-		pauseWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(0.2f, 0.2f), CEGUI::UDim(0.2f, 0.2f)));
-		pauseWnd->setSize(CEGUI::USize(CEGUI::UDim(0.6f, 0.6f), CEGUI::UDim(0.6f, 0.6f)));
-		//pauseWnd->setTitleBarEnabled(false);
-		pauseWnd->setDragMovingEnabled(false);
-		pauseWnd->setCloseButtonEnabled(false);
-		pauseWnd->setSizingEnabled(false);
+	////Pause menu window
+	//{
+	//	pauseWnd = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "pauseWindow"));
+	//	myRoot->addChild(pauseWnd);
+	//	pauseWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(0.2f, 0.2f), CEGUI::UDim(0.2f, 0.2f)));
+	//	pauseWnd->setSize(CEGUI::USize(CEGUI::UDim(0.6f, 0.6f), CEGUI::UDim(0.6f, 0.6f)));
+	//	//pauseWnd->setTitleBarEnabled(false);
+	//	pauseWnd->setDragMovingEnabled(false);
+	//	pauseWnd->setCloseButtonEnabled(false);
+	//	pauseWnd->setSizingEnabled(false);
 
-		//Pause menu buttons
-		{
-			CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
-			pauseWnd->addChild(quit);
-			quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.4f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
-			quit->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
-			quit->setText("Menu");
-			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
-			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["menu"], this));
+	//	//Pause menu buttons
+	//	{
+	//		CEGUI::Window *quit = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+	//		pauseWnd->addChild(quit);
+	//		quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.4f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
+	//		quit->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
+	//		quit->setText("Menu");
+	//		quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
+	//		quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["menu"], this));
 
-			CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
-			pauseWnd->addChild(start);
-			start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.4f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
-			start->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
-			start->setText("Continue");
-			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
-			start->setDisabled(true);
-		}
-		stateWnds["pauseMenu"] = pauseWnd;
-		pauseWnd->hide();
-	}
+	//		CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
+	//		pauseWnd->addChild(start);
+	//		start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.4f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
+	//		start->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
+	//		start->setText("Continue");
+	//		start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
+	//		start->setDisabled(true);
+	//	}
+	//	stateWnds["pauseMenu"] = pauseWnd;
+	//	pauseWnd->hide();
+	//}
 }
 
 void GUIManager::Exit()
@@ -192,7 +190,7 @@ void GUIManager::Exit()
 void GUIManager::InitMainScene()
 {
 	if (g_ != nullptr) {
-		HideWindow("mainMenu");
+		HideWindow("MenuWnd");
 		gameHUD = true;
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		g_->ReLoadScene("mainScene");
@@ -246,9 +244,11 @@ void GUIManager::ShowWindow(std::string wndName)
 
 // Hay que pasar el nombre con el que esta mapeado el metodo dentro de la lista "functions"
 
-void GUIManager::CreateButton(std::string stateWnd, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName)
+void GUIManager::CreateButton(std::string stateWnd, std::string buttonName, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName)
 {
-	CEGUI::Window *temp = wmgr->createWindow(buttonScheme);
+	cout << "Los parametros son: " << stateWnd << "  " << buttonScheme << "  " << pos_x << "  " << pos_y << "  " << endl << size_x << "  " << size_y << "  " << text << "  " << methodName << endl;
+
+	CEGUI::Window *temp = wmgr->createWindow(buttonScheme, buttonName);
 	stateWnds[stateWnd]->addChild(temp);
 	temp->setPosition(CEGUI::UVector2(CEGUI::UDim(pos_x, 0.0f), CEGUI::UDim(pos_y, 0.0f)));
 	temp->setSize(CEGUI::USize(CEGUI::UDim(size_x, 0), CEGUI::UDim(size_y, 0)));
@@ -269,7 +269,7 @@ void GUIManager::AddWindow(std::string wndName, std::string frameWindowLook, int
 
 
 		// Si el material está definido
-		if (backgroundMatName != " ") {	
+		if (backgroundMatName != " ") {
 			FrameWndImage(backgroundMatName);
 		}
 	}
@@ -302,12 +302,12 @@ void GUIManager::FrameWndImage(std::string name, Ogre::Real left, Ogre::Real top
 void GUIManager::toggleMenu()
 {
 	if (menuHUD) {
-		HideWindow("mainMenu");
+		HideWindow("MenuWnd");
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		gameHUD = true;
 	}
 	else {
-		ShowWindow("mainMenu");
+		ShowWindow("MenuWnd");
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
 		gameHUD = false;
 	}

@@ -15,12 +15,11 @@ void GUILoader::LoadFromFile(json obj)
 	float WndSizeX = obj["wndSizeX"];
 	float WndSizeY = obj["wndSizeY"];
 
-	string backgroundMatName = " ";
-
-	if (obj.contains("backgroundMat"))
-		string backgroundMatName = obj["backgroundMat"];
+	string backgroundMatName = obj["backgroundMat"];
 	
 	GUIManager::Instance()->AddWindow(frameWndName, WndLook, WndPosX, WndPosY, WndSizeX, WndSizeY, backgroundMatName);
+
+	cout << "Se ha creado el boton: " << backgroundMatName << endl;
 
 	cout << "Se crea window" << endl;
 
@@ -32,7 +31,7 @@ void GUILoader::LoadFromFile(json obj)
 				// Recorremos las variables del objeto para crear el boton, aqui podemos tener un switch para elegir
 				// entre las funciones locales, para pasarle correctamente la funcion al boton del GUIManager
 
-				string stateWnd = but["buttonName"];
+				string buttonName = but["buttonName"];
 				string buttonScheme = but["buttonScheme"];
 				float buttonPosX = but["buttonPosX"];
 				float buttonPosY = but["buttonPosY"];
@@ -41,9 +40,9 @@ void GUILoader::LoadFromFile(json obj)
 				string buttonText = but["buttonText"];
 				string buttonFunctionName = but["buttonFunctionName"];
 
-				GUIManager::Instance()->CreateButton(stateWnd, buttonScheme, buttonPosX, buttonPosY, buttonSizeX, buttonSizeY, buttonText, buttonFunctionName);
+				GUIManager::Instance()->CreateButton(frameWndName, buttonName, buttonScheme, buttonPosX, buttonPosY, buttonSizeX, buttonSizeY, buttonText, buttonFunctionName);
 
-				cout << "Se ha creado el boton: " << stateWnd << endl;
+				cout << "Se ha creado el boton: " << buttonName << endl;
 			}
 	}
 }

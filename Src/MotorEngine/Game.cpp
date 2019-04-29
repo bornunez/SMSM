@@ -131,8 +131,8 @@ void Game::Play()
 	//Inicializacion del audio
 	AudioManager::getInstance()->init();
 	// Scenes
-	//sceneManager->LoadScene("menuScene"); // Load the scene
-	//sceneManager->ChangeScene("menuScene"); // Set it to active (makes this the current active scene)
+	sceneManager->LoadScene("menuScene"); // Load the scene
+	sceneManager->ChangeScene("menuScene"); // Set it to active (makes this the current active scene)
 
 	// Another scene to test changing between scenes
 	//sceneManager->LoadScene("secondScene"); // Load the scene

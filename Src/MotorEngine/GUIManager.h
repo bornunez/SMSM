@@ -30,8 +30,8 @@ public:
 	void ShowWindow(std::string wndName);
 
 	void AddWindow(std::string wndName, std::string frameWindowLook, int posX, int posy, int sizeX, int sizeY, std::string backgroundMatName = " ");
-	void FrameWndImage(std::string name, Ogre::Real left = -1.0, Ogre::Real top = 1.0, Ogre::Real right = 1.0, Ogre::Real down = -1.0);	//Corners values go from -1 to 1 from the center of the screen
-	void CreateButton(std::string stateWnd, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName);
+	void FrameWndImage(std::string name, Ogre::Real left = -1.0, Ogre::Real top = 1.0, Ogre::Real right = 1.0, Ogre::Real down = -1.0);						// Side values go from -1 to 1 from the center of the screen
+	void CreateButton(std::string stateWnd, std::string buttonName, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName);
 
 	bool getGameOn() { return gameHUD; }
 
