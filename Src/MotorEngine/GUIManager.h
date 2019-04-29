@@ -44,8 +44,8 @@ public:
 
 private:
 	static GUIManager * instance_;
-	//std::map<std::string, void(GUIManager::*)()> functions;
-	std::map<std::string, void(GUILoader::*)()> functions;
+	std::map<std::string, void(GUIManager::*)()> functions;
+	//std::map<std::string, void(GUILoader::*)()> functions;
 
 	std::map<std::string, CEGUI::FrameWindow*> stateWnds;		// Relaciona un nombre con su ventana ("estado")
 	CEGUI::FrameWindow* activeWnd = nullptr;
@@ -72,5 +72,5 @@ private:
 	CEGUI::OgreRenderer* renderer_;
 
 	// Solo temporal para el estilo de creación de botones
-	GUILoader * loader;
+	//GUILoader * loader;
 };
