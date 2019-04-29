@@ -152,7 +152,8 @@ void GUIManager::Initialize()
 		myRoot->addChild(pauseWnd);
 		pauseWnd->setPosition(CEGUI::UVector2(CEGUI::UDim(0.2f, 0.2f), CEGUI::UDim(0.2f, 0.2f)));
 		pauseWnd->setSize(CEGUI::USize(CEGUI::UDim(0.6f, 0.6f), CEGUI::UDim(0.6f, 0.6f)));
-		pauseWnd->setTitleBarEnabled(false);
+		//pauseWnd->setTitleBarEnabled(false);
+		pauseWnd->setDragMovingEnabled(false);
 		pauseWnd->setCloseButtonEnabled(false);
 		pauseWnd->setSizingEnabled(false);
 

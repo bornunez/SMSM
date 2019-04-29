@@ -1,23 +1,23 @@
 <Imageset autoScaled="vertical" imagefile="TaharezLook.png" name="TaharezLook" nativeHorzRes="1280" nativeVertRes="720" version="2">
     <Image height="64" name="ClientBrush" width="64" xPos="2" yPos="2" />
     <Image height="1" name="GenericBrush" width="1" xPos="9" yPos="71" />
-    <Image height="22" name="WindowLeftEdge" width="1" xOffset="4" xPos="6" yOffset="0" yPos="95" />
-    <Image height="22" name="WindowRightEdge" width="1" xOffset="-4" xPos="34" yOffset="0" yPos="95" />
-    <Image height="1" name="WindowTopEdge" width="23" xPos="9" yPos="68" />
-    <Image height="1" name="WindowBottomEdge" width="23" xPos="9" yPos="143" />
-    <Image height="24" name="WindowTopLeft" width="5" xPos="2" yPos="68" />
-    <Image height="24" name="WindowTopRight" width="5" xPos="34" yPos="68" />
-    <Image height="24" name="WindowBottomLeft" width="5" xPos="2" yPos="120" />
-    <Image height="24" name="WindowBottomRight" width="5" xPos="34" yPos="120" />
-    <Image height="16" name="ButtonLeftNormal" width="12" xPos="68" yPos="20" />
-    <Image height="16" name="ButtonMiddleNormal" width="12" xPos="82" yPos="20" />
-    <Image height="16" name="ButtonRightNormal" width="12" xPos="96" yPos="20" />
-    <Image height="16" name="ButtonLeftPushed" width="12" xPos="68" yPos="38" />
-    <Image height="16" name="ButtonMiddlePushed" width="12" xPos="82" yPos="38" />
-    <Image height="16" name="ButtonRightPushed" width="12" xPos="96" yPos="38" />
-    <Image height="16" name="ButtonLeftHighlight" width="12" xPos="68" yPos="56" />
-    <Image height="16" name="ButtonMiddleHighlight" width="12" xPos="82" yPos="56" />
-    <Image height="16" name="ButtonRightHighlight" width="12" xPos="96" yPos="56" />
+    <Image height="24" name="WindowLeftEdge" width="1" xOffset="4" xPos="3" yOffset="0" yPos="94" />
+    <Image height="24" name="WindowRightEdge" width="1" xOffset="-4" xPos="37" yOffset="0" yPos="94" />
+    <Image height="2" name="WindowTopEdge" width="25" xPos="8" yPos="67" />
+    <Image height="2" name="WindowBottomEdge" width="25" xPos="8" yPos="143" />
+    <Image height="4" name="WindowTopLeft" width="4" xPos="4" yPos="88" />
+    <Image height="4" name="WindowTopRight" width="4" xPos="33" yPos="88" />
+    <Image height="4" name="WindowBottomLeft" width="4" xPos="4" yPos="120" />
+    <Image height="4" name="WindowBottomRight" width="4" xPos="33" yPos="120" />
+    <Image height="15" name="ButtonLeftNormal" width="12" xPos="53" yPos="199" />
+    <Image height="15" name="ButtonMiddleNormal" width="12" xPos="67" yPos="199" />
+    <Image height="15" name="ButtonRightNormal" width="12" xPos="96" yPos="199" />
+    <Image height="15" name="ButtonLeftPushed" width="12" xPos="53" yPos="218" />
+    <Image height="15" name="ButtonMiddlePushed" width="12" xPos="67" yPos="218" />
+    <Image height="15" name="ButtonRightPushed" width="12" xPos="96" yPos="218" />
+    <Image height="15" name="ButtonLeftHighlight" width="12" xPos="53" yPos="237" />
+    <Image height="15" name="ButtonMiddleHighlight" width="12" xPos="67" yPos="237" />
+    <Image height="15" name="ButtonRightHighlight" width="12" xPos="96" yPos="237" />
     <Image height="12" name="CheckboxNormal" width="12" xPos="110" yPos="2" />
     <Image height="12" name="CheckboxHover" width="12" xPos="110" yPos="30" />
     <Image height="12" name="CheckboxMark" width="12" xPos="110" yPos="16" />
@@ -169,7 +169,7 @@
     <Image height="6" name="MultiLineEditboxBackdrop" width="6" xPos="52" yPos="89" />
     <Image height="14" name="MultiLineEditboxSelectionBrush" width="14" xPos="9" yPos="71" />
     <Image height="17" name="MouseTarget" width="17" xOffset="-8" xPos="182" yOffset="-8" yPos="127" />
-    <Image height="25" name="MouseArrow" width="31" xPos="138" yPos="127" />
+    <Image height="17" name="MouseArrow" width="17" xPos="96" yPos="162" />
     <Image height="18" name="MouseMoveCursor" width="18" xOffset="-8" xPos="201" yOffset="-8" yPos="127" />
     <Image height="18" name="MouseNoSoCursor" width="8" xOffset="-3" xPos="221" yOffset="-8" yPos="127" />
     <Image height="8" name="MouseEsWeCursor" width="18" xOffset="-8" xPos="182" yOffset="-3" yPos="150" />
