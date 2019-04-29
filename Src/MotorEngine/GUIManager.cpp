@@ -11,10 +11,10 @@ GUIManager::GUIManager(Ogre::RenderWindow* w, Game* g)
 	g_ = g;
 
 	// Registramos las funciones de los botones con un nombre distintivo en un diccionario de funciones
-	functions["exit"]			= &GUIManager::Exit;
+	/*functions["exit"]			= &GUIManager::Exit;
 	functions["mainScene"]		= &GUIManager::InitMainScene;
 	functions["pause"]			= &GUIManager::togglePause;
-	functions["menu"]			= &GUIManager::toggleMenu;
+	functions["menu"]			= &GUIManager::toggleMenu;*/
 }
 
 GUIManager::~GUIManager()
@@ -132,14 +132,14 @@ void GUIManager::Initialize()
 			quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
 			quit->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
 			quit->setText("Quit");
-			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["exit"], this));
+			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["exit"], loader));
 
 			CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
 			menuWnd->addChild(start);
 			start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.45f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
 			start->setSize(CEGUI::USize(CEGUI::UDim(0.15, 0), CEGUI::UDim(0.05, 0)));
 			start->setText("Start");
-			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["mainScene"], this));
+			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["mainScene"], loader));
 		}
 
 		stateWnds["mainMenu"] = menuWnd;
@@ -163,15 +163,15 @@ void GUIManager::Initialize()
 			quit->setPosition(CEGUI::UVector2(CEGUI::UDim(0.4f, 0.0f), CEGUI::UDim(0.5f, 0.0f)));
 			quit->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
 			quit->setText("Menu");
-			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
-			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["menu"], this));
+			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], loader));
+			quit->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["menu"], loader));
 
 			CEGUI::Window *start = wmgr->createWindow("TaharezLook/Button", "CEGUIDemo/QuitButton");
 			pauseWnd->addChild(start);
 			start->setPosition(CEGUI::UVector2(CEGUI::UDim(0.4f, 0.0f), CEGUI::UDim(0.25f, 0.0f)));
 			start->setSize(CEGUI::USize(CEGUI::UDim(0.2, 0), CEGUI::UDim(0.1, 0)));
 			start->setText("Continue");
-			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], this));
+			start->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions["pause"], loader));
 		}
 		stateWnds["pauseMenu"] = pauseWnd;
 		pauseWnd->hide();
@@ -196,6 +196,10 @@ void GUIManager::InitMainScene()
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		g_->ReLoadScene("mainScene");
 	}
+}
+
+void GUIManager::registerFuntion(void(GUILoader::*)(), std::string name)
+{
 }
 
 void GUIManager::ToggleWindow(std::string wndName)
@@ -237,20 +241,45 @@ void GUIManager::ShowWindow(std::string wndName)
 	}
 }
 
-void GUIManager::AddWindow(std::string wndName)
+// NOTA:
+
+// El problema con la asignacion de los callbacks de los botones es la asignacion de parametros
+// Es decir se puede hacer con diccionario de metodos sin parametros que llamen por debajo a metodos con
+// parametros espeficicos para ese metodo
+
+// Hay que pasar el nombre con el que esta mapeado el metodo dentro de la lista "functions"
+
+void GUIManager::CreateButton(GUILoader * l, std::string stateWnd, std::string buttonScheme, std::string buttonImage, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName)
+{
+	CEGUI::Window *temp = wmgr->createWindow(buttonScheme, buttonImage);
+	stateWnds[stateWnd]->addChild(temp);
+	temp->setPosition(CEGUI::UVector2(CEGUI::UDim(pos_x, 0.0f), CEGUI::UDim(pos_y, 0.0f)));
+	temp->setSize(CEGUI::USize(CEGUI::UDim(size_x, 0), CEGUI::UDim(size_y, 0)));
+	temp->setText(text);
+	temp->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions[methodName], loader));
+}
+
+void GUIManager::AddWindow(std::string wndName, std::string frameWindowLook, int posX, int posy, int sizeX, int sizeY, std::string backgroundMatName)
 {
 	if (stateWnds[wndName] == nullptr) {	// Si esa ventana no se ha creado ya
-		stateWnds[wndName] = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", "testWindow"));
+		stateWnds[wndName] = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow("TaharezLook/FrameWindow", wndName));	//
 		myRoot->addChild(stateWnds[wndName]);
 		stateWnds[wndName]->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
 		stateWnds[wndName]->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
 		stateWnds[wndName]->setTitleBarEnabled(false);
 		stateWnds[wndName]->setCloseButtonEnabled(false);
+		stateWnds[wndName]->setSizingEnabled(false);
+
+
+		// Si el material está definido
+		if (backgroundMatName != " ") {	
+			FrameWndImage(backgroundMatName);
+		}
 	}
 }
 
 // Metodo para poder utilizar una imagen como fondo de una ventana de menu
-void GUIManager::FrameWndImage(std::string name)
+void GUIManager::FrameWndImage(std::string name, Ogre::Real left, Ogre::Real top, Ogre::Real right, Ogre::Real down)
 {
 	Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create(name, "General");
 	material->getTechnique(0)->getPass(0)->createTextureUnitState(name);
@@ -260,7 +289,7 @@ void GUIManager::FrameWndImage(std::string name)
 
 	Ogre::Rectangle2D* rect = new Ogre::Rectangle2D(true);
 
-	rect->setCorners(-1.0, 1.0, 1.0, -1.0);
+	rect->setCorners(left, top, right, down);
 	rect->setMaterial(material);
 
 	rect->setRenderQueueGroup(Ogre::RENDER_QUEUE_BACKGROUND);
@@ -271,24 +300,6 @@ void GUIManager::FrameWndImage(std::string name)
 
 	Ogre::SceneNode* node = g_->getRoot()->createSceneManager()->getRootSceneNode()->createChildSceneNode(name);
 	node->attachObject(rect);
-}
-
-// NOTA:
-
-// El problema con la asignacion de los callbacks de los botones es la asignacion de parametros
-// Es decir se puede hacer con diccionario de metodos sin parametros que llamen por debajo a metodos con
-// parametros espeficicos para ese metodo
-
-// Hay que pasar el nombre con el que esta mapeado el metodo dentro de la lista "functions"
-
-void GUIManager::CreateButton(std::string stateWnd ,std::string buttonScheme, std::string buttonImage, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName)
-{
-	CEGUI::Window *temp = wmgr->createWindow(buttonScheme, buttonImage);
-	stateWnds[stateWnd]->addChild(temp);
-	temp->setPosition(CEGUI::UVector2(CEGUI::UDim(pos_x, 0.0f), CEGUI::UDim(pos_y, 0.0f)));
-	temp->setSize(CEGUI::USize(CEGUI::UDim(size_x, 0), CEGUI::UDim(size_y, 0)));
-	temp->setText(text);
-	temp->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions[methodName], this));
 }
 
 void GUIManager::toggleMenu()

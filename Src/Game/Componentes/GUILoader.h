@@ -1,6 +1,7 @@
 #pragma once
 #include "../../../Src/MotorEngine/Component.h"
-
+#include "../../../Src/MotorEngine/GUIManager.h"
+#include <string>
 
 // Componente para la carga de elementos del gui para cada escena
 
@@ -19,6 +20,8 @@ public:
 	virtual void Start();
 	virtual void OnEnable();
 	virtual void OnDisable();
+
+private:
 
 };
 

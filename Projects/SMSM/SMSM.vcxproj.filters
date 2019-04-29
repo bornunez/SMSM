@@ -34,6 +34,9 @@
     <Filter Include="Componentes\Enemies">
       <UniqueIdentifier>{d522f2a6-f454-4648-bc8d-9246d4265cee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Componentes\GUI">
+      <UniqueIdentifier>{160e77f8-ec60-4af4-8283-d762e48353be}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\Game\main.cpp">
@@ -90,6 +93,9 @@
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.cpp">
       <Filter>Componentes\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\GUILoader.cpp">
+      <Filter>Componentes\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -142,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.h">
       <Filter>Componentes\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\GUILoader.h">
+      <Filter>Componentes\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
