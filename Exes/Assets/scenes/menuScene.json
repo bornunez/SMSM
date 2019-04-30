@@ -26,11 +26,11 @@
 						{
 							"frameWndParentName":"MenuWnd",
 							"buttonName":"startButton",
-							"buttonScheme":"TaharezLook/Button",
-							"buttonPosX":0.35,
+							"buttonScheme":"TaharezLook/HeartButton",
+							"buttonPosX":0.5,
 							"buttonPosY":0.25,
-							"buttonSizeX":0.30,
-							"buttonSizeY":0.1,
+							"buttonSizeX":0.175,
+							"buttonSizeY":0.2,
 							"buttonText":"Start",
 							"buttonFunctionName":"mainScene",
 							"active":true

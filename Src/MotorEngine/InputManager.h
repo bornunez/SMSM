@@ -58,9 +58,19 @@ public:
 	int getMouseX();
 
 	/**
+	Devuelve la diferencia de la cordenada X del raton con el frame anterior
+	*/
+	int getMouseXDif();
+
+	/**
 		Devuelve la cordenada Y del raton
 		*/
 	int getMouseY();
+
+	/**
+	Devuelve la diferencia de la cordenada Y del raton con el frame anterior
+	*/
+	int getMouseYDif();
 
 	/**
 		Modifica las cordenadas del raton 

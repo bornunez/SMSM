@@ -53,6 +53,12 @@ void InputManager::SetUpOIS()
 	mMouse = static_cast<OIS::Mouse*>(mInputManager->createInputObject(OIS::OISMouse, false));
 	mMouse->getMouseState().height = mWindow->getHeight();
 	mMouse->getMouseState().width = mWindow->getWidth();
+
+	mKeyboard->copyKeyStates(prevKeyboard);
+	prevMouse = mMouse->getMouseState();
+
+	mKeyboard->capture();
+	mMouse->capture();
 }
 
 bool InputManager::getKeyDown(OIS::KeyCode key)
@@ -81,9 +87,19 @@ int InputManager::getMouseX()
 	return mMouse->getMouseState().X.abs;
 }
 
+int InputManager::getMouseXDif()
+{
+	return mMouse->getMouseState().X.abs - prevMouse.X.abs;
+}
+
 int InputManager::getMouseY()
 {
 	return mMouse->getMouseState().Y.abs;
+}
+
+int InputManager::getMouseYDif()
+{
+	return mMouse->getMouseState().Y.abs - prevMouse.Y.abs;
 }
 
 void InputManager::setMouseCoords(int x, int y)
@@ -131,5 +147,4 @@ bool InputManager::frameRenderingQueued(const Ogre::FrameEvent & evt)
 	//	return false;
 
 	return true;
-	return false;
 }
