@@ -23,6 +23,7 @@
 		{
 			"type":"PlayerMov",
 			"speed":10,
+			"lives":10,
 			"mouseSensitivity":0.1
 		}
 	],

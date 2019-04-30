@@ -6,6 +6,7 @@
 #include <CEGUI/CEGUI.h>
 #include <CEGUI/RendererModules/Ogre/Renderer.h>
 #include <map>
+#include <iostream>
 
 class GUILoader;
 
@@ -35,6 +36,10 @@ public:
 
 	bool getGameOn() { return gameHUD; }
 
+	// Devuelve una ventana / un boton segun un nombre dado
+	CEGUI::FrameWindow * getWindow(std::string windowName) { return mWindows[windowName]; };
+	CEGUI::Window * getButton(std::string buttonName) { return mButtons[buttonName]; };
+
 private:
 	static GUIManager * instance_;
 	std::map<std::string, void(GUIManager::*)()> functions;
@@ -43,13 +48,10 @@ private:
 	std::map<std::string, CEGUI::FrameWindow*> stateWnds;		// Relaciona un nombre con su ventana ("estado")
 	CEGUI::FrameWindow* activeWnd = nullptr;
 	CEGUI::FrameWindow* lastWnd = nullptr;
-	
-	//Menu example
-	CEGUI::FrameWindow* menuWnd;
-	//Pause example
-	CEGUI::FrameWindow* pauseWnd;
-	//GameHUD example
-	CEGUI::FrameWindow* gameWnd;
+
+	// Ventanas y botones
+	std::map<std::string, CEGUI::FrameWindow *> mWindows;
+	std::map<std::string, CEGUI::Window *> mButtons;
 
 	bool gameHUD = false;
 	bool pauseHUD = false;

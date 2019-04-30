@@ -132,13 +132,13 @@
 						},
 						{
 							"frameWndParentName":"null",
-							"buttonName":"Heart",
+							"buttonName":"livesHeart",
 							"buttonScheme":"TaharezLook/HeartButton",
-							"buttonPosX":0.45,
-							"buttonPosY":0.5,
-							"buttonSizeX":0.15,
-							"buttonSizeY":0.05,
-							"buttonText":"3",
+							"buttonPosX":0.05,
+							"buttonPosY":0.05,
+							"buttonSizeX":0.075,
+							"buttonSizeY":0.075,
+							"buttonText":" ",
 							"buttonFunctionName":"null",
 							"active":true
 						}

@@ -19,6 +19,9 @@ void PlayerMov::LoadFromFile(json obj)
 	/*maxRotSpeed = obj["maxRotSpeed"];
 	movSpeed = obj["movSpeed"];
 	maxSpeed = obj["maxSpeed"];*/
+
+	if(obj.contains("lives")) // Se asigna una vida al player
+		lives = obj["lives"];
 }
 
 void PlayerMov::Update()
@@ -98,8 +101,16 @@ void PlayerMov::Start()
 	//input = scene->getGame()->getInputManager();
 
 	//lastMouseX = InputManager::getInstance()->getMouseX();
+
+	livesHeart = GUIManager::Instance()->getButton("livesHeart");
+	livesHeart->setText(std::to_string(lives));
 }
 
 void PlayerMov::Awake()
 {
+}
+
+void PlayerMov::updateLivesHeart()
+{
+	livesHeart->setText(std::to_string(lives));
 }

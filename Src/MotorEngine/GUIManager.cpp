@@ -193,13 +193,19 @@ CEGUI::Window*  GUIManager::CreateButton(std::string stateWnd, std::string butto
 
 	if(stateWnd != "null")
 		stateWnds[stateWnd]->addChild(temp);
+	else
+		myRoot->addChild(temp);
 
 	temp->setPosition(CEGUI::UVector2(CEGUI::UDim(pos_x, 0.0f), CEGUI::UDim(pos_y, 0.0f)));
 	temp->setSize(CEGUI::USize(CEGUI::UDim(size_x, 0), CEGUI::UDim(size_y, 0)));
 	temp->setText(text);
 
+	//temp->setAlwaysOnTop(true);
+
 	if(methodName != "null")
 		temp->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions[methodName], this));
+
+	mButtons[buttonName] = temp; // Se añade al diccionario
 
 	return temp;
 }
@@ -221,6 +227,8 @@ CEGUI::FrameWindow * GUIManager::AddWindow(std::string wndName, std::string fram
 			FrameWndImage(backgroundMatName);
 		}*/
 	}
+
+	mWindows[wndName] = stateWnds[wndName]; // Se añade al diccionario
 
 	return stateWnds[wndName];
 }

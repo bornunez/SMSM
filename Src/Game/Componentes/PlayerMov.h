@@ -4,6 +4,7 @@
 #include "../../../Src/MotorEngine/Component.h"
 #include "../../../Src/Game/Componentes/Player/PlayerCollision.h"
 #include "../../../Src/MotorEngine/Loaders/PrefabManager.h"
+#include "../../../Src/MotorEngine/GUIManager.h"
 
 class MyCamera;
 
@@ -17,6 +18,8 @@ private:
 	float maxSpeed = 20;
 	float speed = 0;
 
+	int lives = 3;
+
 	// Camera
 	MyCamera* cam;
 
@@ -25,6 +28,10 @@ private:
 	int lastMouseX;
 
 	InputManager* input = nullptr;
+
+	CEGUI::Window * livesHeart;
+
+	void updateLivesHeart(); // Se debe llamar cuando el player reciba daño
 
 public:
 	PlayerMov(GameObject* obj) : Component(obj) {};
