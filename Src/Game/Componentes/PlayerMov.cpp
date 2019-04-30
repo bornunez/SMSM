@@ -14,7 +14,7 @@ void PlayerMov::LoadFromFile(json obj)
 {
 	speed = obj["speed"];
 	//mouseSensitivity = obj["mouseSensitivity"];
-	mouseSensitivity = 0.1;
+	//mouseSensitivity = 0.1;
 
 	/*maxRotSpeed = obj["maxRotSpeed"];
 	movSpeed = obj["movSpeed"];
