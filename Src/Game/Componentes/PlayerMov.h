@@ -5,6 +5,8 @@
 #include "../../../Src/Game/Componentes/Player/PlayerCollision.h"
 #include "../../../Src/MotorEngine/Loaders/PrefabManager.h"
 
+class MyCamera;
+
 class PlayerMov : public Component
 {
 private:
@@ -14,6 +16,9 @@ private:
 	float movSpeed = 0.5;
 	float maxSpeed = 20;
 	float speed = 0;
+
+	// Camera
+	MyCamera* cam;
 
 	// Mouse
 	float mouseSensitivity;

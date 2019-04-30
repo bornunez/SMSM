@@ -1,4 +1,5 @@
 #include "PlayerMov.h"
+#include "MyCamera.h"
 
 PlayerMov::~PlayerMov()
 {
@@ -78,25 +79,35 @@ void PlayerMov::handleInput()
 	else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_D)) {
 		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
 	}
+
+	// TEST ------------------------------------------------------------------------
+	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_H)) {
+		//cam->Yaw(5);
+		cam->GetCameraNode()->yaw(Radian(5));
+	}
 }
 
 void PlayerMov::Start()
 {
 	//Obtiene el componente collider del GO para usarlo en el movimiento
-	std::list<Component*> comps = gameObject->getComponents();
-	bool found = false;
-	auto it = comps.begin();
-	while (!found && it != comps.end())
-	{
-		PlayerCollision* c = dynamic_cast<PlayerCollision*>(*it);
-		if (c != nullptr) {
-			found = true;
-			playerColl = c;
-		}
-		it++;
-	}
+	//std::list<Component*> comps = gameObject->getComponents();
+	//bool found = false;
+	//auto it = comps.begin();
+	//while (!found && it != comps.end())
+	//{
+	//	PlayerCollision* c = dynamic_cast<PlayerCollision*>(*it);
+	//	if (c != nullptr) {
+	//		found = true;
+	//		playerColl = c;
+	//	}
+	//	it++;
+	//}
 
+	// Components
+	playerColl = getComponent<PlayerCollision>();
 	playerRb = playerColl->getRB();
+	cam = getComponent<MyCamera>();
+
 	lastMouseX = InputManager::getInstance()->getMouseX();
 }
 
