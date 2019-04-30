@@ -53,5 +53,6 @@ public:
 	Root* getRoot() { return mRoot; }
 	RenderWindow* getRenderWindow() { return mWindow; }
 	Ogre::Viewport* getViewport() { return viewport; }
+	InputManager* getInputManager() { return mInputM; }
 };
 

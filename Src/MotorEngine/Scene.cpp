@@ -24,6 +24,8 @@ void Scene::Release()
 {
 	//ToDo: release memory used by the scene
 	//Eliminar todos los GameObjects y sus componentes
+	for (GameObject* go : gameObjects)
+		delete go;
 
 	//Al eliminar los componentes RB se acumularian en un vector del physicsManager
 
@@ -91,8 +93,16 @@ void Scene::LoadFromFile(json sceneFile)
 
 void Scene::SetActive(bool active)
 {
-	//vp->setCamera(cam);
-	// ToDo: activar o desactivar componentes
+	// Activar o desactivar componentes
+	for (Component* c : components) {
+		if (c->isEnabled() && !active) {
+			c->SetEnabled(false);
+		}
+		else if (!c->isEnabled() && active)
+		{
+			c->SetEnabled(true);
+		}
+	}
 }
 
 void Scene::Start()

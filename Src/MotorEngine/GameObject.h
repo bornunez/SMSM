@@ -47,7 +47,6 @@ public:
 	void Load();
 	void Start();
 
-
 	//Manejo de entidades
 
 	//void AddMesh(string mesh, Vector3 scale);
@@ -62,11 +61,6 @@ public:
 
 	//Manejo de Componentes
 	std::list<Component*> getComponents() { return components; }
-
-	//template<class T>
-	//Component* getComponent();
-
-
 
 	void RemoveComponent(Component* c);
 	void AddComponent(Component* c);
@@ -94,16 +88,3 @@ public:
 	string getName() { return name; }
 	void setName(string _name) { name = _name; }
 };
-
-//template<class T>
-//inline Component * GameObject::getComponent()
-//{
-//	auto it = components.begin();
-//	while (it != components.end() && static_cast<T>((*it)) == nullptr)
-//		it++;
-//
-//	if (it != components.end())
-//		return (*it);
-//	else
-//		return nullptr;
-//}
