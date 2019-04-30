@@ -14,6 +14,7 @@ void PlayerMov::LoadFromFile(json obj)
 {
 	speed = obj["speed"];
 	//mouseSensitivity = obj["mouseSensitivity"];
+	mouseSensitivity = 0.1;
 
 	/*maxRotSpeed = obj["maxRotSpeed"];
 	movSpeed = obj["movSpeed"];
@@ -27,58 +28,45 @@ void PlayerMov::Update()
 
 void PlayerMov::handleInput()
 {
-	// PLAYER CAMERA ----------------------------------------------------------------------
+	//// PLAYER CAMERA ----------------------------------------------------------------------
 
-	//int currentMouseX = Input()->getMouseX();
-	//float xInput = fabs(currentMouseX - lastMouseX) * mouseSensitivity;
+	//int currentMouseX = input->getMouseX();
+	//float xInput = input->getMouseXDif() * mouseSensitivity;
 
-	//if (currentMouseX > lastMouseX) { // Derecha
-	//	//cout << "Derecha: " << xInput << endl;
-	//	playerRb->setAngularVelocity(btVector3(0, -xInput, 0));
-	//}
-	//else if (currentMouseX < lastMouseX) { // Izquierda
-	//	//cout << "Izquierda: " << xInput << endl;
-	//	playerRb->setAngularVelocity(btVector3(0, xInput, 0));
-	//}
-	//else {
-	//	playerRb->setAngularVelocity(btVector3(0, 0, 0));
-	//}
+	//playerRb->setAngularVelocity(btVector3(0, -xInput, 0));
 
-	//// Reset mouse if it hits a window border
+	////// Reset mouse if it hits a window border
 	//if (currentMouseX == scene->getGame()->getRenderWindow()->getWidth() || currentMouseX == 0)
-	//	Input()->CenterMouse();
-
-	//// Update last mouse position
-	//lastMouseX = Input()->getMouseX();
+	//	input->CenterMouse();
 
 
-	//// PLAYER MOVEMENT --------------------------------------------------------------------
+	////// PLAYER MOVEMENT --------------------------------------------------------------------
 
-	// Player Direction
-	Vector3 dir = getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
-	btVector3 up = btVector3(0.0, 1.0, 0.0);
+	//// Player Direction
+	//Vector3 dir = getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
+	//btVector3 up = btVector3(0.0, 1.0, 0.0);
 
-	// Forward and right vector
-	btVector3 forward = btVector3(dir.x, dir.y, dir.z);
-	btVector3 right = forward.cross(up);
+	//// Forward and right vector
+	//btVector3 forward = btVector3(dir.x, dir.y, dir.z);
+	//btVector3 right = forward.cross(up);
 
-	playerRb->setLinearVelocity(btVector3(0, 0, 0));
+	//playerRb->setLinearVelocity(btVector3(0, 0, 0));
 
-	// Forwards / backwards
-	if (Input()->getKey(OIS::KeyCode::KC_W)) {
-		playerRb->setLinearVelocity(forward *speed);
-	}
-	else if (Input()->getKey(OIS::KeyCode::KC_S)) {
-		playerRb->setLinearVelocity(-forward * speed);
-	}
+	//// Forwards / backwards
+	//if (input->getKey(OIS::KeyCode::KC_W)) {
+	//	playerRb->setLinearVelocity(forward *speed);
+	//}
+	//else if (input->getKey(OIS::KeyCode::KC_S)) {
+	//	playerRb->setLinearVelocity(-forward * speed);
+	//}
 
-	// Left / Right
-	if (Input()->getKey(OIS::KeyCode::KC_A)) {
-		playerRb->setLinearVelocity(-right * speed + playerRb->getLinearVelocity());
-	}
-	else if (Input()->getKey(OIS::KeyCode::KC_D)) {
-		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
-	}
+	//// Left / Right
+	//if (input->getKey(OIS::KeyCode::KC_A)) {
+	//	playerRb->setLinearVelocity(-right * speed + playerRb->getLinearVelocity());
+	//}
+	//else if (input->getKey(OIS::KeyCode::KC_D)) {
+	//	playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
+	//}
 
 	//// TEST ------------------------------------------------------------------------
 	//if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_H)) {
@@ -107,6 +95,7 @@ void PlayerMov::Start()
 	playerColl = getComponent<PlayerCollision>();
 	playerRb = playerColl->getRB();
 	cam = getComponent<MyCamera>();
+	//input = scene->getGame()->getInputManager();
 
 	//lastMouseX = InputManager::getInstance()->getMouseX();
 }

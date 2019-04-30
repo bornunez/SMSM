@@ -24,7 +24,7 @@ private:
 	float mouseSensitivity;
 	int lastMouseX;
 
-	InputManager* Input() { return scene->getGame()->getInputManager(); };
+	InputManager* input = nullptr;
 
 public:
 	PlayerMov(GameObject* obj) : Component(obj) {};
