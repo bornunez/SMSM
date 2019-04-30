@@ -179,6 +179,77 @@ void GUIManager::Initialize()
 	//}
 }
 
+// NOTA:
+
+// El problema con la asignacion de los callbacks de los botones es la asignacion de parametros
+// Es decir se puede hacer con diccionario de metodos sin parametros que llamen por debajo a metodos con
+// parametros espeficicos para ese metodo
+
+// Hay que pasar el nombre con el que esta mapeado el metodo dentro de la lista "functions"
+
+CEGUI::Window*  GUIManager::CreateButton(std::string stateWnd, std::string buttonName, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName)
+{
+	CEGUI::Window *temp = wmgr->createWindow(buttonScheme, buttonName);
+
+	if(stateWnd != "null")
+		stateWnds[stateWnd]->addChild(temp);
+
+	temp->setPosition(CEGUI::UVector2(CEGUI::UDim(pos_x, 0.0f), CEGUI::UDim(pos_y, 0.0f)));
+	temp->setSize(CEGUI::USize(CEGUI::UDim(size_x, 0), CEGUI::UDim(size_y, 0)));
+	temp->setText(text);
+
+	if(methodName != "null")
+		temp->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions[methodName], this));
+
+	return temp;
+}
+
+CEGUI::FrameWindow * GUIManager::AddWindow(std::string wndName, std::string frameWindowLook, int posX, int posy, int sizeX, int sizeY, std::string backgroundMatName)
+{
+	if (stateWnds[wndName] == nullptr) {	// Si esa ventana no se ha creado ya
+		stateWnds[wndName] = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow(frameWindowLook, wndName));	//
+		myRoot->addChild(stateWnds[wndName]);
+		stateWnds[wndName]->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
+		stateWnds[wndName]->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
+		stateWnds[wndName]->setTitleBarEnabled(false);
+		stateWnds[wndName]->setCloseButtonEnabled(false);
+		stateWnds[wndName]->setSizingEnabled(false);
+
+
+		// Si el material está definido
+		/*if (backgroundMatName != " ") {
+			FrameWndImage(backgroundMatName);
+		}*/
+	}
+
+	return stateWnds[wndName];
+}
+
+// Metodo para poder utilizar una imagen como fondo de una ventana de menu
+void GUIManager::FrameWndImage(std::string name, Ogre::Real left, Ogre::Real top, Ogre::Real right, Ogre::Real down)
+{
+	Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create(name, "General");
+	material->getTechnique(0)->getPass(0)->createTextureUnitState(name);
+	material->getTechnique(0)->getPass(0)->setDepthCheckEnabled(false);
+	material->getTechnique(0)->getPass(0)->setDepthWriteEnabled(false);
+	material->getTechnique(0)->getPass(0)->setLightingEnabled(false);
+
+	Ogre::Rectangle2D* rect = new Ogre::Rectangle2D(true);
+
+	rect->setCorners(left, top, right, down);
+	rect->setMaterial(material);
+
+	rect->setRenderQueueGroup(Ogre::RENDER_QUEUE_BACKGROUND);
+
+	Ogre::AxisAlignedBox aabInf;
+	aabInf.setInfinite();
+	rect->setBoundingBox(aabInf);
+
+	Ogre::SceneNode* node = g_->getRoot()->createSceneManager()->getRootSceneNode()->createChildSceneNode(name);
+	node->attachObject(rect);
+}
+
+
 void GUIManager::Exit()
 {
 	if (g_ != nullptr) {
@@ -190,6 +261,7 @@ void GUIManager::Exit()
 void GUIManager::InitMainScene()
 {
 	if (g_ != nullptr) {
+		// Esto se comentará porque no hace falta al llamarse en el disable
 		HideWindow("MenuWnd");
 		gameHUD = true;
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
@@ -207,7 +279,7 @@ void GUIManager::ToggleWindow(std::string wndName)
 			activeWnd->show();
 		}
 		else {
-			if(activeWnd!=nullptr)
+			if (activeWnd != nullptr)
 				activeWnd->hide();					//Apagamos la ventana que estuviera activa	(Activar segun parametro de si comienza activa o no)	
 			lastWnd = activeWnd;					//Nos guardamos la ultima
 			activeWnd = stateWnds[wndName];			//Ponemos la nueva como la activa
@@ -236,69 +308,6 @@ void GUIManager::ShowWindow(std::string wndName)
 	}
 }
 
-// NOTA:
-
-// El problema con la asignacion de los callbacks de los botones es la asignacion de parametros
-// Es decir se puede hacer con diccionario de metodos sin parametros que llamen por debajo a metodos con
-// parametros espeficicos para ese metodo
-
-// Hay que pasar el nombre con el que esta mapeado el metodo dentro de la lista "functions"
-
-void GUIManager::CreateButton(std::string stateWnd, std::string buttonName, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName)
-{
-	cout << "Los parametros son: " << stateWnd << "  " << buttonScheme << "  " << pos_x << "  " << pos_y << "  " << endl << size_x << "  " << size_y << "  " << text << "  " << methodName << endl;
-
-	CEGUI::Window *temp = wmgr->createWindow(buttonScheme, buttonName);
-	stateWnds[stateWnd]->addChild(temp);
-	temp->setPosition(CEGUI::UVector2(CEGUI::UDim(pos_x, 0.0f), CEGUI::UDim(pos_y, 0.0f)));
-	temp->setSize(CEGUI::USize(CEGUI::UDim(size_x, 0), CEGUI::UDim(size_y, 0)));
-	temp->setText(text);
-	temp->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions[methodName], this));
-}
-
-void GUIManager::AddWindow(std::string wndName, std::string frameWindowLook, int posX, int posy, int sizeX, int sizeY, std::string backgroundMatName)
-{
-	if (stateWnds[wndName] == nullptr) {	// Si esa ventana no se ha creado ya
-		stateWnds[wndName] = static_cast<CEGUI::FrameWindow*>(wmgr->createWindow(frameWindowLook, wndName));	//
-		myRoot->addChild(stateWnds[wndName]);
-		stateWnds[wndName]->setPosition(CEGUI::UVector2(CEGUI::UDim(-0.2f, -0.2f), CEGUI::UDim(-0.2f, -0.2f)));
-		stateWnds[wndName]->setSize(CEGUI::USize(CEGUI::UDim(1.3f, 1.3f), CEGUI::UDim(1.3f, 1.3f)));
-		stateWnds[wndName]->setTitleBarEnabled(false);
-		stateWnds[wndName]->setCloseButtonEnabled(false);
-		stateWnds[wndName]->setSizingEnabled(false);
-
-
-		// Si el material está definido
-		if (backgroundMatName != " ") {
-			FrameWndImage(backgroundMatName);
-		}
-	}
-}
-
-// Metodo para poder utilizar una imagen como fondo de una ventana de menu
-void GUIManager::FrameWndImage(std::string name, Ogre::Real left, Ogre::Real top, Ogre::Real right, Ogre::Real down)
-{
-	Ogre::MaterialPtr material = Ogre::MaterialManager::getSingleton().create(name, "General");
-	material->getTechnique(0)->getPass(0)->createTextureUnitState(name);
-	material->getTechnique(0)->getPass(0)->setDepthCheckEnabled(false);
-	material->getTechnique(0)->getPass(0)->setDepthWriteEnabled(false);
-	material->getTechnique(0)->getPass(0)->setLightingEnabled(false);
-
-	Ogre::Rectangle2D* rect = new Ogre::Rectangle2D(true);
-
-	rect->setCorners(left, top, right, down);
-	rect->setMaterial(material);
-
-	rect->setRenderQueueGroup(Ogre::RENDER_QUEUE_BACKGROUND);
-
-	Ogre::AxisAlignedBox aabInf;
-	aabInf.setInfinite();
-	rect->setBoundingBox(aabInf);
-
-	Ogre::SceneNode* node = g_->getRoot()->createSceneManager()->getRootSceneNode()->createChildSceneNode(name);
-	node->attachObject(rect);
-}
-
 void GUIManager::toggleMenu()
 {
 	if (menuHUD) {
@@ -318,12 +327,12 @@ void GUIManager::toggleMenu()
 void GUIManager::togglePause()
 {	
 	if (pauseHUD) {
-		HideWindow("pauseMenu");
+		HideWindow("PauseWnd");
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		gameHUD = true;
 	}
 	else {
-		ShowWindow("pauseMenu");
+		ShowWindow("PauseWnd");
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
 		gameHUD = false;
 	}

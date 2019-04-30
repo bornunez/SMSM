@@ -37,7 +37,6 @@ void RigidBodyComponent::LoadFromFile(json obj)
 		}
 	}
 
-
 	if (shape > 2) {
 		std::cout << " ** Indice inexistente de forma (shape) en la constructora ** " << std::endl;
 	}
@@ -97,7 +96,8 @@ void RigidBodyComponent::OnDestroy()
 void RigidBodyComponent::OnDisable()
 {
 	//Lo sacamos del mundo fisico
-	PhysicsManager::Instance()->removeFromWorld(physicRB);
+	PhysicsManager::Instance()->removeRigidBody(gameObject->getNode());
+	//PhysicsManager::Instance()->removeFromWorld(physicRB);
 }
 
 void RigidBodyComponent::OnEnable()

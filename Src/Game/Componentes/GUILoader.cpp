@@ -8,29 +8,37 @@ void GUILoader::LoadFromFile(json obj)
 {
 	cout << "Empieza a cargar el GUI" << endl;
 
-	string frameWndName = obj["frameWndName"];
-	string WndLook = obj["frameWndLook"];
-	float WndPosX = obj["wndPosX"];
-	float WndPosY = obj["wndPosY"];
-	float WndSizeX = obj["wndSizeX"];
-	float WndSizeY = obj["wndSizeY"];
+	if (!obj["windows"].empty()) {
+		cout << "Existen ventanas a cargar" << endl << endl;
+		for (auto &win : obj["windows"])	// Recorremos los botones
+			if (win.is_object()) {
 
-	string backgroundMatName = obj["backgroundMat"];
-	
-	GUIManager::Instance()->AddWindow(frameWndName, WndLook, WndPosX, WndPosY, WndSizeX, WndSizeY, backgroundMatName);
+				string frameWndName = win["frameWndName"];
+				string WndLook = win["frameWndLook"];
+				float WndPosX = win["wndPosX"];
+				float WndPosY = win["wndPosY"];
+				float WndSizeX = win["wndSizeX"];
+				float WndSizeY = win["wndSizeY"];
 
-	cout << "Se ha creado el boton: " << backgroundMatName << endl;
+				string backgroundMatName = win["backgroundMat"];
 
-	cout << "Se crea window" << endl;
+				bool active = win["active"];
+
+				CEGUI::FrameWindow* wnd = GUIManager::Instance()->AddWindow(frameWndName, WndLook, WndPosX, WndPosY, WndSizeX, WndSizeY, backgroundMatName);
+
+				Windows[frameWndName] = wnd;
+				WindowsStates[frameWndName] = active;
+
+				wnd->hide();
+			}
+	}
 
 	if (!obj["buttons"].empty()) {
 		cout << "Existen botones a cargar" << endl << endl;
 		for (auto &but : obj["buttons"])	// Recorremos los botones
 			if (but.is_object()) {				
 				
-				// Recorremos las variables del objeto para crear el boton, aqui podemos tener un switch para elegir
-				// entre las funciones locales, para pasarle correctamente la funcion al boton del GUIManager
-
+				string frameWndName = but["frameWndParentName"];
 				string buttonName = but["buttonName"];
 				string buttonScheme = but["buttonScheme"];
 				float buttonPosX = but["buttonPosX"];
@@ -39,10 +47,12 @@ void GUILoader::LoadFromFile(json obj)
 				float buttonSizeY = but["buttonSizeY"];
 				string buttonText = but["buttonText"];
 				string buttonFunctionName = but["buttonFunctionName"];
+				bool active = but["active"];
 
-				GUIManager::Instance()->CreateButton(frameWndName, buttonName, buttonScheme, buttonPosX, buttonPosY, buttonSizeX, buttonSizeY, buttonText, buttonFunctionName);
+				CEGUI::Window * button = GUIManager::Instance()->CreateButton(frameWndName, buttonName, buttonScheme, buttonPosX, buttonPosY, buttonSizeX, buttonSizeY, buttonText, buttonFunctionName);
 
-				cout << "Se ha creado el boton: " << buttonName << endl;
+				Buttons[buttonName] = button;
+				ButtonsStates[buttonName] = active;
 			}
 	}
 }
@@ -53,12 +63,87 @@ void GUILoader::Update()
 
 void GUILoader::Start()
 {
+	auto itWnd = Windows.begin();
+	auto itWndStates = WindowsStates.begin();
+
+	while (itWnd != Windows.end()) {
+
+		if (itWndStates->second)
+			itWnd->second->show();
+		else
+			itWnd->second->hide();		
+
+		itWndStates++;
+		itWnd++;
+	}
+
+	auto itBut = Buttons.begin();
+	auto itButStates = ButtonsStates.begin();
+
+	while (itBut != Buttons.end()) {
+
+		if (itButStates->second)
+			itBut->second->show();
+		else
+			itBut->second->hide();
+
+		itButStates++;
+		itBut++;
+	}
 }
 
 void GUILoader::OnEnable()
 {
+	auto itWnd = Windows.begin();
+	auto itWndStates = WindowsStates.begin();
+
+	while (itWnd != Windows.end()) {
+
+		if (itWndStates->second)
+			itWnd->second->show();
+		else
+			itWnd->second->hide();
+
+		itWndStates++;
+		itWnd++;
+	}
+
+	auto itBut = Buttons.begin();
+	auto itButStates = ButtonsStates.begin();
+
+	while (itBut != Buttons.end()) {
+
+		if (itButStates->second)
+			itBut->second->show();
+		else
+			itBut->second->hide();
+
+		itButStates++;
+		itBut++;
+	}
 }
 
 void GUILoader::OnDisable()
 {
+	auto itWnd = Windows.begin();
+	auto itWndStates = WindowsStates.begin();
+
+	while (itWnd != Windows.end()) {
+
+		itWnd->second->hide();
+
+		itWndStates++;
+		itWnd++;
+	}
+
+	auto itBut = Buttons.begin();
+	auto itButStates = ButtonsStates.begin();
+
+	while (itBut != Buttons.end()) {
+
+		itBut->second->hide();
+
+		itButStates++;
+		itBut++;
+	}
 }

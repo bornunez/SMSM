@@ -146,7 +146,7 @@ void Game::Play()
 #endif
 		mRoot->renderOneFrame();
 
-		if (GUIManager::Instance()->getGameOn()) {
+		//if (GUIManager::Instance()->getGameOn()) {
 			mWindow->update();
 
 			TimeManager::getInstance()->Update();
@@ -162,7 +162,7 @@ void Game::Play()
 				}
 				sceneManager->GetActiveScene()->Update();
 			}
-		}
+		//}
 
 		//if (mInputM->getKeyUp(OIS::KeyCode::KC_ESCAPE)) endGame = true;
 	}

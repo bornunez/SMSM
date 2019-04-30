@@ -9,15 +9,22 @@
 			"components":[
 				{
 					"type":"GUILoader",
-					"frameWndName":"MenuWnd",
-					"frameWndLook":"TaharezLook/FrameWindow",
-					"wndPosX":-0.2,
-					"wndPosY":-0.2,
-					"wndSizeX":1.3,
-					"wndSizeY":1.3,
-					"backgroundMat":"FondoMenu.png",
+					"windows":
+					[
+						{
+							"frameWndName":"MenuWnd",
+							"frameWndLook":"TaharezLook/FrameWindow",
+							"wndPosX":-0.2,
+							"wndPosY":-0.2,
+							"wndSizeX":1.3,
+							"wndSizeY":1.3,
+							"backgroundMat":"FondoMenu.png",
+							"active":true
+						}
+					],
 					"buttons":[
 						{
+							"frameWndParentName":"MenuWnd",
 							"buttonName":"startButton",
 							"buttonScheme":"TaharezLook/Button",
 							"buttonPosX":0.35,
@@ -25,9 +32,11 @@
 							"buttonSizeX":0.30,
 							"buttonSizeY":0.1,
 							"buttonText":"Start",
-							"buttonFunctionName":"mainScene"
+							"buttonFunctionName":"mainScene",
+							"active":true
 						},
 						{
+							"frameWndParentName":"MenuWnd",
 							"buttonName":"quitButton",
 							"buttonScheme":"TaharezLook/Button",
 							"buttonPosX":0.45,
@@ -35,7 +44,8 @@
 							"buttonSizeX":0.15,
 							"buttonSizeY":0.05,
 							"buttonText":"Quit",
-							"buttonFunctionName":"exit"
+							"buttonFunctionName":"exit",
+							"active":true
 						}
 					]
 				}	

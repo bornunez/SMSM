@@ -23,6 +23,13 @@ Scene::~Scene() {}
 void Scene::Release()
 {
 	//ToDo: release memory used by the scene
+	/*auto it = components.begin();
+	while (it != components.end()) {
+
+
+		++it;
+	}*/
+
 	//Eliminar todos los GameObjects y sus componentes
 
 	//Al eliminar los componentes RB se acumularian en un vector del physicsManager

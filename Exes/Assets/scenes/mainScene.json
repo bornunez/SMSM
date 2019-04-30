@@ -84,6 +84,67 @@
 					"filePos":true
 				}
 			]
+		},
+		{
+			"name":"PauseGUILoader",
+			"active":true,
+			"isListener":true,
+			"components":[
+				{
+					"type":"GUILoader",
+					"windows":
+					[
+						{
+							"frameWndName":"PauseWnd",
+							"frameWndLook":"TaharezLook/FrameWindow",
+							"wndPosX":-0.2,
+							"wndPosY":-0.2,
+							"wndSizeX":1.3,
+							"wndSizeY":1.3,
+							"backgroundMat":"FondoMenu.png",
+							"active":false
+						}
+					],
+					"buttons":[
+						{
+							"frameWndParentName":"PauseWnd",
+							"buttonName":"startButton",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.35,
+							"buttonPosY":0.25,
+							"buttonSizeX":0.30,
+							"buttonSizeY":0.1,
+							"buttonText":"Start",
+							"buttonFunctionName":"mainScene",
+							"active":true
+						},
+						{
+							"frameWndParentName":"PauseWnd",
+							"buttonName":"quitButton",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.45,
+							"buttonPosY":0.5,
+							"buttonSizeX":0.15,
+							"buttonSizeY":0.05,
+							"buttonText":"Quit",
+							"buttonFunctionName":"exit",
+							"active":true
+						},
+						{
+							"frameWndParentName":"null",
+							"buttonName":"Heart",
+							"buttonScheme":"TaharezLook/HeartButton",
+							"buttonPosX":0.45,
+							"buttonPosY":0.5,
+							"buttonSizeX":0.15,
+							"buttonSizeY":0.05,
+							"buttonText":"3",
+							"buttonFunctionName":"null",
+							"active":true
+						}
+					]
+				}	
+			]
 		}
 
 	]
