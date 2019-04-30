@@ -208,5 +208,5 @@
     <Image height="11" name="TreeListClosed" width="7" xPos="175" yPos="111" />
     <Image height="7" name="TreeListOpened" width="11" xPos="164" yPos="111" />
     <Image height="100" name="HeartButton" width="112" xPos="132" yPos="147" />
-    <Image height="1" name="Blank" width="1" xPos="131" yPos="147" />
+    <Image height="1" name="Blank" width="1" xPos="131" yPos="157" />
 </Imageset>
