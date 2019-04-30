@@ -114,8 +114,8 @@
 							"buttonPosY":0.25,
 							"buttonSizeX":0.30,
 							"buttonSizeY":0.1,
-							"buttonText":"Start",
-							"buttonFunctionName":"mainScene",
+							"buttonText":"Continue",
+							"buttonFunctionName":"pause",
 							"active":true
 						},
 						{
@@ -126,8 +126,8 @@
 							"buttonPosY":0.5,
 							"buttonSizeX":0.15,
 							"buttonSizeY":0.05,
-							"buttonText":"Quit",
-							"buttonFunctionName":"exit",
+							"buttonText":"Menu",
+							"buttonFunctionName":"menu",
 							"active":true
 						},
 						{

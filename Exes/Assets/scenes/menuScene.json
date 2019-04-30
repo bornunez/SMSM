@@ -26,7 +26,7 @@
 						{
 							"frameWndParentName":"MenuWnd",
 							"buttonName":"startButton",
-							"buttonScheme":"TaharezLook/HeartButton",
+							"buttonScheme":"TaharezLook/Button",
 							"buttonPosX":0.5,
 							"buttonPosY":0.25,
 							"buttonSizeX":0.175,
