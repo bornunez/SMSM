@@ -19,14 +19,17 @@ private:
 
 	InputManager* input = nullptr;
 
-
-
-	//NEW
 	// Mouse
 	float mouseSensitivity;
 	int lastMouseX;
 
+	// Attributes
 	float speed = 0;
+	int lives = 3;
+
+	CEGUI::Window * livesHeart;
+
+	void updateLivesHeart(); // Se debe llamar cuando el player reciba daño
 
 public:
 	PlayerController(GameObject* obj) : Component(obj) {};
@@ -35,4 +38,6 @@ public:
 	void Start();
 	virtual void Update();
 	void handleInput();
+
+	Vector3 getPlayerDirection();
 };

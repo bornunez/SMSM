@@ -1,9 +1,6 @@
 #include "PlayerController.h"
 #include "MyCamera.h"
 
-
-
-
 PlayerController::~PlayerController()
 {
 }
@@ -12,6 +9,9 @@ void PlayerController::LoadFromFile(json obj)
 {
 	mouseSensitivity = obj["mouseSensitivity"];
 	speed = obj["speed"];
+
+	if (obj.contains("lives")) // Se asigna una vida al player
+		lives = obj["lives"];
 }
 
 void PlayerController::Start()
@@ -22,6 +22,11 @@ void PlayerController::Start()
 	input = scene->getGame()->getInputManager();
 
 	lastMouseX = input->getMouseX();
+
+#ifndef _DEBUG
+	livesHeart = GUIManager::Instance()->getButton("livesHeart");
+	livesHeart->setText(std::to_string(lives));
+#endif
 }
 
 void PlayerController::Update()
@@ -71,3 +76,15 @@ void PlayerController::handleInput()
 	}
 }
 
+Vector3  PlayerController::getPlayerDirection()
+{
+	return getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
+}
+
+
+void PlayerController::updateLivesHeart()
+{
+	#ifndef _DEBUG
+		livesHeart->setText(std::to_string(lives));
+	#endif
+}
