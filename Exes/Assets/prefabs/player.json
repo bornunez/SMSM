@@ -42,6 +42,18 @@
 			"prefab":"Camera",
 			"position": {"x":0, "y":0.5, "z":0.1},
 			"scale": 1
+		},
+		{
+			"name": "Mirilla",
+			"position": {"x": 0, "y":0.49, "z":-0.2},
+			"scale":0.004,
+			"active": true,
+			"components":[
+			{
+				"type":"meshRenderer",
+				"mesh":"Mirilla.mesh"
+			}
+			]
 		}
 	]
 
