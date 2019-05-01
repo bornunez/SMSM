@@ -47,6 +47,11 @@ void MapLoader::LoadFromFile(json obj)
 						//Recorre Properties
 						if (mapObj.contains("properties")) {
 							GameObject* o = scene->GenerateEmptyGameObject("Empty", nullptr, pos, objScale*scale);
+							json yProp = FindProperty(mapObj, "y");
+							if (yProp != nullptr)
+								pos.y = yProp["value"];
+
+
 							// Crea el objeto a escala 1 e y 0
 							for (auto &prop : mapObj["properties"]) {
 
@@ -107,7 +112,7 @@ void MapLoader::LoadFromFile(json obj)
 	cout << "==================================================\n\n";
 }
 
-json FindProperty(json obj, string property) {
+json MapLoader::FindProperty(json obj, string property) {
 	for (auto &prop : obj["properties"]) {
 		if (prop.contains("name") && prop["name"] == property)
 			return prop;

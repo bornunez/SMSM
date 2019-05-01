@@ -5,7 +5,7 @@
 #include "../Componentes/ObstacleRigidBody.h"
 #include "../../MotorEngine/MyCamera.h"
 #include "../Componentes/Player/PlayerCollision.h"
-#include "../Componentes/Player/PlayerMov.h"
+#include "../Componentes/Player/PlayerController.h"
 #include "../Componentes/Enemies/EnemyTest.h"
 #include "../Componentes/Enemies/EnemyTest.h"
 #include "../Componentes/Enemies/EnemyRigidBody.h"

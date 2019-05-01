@@ -54,9 +54,6 @@
     <ClCompile Include="..\..\Src\Game\Armas\WeaponBullet.cpp">
       <Filter>Armas</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\Game\Componentes\PlayerMov.cpp">
-      <Filter>Componentes\Player</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerCollision.cpp">
       <Filter>Componentes\Player</Filter>
     </ClCompile>
@@ -96,6 +93,9 @@
     <ClCompile Include="..\..\Src\Game\Componentes\GUILoader.cpp">
       <Filter>Componentes\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerController.cpp">
+      <Filter>Componentes\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -109,9 +109,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Armas\WeaponBullet.h">
       <Filter>Armas</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Game\Componentes\PlayerMov.h">
-      <Filter>Componentes\Player</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerCollision.h">
       <Filter>Componentes\Player</Filter>
@@ -151,6 +148,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\GUILoader.h">
       <Filter>Componentes\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerController.h">
+      <Filter>Componentes\Player</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

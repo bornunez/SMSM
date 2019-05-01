@@ -3,46 +3,41 @@
 #include "../../Src/MotorEngine/TimeManager.h"
 #include "../../../Src/MotorEngine/Component.h"
 #include "../../../Src/Game/Componentes/Player/PlayerCollision.h"
-#include "../../../Src/MotorEngine/Loaders/PrefabManager.h"
 #include "../../../Src/MotorEngine/GUIManager.h"
 
-class MyCamera;
 
-class PlayerMov : public Component
+class MyCamera;
+class PlayerController: public Component
 {
 private:
+	// Components
 	PlayerCollision * playerColl;
 	btRigidBody* playerRb;
-	float maxRotSpeed = 10;
-	float movSpeed = 0.5;
-	float maxSpeed = 20;
-	float speed = 0;
-
-	int lives = 3;
 
 	// Camera
 	MyCamera* cam;
+
+	InputManager* input = nullptr;
 
 	// Mouse
 	float mouseSensitivity;
 	int lastMouseX;
 
-	InputManager* input = nullptr;
+	// Attributes
+	float speed = 0;
+	int lives = 3;
 
 	CEGUI::Window * livesHeart;
 
 	void updateLivesHeart(); // Se debe llamar cuando el player reciba daño
 
 public:
-	PlayerMov(GameObject* obj) : Component(obj) {};
-	~PlayerMov();
-
-	Vector3 getPlayerDirection();
-
+	PlayerController(GameObject* obj) : Component(obj) {};
+	~PlayerController();
 	void LoadFromFile(json obj);
+	void Start();
 	virtual void Update();
 	void handleInput();
-	void Start();
-	void Awake();
-};
 
+	Vector3 getPlayerDirection();
+};

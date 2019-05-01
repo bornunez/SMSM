@@ -21,10 +21,9 @@
 			"height":0.4
 		},
 		{
-			"type":"PlayerMov",
-			"speed":10,
-			"lives":10,
-			"mouseSensitivity":0.1
+			"type":"PlayerController",
+			"mouseSensitivity": 0.1,
+			"speed": 10
 		}
 	],
 	"children":[
