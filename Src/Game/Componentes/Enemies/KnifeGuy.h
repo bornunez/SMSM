@@ -16,7 +16,6 @@ public:
 	~KnifeGuy();
 	void LoadFromFile(json obj);
 	virtual void Update();
-	virtual void OnHit();
 	virtual void OnDeath();
 	virtual void Spawn();
 

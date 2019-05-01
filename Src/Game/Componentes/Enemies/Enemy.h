@@ -23,7 +23,7 @@ public:
 	~Enemy();
 	virtual void LoadFromFile(json obj) = 0;
 	virtual void Update() = 0;
-	virtual void OnHit() = 0;
+	virtual void OnHit();
 	virtual void OnDeath();
 	virtual void Spawn() = 0;
 

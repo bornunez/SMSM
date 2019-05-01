@@ -72,23 +72,16 @@ void ShyGuy::Update()
 			}
 		}
 	}
-}
-
-void ShyGuy::OnHit() {
-	cout << "ONHIT DE SHYGUY" << endl;
-	HP--;
-	if (HP <= 0) {
-		OnDeath();
+	// Si esta muerto y su animacion de muerte ha terminado...
+	else if (meshRend->AnimationHasEnded("Death")) {
+		Enemy::OnDeath();
 	}
-
 }
 
 void ShyGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-
-	Enemy::OnDeath();
 }
 
 void ShyGuy::Spawn()

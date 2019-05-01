@@ -17,7 +17,6 @@ public:
 	~ShyGuy();
 	void LoadFromFile(json obj);
 	void Update();
-	void OnHit();
 	void OnDeath();
 	void Spawn();
 

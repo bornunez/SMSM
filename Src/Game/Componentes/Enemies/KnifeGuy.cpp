@@ -54,23 +54,16 @@ void KnifeGuy::Update()
 		rb->getWorldTransform().setRotation(q);
 		rb->setLinearVelocity({auxVec.x, 0, auxVec.z});
 	}
-}
-
-void KnifeGuy::OnHit() {
-	cout << "GOLPE A KNIFE GUY" << endl;
-	HP--;
-	if (HP <= 0) {
-		OnDeath();
+	// Si esta muerto y su animacion de muerte ha terminado...
+	else if (estado == state::DEAD && meshRend->AnimationHasEnded("Death")) {
+		Enemy::OnDeath();
 	}
-	
 }
 
 void KnifeGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-
-	Enemy::OnDeath();
 }
 
 void KnifeGuy::Spawn()

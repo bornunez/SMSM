@@ -38,8 +38,18 @@ void Enemy::Update()
 
 void Enemy::OnDeath()
 {
-	scene->Instantiate("DeathPS",gameObject->getGlobalPosition(),0.1f);
 	currRoom->RemoveEnemies();
 	gameObject->Destroy();
+}
+
+void Enemy::OnHit()
+{
+	// Crea las particulas
+	scene->Instantiate("DeathPS", gameObject->getGlobalPosition(), 0.1f);
+
+	HP--;
+	if (HP <= 0) {
+		OnDeath();
+	}
 }
 
