@@ -1,0 +1,811 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="9" nextobjectid="1171">
+ <tileset firstgid="1" source="City.tsx"/>
+ <layer id="3" name="Capa de Patrones 1" width="100" height="100">
+  <data encoding="base64" compression="zlib">
+   eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
+  </data>
+ </layer>
+ <objectgroup id="2" name="Borders">
+  <object id="585" gid="139" x="100" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Tree2"/>
+   </properties>
+  </object>
+  <object id="601" gid="139" x="112" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Tree2"/>
+   </properties>
+  </object>
+  <object id="638" gid="151" x="104" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Player"/>
+    <property name="scale" type="float" value="0.5"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="4" name="Spawners">
+  <object id="783" gid="83" x="88" y="252" width="4" height="4">
+   <properties>
+    <property name="KnifeGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="787" x="100" y="264" width="8" height="8">
+   <properties>
+    <property name="entry" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="846" gid="83" x="124" y="252" width="4" height="4">
+   <properties>
+    <property name="ShyGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="0"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="5" name="Puertas">
+  <object id="858" gid="139" x="104" y="240" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="0"/>
+    <property name="prefab" value="SpawnedTree2"/>
+   </properties>
+  </object>
+  <object id="859" gid="139" x="108" y="240" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="0"/>
+    <property name="prefab" value="SpawnedTree2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="6" name="Decoracion" visible="0">
+  <object id="868" gid="364" x="84" y="204" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="870" gid="297" x="96" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="871" gid="297" x="96" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="872" gid="364" x="120" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="873" gid="297" x="120" y="196" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="874" gid="297" x="124" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="877" gid="364" x="96" y="192" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="878" gid="364" x="112" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="879" gid="364" x="104" y="180" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="908" gid="364" x="92" y="232" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="909" gid="297" x="104" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="910" gid="297" x="104" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="911" gid="364" x="128" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="912" gid="297" x="128" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="913" gid="297" x="132" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="914" gid="364" x="104" y="220" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="915" gid="364" x="120" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="916" gid="364" x="112" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="926" gid="364" x="80" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="927" gid="297" x="92" y="184" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="930" gid="297" x="116" y="164" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="931" gid="297" x="120" y="184" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="933" gid="364" x="108" y="184" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="990" gid="297" x="84" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="994" gid="297" x="112" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="996" gid="364" x="100" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="998" gid="364" x="80" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="999" gid="297" x="92" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1002" gid="297" x="116" y="180" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1003" gid="297" x="120" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1004" gid="364" x="92" y="176" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1005" gid="364" x="108" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1006" gid="364" x="100" y="164" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1017" gid="297" x="112" y="168" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1021" gid="297" x="140" y="168" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1023" gid="364" x="128" y="168" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1043" gid="364" x="80" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1044" gid="297" x="92" y="268" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1045" gid="297" x="88" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1046" gid="364" x="112" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1047" gid="297" x="116" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1048" gid="297" x="120" y="268" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1049" gid="364" x="92" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1050" gid="364" x="108" y="268" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1051" gid="364" x="96" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1052" gid="364" x="88" y="284" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1053" gid="297" x="100" y="296" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1054" gid="297" x="100" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1055" gid="364" x="124" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1056" gid="297" x="124" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1057" gid="297" x="128" y="296" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1058" gid="364" x="100" y="272" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1059" gid="364" x="116" y="296" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1060" gid="364" x="108" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1061" gid="364" x="64" y="212" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1062" gid="297" x="76" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1063" gid="297" x="100" y="204" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1064" gid="297" x="104" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1065" gid="364" x="92" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1066" gid="364" x="72" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1067" gid="297" x="84" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1068" gid="297" x="84" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1069" gid="364" x="108" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1070" gid="297" x="108" y="232" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1071" gid="297" x="112" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1072" gid="364" x="84" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1073" gid="364" x="100" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1074" gid="364" x="92" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1075" gid="364" x="64" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1076" gid="297" x="76" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1077" gid="297" x="100" y="220" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1078" gid="297" x="104" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1079" gid="364" x="76" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1080" gid="364" x="92" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1081" gid="364" x="84" y="204" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1082" gid="364" x="72" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1083" gid="297" x="88" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1084" gid="297" x="84" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1085" gid="364" x="108" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1086" gid="297" x="108" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1087" gid="297" x="116" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1088" gid="364" x="84" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1089" gid="364" x="104" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1090" gid="364" x="92" y="232" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1091" gid="297" x="96" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1092" gid="297" x="124" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1093" gid="364" x="112" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1094" gid="364" x="92" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1095" gid="297" x="104" y="236" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1096" gid="297" x="128" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1097" gid="297" x="132" y="236" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1098" gid="364" x="104" y="212" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1099" gid="364" x="120" y="236" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1100" gid="364" x="76" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1101" gid="297" x="88" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1102" gid="297" x="112" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1103" gid="297" x="116" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1104" gid="364" x="88" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1105" gid="364" x="104" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1106" gid="364" x="84" y="292" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1107" gid="297" x="96" y="304" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1108" gid="297" x="96" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1109" gid="364" x="120" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1110" gid="297" x="120" y="284" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1111" gid="297" x="124" y="304" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1112" gid="364" x="96" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1113" gid="364" x="112" y="304" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1114" gid="364" x="104" y="268" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1115" gid="297" x="84" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1116" gid="297" x="112" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1117" gid="364" x="100" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1118" gid="364" x="84" y="268" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1119" gid="297" x="96" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1120" gid="297" x="120" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1121" gid="297" x="124" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1122" gid="364" x="96" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1123" gid="364" x="112" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1124" gid="364" x="92" y="296" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1125" gid="297" x="104" y="308" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1126" gid="297" x="104" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1127" gid="364" x="128" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1128" gid="297" x="128" y="288" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1129" gid="297" x="132" y="308" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1130" gid="364" x="104" y="284" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1131" gid="364" x="120" y="308" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1132" gid="364" x="112" y="272" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+  <object id="1133" gid="297" x="92" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1134" gid="297" x="120" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass2"/>
+   </properties>
+  </object>
+  <object id="1135" gid="364" x="108" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Grass1"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="7" name="Piedras" visible="0">
+  <object id="1136" gid="414" x="92" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock2"/>
+   </properties>
+  </object>
+  <object id="1137" gid="276" x="132" y="176" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock1"/>
+   </properties>
+  </object>
+  <object id="1138" gid="276" x="84" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock1"/>
+   </properties>
+  </object>
+  <object id="1139" gid="276" x="112" y="192" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock1"/>
+   </properties>
+  </object>
+  <object id="1140" gid="414" x="96" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock2"/>
+   </properties>
+  </object>
+  <object id="1141" gid="414" x="128" y="204" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock2"/>
+   </properties>
+  </object>
+  <object id="1142" gid="414" x="104" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock2"/>
+   </properties>
+  </object>
+  <object id="1143" gid="276" x="128" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock1"/>
+   </properties>
+  </object>
+  <object id="1144" gid="276" x="116" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock1"/>
+   </properties>
+  </object>
+  <object id="1145" gid="276" x="88" y="288" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock1"/>
+   </properties>
+  </object>
+  <object id="1146" gid="414" x="88" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock2"/>
+   </properties>
+  </object>
+  <object id="1147" gid="414" x="124" y="284" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Lilrock2"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup id="8" name="PiedrasGrande" visible="0">
+  <object id="1161" gid="281" x="128" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Bigrock1"/>
+   </properties>
+  </object>
+  <object id="1162" gid="621" x="84" y="272" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Bigrock2"/>
+   </properties>
+  </object>
+  <object id="1163" gid="281" x="84" y="196" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Bigrock1"/>
+   </properties>
+  </object>
+  <object id="1164" gid="621" x="96" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Bigrock2"/>
+   </properties>
+  </object>
+  <object id="1165" gid="621" x="129.818" y="213.818" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Bigrock2"/>
+   </properties>
+  </object>
+  <object id="1166" gid="281" x="124" y="184" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Bigrock1"/>
+   </properties>
+  </object>
+  <object id="1167" gid="281" x="104" y="292" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Bigrock1"/>
+   </properties>
+  </object>
+  <object id="1168" gid="621" x="92" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="Bigrock2"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

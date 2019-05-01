@@ -57,11 +57,11 @@ void KnifeGuy::Update()
 }
 
 void KnifeGuy::OnHit() {
+	cout << "GOLPE A KNIFE GUY" << endl;
 	HP--;
 	if (HP <= 0) {
 		OnDeath();
 	}
-	cout << "GOLPE A KNIFE GUY" << endl;
 	
 }
 

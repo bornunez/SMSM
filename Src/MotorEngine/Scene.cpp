@@ -33,6 +33,9 @@ void Scene::Release()
 	//Eliminar todos los GameObjects y sus componentes
 	for (GameObject* go : gameObjects)
 		delete go;
+	for (Component* c : components)
+		delete c;
+	
 
 	//Al eliminar los componentes RB se acumularian en un vector del physicsManager
 

@@ -10,7 +10,6 @@ using namespace std;
 class GameObject;
 class Component;
 class Scene;
-class Transform;
 class Ogre::SceneManager;
 
 
@@ -30,9 +29,6 @@ private:
 	Ogre::SceneNode* parentNode;			//Nodo del padre
 	Ogre::SceneNode* mNode;					//Nodo del objeto
 
-	
-
-	Transform* transform;
 	string name;
 	bool active;
 

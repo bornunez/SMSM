@@ -16,10 +16,10 @@ public:
 	ShyGuy(GameObject* obj) : Enemy(obj) {};
 	~ShyGuy();
 	void LoadFromFile(json obj);
-	virtual void Update();
-	virtual void OnHit();
-	virtual void OnDeath();
-	virtual void Spawn();
+	void Update();
+	void OnHit();
+	void OnDeath();
+	void Spawn();
 
 
 

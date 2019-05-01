@@ -16,9 +16,9 @@ void Room::OnEnter()
 	RoomManager::getInstance()->SetActiveRoom(this);
 	//Quitamos las entradas
 	for (GameObject* g : entries) {
-		entries.remove(g);
 		g->Destroy();
 	}
+	entries.clear();
 	//Cerramos las salidas
 	for (GameObject* g : gates)
 		g->SetActive(true);

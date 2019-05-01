@@ -62,10 +62,12 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new ShyGuy(gameObject);
 	else if (c_type == "SkipRoom")
 		c = new SkipRoom(gameObject);
+#ifndef _DEBUG
 	else if (c_type == "ParticleSystem")
 		c = new MyParticleSystem(gameObject);
 	else if (c_type == "GUILoader")
 		c = new GUILoader(gameObject);
+#endif
 
 	if (c != nullptr) {
 		gameObject->AddComponent(c);

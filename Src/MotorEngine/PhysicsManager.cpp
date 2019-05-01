@@ -17,7 +17,7 @@ PhysicsManager::PhysicsManager()
 	_world->setGravity(btVector3(0, -40, 0));
 
 #ifdef _DEBUG
-	//debug_ = true;
+	debug_ = true;
 #endif
 
 	std::cout << " -- Physics world initialized -- " << std::endl;

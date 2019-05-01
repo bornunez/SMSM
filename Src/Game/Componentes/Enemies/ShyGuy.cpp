@@ -75,6 +75,7 @@ void ShyGuy::Update()
 }
 
 void ShyGuy::OnHit() {
+	cout << "ONHIT DE SHYGUY" << endl;
 	HP--;
 	if (HP <= 0) {
 		OnDeath();

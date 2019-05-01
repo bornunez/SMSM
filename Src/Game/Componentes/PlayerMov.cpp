@@ -31,51 +31,51 @@ void PlayerMov::Update()
 
 void PlayerMov::handleInput()
 {
-	//// PLAYER CAMERA ----------------------------------------------------------------------
+	// PLAYER CAMERA ----------------------------------------------------------------------
 
-	//int currentMouseX = input->getMouseX();
-	//float xInput = input->getMouseXDif() * mouseSensitivity;
+	int currentMouseX = input->getMouseX();
+	float xInput = input->getMouseXDif() * mouseSensitivity;
 
-	//playerRb->setAngularVelocity(btVector3(0, -xInput, 0));
+	playerRb->setAngularVelocity(btVector3(0, -xInput, 0));
 
-	////// Reset mouse if it hits a window border
-	//if (currentMouseX == scene->getGame()->getRenderWindow()->getWidth() || currentMouseX == 0)
-	//	input->CenterMouse();
+	//// Reset mouse if it hits a window border
+	if (currentMouseX == scene->getGame()->getRenderWindow()->getWidth() || currentMouseX == 0)
+		input->CenterMouse();
 
 
-	////// PLAYER MOVEMENT --------------------------------------------------------------------
+	//// PLAYER MOVEMENT --------------------------------------------------------------------
 
-	//// Player Direction
-	//Vector3 dir = getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
-	//btVector3 up = btVector3(0.0, 1.0, 0.0);
+	// Player Direction
+	Vector3 dir = getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
+	btVector3 up = btVector3(0.0, 1.0, 0.0);
 
-	//// Forward and right vector
-	//btVector3 forward = btVector3(dir.x, dir.y, dir.z);
-	//btVector3 right = forward.cross(up);
+	// Forward and right vector
+	btVector3 forward = btVector3(dir.x, dir.y, dir.z);
+	btVector3 right = forward.cross(up);
 
-	//playerRb->setLinearVelocity(btVector3(0, 0, 0));
+	playerRb->setLinearVelocity(btVector3(0, 0, 0));
 
-	//// Forwards / backwards
-	//if (input->getKey(OIS::KeyCode::KC_W)) {
-	//	playerRb->setLinearVelocity(forward *speed);
-	//}
-	//else if (input->getKey(OIS::KeyCode::KC_S)) {
-	//	playerRb->setLinearVelocity(-forward * speed);
-	//}
+	// Forwards / backwards
+	if (input->getKey(OIS::KeyCode::KC_W)) {
+		playerRb->setLinearVelocity(forward *speed);
+	}
+	else if (input->getKey(OIS::KeyCode::KC_S)) {
+		playerRb->setLinearVelocity(-forward * speed);
+	}
 
-	//// Left / Right
-	//if (input->getKey(OIS::KeyCode::KC_A)) {
-	//	playerRb->setLinearVelocity(-right * speed + playerRb->getLinearVelocity());
-	//}
-	//else if (input->getKey(OIS::KeyCode::KC_D)) {
-	//	playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
-	//}
+	// Left / Right
+	if (input->getKey(OIS::KeyCode::KC_A)) {
+		playerRb->setLinearVelocity(-right * speed + playerRb->getLinearVelocity());
+	}
+	else if (input->getKey(OIS::KeyCode::KC_D)) {
+		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
+	}
 
-	//// TEST ------------------------------------------------------------------------
-	//if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_H)) {
-	//	//cam->Yaw(5);
-	//	cam->GetCameraNode()->yaw(Radian(5));
-	//}
+	// TEST ------------------------------------------------------------------------
+	if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_H)) {
+		//cam->Yaw(5);
+		cam->GetCameraNode()->yaw(Radian(5));
+	}
 }
 
 void PlayerMov::Start()
@@ -96,14 +96,16 @@ void PlayerMov::Start()
 
 	// Components
 	playerColl = getComponent<PlayerCollision>();
+	playerColl = getComponent<PlayerCollision>();
 	playerRb = playerColl->getRB();
 	cam = getComponent<MyCamera>();
-	//input = scene->getGame()->getInputManager();
+	input = scene->getGame()->getInputManager();
 
-	//lastMouseX = InputManager::getInstance()->getMouseX();
-
+	lastMouseX = InputManager::getInstance()->getMouseX();
+#ifndef _DEBUG
 	livesHeart = GUIManager::Instance()->getButton("livesHeart");
 	livesHeart->setText(std::to_string(lives));
+#endif
 }
 
 void PlayerMov::Awake()
@@ -112,5 +114,7 @@ void PlayerMov::Awake()
 
 void PlayerMov::updateLivesHeart()
 {
-	livesHeart->setText(std::to_string(lives));
+	#ifndef _DEBUG
+		livesHeart->setText(std::to_string(lives));
+	#endif
 }

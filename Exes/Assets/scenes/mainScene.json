@@ -10,7 +10,7 @@
 			"components":[
 				{
 					"type":"MapLoader",
-					"path":"Assets/maps/baseRoom.json",
+					"path":"Assets/maps/testRoom.json",
 					"scale":0.5
 				}	
 			]

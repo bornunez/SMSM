@@ -90,6 +90,7 @@ void RigidBodyComponent::Start()
 void RigidBodyComponent::OnDestroy()
 {
 	//Eliminado
+	Component::OnDestroy();
 	PhysicsManager::Instance()->removeRigidBody(gameObject->getNode());
 }
 
