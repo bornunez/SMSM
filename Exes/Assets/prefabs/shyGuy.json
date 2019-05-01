@@ -11,7 +11,7 @@
 		{
 			"type":"EnemyRigidBody",
 			"shape":0,
-			"id":1,
+			"id":3,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":-2,
