@@ -11,7 +11,7 @@
 		{
 			"type":"WeaponBullet",
 			"shape":2,
-			"id":7,
+			"id":1,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":0,
