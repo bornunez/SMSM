@@ -21,6 +21,7 @@
    <properties>
     <property name="prefab" value="Player"/>
     <property name="scale" type="float" value="0.5"/>
+    <property name="y" type="int" value="1"/>
    </properties>
   </object>
  </objectgroup>
