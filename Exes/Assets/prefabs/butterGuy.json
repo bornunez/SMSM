@@ -1,0 +1,46 @@
+{
+	"prefabName":"ButterGuy",
+	"name":"ButterGuy",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"pocholo_volador.mesh"
+		},
+		{
+			"type":"EnemyRigidBody",
+			"shape":0,
+			"id":4,
+			"mass":1,
+			"restFactor":0.5,
+			"positionX":-2,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0,
+			"offsetZ":0,
+			"isTrigger":true,
+			"sizeX": 0.4,
+			"sizeY": 0.4,
+			"sizeZ": 0.4,
+			"recoilTime": 0
+		},
+		{
+			"type":"ButterGuy",
+			"moveSpeed":8,
+			"dist":6,
+			"distFactor":1.5,
+			"gravity":-15,
+			"linDamp":0.2,
+			"angDamp":0.2,
+			
+			"shootTime":1.5,
+			"shootSpeed":2, 
+			"dispersion":0,
+			"shootPosX": 10,
+			"shootPosY": 0.15,
+			"shootPosZ": 0.75
+		}
+	]
+}

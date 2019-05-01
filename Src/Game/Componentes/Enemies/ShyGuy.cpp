@@ -47,8 +47,8 @@ void ShyGuy::Update()
 			}
 			else if (absDist < dist) {
 				meshRend->PlayAnimation("Move", true);
+				rb->setLinearVelocity(btVector3(0, 0, 0));
 				estado = state::FLEEING;
-				rb->clearForces();
 			}
 		}
 		else if (estado == state::FLEEING) {
@@ -66,8 +66,8 @@ void ShyGuy::Update()
 			//0.8, 1.2 para que haga un poco de s el bicho
 			rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
 			if (absDist > dist) {
+				rb->setLinearVelocity(btVector3(0, 0, 0));
 				estado = state::IDLE;
-				rb->clearForces();
 				meshRend->StopAnimation(true);
 			}
 		}

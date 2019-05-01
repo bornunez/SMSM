@@ -157,6 +157,29 @@
                  "width":4,
                  "x":124,
                  "y":252
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":1171,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"ButterGuy",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":104.25,
+                 "y":256.125
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -2937,7 +2960,7 @@
          "y":0
         }],
  "nextlayerid":9,
- "nextobjectid":1171,
+ "nextobjectid":1172,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.3",

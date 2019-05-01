@@ -1,0 +1,33 @@
+{
+	"prefabName":"EnemyBullet",
+	"name":"EnemyBullet",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"Bullet.mesh"
+		},
+		{
+			"type":"EnemyBullet",
+			"shape":2,
+			"id":5,
+			"ownerID":4,
+			"mass":1,
+			"restFactor":0.5,
+			"positionX":0,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0,
+			"offsetZ":0,
+			"isTrigger":true,
+			"radius":0.03,
+			"gravity":-25,
+			"linDamp":0.2,
+			"angDamp":0.2,
+			"speed": 30,
+			"recoilTime": 0
+		}
+	]
+}

@@ -60,6 +60,10 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new KnifeGuy(gameObject);
 	else if (c_type == "ShyGuy")
 		c = new ShyGuy(gameObject);
+	else if (c_type == "ButterGuy")
+		c = new ButterGuy(gameObject);
+	else if (c_type == "EnemyBullet")
+		c = new EnemyBullet(gameObject);
 	else if (c_type == "SkipRoom")
 		c = new SkipRoom(gameObject);
 #ifndef _DEBUG
