@@ -12,5 +12,5 @@ public:
 	~MapLoader();
 
 	virtual void Awake();
-
+	json FindProperty(json obj, string property);
 };
