@@ -28,8 +28,8 @@
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\GUILoader.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\ObstacleRigidBody.cpp" />
-    <ClCompile Include="..\..\Src\Game\Componentes\PlayerMov.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerCollision.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerController.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.cpp" />
     <ClCompile Include="..\..\Src\Game\Loader\MyComponentLoader.cpp" />
     <ClCompile Include="..\..\Src\Game\main.cpp" />
@@ -54,8 +54,8 @@
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\GUILoader.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\ObstacleRigidBody.h" />
-    <ClInclude Include="..\..\Src\Game\Componentes\PlayerMov.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerCollision.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerController.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.h" />
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Entry.h" />

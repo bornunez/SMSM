@@ -48,8 +48,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new MyCamera(gameObject);
 	else if (c_type == "Light")
 		c = new MyLight(gameObject);
-	else if (c_type == "PlayerMov")
-		c = new PlayerMov(gameObject);
+	else if (c_type == "PlayerController")
+		c = new PlayerController(gameObject);
 	else if (c_type == "PlayerCollision")
 		c = new PlayerCollision(gameObject);
 	else if (c_type == "testEnemy")
