@@ -67,7 +67,7 @@ void ButterGuy::Update()
 				estado = state::AIMING;
 				rb->setLinearVelocity(btVector3(0, 0, 0));
 				shootTimer = 0;
-				meshRend->StopAnimation(true);
+			//	meshRend->StopAnimation(true);
 			}
 		}
 		//si esta huyendo...
@@ -79,7 +79,7 @@ void ButterGuy::Update()
 			if (absDist > dist) {
 				estado = state::IDLE;
 				rb->setLinearVelocity(btVector3(0, 0, 0));
-				meshRend->StopAnimation(true);
+				//meshRend->StopAnimation(true);
 			}
 		}
 		//Si esta apuntando
@@ -95,7 +95,7 @@ void ButterGuy::Update()
 			//Si deja de estar en rango vuelve a estar idle
 			if (absDist < dist || absDist > dist*distFactor) {
 				estado = state::IDLE;
-				meshRend->PlayAnimation("Move", true);
+				//meshRend->PlayAnimation("Move", true);
 			}
 		}
 		//Mira al jugador
