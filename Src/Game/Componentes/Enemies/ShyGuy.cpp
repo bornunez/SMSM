@@ -33,6 +33,8 @@ void ShyGuy::LoadFromFile(json obj)
 	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	moveSpeed = obj["moveSpeed"];
 	dist = obj["dist"];
+	maxFactor = obj["maxFactor"];
+	minFactor = obj["maxFactor"];
 }
 
 
@@ -62,9 +64,7 @@ void ShyGuy::Update()
 
 			rb->getWorldTransform().setRotation(q);
 			auxVec *= moveSpeed;
-			//aqui se le puede meter un multiplicador random en plan
-			//0.8, 1.2 para que haga un poco de s el bicho
-			rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
+			rb->setLinearVelocity({ auxVec.x * ((rand() % maxFactor + minFactor)/100) , 0, auxVec.z * ((rand() % maxFactor + minFactor) / 100) });
 			if (absDist > dist) {
 				rb->setLinearVelocity(btVector3(0, 0, 0));
 				estado = state::IDLE;

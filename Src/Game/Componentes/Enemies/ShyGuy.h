@@ -10,6 +10,8 @@ private:
 	state estado = state::IDLE;
 	MeshRenderer* meshRend = nullptr;
 	float dist = 0;
+	int minFactor = 0;
+	int maxFactor = 0;
 
 public:
 	void Start();
@@ -19,8 +21,5 @@ public:
 	void Update();
 	void OnDeath();
 	void Spawn();
-
-
-
 };
 
