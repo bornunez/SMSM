@@ -187,7 +187,15 @@ void Weapon::SpecialReload()
 	if (specialReloading && actSpecialReload < specialReloadTime) actSpecialReload += TimeManager::getInstance()->getDeltaTime();
 	else if(specialReloading)
 	{
-		PrefabManager::getInstance()->Instantiate("ShotgunReloadBullet", scene, nullptr, (gameObject->getPosition() + Vector3(-0.1, 0.05, -0.5)), 0.01);
+		Vector3 dir = gameObject->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
+		dir *= offset.z*2;
+		//scene->Instantiate("Bullet", gameObject->getChild("ShootPoint")->getGlobalPosition(), 0.01);
+		// gameObject->getGlobalPosition() + forward*0.4 + Vector3(0, -0.22, 0), 0.01);
+		dir = Quaternion(Degree(-offset.x*3), Vector3::UNIT_Y) * dir;
+		//scene->Instantiate("Bullet", gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0), 0.1);
+		scene->Instantiate("ShotgunReloadBullet", gameObject->getParent()->getGlobalPosition() + dir + Vector3(0, offset.y, 0), 0.03);
+		//cout << "Disparo en: [ " << gameObject->getParent()->getNode()->getPosition() +dir << " ]" << endl;
+		cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0);
 		specialReloading = false;
 	}
 }

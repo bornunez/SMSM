@@ -11,7 +11,7 @@
 		{
 			"type":"WeaponBullet",
 			"shape":2,
-			"id":7,
+			"id":1,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":0,
@@ -22,10 +22,11 @@
 			"offsetZ":0,
 			"isTrigger":true,
 			"radius":0.03,
-			"gravity":-15,
+			"gravity":-35,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"speed": 2
+			"speed": 15,
+			"recoilTime": 0
 		}
 	]
 }

@@ -40,8 +40,8 @@ private:
 	void PhysicShoot();
 	void reloads();
 
-	float specialReloadTime = 0.6;
-	float actSpecialReload = 0.6;
+	float specialReloadTime = 0.73;
+	float actSpecialReload = 0.73;
 	bool specialReloading = false;
 	Vector3 offset;
 public:

@@ -25,6 +25,7 @@ void KnifeGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
+	meshRend->AnimationSpeed(2);
 
 
 }
@@ -65,6 +66,7 @@ void KnifeGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+	meshRend->AnimationSpeed(2);
 }
 
 void KnifeGuy::Spawn()

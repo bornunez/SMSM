@@ -10,19 +10,22 @@
 		},
 		{
 			"type":"Weapon",
-			"magazine":5,
+			"magazine":6,
 			"moveSpeed":1.75,
 			"runSpeed":2,
 			"dualInt":0,
 			
-			"timePerShoot":0.8,
-			"shootSpeed":2.5,
+			"timePerShoot":0.5,
+			"shootSpeed":3.75,
 			
-			"reloadTime":1.75,
-			"reloadSpeed":2.5,
+			"reloadTime":2,
+			"reloadSpeed":2.25,
 			
 			"numBullets":6,
-			"dispersion":4
+			"dispersion":4,
+			"shootPosX": -10,
+			"shootPosY": 0.175,
+			"shootPosZ": 0.75
 		}
 	]
 }
