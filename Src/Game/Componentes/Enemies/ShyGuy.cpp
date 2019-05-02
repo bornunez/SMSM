@@ -33,6 +33,7 @@ void ShyGuy::LoadFromFile(json obj)
 	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	moveSpeed = obj["moveSpeed"];
 	dist = obj["dist"];
+	distFactor = obj["distFactor"];
 	maxFactor = obj["maxFactor"];
 	minFactor = obj["maxFactor"];
 }
@@ -41,11 +42,11 @@ void ShyGuy::LoadFromFile(json obj)
 void ShyGuy::Update()
 {
 	if (estado != state::DEAD) {
-		Ogre::Vector3 auxVec = -(player->getPosition() - gameObject->getPosition());
+		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		float absDist = abs(auxVec.x) + abs(auxVec.z);
 		if (estado == state::IDLE) {
-			if (absDist > dist*1.5) {
-				rb->setLinearVelocity({ -auxVec.x / 4, 0, -auxVec.z / 4 });
+			if (absDist > dist*distFactor) {
+				rb->setLinearVelocity({ auxVec.x / 4, 0, auxVec.z / 4 });
 			}
 			else if (absDist < dist) {
 				meshRend->PlayAnimation("Move", true);
@@ -55,15 +56,7 @@ void ShyGuy::Update()
 		}
 		else if (estado == state::FLEEING) {
 			auxVec.normalise();
-			float angle = atan2(auxVec.x, auxVec.z);
-			btQuaternion q;
-			q.setX(0);
-			q.setY(1 * sin(angle / 2));
-			q.setZ(0);
-			q.setW(cos(angle / 2));
-
-			rb->getWorldTransform().setRotation(q);
-			auxVec *= moveSpeed;
+			auxVec *= -moveSpeed;
 			rb->setLinearVelocity({ auxVec.x * ((rand() % maxFactor + minFactor)/100) , 0, auxVec.z * ((rand() % maxFactor + minFactor) / 100) });
 			if (absDist > dist) {
 				rb->setLinearVelocity(btVector3(0, 0, 0));
@@ -71,6 +64,14 @@ void ShyGuy::Update()
 				meshRend->StopAnimation(true);
 			}
 		}
+		float angle = atan2(auxVec.x, auxVec.z);
+		btQuaternion q;
+		q.setX(0);
+		q.setY(1 * sin(angle / 2));
+		q.setZ(0);
+		q.setW(cos(angle / 2));
+
+		rb->getWorldTransform().setRotation(q);
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {

@@ -10,6 +10,7 @@ private:
 	state estado = state::IDLE;
 	MeshRenderer* meshRend = nullptr;
 	float dist = 0;
+	float distFactor = 0;
 	int minFactor = 0;
 	int maxFactor = 0;
 

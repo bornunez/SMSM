@@ -29,7 +29,8 @@
 		{
 			"type":"ShyGuy",
 			"moveSpeed":8,
-			"dist":12,
+			"dist":10,
+			"distFactor":1.5,
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2,
