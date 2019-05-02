@@ -34,6 +34,7 @@ void KnifeGuy::LoadFromFile(json obj)
 	//rb->setGravity(btVector3(0, obj["gravity"], 0));
 	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	moveSpeed = obj["moveSpeed"];
+	Enemy::alive = true;
 }
 
 

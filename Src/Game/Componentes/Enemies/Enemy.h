@@ -12,6 +12,7 @@ private:
 protected:
 	int HP = 0;
 	float moveSpeed = 0;
+	bool alive = true;
 	GameObject* player = nullptr;
 	EnemyRigidBody* rbComp = nullptr;
 	btRigidBody* rb = nullptr;

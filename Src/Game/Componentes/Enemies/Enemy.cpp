@@ -29,6 +29,7 @@ void Enemy::Start()
 		it++;
 	}
 	rb = rbComp->getRB();
+	alive = true;
 }
 
 
@@ -44,12 +45,14 @@ void Enemy::OnDeath()
 
 void Enemy::OnHit()
 {
-	// Crea las particulas
-	scene->Instantiate("DeathPS", gameObject->getGlobalPosition(), 0.1f);
-
-	HP--;
-	if (HP <= 0) {
-		OnDeath();
+	if (alive) {
+		// Crea las particulas
+		scene->Instantiate("DeathPS", gameObject->getGlobalPosition(), 0.1f);
+		HP--;
+		if (HP <= 0) {
+			alive = false;
+			OnDeath();
+		}
 	}
 }
 
