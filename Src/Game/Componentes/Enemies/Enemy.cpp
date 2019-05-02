@@ -52,6 +52,7 @@ void Enemy::OnHit()
 		if (HP <= 0) {
 			alive = false;
 			OnDeath();
+			rbComp->SetEnabled(false);
 		}
 	}
 }
