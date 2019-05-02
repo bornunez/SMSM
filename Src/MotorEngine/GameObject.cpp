@@ -90,6 +90,21 @@ void GameObject::setScale(float scale)
 	mNode->setScale(scale, scale, scale);
 }
 
+Ogre::Quaternion GameObject::getGlobalOrientation()
+{
+	Ogre::Quaternion dir;
+	if (parent != nullptr)
+		dir = parent->getGlobalOrientation() + getOrientation();
+	else
+		dir = getOrientation();
+	return dir;
+}
+
+Ogre::Quaternion GameObject::getOrientation()
+{
+	return mNode->getOrientation();
+}
+
 void GameObject::RemoveComponent(Component * c)
 {
 	components.remove(c);
@@ -158,6 +173,14 @@ void GameObject::AddChild(GameObject * child)
 	child->setParent(this);
 	
 	children.push_back(child);
+}
+
+GameObject * GameObject::GetChild(string _name)
+{
+	for (GameObject* o : children)
+		if (o->getName() == _name)
+			return o;
+	return nullptr;
 }
 
 void GameObject::Destroy()

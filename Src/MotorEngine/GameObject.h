@@ -54,6 +54,8 @@ public:
 	Ogre::Vector3 getGlobalPosition();
 	void setPosition(Ogre::Vector3 pos);
 	void setScale(float scale);
+	Ogre::Quaternion getGlobalOrientation();
+	Ogre::Quaternion getOrientation();
 
 	//Manejo de Componentes
 	std::list<Component*> getComponents() { return components; }
@@ -69,6 +71,7 @@ public:
 	//Manejo de hijos
 	void AddChild(GameObject* child);
 	std::list<GameObject*> getChilds() { return children; }
+	GameObject* GetChild(string _name);
 
 	void Destroy();
 	//GETS Y SETS

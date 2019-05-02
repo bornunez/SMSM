@@ -23,6 +23,10 @@ void PlayerController::Start()
 
 	lastMouseX = input->getMouseX();
 
+	brazo = gameObject->GetChild("Brazo");
+	if (brazo == nullptr)
+		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
+
 #ifndef _DEBUG
 	livesHeart = GUIManager::Instance()->getButton("livesHeart");
 	livesHeart->setText(std::to_string(lives));
@@ -39,12 +43,20 @@ void PlayerController::handleInput()
 	// PLAYER CAMERA ----------------------------------------------------------------------
 
 	int currentMouseX = input->getMouseX();
+	int currentMouseY = input->getMouseY();
 	float xInput = input->getMouseXDif() * mouseSensitivity;
-
-	playerRb->setAngularVelocity(btVector3(0, -xInput, 0));
-
+	float yInput = input->getMouseYDif() * mouseSensitivity * 0.1;
+	yAngle += yInput;
+	if (yAngle > 0.7)
+		yAngle = 0.7;
+	else if (yAngle < -0.7)
+		yAngle = -0.7;
+	cout << "Angulo Y: "<< yAngle << endl;
 	//// Reset mouse if it hits a window border
 	if (currentMouseX == scene->getGame()->getRenderWindow()->getWidth() || currentMouseX == 0)
+		input->CenterMouse();
+
+	if (currentMouseY == scene->getGame()->getRenderWindow()->getHeight() || currentMouseY == 0)
 		input->CenterMouse();
 
 	//// PLAYER MOVEMENT --------------------------------------------------------------------
@@ -56,6 +68,15 @@ void PlayerController::handleInput()
 	// Forward and right vector
 	btVector3 forward = btVector3(dir.x, dir.y, dir.z);
 	btVector3 right = forward.cross(up);
+
+
+	forward.setY(0);
+	right.setY(0);
+	
+	playerRb->setAngularVelocity(up * -xInput);
+	Quaternion q = brazo->getNode()->getOrientation();
+	q.FromAngleAxis(Ogre::Radian::Radian(-yAngle),Vector3(1,0,0));
+	brazo->getNode()->setOrientation(q);
 
 	playerRb->setLinearVelocity(btVector3(0, 0, 0));
 

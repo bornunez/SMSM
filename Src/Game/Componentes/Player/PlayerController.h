@@ -13,6 +13,7 @@ private:
 	// Components
 	PlayerCollision * playerColl;
 	btRigidBody* playerRb;
+	GameObject* brazo;
 
 	// Camera
 	MyCamera* cam;
@@ -22,6 +23,7 @@ private:
 	// Mouse
 	float mouseSensitivity;
 	int lastMouseX;
+	float yAngle = 0;
 
 	// Attributes
 	float speed = 0;
