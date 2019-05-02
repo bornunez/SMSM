@@ -19,7 +19,6 @@ void EnemyBullet::Start()
 	physicRB->applyTorqueImpulse(btVector3(0, 0.1, 0));
 	direccion = scene->getGameObject("Player")->getNode()->getPosition() - gameObject->getPosition();
 	direccion.normalise();
-	direccion.y = 0;
 
 }
 
@@ -50,7 +49,7 @@ void EnemyBullet::Update()
 {
 //	cout << gameObject->getPosition().x << " " << gameObject->getPosition().z << endl;
 	if(!hit)
-		physicRB->applyCentralImpulse(btVector3(direccion.x*speed, direccion.y*speed, direccion.z*speed));
+		physicRB->applyCentralImpulse(btVector3(direccion.x*speed, direccion.y*speed/2, direccion.z*speed));
 	else //Se posria hacer aqui un contador para que desapareciese la bala
 	{
 		

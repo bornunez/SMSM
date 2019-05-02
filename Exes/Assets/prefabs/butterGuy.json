@@ -14,7 +14,7 @@
 			"id":4,
 			"mass":1,
 			"restFactor":0.5,
-			"positionX":3,
+			"positionX":-2,
 			"positionY":0,
 			"positionZ":0,
 			"offsetX":0,
@@ -38,9 +38,9 @@
 			"shootTime":1.5,
 			"shootSpeed":2, 
 			"dispersion":0,
-			"shootPosX": 0,
-			"shootPosY": 0,
-			"shootPosZ": 0
+			"shootPosX":0.5,
+			"shootPosY":0.6,
+			"shootPosZ":0
 		}
 	]
 }
