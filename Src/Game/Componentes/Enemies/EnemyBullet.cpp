@@ -17,8 +17,9 @@ void EnemyBullet::Start()
 	physicRB->setGravity(btVector3(0, grav, 0));
 	physicRB->setDamping(linDamp, angDamp);
 	physicRB->applyTorqueImpulse(btVector3(0, 0.1, 0));
-	direccion = gameObject->getPosition() - scene->getGameObject("Player")->getNode()->getPosition();
+	direccion = scene->getGameObject("Player")->getNode()->getPosition() - gameObject->getPosition();
 	direccion.normalise();
+	direccion.y = 0;
 
 }
 

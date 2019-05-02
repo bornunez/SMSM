@@ -22,11 +22,11 @@
 			"offsetY":0,
 			"offsetZ":0,
 			"isTrigger":true,
-			"radius":0.03,
-			"gravity":-25,
+			"radius":0.06,
+			"gravity":-5,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"speed": 30,
+			"speed": 10,
 			"recoilTime": 0
 		}
 	]

@@ -10,7 +10,9 @@ PlayerCollision::~PlayerCollision()
 
 void PlayerCollision::collisionHandler(int id)
 {
-	
+	if (id == 5) {
+		cout << "OUCH OUCH ME DISPARARON" << endl;
+	}
 }
 
 void PlayerCollision::Update()
