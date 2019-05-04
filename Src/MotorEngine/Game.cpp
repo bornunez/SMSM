@@ -153,7 +153,16 @@ void Game::Play()
 #endif
 		mRoot->renderOneFrame();
 
-		//if (GUIManager::Instance()->getGameOn()) {
+		if (sceneManager->GetActiveScene() != nullptr) {
+			if (!sceneManager->GetActiveScene()->IsStarted()) {
+				sceneManager->GetActiveScene()->Start();
+				TimeManager::getInstance()->setDeltaTime(0);
+			}
+		}
+
+#ifdef NDEBUG
+		if (!GUIManager::Instance()->getMenuOn() && !GUIManager::Instance()->getPauseOn()) {
+#endif
 			mWindow->update();
 
 			TimeManager::getInstance()->Update();
@@ -163,13 +172,15 @@ void Game::Play()
 
 			// Current scene update
 			if (sceneManager->GetActiveScene() != nullptr) {
-				if (!sceneManager->GetActiveScene()->IsStarted()) {
+				/*if (!sceneManager->GetActiveScene()->IsStarted()) {
 					sceneManager->GetActiveScene()->Start();
 					TimeManager::getInstance()->setDeltaTime(0);
-				}
+				}*/
 				sceneManager->GetActiveScene()->Update();
 			}
-		//}
+#ifdef NDEBUG
+		}
+#endif
 
 		//if (mInputM->getKeyUp(OIS::KeyCode::KC_ESCAPE)) endGame = true;
 	}
@@ -183,6 +194,11 @@ void Game::Quit()
 void Game::ReLoadScene(std::string scene)
 {
 	sceneManager->RealoadScene(scene);		// Load the scene
+	sceneManager->ChangeScene(scene);	// Set it to active (makes this the current active scene)
+}
+
+void Game::ChangeScene(std::string scene)
+{
 	sceneManager->ChangeScene(scene);	// Set it to active (makes this the current active scene)
 }
 

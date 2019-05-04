@@ -35,7 +35,7 @@ private:
 	std::list<GameObject*> listeners;
 	queue<GameObject*> trash;
 
-	void parroThings(SceneManager* mSceneManager);
+	//void parroThings(SceneManager* mSceneManager);
 	void ClearTrash();
 	bool started = false;
 	int i = 0;

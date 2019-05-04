@@ -22,37 +22,25 @@ Scene::~Scene() {}
 
 void Scene::Release()
 {
-	//ToDo: release memory used by the scene
-	/*auto it = components.begin();
-	while (it != components.end()) {
-
-
-		++it;
-	}*/
-
 	//Eliminar todos los GameObjects y sus componentes
 	for (GameObject* go : gameObjects)
 		delete go;
 	for (Component* c : components)
 		delete c;
 	
-
-	//Al eliminar los componentes RB se acumularian en un vector del physicsManager
-
-	//Ese vector se procesa aqui y elimina los objetos fisicos del mundo
 	PhysicsManager::Instance()->clearRigidBodies();
 }
 
-void Scene::parroThings(SceneManager* mSceneManager)
-{
-	//BICHO
-	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, { (Ogre::Real)5.1, (Ogre::Real)0.875, (Ogre::Real)4.6 + 4.5 }, 0.02);
-	//PrefabManager::getInstance()->Instantiate("Pistola", this, nullptr, { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
-	//PrefabManager::getInstance()->Instantiate("Pistola2", this, nullptr, { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
-	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
-	/*Instantiate("Pistola", { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
-	Instantiate("Pistola2", { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);*/
-}
+//void Scene::parroThings(SceneManager* mSceneManager)
+//{
+//	//BICHO
+//	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, { (Ogre::Real)5.1, (Ogre::Real)0.875, (Ogre::Real)4.6 + 4.5 }, 0.02);
+//	//PrefabManager::getInstance()->Instantiate("Pistola", this, nullptr, { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+//	//PrefabManager::getInstance()->Instantiate("Pistola2", this, nullptr, { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+//	//PrefabManager::getInstance()->Instantiate("Escopeta", this, nullptr, {-3, -5, 35}, 1);
+//	/*Instantiate("Pistola", { (Ogre::Real)4.85, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);
+//	Instantiate("Pistola2", { (Ogre::Real)5.15, (Ogre::Real)0.8, (Ogre::Real)4.6+5 }, 0.05);*/
+//}
 
 void Scene::Load(json sceneFile)
 {
@@ -61,7 +49,7 @@ void Scene::Load(json sceneFile)
 
 	LoadFromFile(sceneFile);
 
-	parroThings(mSceneManager);
+	//parroThings(mSceneManager);
 	//PrefabManager::getInstance()->Instantiate("Cube", this, nullptr, { 0,0,0 }, 0.1);
 
 	for (Component* c : components) {
