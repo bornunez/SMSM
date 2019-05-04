@@ -202,6 +202,11 @@ void Game::ChangeScene(std::string scene)
 	sceneManager->ChangeScene(scene);	// Set it to active (makes this the current active scene)
 }
 
+Scene * Game::getActiveScene()
+{
+	return sceneManager->GetActiveScene();
+}
+
 // Permite actuar con el raton sobre la ventana
 void Game::MessagePump()
 {

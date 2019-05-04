@@ -3,6 +3,7 @@
 #include "Ogre.h"
 #include "OgreRectangle2D.h"
 #include "AudioManager.h"
+#include "GameSceneManager.h"
 
 GUIManager* GUIManager::instance_ = nullptr;
 
@@ -19,6 +20,8 @@ GUIManager::GUIManager(Ogre::RenderWindow* w, Game* g)
 	functions["VolumeUp"]		= &GUIManager::VolumeUp;
 	functions["VolumeDown"]		= &GUIManager::VolumeDown;
 	functions["Mute"]			= &GUIManager::Mute;
+	functions["SensitivityUp"]	= &GUIManager::SensitivityUp;
+	functions["SensitivityDown"]= &GUIManager::SensitivityDown;
 }
 
 GUIManager::~GUIManager()
@@ -225,6 +228,17 @@ void GUIManager::VolumeDown()
 void GUIManager::Mute()
 {
 	AudioManager::getInstance()->muteVolume();
+}
+
+void GUIManager::SensitivityUp()
+{
+	// Necesito saber como acceder al playerController de forma sencilla
+	cout << "sensibilidad subida" << endl;
+}
+
+void GUIManager::SensitivityDown()
+{
+	cout << "sensibilidad bajada" << endl;
 }
 
 void GUIManager::ToggleWindow(std::string wndName)

@@ -49,6 +49,7 @@ public:
 	void Quit();
 	void ReLoadScene(std::string scene);
 	void ChangeScene(std::string scene);
+	Scene* getActiveScene();
 	
 
 	Root* getRoot() { return mRoot; }

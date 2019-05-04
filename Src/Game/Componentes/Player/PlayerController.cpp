@@ -1,5 +1,7 @@
 #include "PlayerController.h"
 #include "MyCamera.h"
+#include "../../../Src/MotorEngine/GUIManager.h"
+
 
 PlayerController::~PlayerController()
 {
@@ -44,8 +46,8 @@ void PlayerController::handleInput()
 
 	int currentMouseX = input->getMouseX();
 	int currentMouseY = input->getMouseY();
-	float xInput = input->getMouseXDif() * mouseSensitivity;
-	float yInput = input->getMouseYDif() * mouseSensitivity * 0.1;
+	float xInput = input->getMouseXDif() * mouseSensitivity * 1.5;
+	float yInput = input->getMouseYDif() * mouseSensitivity * 0.05;
 	yAngle += yInput;
 	if (yAngle > 0.7)
 		yAngle = 0.7;
@@ -95,6 +97,29 @@ void PlayerController::handleInput()
 	else if (input->getKey(OIS::KeyCode::KC_D)) {
 		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
 	}
+}
+
+void PlayerController::modifySensitivity(bool v)
+{
+	if (v) {
+		mouseSensitivity += 0.05f;
+		
+		if (mouseSensitivity > 0.5f) 
+			mouseSensitivity = 0.5f;		
+		else 
+			sensitivityLevel++;
+		
+	}
+	else {
+		mouseSensitivity -= 0.05f;
+
+		if (mouseSensitivity < 0.05f)
+			mouseSensitivity = 0.5f;
+		else
+			sensitivityLevel--;
+	}
+
+	GUIManager::Instance()->getButton("Sensitivity")->setText("Sensitivity: " + sensitivityLevel);
 }
 
 Vector3  PlayerController::getPlayerDirection()

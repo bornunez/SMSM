@@ -28,6 +28,7 @@ private:
 	// Attributes
 	float speed = 0;
 	int lives = 3;
+	int sensitivityLevel = 2;
 
 	CEGUI::Window * livesHeart;
 
@@ -40,6 +41,8 @@ public:
 	void Start();
 	virtual void Update();
 	void handleInput();
+
+	void modifySensitivity(bool v);
 
 	Vector3 getPlayerDirection();
 };

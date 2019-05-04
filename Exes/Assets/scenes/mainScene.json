@@ -167,6 +167,54 @@
 							"active":true
 						},
 						{
+							"frameWndParentName":"PauseWnd",
+							"buttonName":"SensitivityUp",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.75,
+							"buttonPosY":0.6,
+							"buttonSizeX":0.05,
+							"buttonSizeY":0.05,
+							"buttonText":"+",
+							"buttonFunctionName":"SensitivityUp",
+							"active":true
+						},
+						{
+							"frameWndParentName":"PauseWnd",
+							"buttonName":"SensitivityDown",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.2,
+							"buttonPosY":0.6,
+							"buttonSizeX":0.05,
+							"buttonSizeY":0.05,
+							"buttonText":"-",
+							"buttonFunctionName":"SensitivityDown",
+							"active":true
+						},
+						{
+							"frameWndParentName":"PauseWnd",
+							"buttonName":"Sensitivity",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.3,
+							"buttonPosY":0.6,
+							"buttonSizeX":0.4,
+							"buttonSizeY":0.05,
+							"buttonText":"Sensitivity: 2",
+							"buttonFunctionName":"null",
+							"active":true
+						},
+						{
+							"frameWndParentName":"PauseWnd",
+							"buttonName":"pauseQuit",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.3,
+							"buttonPosY":0.8,
+							"buttonSizeX":0.4,
+							"buttonSizeY":0.05,
+							"buttonText":"Quit",
+							"buttonFunctionName":"exit",
+							"active":true
+						},
+						{
 							"frameWndParentName":"null",
 							"buttonName":"livesHeart",
 							"buttonScheme":"TaharezLook/HeartButton",

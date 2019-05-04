@@ -75,6 +75,8 @@ private:
 	void VolumeUp();
 	void VolumeDown();
 	void Mute();
+	void SensitivityUp();
+	void SensitivityDown();
 
 	// Solo temporal para el estilo de creación de botones
 	//GUILoader * loader;
