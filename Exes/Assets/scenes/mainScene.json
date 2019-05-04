@@ -116,7 +116,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"Continue",
 							"buttonFunctionName":"pause",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"PauseWnd",
@@ -128,7 +129,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"Menu",
 							"buttonFunctionName":"menu",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"PauseWnd",
@@ -140,7 +142,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"+",
 							"buttonFunctionName":"VolumeUp",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"PauseWnd",
@@ -152,7 +155,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"-",
 							"buttonFunctionName":"VolumeDown",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"PauseWnd",
@@ -164,7 +168,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"Volume: 100%",
 							"buttonFunctionName":"Mute",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"PauseWnd",
@@ -176,7 +181,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"+",
 							"buttonFunctionName":"SensitivityUp",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"PauseWnd",
@@ -188,7 +194,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"-",
 							"buttonFunctionName":"SensitivityDown",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"PauseWnd",
@@ -200,7 +207,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"Sensitivity: 2",
 							"buttonFunctionName":"null",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"PauseWnd",
@@ -212,7 +220,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"Quit",
 							"buttonFunctionName":"exit",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"null",
@@ -224,7 +233,8 @@
 							"buttonSizeY":0.075,
 							"buttonText":" ",
 							"buttonFunctionName":"null",
-							"active":true
+							"active":true,
+							"interactable": true
 						}
 					]
 				}	

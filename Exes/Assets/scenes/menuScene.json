@@ -25,6 +25,19 @@
 					"buttons":[
 						{
 							"frameWndParentName":"MenuWnd",
+							"buttonName":"fondoButton",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":-0.1,
+							"buttonPosY":-0.1,
+							"buttonSizeX":1.1,
+							"buttonSizeY":1.1,
+							"buttonText":" ",
+							"buttonFunctionName":"null",
+							"active":true,
+							"interactable": false
+						},
+						{
+							"frameWndParentName":"MenuWnd",
 							"buttonName":"startButton",
 							"buttonScheme":"TaharezLook/Button",
 							"buttonPosX":0.25,
@@ -33,7 +46,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"Start",
 							"buttonFunctionName":"mainScene",
-							"active":true
+							"active":true,
+							"interactable": true
 						},
 						{
 							"frameWndParentName":"MenuWnd",
@@ -45,7 +59,8 @@
 							"buttonSizeY":0.05,
 							"buttonText":"Quit",
 							"buttonFunctionName":"exit",
-							"active":true
+							"active":true,
+							"interactable": true
 						}
 					]
 				}	

@@ -232,7 +232,6 @@ void GUIManager::Mute()
 
 void GUIManager::SensitivityUp()
 {
-	// Necesito saber como acceder al playerController de forma sencilla
 	cout << "sensibilidad subida" << endl;
 }
 

@@ -48,8 +48,12 @@ void GUILoader::LoadFromFile(json obj)
 				string buttonText = but["buttonText"];
 				string buttonFunctionName = but["buttonFunctionName"];
 				bool active = but["active"];
+				bool interactable = but["interactable"];
 
 				CEGUI::Window * button = GUIManager::Instance()->CreateButton(frameWndName, buttonName, buttonScheme, buttonPosX, buttonPosY, buttonSizeX, buttonSizeY, buttonText, buttonFunctionName);
+				if (!interactable) {
+					button->disable();
+				}
 
 				Buttons[buttonName] = button;
 				ButtonsStates[buttonName] = active;
