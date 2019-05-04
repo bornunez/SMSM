@@ -19,6 +19,7 @@ protected:
 	bool enabled;
 	bool started = false;
 	bool awoke = false;
+	string name = "";
 public:
 	Component(GameObject* _gameObject, bool _enabled = true);
 	virtual void LoadFromFile(json obj);
@@ -32,7 +33,7 @@ public:
 
 	virtual void OnDisable() {};
 	virtual void OnEnable() {};
-	virtual void OnDestroy() { cout << "Destruyendo [ " << "] del objeto [ " << gameObject->getName() << " ]" << endl; };
+	virtual void OnDestroy() { /*cout << "Destruyendo [ " << "] del objeto [ " << gameObject->getName() << " ]" << endl;*/ };
 
 	bool isActiveAndEnabled();
 	bool isAwake() { return awoke; }
@@ -43,6 +44,8 @@ public:
 	void Disable();
 	void Enable();
 	void SetEnabled(bool _enabled);
+	void SetName(string _name) { name = _name; }
+	string GetName() { return name; }
 
 	// Sistema de mensajes
 	virtual void receiveMessage(string message) {};

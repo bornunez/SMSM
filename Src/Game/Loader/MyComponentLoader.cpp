@@ -76,6 +76,7 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 	if (c != nullptr) {
 		gameObject->AddComponent(c);
 		c->LoadFromFile(comp);
+		c->SetName(c_type);
 	}
 
 	cout << "Succesfully loaded component [ " << c_type << " ]" << endl;

@@ -22,17 +22,23 @@ Scene::~Scene() {}
 
 void Scene::Release()
 {
+	cout << endl << endl << "=======================================================================" << endl << endl;
+	cout << endl << "BORRANDO ESCENA " << endl << endl;
 	//Eliminar todos los GameObjects y sus componentes
+	cout << "Borrando GameObjects" << endl;
 	for (GameObject* go : gameObjects) 
 		//delete go;
 		Destroy(go);
-	
-	//for (Component* c : components)
-		//delete c;
 
 	ClearTrash();
+
+	cout << "GameObjects borrados con exito" << endl;
 	
+	cout << "Borrando RigidBodies" << endl;
 	PhysicsManager::Instance()->clearRigidBodies();
+	cout << "RigidBodies borrados con exito" << endl;
+
+	cout << "Escena borrada con exito" << endl;
 }
 
 //void Scene::parroThings(SceneManager* mSceneManager)
@@ -145,7 +151,13 @@ void Scene::Update()
 void Scene::Add(GameObject * o)
 {
 	//A�adimos el obeto a la escena
-	gameObjects.push_back(o);
+	auto it = gameObjects.begin();
+	while (it != gameObjects.end() && (*it) != o)
+		it++;
+	if(it != gameObjects.end())
+		cout << "El objeto [ " << o->getName() << " ] ya esta en la escena" << endl;
+	else
+		gameObjects.push_back(o);
 	////Y tambien sus componentes
 	//for (Component* c : o->getComponents())
 	//	components.push_back(c);
@@ -232,19 +244,22 @@ void Scene::ClearTrash()
 	//Vamos a vaciar toda la basura generada en el ciclo principal
 	while (!trash.empty()) {
 		GameObject* o = trash.front(); trash.pop();
-		cout << endl << o->getName() << endl << endl;
+		cout << endl << "Destruyendo objeto [ "<< o->getName() <<" ]" << endl;
 		//Primero le vaciamos los componentes al objeto. 
 		for (Component* c : o->getComponents()) {
+			cout << "Destruyendo componente [ " << c->GetName() << " ]" << endl;
 			c->OnDestroy();
 			o->RemoveComponent(c);
 			//Luego los quitamos de la escena
 			//Y finalmente lo borramos
 			components.remove(c);
 			delete	c;
+			cout << "Destruido componente con exito " << endl;
 		}
 		//Una vez vaciado el objeto, lo quitamos de la escena y finalmente lo borramos
 		mSceneManager->destroySceneNode(o->getNode());
 		gameObjects.remove(o);
 		delete o;
+		cout << "Destruido objeto con exito" << endl << endl;
 	}
 }
