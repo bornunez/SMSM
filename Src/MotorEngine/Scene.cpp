@@ -23,10 +23,14 @@ Scene::~Scene() {}
 void Scene::Release()
 {
 	//Eliminar todos los GameObjects y sus componentes
-	for (GameObject* go : gameObjects)
-		delete go;
-	for (Component* c : components)
-		delete c;
+	for (GameObject* go : gameObjects) 
+		//delete go;
+		Destroy(go);
+	
+	//for (Component* c : components)
+		//delete c;
+
+	ClearTrash();
 	
 	PhysicsManager::Instance()->clearRigidBodies();
 }
@@ -228,7 +232,7 @@ void Scene::ClearTrash()
 	//Vamos a vaciar toda la basura generada en el ciclo principal
 	while (!trash.empty()) {
 		GameObject* o = trash.front(); trash.pop();
-
+		cout << endl << o->getName() << endl << endl;
 		//Primero le vaciamos los componentes al objeto. 
 		for (Component* c : o->getComponents()) {
 			c->OnDestroy();
