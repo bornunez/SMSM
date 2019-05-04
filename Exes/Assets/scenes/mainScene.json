@@ -1,8 +1,7 @@
 {
 	"sceneName":"mainScene",
 	"Skybox":{"material":"Skybox" },	
-	"GameObjects": [
-		
+	"GameObjects": [		
 		{
 			"name":"MapLoader",
 			"active":true,

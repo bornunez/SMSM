@@ -100,8 +100,10 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 	bool act = true;
 	if (obj.contains("active"))
 		act = obj["active"];
-	if (existingObj == nullptr)
+	if (existingObj == nullptr) {
 		o = new GameObject(scene, obj["name"], act, parent);
+		scene->Add(o);
+	}
 	else {
 		o = existingObj;
 		o->setName(objName);
@@ -155,12 +157,8 @@ GameObject * PrefabManager::ParseGameObject(json obj, Scene * scene, GameObject 
 	else {
 		o = GenerateGameObject(obj, scene, parent,pos,scale, existingObj);
 	}
-	if (o != nullptr) {
-		scene->Add(o);
-		return o;
-	}
 
-	return nullptr;
+	return o;
 }
 
 GameObject * PrefabManager::Instantiate(string prefab, Scene * scene, GameObject * parent, Vector3 position, float scale, GameObject * existingObj)

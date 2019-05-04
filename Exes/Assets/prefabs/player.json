@@ -31,19 +31,18 @@
 			"name":"Brazo",
 			"active":true,
 			"components":[
-
 			],
 			"children":[
-		{
-			"prefab":"Pistola",
-			"position": {"x":-0.2, "y":0.3, "z":-0.2},
-			"scale": 0.05
-		},
-		{
-			"prefab":"Pistola2",
-			"position": {"x":0.2, "y":0.3, "z":-0.2},
-			"scale": 0.05
-		},
+				{
+					"prefab":"Pistola",
+					"position": {"x":-0.2, "y":0.3, "z":-0.2},
+					"scale": 0.05
+				},
+				{
+					"prefab":"Pistola2",
+					"position": {"x":0.2, "y":0.3, "z":-0.2},
+					"scale": 0.05
+				},
 				{
 					"prefab":"Camera",
 					"position": {"x":0, "y":0.5, "z":0.1},
@@ -59,7 +58,7 @@
 						"type":"meshRenderer",
 						"mesh":"Mirilla.mesh"
 					}
-					]
+				]
 				}
 			]
 		}
