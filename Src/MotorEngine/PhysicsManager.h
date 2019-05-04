@@ -69,6 +69,7 @@ public:
 	void removeRigidBody(SceneNode * node); //Para eliminar el rigidbody asociado a un nodo de la escena
 	void clearRigidBodies();				//Elimina los rigidbodies asociados a los nodos al final del update
 
+	void resetWorld();
 											//Raycasts
 	void CreateRaycast(btVector3 from, btVector3 to, bool hit, std::string name);
 	void updateRaycast(btVector3 from, btVector3 to, std::string name);
@@ -76,6 +77,8 @@ public:
 
 
 private:
+	static PhysicsManager *instance;
+
 	btDefaultCollisionConfiguration * _collisionConf;
 	btCollisionDispatcher* _dispatcher;
 	btBroadphaseInterface* _broadphase;
@@ -89,12 +92,9 @@ private:
 
 	bulletObject* getBulletObject(Ogre::SceneNode* node);
 
-	static PhysicsManager *instance;
-
 	//Método que completa el objeto físico
 	btRigidBody* CreatePhysicObject(btCollisionShape* collisionShape, SceneNode * node, btScalar mass, btVector3 originalPosition, btQuaternion originalRotation, btScalar restitutionFactor);
 	std::deque<Ogre::SceneNode*> rigidBodiesToRemove_;
-
 
 	//RAYCASTS
 

@@ -35,7 +35,9 @@ void Scene::Release()
 	cout << "GameObjects borrados con exito" << endl;
 	
 	cout << "Borrando RigidBodies" << endl;
-	PhysicsManager::Instance()->clearRigidBodies();
+
+	PhysicsManager::Instance()->resetWorld();
+
 	cout << "RigidBodies borrados con exito" << endl;
 
 	cout << "Escena borrada con exito" << endl;

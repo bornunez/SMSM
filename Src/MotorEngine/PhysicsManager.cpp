@@ -240,7 +240,7 @@ void PhysicsManager::clearRigidBodies()
 
 		while (j < _bulletObjects.size() && !found) {
 
-			if (_bulletObjects[j]->_node == rigidBodiesToRemove_[h]) {
+			if (_bulletObjects[j] != nullptr && _bulletObjects[j]->_node == rigidBodiesToRemove_[h]) {
 				idx = j;
 				found = true;
 			}
@@ -273,6 +273,42 @@ void PhysicsManager::clearRigidBodies()
 	}
 
 	rigidBodiesToRemove_.clear();
+}
+
+void PhysicsManager::resetWorld()
+{
+	std::deque<btRigidBody*>::iterator itBody = _bodies.begin();
+
+	while (itBody != _bodies.end()) {
+		delete *itBody;
+		++itBody;
+	}
+
+	std::deque<btCollisionShape*>::iterator itShape = _shapes.begin();
+
+	while (itShape != _shapes.end()) {
+		delete *itShape;
+		++itShape;
+	}
+
+	std::deque<bulletObject*>::iterator itbObject = _bulletObjects.begin();
+
+	while (itbObject != _bulletObjects.end()) {
+		delete *itbObject;
+		++itbObject;
+	}
+
+	_bodies.clear();
+	_shapes.clear();
+	_bulletObjects.clear();
+
+	delete _world;
+	delete _solver;
+	delete _broadphase;
+	delete _dispatcher;
+	delete _collisionConf;
+
+	instance = new PhysicsManager();
 }
 
 void PhysicsManager::CreateRaycast(btVector3 from, btVector3 to, bool hit, string name)
