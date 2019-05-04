@@ -51,6 +51,7 @@ public:
 	virtual void Update();
 	void handleInput();
 	void Start();
+	void directionalShoot();
 	void shoot();
 	void reload();
 	void SpecialReload();

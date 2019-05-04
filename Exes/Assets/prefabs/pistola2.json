@@ -23,9 +23,9 @@
 			
 			"numBullets":1,
 			"dispersion":0,
-			"shootPosX": -10,
-			"shootPosY": 0.15,
-			"shootPosZ": 0.75
+			"shootPosX": -12,
+			"shootPosY": 17,
+			"shootPosZ": 0.5
 		}
 	]
 }

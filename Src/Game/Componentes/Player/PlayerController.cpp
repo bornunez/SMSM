@@ -51,7 +51,7 @@ void PlayerController::handleInput()
 		yAngle = 0.7;
 	else if (yAngle < -0.7)
 		yAngle = -0.7;
-	cout << "Angulo Y: "<< yAngle << endl;
+	//cout << "Angulo Y: "<< yAngle << endl;
 	//// Reset mouse if it hits a window border
 	if (currentMouseX == scene->getGame()->getRenderWindow()->getWidth() || currentMouseX == 0)
 		input->CenterMouse();

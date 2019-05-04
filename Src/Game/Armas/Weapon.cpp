@@ -141,25 +141,50 @@ void Weapon::PhysicShoot()
 			int disp = dispersion;
 			float randX = rand() % (disp)-(disp / 2);
 			float randY = rand() % (disp)-(disp / 2);
-			scene->Instantiate("Bullet",(gameObject->getPosition() + Vector3(randX*0.01, 0.05 + randY * 0.01, -0.5)), 0.01);
+			//scene->Instantiate("Bullet",(gameObject->getPosition() + Vector3(randX*0.01, 0.05 + randY * 0.01, -0.5)), 0.01);
+			directionalShoot();
 		}
 	}
-	//else 
+	else
+	{
 		//scene->Instantiate("Bullet", (gameObject->getPosition() + Vector3(0, 0.05, -0.5)), 0.01);
-	
+		directionalShoot();
+	}
 	//cout << "Disparo en: [ " <<gameObject->getGlobalPosition().x << ", "<< gameObject->getGlobalPosition().y <<", " << gameObject->getGlobalPosition().z << " ]" << endl;
 	
 	//scene->Instantiate("Bullet", (gameObject->getGlobalPosition()+Vector3(0, -0.2, -0.5)), 0.05);
 
-	Vector3 dir = gameObject->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
-	dir *= offset.z;
+}
+
+void Weapon::directionalShoot()
+{
+	Vector3 auxVec = scene->getGame()->getViewport()->getCamera()->getRealOrientation() * Vector3::NEGATIVE_UNIT_Z*offset.z;
+	//Vector3 auxVec = gameObject->getParent()->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
+	//Vector3 auxVec2 = gameObject->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
+	//float angle2 = atan(auxVec2.y / auxVec2.z)* -57.2958;
+	Vector3 auxVecFinal = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * auxVec;
+	//auxVecFinal = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * auxVecFinal;
+	//auxVecFinal.normalise();
+	//auxVecFinal *= offset.z;
+
+
+
+	/*Vector3 dir = gameObject->getParent()->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
+	Vector3 dir2 = gameObject->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
+	Vector3 dirFinal = Vector3(dir.x, dir2.y, dir.z);
+	dirFinal.normalise();
+	dirFinal = dirFinal + Vector3(0, dirFinal.y * 10 + 1, 0);
+	dirFinal.normalise();
+	dirFinal *= offset.z;
 	//scene->Instantiate("Bullet", gameObject->getChild("ShootPoint")->getGlobalPosition(), 0.01);
 	// gameObject->getGlobalPosition() + forward*0.4 + Vector3(0, -0.22, 0), 0.01);
-	dir = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * dir;
+	dirFinal = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * dirFinal;
+	*/
+	//dirFinal = Quaternion(Degree(offset.y*(dir2.y/2+1)), Vector3::UNIT_X) * dirFinal;
 	//scene->Instantiate("Bullet", gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0), 0.1);
-	scene->Instantiate("Bullet", gameObject->getParent()->getGlobalPosition()+dir+Vector3(0, offset.y, 0), 0.01);
+	scene->Instantiate("Bullet", gameObject->getParent()->getGlobalPosition() + auxVecFinal + Vector3(0, 0.18, 0), 0.01);
 	//cout << "Disparo en: [ " << gameObject->getParent()->getNode()->getPosition() +dir << " ]" << endl;
-	cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0);
+	//cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0);
 	//cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition();
 }
 void Weapon::AudioShoot()
