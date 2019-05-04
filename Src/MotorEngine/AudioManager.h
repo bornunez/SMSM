@@ -26,6 +26,10 @@ public:
 	void changePitch(float velocity = 1, CHANNEL channel = CHANNEL::Default);
 	void changePan(float pan, CHANNEL channel);
 	void change3DPosition(int relX, int relY, int relZ, CHANNEL channel = CHANNEL::Default);
+
+	void modifyVolume(bool v);
+	void muteVolume();
+
 private:
 	static AudioManager* instance;
 	string actualSound = "";
@@ -33,5 +37,8 @@ private:
 	SoundSystemClass* sound;
 	SoundClass soundSample;
 	void cargaSonidos();
+
+	float globalVolume = 1.0f;
+	float savedVolume = 1.0f;
 };
 

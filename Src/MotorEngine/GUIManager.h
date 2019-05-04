@@ -72,6 +72,9 @@ private:
 	void togglePause();
 	void Exit();
 	void InitMainScene();
+	void VolumeUp();
+	void VolumeDown();
+	void Mute();
 
 	// Solo temporal para el estilo de creación de botones
 	//GUILoader * loader;

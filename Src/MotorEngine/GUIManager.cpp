@@ -2,6 +2,7 @@
 #include "Game.h"
 #include "Ogre.h"
 #include "OgreRectangle2D.h"
+#include "AudioManager.h"
 
 GUIManager* GUIManager::instance_ = nullptr;
 
@@ -15,6 +16,9 @@ GUIManager::GUIManager(Ogre::RenderWindow* w, Game* g)
 	functions["mainScene"]		= &GUIManager::InitMainScene;
 	functions["pause"]			= &GUIManager::togglePause;
 	functions["menu"]			= &GUIManager::toggleMenu;
+	functions["VolumeUp"]		= &GUIManager::VolumeUp;
+	functions["VolumeDown"]		= &GUIManager::VolumeDown;
+	functions["Mute"]			= &GUIManager::Mute;
 }
 
 GUIManager::~GUIManager()
@@ -206,6 +210,21 @@ void GUIManager::InitMainScene()
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		g_->ReLoadScene("mainScene");		
 	}
+}
+
+void GUIManager::VolumeUp()
+{
+	AudioManager::getInstance()->modifyVolume(true);
+}
+
+void GUIManager::VolumeDown()
+{
+	AudioManager::getInstance()->modifyVolume(false);
+}
+
+void GUIManager::Mute()
+{
+	AudioManager::getInstance()->muteVolume();
 }
 
 void GUIManager::ToggleWindow(std::string wndName)

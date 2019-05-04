@@ -1,4 +1,6 @@
 #include "AudioManager.h"
+#include "GUIManager.h"
+
 AudioManager* AudioManager::instance = 0;
 
 
@@ -37,6 +39,34 @@ void AudioManager::change3DPosition(int x, int y, int z, CHANNEL channel)
 {
 	sound->change3DPosition(x, y, z, channel);
 }
+void AudioManager::modifyVolume(bool v)
+{
+	if (v) {
+		globalVolume += 0.2f;
+		if (globalVolume > 2.0f)
+			globalVolume = 2.0f;
+	}
+	else {
+		globalVolume -= 0.2f;
+		if (globalVolume < 0)
+			globalVolume = 0;
+	}
+
+	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalVolume * 100)) + "%");
+
+}
+void AudioManager::muteVolume()
+{
+	if (globalVolume > 0) {
+		savedVolume = globalVolume;
+		globalVolume = 0;
+	}
+	else {		
+		globalVolume = savedVolume;
+	}
+
+	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalVolume * 100)) + "%");
+}
 void AudioManager::changePitch(float velocity, CHANNEL channel)
 {
 	sound->changePitch(velocity, channel);
@@ -53,7 +83,7 @@ void AudioManager::playSound(string fileName, bool loop, float volume, CHANNEL c
 		getSound(fileName);
 	}
 	// Play the sound, with loop mode
-	sound->playSound(soundSample, loop, volume, channel);
+	sound->playSound(soundSample, loop, volume * globalVolume, channel);
 }
 void AudioManager::play3DSound(string fileName, int x, int y, int z, bool loop, float volume, CHANNEL channel)
 {

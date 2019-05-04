@@ -131,6 +131,42 @@
 							"active":true
 						},
 						{
+							"frameWndParentName":"PauseWnd",
+							"buttonName":"VolumeUp",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.7,
+							"buttonPosY":0.5,
+							"buttonSizeX":0.05,
+							"buttonSizeY":0.05,
+							"buttonText":"+",
+							"buttonFunctionName":"VolumeUp",
+							"active":true
+						},
+						{
+							"frameWndParentName":"PauseWnd",
+							"buttonName":"VolumeDown",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.25,
+							"buttonPosY":0.5,
+							"buttonSizeX":0.05,
+							"buttonSizeY":0.05,
+							"buttonText":"-",
+							"buttonFunctionName":"VolumeDown",
+							"active":true
+						},
+						{
+							"frameWndParentName":"PauseWnd",
+							"buttonName":"Volume",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.35,
+							"buttonPosY":0.5,
+							"buttonSizeX":0.3,
+							"buttonSizeY":0.05,
+							"buttonText":"Volume: 100%",
+							"buttonFunctionName":"Mute",
+							"active":true
+						},
+						{
 							"frameWndParentName":"null",
 							"buttonName":"livesHeart",
 							"buttonScheme":"TaharezLook/HeartButton",
