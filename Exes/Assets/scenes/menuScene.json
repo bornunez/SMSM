@@ -26,7 +26,7 @@
 						{
 							"frameWndParentName":"MenuWnd",
 							"buttonName":"fondoButton",
-							"buttonScheme":"TaharezLook/Button",
+							"buttonScheme":"TaharezLook/BackgroundMenu",
 							"buttonPosX":-0.1,
 							"buttonPosY":-0.1,
 							"buttonSizeX":1.1,
