@@ -3,6 +3,7 @@
 #include "../../../Src/MotorEngine/Components/MyLight.h"
 #include "../../../Src/MotorEngine/Components/MyParticleSystem.h"
 #include "../Mapa/SkipRoom.h"
+#include "../Mapa/MapHandler.h"
 
 MyComponentLoader::MyComponentLoader()
 {
@@ -66,6 +67,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new EnemyBullet(gameObject);
 	else if (c_type == "SkipRoom")
 		c = new SkipRoom(gameObject);
+	else if (c_type == "MapHandler")
+		c = new MapHandler(gameObject);
 #ifndef _DEBUG
 	else if (c_type == "ParticleSystem")
 		c = new MyParticleSystem(gameObject);

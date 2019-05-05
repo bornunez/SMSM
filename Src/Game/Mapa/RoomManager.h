@@ -8,7 +8,7 @@ private:
 	static RoomManager* instance;
 
 	Room* currRoom = nullptr;
-	std::list<Room*> rooms;
+	std::vector<Room*> rooms;
 	
 	Room* AddRoom(int index);
 public:
@@ -19,5 +19,6 @@ public:
 	Room* GetRoom(int index);
 	void SetActiveRoom(Room* r) { currRoom = r; }
 	Room* GetActiveRoom() { return currRoom; }	
+	void Destroy();
 };	 
 

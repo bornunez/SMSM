@@ -36,6 +36,7 @@
     <ClCompile Include="..\..\Src\Game\Loader\MyComponentLoader.cpp" />
     <ClCompile Include="..\..\Src\Game\main.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\Entry.cpp" />
+    <ClCompile Include="..\..\Src\Game\Mapa\MapHandler.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\Room.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\RoomManager.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\SkipRoom.cpp" />
@@ -63,6 +64,7 @@
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerTrigger.h" />
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Entry.h" />
+    <ClInclude Include="..\..\Src\Game\Mapa\MapHandler.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Room.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\RoomManager.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\SkipRoom.h" />

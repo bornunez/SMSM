@@ -37,3 +37,8 @@ Room * RoomManager::GetRoom(int index)
 
 	return AddRoom(index);
 }
+
+void RoomManager::Destroy()
+{
+	rooms.clear();
+}

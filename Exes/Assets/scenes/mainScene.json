@@ -8,6 +8,9 @@
 			"isListener":true,
 			"components":[
 				{
+					"type":"MapHandler"
+				},
+				{
 					"type":"MapLoader",
 					"path":"Assets/maps/testRoom.json",
 					"scale":0.5
