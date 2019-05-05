@@ -22,8 +22,8 @@ void AudioManager::cargaSonidos()
 {
 	string path = ".\\Assets\\Audio\\";
 
-	sounds["CorazonPartio"] = path + "alejandro-sanz-corazon-partio-letra.mp3";
-	sounds["GunShoot"] = path + "PISTOL-SHOOT.wav";
+	sounds["GunShoot"] = path + "PISTOL-SHOOT.mp3";
+	sounds["ShotGunShoot"] = path + "shotgun.mp3";
 }
 
 void AudioManager::getSound(string fileName)

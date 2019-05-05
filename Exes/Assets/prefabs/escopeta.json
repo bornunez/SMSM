@@ -25,7 +25,9 @@
 			"dispersion":4,
 			"shootPosX": -10,
 			"shootPosY": 0.175,
-			"shootPosZ": 0.75
+			"shootPosZ": 0.75,
+			
+			"shootAudio":"ShotgunShoot"
 		}
 	]
 }

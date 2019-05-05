@@ -37,6 +37,7 @@ private:
 
 	MeshRenderer* meshRend;
 	void AudioShoot();
+	string shootAudio;
 	void PhysicShoot();
 	void reloads();
 

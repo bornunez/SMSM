@@ -41,6 +41,9 @@ void Weapon::LoadFromFile(json obj)
 	bulletsAmount = obj["numBullets"];
 	dispersion = obj["dispersion"];
 	offset = Vector3(obj["shootPosX"], obj["shootPosY"], obj["shootPosZ"]);
+
+	string shotAudio = obj["shootAudio"];
+	shootAudio = shotAudio;
 }
 
 void Weapon::Update()
@@ -190,9 +193,9 @@ void Weapon::directionalShoot()
 void Weapon::AudioShoot()
 {
 	if(dualInt == 0)
-		AudioManager::getInstance()->playSound("GunShoot", false, 0.4, CHANNEL::Disparos);
+		AudioManager::getInstance()->playSound(shootAudio, false, 0.4, CHANNEL::Disparos);
 	else
-		AudioManager::getInstance()->playSound("GunShoot", false, 0.4, CHANNEL::Disparos2);
+		AudioManager::getInstance()->playSound(shootAudio, false, 0.4, CHANNEL::Disparos2);
 }
 void Weapon::reload()
 {
