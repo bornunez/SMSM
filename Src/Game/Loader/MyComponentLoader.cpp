@@ -36,7 +36,9 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 	//Crear instancia del componente en funcion del tipo
 	//cout << "Intentando parsear [ " << c_type << " ]" << endl;
 	if (c_type == "meshRenderer")
-		c = new MeshRenderer(gameObject);
+		c = new MeshRenderer(gameObject);	
+	if (c_type == "RandomMeshRenderer")
+		c = new RandomMeshRenderer(gameObject);
 	else if (c_type == "Weapon")
 		c = new Weapon(gameObject);
 	else if (c_type == "ObstacleRB")

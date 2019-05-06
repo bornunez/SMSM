@@ -6,6 +6,7 @@
 #include "../Component.h"
 #include "../GameObject.h"
 #include "../MeshRenderer.h"
+#include "../Components/RandomMeshRenderer.h"
 #include "../Components/MapLoader.h"
 
 class ComponentLoader

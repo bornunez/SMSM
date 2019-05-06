@@ -1,6 +1,7 @@
 {
 	"sceneName":"mainScene",
-	"Skybox":{"material":"Skybox" },	
+	"Skybox":{"material":"Skybox" },
+	"Ambient Light": {"r":0.2,"g":0.2,"b":0.2},	
 	"GameObjects": [		
 		{
 			"name":"MapLoader",
@@ -12,7 +13,7 @@
 				},
 				{
 					"type":"MapLoader",
-					"path":"Assets/maps/testRoom.json",
+					"path":"Assets/maps/baseRoom.json",
 					"scale":0.5
 				}	
 			]
@@ -21,20 +22,6 @@
 			"prefab":"testEnemy",
 			"position": {"x":15, "y":0, "z":10},
 			"scale": 0.5
-		},
-		{
-			"name":"light",
-			"active":true,
-			"position":{"x":5,"y":0,"z":5},
-			"components":[
-				{
-					"type":"Light",
-					"name":"Point_0",
-					"lightTpye":"point",
-					"diffuse":{"r":1,"g":0.2,"b":0.2},
-					"attenuation":{"range":100	,"const":0.1,"linear":0.25,"quad":0}
-				}
-			]
 		},
 		{
 			"name":"dirlight",

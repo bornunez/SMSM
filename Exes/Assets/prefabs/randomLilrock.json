@@ -1,0 +1,12 @@
+{
+	"prefabName":"RandomLilrock",
+	"name":"RandomLilrock",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"RandomMeshRenderer",
+			"mesh":["lilrock2.mesh","lilrock1.mesh"]
+		}
+	]
+}

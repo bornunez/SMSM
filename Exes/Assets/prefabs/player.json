@@ -61,6 +61,20 @@
 				]
 				}
 			]
+		},
+		{
+			"name":"light",
+			"active":true,
+			"position":{"x":5,"y":0,"z":5},
+			"components":[
+				{
+					"type":"Light",
+					"name":"Point_0",
+					"lightTpye":"point",
+					"diffuse":{"r":0.5,"g":0.5,"b":0.5},
+					"attenuation":{"range":100	,"const":0.1,"linear":0.25,"quad":0}
+				}
+			]
 		}
 	]
 

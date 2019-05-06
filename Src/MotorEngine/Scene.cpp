@@ -98,6 +98,18 @@ void Scene::LoadFromFile(json sceneFile)
 		json skyObj = sceneFile["Skybox"];
 		mSceneManager->setSkyDome(true, "SMSM/Skybox");
 	}
+	if (sceneFile.contains("Ambient Light")) {
+		json ambLight = sceneFile["Ambient Light"];
+		float r, g, b;
+		r = g = b = 0;
+		if (ambLight.contains("r"))
+			r = ambLight["r"];
+		if (ambLight.contains("g"))
+			g = ambLight["g"];
+		if (ambLight.contains("b"))
+			b = ambLight["b"];
+		mSceneManager->setAmbientLight(ColourValue(r, g, b));
+	}
 	cout << "==================================================\n\n";
 }
 
