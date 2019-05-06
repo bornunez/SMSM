@@ -20,13 +20,17 @@ void MapLoader::LoadFromFile(json obj)
 	mapFile = JsonParser::ParseJsonFile(obj["path"]);
 
 	//Cargar GameObjects
+#ifdef C_DEBUG
 	cout << "\n\n==================================================\n";
 	cout << "============      CARGA DE MAPA	       ============\n";
 	cout << "==================================================\n\n";
+#endif
 	int tilewidth = mapFile["tilewidth"];
 
 	if (!mapFile["layers"].empty()) {
+#ifdef C_DEBUG
 		cout << "Existen GameObjects a cargar" << endl << endl;
+#endif
 		for (auto &pref : mapFile["layers"])
 			if (pref.is_object()) {
 				//Recorre objects
@@ -34,7 +38,9 @@ void MapLoader::LoadFromFile(json obj)
 					float scale = 1;
 					if (obj.contains("scale"))
 						scale = obj["scale"];
+#ifdef C_DEBUG
 					cout << "Scala del mapa: " << scale << endl;
+#endif
 					for (auto &mapObj : pref["objects"]){
 						json newObj; //Objeto que vamos a construir, basicamente vamos a "construir" uno 
 						float objScale = 1;
@@ -64,7 +70,9 @@ void MapLoader::LoadFromFile(json obj)
 									//Instanciacion de prefabs
 									else if (propName == "prefab") {
 										// Crea el prefab asignado al nombre "value"
+#ifdef C_DEBUG
 										cout << "Instanciado objeto: " << prop["value"] << " en la posicion " << pos.x  << " , " << pos.z << endl;
+#endif
 										o = PrefabManager::getInstance()->Instantiate(prop["value"], scene, nullptr,pos, objScale * scale,o);
 									}
 
@@ -88,7 +96,9 @@ void MapLoader::LoadFromFile(json obj)
 										//Se genera una nueva entrada con el index asignado
 										int index = prop["value"];
 										o->setName("Entry");
+#ifdef C_DEBUG
 										cout << "Nueva Entry en " << pos << " de tamaño " << width << " " << height << endl;
+#endif
 										Entry* e = new Entry(o, index, width, height);
 										o->AddComponent(e);
 
@@ -109,7 +119,9 @@ void MapLoader::LoadFromFile(json obj)
 				}
 			}
 	}
+#ifdef C_DEBUG
 	cout << "==================================================\n\n";
+#endif
 }
 
 json MapLoader::FindProperty(json obj, string property) {

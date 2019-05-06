@@ -4,7 +4,9 @@ RoomManager* RoomManager::instance = nullptr;
 
 Room * RoomManager::AddRoom(int index)
 {
+#ifdef C_DEBUG
 	cout << "Creando sala [ " << index << " ]" << endl;
+#endif
 	Room* r = new Room(index);
 	rooms.push_back(r);
 
@@ -29,7 +31,9 @@ RoomManager * RoomManager::getInstance()
 
 Room * RoomManager::GetRoom(int index)
 {
+#ifdef C_DEBUG
 	cout << "Buscando la sala [ " << index << " ]" << endl;
+#endif
 	for (Room* r : rooms) {
 		if (r->GetIndex() == index)
 			return r;

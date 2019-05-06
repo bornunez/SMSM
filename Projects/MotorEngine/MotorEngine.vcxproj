@@ -25,6 +25,7 @@
     <ClInclude Include="..\..\Src\MotorEngine\Components\MapLoader.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Components\MyLight.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Components\MyParticleSystem.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\Components\RandomMeshRenderer.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Game.h" />
     <ClInclude Include="..\..\Src\MotorEngine\GameObject.h" />
     <ClInclude Include="..\..\Src\MotorEngine\GameSceneManager.h" />
@@ -55,6 +56,7 @@
     <ClCompile Include="..\..\Src\MotorEngine\Components\MapLoader.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Components\MyLight.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Components\MyParticleSystem.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\Components\RandomMeshRenderer.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\GameSceneManager.cpp" />

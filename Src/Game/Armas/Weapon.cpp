@@ -125,7 +125,9 @@ void Weapon::shoot()
 			animationPassed = "Shoot";
 			meshRend->PlayAnimation("Shoot", false);
 			meshRend->AnimationSpeed(shootSpeed);
-			std::cout << "DISPARO";
+#ifdef C_DEBUG
+			std::cout << "DISPARO"<<endl;
+#endif
 			actMagazine += 1;
 			actTimePerShot = 0;
 		}
@@ -223,7 +225,9 @@ void Weapon::SpecialReload()
 		//scene->Instantiate("Bullet", gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0), 0.1);
 		scene->Instantiate("ShotgunReloadBullet", gameObject->getParent()->getGlobalPosition() + dir + Vector3(0, offset.y, 0), 0.03);
 		//cout << "Disparo en: [ " << gameObject->getParent()->getNode()->getPosition() +dir << " ]" << endl;
-		cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0);
+#ifdef C_DEBUG
+		cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0)<<endl;
+#endif
 		specialReloading = false;
 	}
 }

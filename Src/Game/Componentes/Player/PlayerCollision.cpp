@@ -11,7 +11,9 @@ PlayerCollision::~PlayerCollision()
 void PlayerCollision::collisionHandler(int id)
 {
 	if (id == 5) {
+#ifdef C_DEBUG
 		cout << "OUCH OUCH ME DISPARARON" << endl;
+#endif // C_DEBUG
 	}
 }
 

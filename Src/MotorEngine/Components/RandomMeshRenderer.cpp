@@ -1,23 +1,30 @@
-#include "MeshRenderer.h"
+#include "RandomMeshRenderer.h"
 #include <OgreSceneManager.h>
-#include "GameObject.h"
-#include "Scene.h"
-#include "TimeManager.h"
+#include "../GameObject.h"
+#include "../Scene.h"
+#include "../TimeManager.h"
 
 
-MeshRenderer::MeshRenderer(GameObject * _gameObject, string _meshName, string _materialName, bool _enabled) : 
+RandomMeshRenderer::RandomMeshRenderer(GameObject * _gameObject, string _meshName, string _materialName, bool _enabled) : 
 	Component(_gameObject, _enabled), meshName(_meshName), materialName(_materialName)
 {
 }
 
-MeshRenderer::MeshRenderer(GameObject * _gameObject) : Component(_gameObject)
+RandomMeshRenderer::RandomMeshRenderer(GameObject * _gameObject) : Component(_gameObject)
 {
 }
 
-void MeshRenderer::LoadFromFile(json obj)
+void RandomMeshRenderer::LoadFromFile(json obj)
 {
 	Component::LoadFromFile(obj);
-	string mesh = obj["mesh"];
+
+	json meshObj = obj["mesh"];
+	int meshIdx = rand() % meshObj.size();
+	#ifdef C_DEBUG
+		cout << "Elegida la mesh n: " << meshIdx << " de " << meshObj.size() << endl;
+	#endif 
+
+	string mesh = meshObj.at(meshIdx);
 	meshName = mesh;
 
 	if (obj.find("material") != obj.end()) {
@@ -33,12 +40,12 @@ void MeshRenderer::LoadFromFile(json obj)
 	// Asigna el material a la mesh
 }
 
-MeshRenderer::~MeshRenderer()
+RandomMeshRenderer::~RandomMeshRenderer()
 {
 }  
 
 
-void MeshRenderer::Start()
+void RandomMeshRenderer::Start()
 {
 #ifdef C_DEBUG
 	std::cout << "Mesh Start: " << meshName << " Nombre: " << gameObject->getName() << endl;
@@ -48,19 +55,19 @@ void MeshRenderer::Start()
 	}
 }
 
-void MeshRenderer::OnDestroy()
+void RandomMeshRenderer::OnDestroy()
 {
 	//gameObject->getNode()->detachObject()
 }
-void MeshRenderer::OnDisable()
+void RandomMeshRenderer::OnDisable()
 {
 	gameObject->RemoveEntity(entity);
 }
-void MeshRenderer::OnEnable()
+void RandomMeshRenderer::OnEnable()
 {
 	gameObject->AddEntity(entity);
 }
-bool MeshRenderer::AnimationHasEnded(string name)
+bool RandomMeshRenderer::AnimationHasEnded(string name)
 {
 	bool ended = false;
 	for (int i = 0; i < animationStates.size(); i++)
@@ -72,7 +79,7 @@ bool MeshRenderer::AnimationHasEnded(string name)
 	}
 	return ended;
 }
-void MeshRenderer::InitAnimations(float velocity)
+void RandomMeshRenderer::InitAnimations(float velocity)
 {
 	animationVelocity = velocity;
 	int numAnimations = 0;
@@ -88,7 +95,7 @@ void MeshRenderer::InitAnimations(float velocity)
 	}
 }
 
-void MeshRenderer::Update()
+void RandomMeshRenderer::Update()
 {
 	for (int i = 0; i < animationStates.size(); i++)
 	{
@@ -98,7 +105,7 @@ void MeshRenderer::Update()
 		}
 	}
 }
-bool MeshRenderer::isPlaying(string name)
+bool RandomMeshRenderer::isPlaying(string name)
 {
 	bool playing = false;
 	int i = 0;
@@ -113,7 +120,7 @@ bool MeshRenderer::isPlaying(string name)
 	}
 	return playing;
 }
-void MeshRenderer::PlayAnimation(string name, bool loop, bool continued)
+void RandomMeshRenderer::PlayAnimation(string name, bool loop, bool continued)
 {
 	for (int i = 0; i < animationStates.size(); i++)
 	{
@@ -127,7 +134,7 @@ void MeshRenderer::PlayAnimation(string name, bool loop, bool continued)
 		else animationStates[i]->setEnabled(false);
 	}
 }
-void MeshRenderer::StopAnimation(bool stop)
+void RandomMeshRenderer::StopAnimation(bool stop)
 {
 	for (int i = 0; i < animationStates.size(); i++)
 	{

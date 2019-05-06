@@ -47,25 +47,34 @@ void read_directory(const std::string& name, std::vector<string>& v)
 }
 void PrefabManager::LoadAllPrefabs() 
 {
+#ifdef C_DEBUG
 	cout << endl << endl;
 	cout << "=================================================" << endl;
 	cout << "========       CARGA DE PREFABS        ==========" << endl;
 	cout << "=================================================" << endl << endl;
 	cout << "Cagando prefabs de la carpeta: " << rootFolder << endl << endl;
+#endif
 	std::vector<string> names;
 	read_directory(rootFolder, names);
 	for (string n : names) {
 		LoadPrefab(rootFolder + n);
 	}
+#ifdef C_DEBUG
 	cout << "=================================================" << endl << endl;
+#endif
 }
 
 void PrefabManager::LoadPrefab(string path)
 {
+#ifdef C_DEBUG
 	cout << "Cargando archivo: " << path << " ..." << endl ;
+#endif
 	json aux = JsonParser::ParseJsonFile(path);
 	prefabs.insert(pair<string,json>(aux["prefabName"], aux));
+
+#ifdef C_DEBUG
 	cout << "Cargado prefab con nombre: " << aux["prefabName"] << endl << endl ;
+#endif
 }
 
 GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene, GameObject * parent, Vector3 position, float scale, GameObject * existingObj )
@@ -75,7 +84,9 @@ GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene,
 	GameObject* o = nullptr;
 	if (it != prefabs.end()) {
 		json jsonObj = (*it).second;
+#ifdef C_DEBUG
 		cout << "Loading prefab [ " << prefabName << " ]" << " as [ " << jsonObj["name"] << " ]" << endl;
+#endif
 		
 		o = GenerateGameObject(jsonObj, scene, parent,position,scale, existingObj);
 
@@ -95,7 +106,9 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 	GameObject* o = nullptr;
 	string objName = obj["name"];
 
+#ifdef C_DEBUG
 	cout << "Trying to load GO [ " << objName << " ]" << endl;
+#endif
 	
 	bool act = true;
 	if (obj.contains("active"))
@@ -118,7 +131,9 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 
 	//Cargamos tambien todos los hijos
 	if (obj.contains("children")) {
+#ifdef C_DEBUG
 		cout << "Trying to load childs" << endl;
+#endif
 		for (auto &child : obj["children"])
 			if (child.is_object()) {
 				GameObject* c = nullptr;
@@ -128,10 +143,14 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 					scene->Add(c);
 				}
 			}
+#ifdef C_DEBUG
 		cout << "Succesfully loaded childs" << endl;
+#endif
 	}
 
+#ifdef C_DEBUG
 	cout << "Succesfully loaded [ " << objName << " ]" << endl;
+#endif
 	return o;
 
 }

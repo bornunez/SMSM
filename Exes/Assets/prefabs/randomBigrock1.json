@@ -1,0 +1,12 @@
+{
+	"prefabName":"RandomBigrock",
+	"name":"RandomBigrock",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"RandomMeshRenderer",
+			"mesh":["bigrock1.mesh","bigrock2.mesh"]
+		}
+	]
+}

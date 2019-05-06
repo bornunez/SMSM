@@ -1,3 +1,4 @@
+//#define C_DEBUG;
 
 #include "Game.h"
 #include "Loader/MyComponentLoader.h"

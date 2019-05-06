@@ -64,8 +64,9 @@ void MyLight::LoadFromFile(json obj)
 			quad = at["quad"];
 		light->setAttenuation(range, constant,linear, quad);
 	}
-
+#ifdef C_DEBUG
 	std::cout<< light->getAttenuationConstant() << " " << light->getAttenuationLinear() << " " << light->getAttenuationQuadric() << " " << light->getAttenuationRange()<< endl;
+#endif
 
 }
 
@@ -75,7 +76,9 @@ MyLight::~MyLight()
 
 void MyLight::OnEnable()
 {
+#ifdef C_DEBUG
 	cout << "Enabled [ " << gameObject->getName() << " ] " << endl;
+#endif
 	gameObject->getNode()->attachObject(light);
 }
 

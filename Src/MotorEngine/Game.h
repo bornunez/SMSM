@@ -1,5 +1,7 @@
 ﻿#pragma once
 
+#define C_DEBUG
+
 #include <OgreRoot.h>
 #include <OgreConfigFile.h>
 #include <OgreFileSystemLayer.h>

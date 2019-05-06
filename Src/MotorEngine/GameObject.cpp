@@ -8,7 +8,9 @@
 void GameObject::OnActive()
 {
 	active = true;
+#ifdef C_DEBUG
 	cout << "Activado [ " << getName() << " ]" << endl;
+#endif
 	//Avisamos a todos los componentes activos de que nos hemos activado
 	for (Component* c : components) {
 		if (c->isEnabled()) {
@@ -24,7 +26,9 @@ void GameObject::OnActive()
 
 void GameObject::OnInactive()
 {
+#ifdef C_DEBUG
 	cout << "Desactivado [ " << getName() << " ]" << endl;
+#endif
 	active = false;
 	//Avisamos a todos los componentes activos de que nos desactivamos
 	for (Component* c : components) {

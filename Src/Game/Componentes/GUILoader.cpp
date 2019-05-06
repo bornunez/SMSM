@@ -6,10 +6,14 @@ GUILoader::~GUILoader()
 
 void GUILoader::LoadFromFile(json obj)
 {
+#ifdef C_DEBUG
 	cout << "Empieza a cargar el GUI" << endl;
+#endif
 
 	if (!obj["windows"].empty()) {
+#ifdef C_DEBUG
 		cout << "Existen ventanas a cargar" << endl << endl;
+#endif
 		for (auto &win : obj["windows"])	// Recorremos los botones
 			if (win.is_object()) {
 
@@ -34,7 +38,9 @@ void GUILoader::LoadFromFile(json obj)
 	}
 
 	if (!obj["buttons"].empty()) {
+#ifdef C_DEBUG
 		cout << "Existen botones a cargar" << endl << endl;
+#endif // C_DEBUG
 		for (auto &but : obj["buttons"])	// Recorremos los botones
 			if (but.is_object()) {				
 				
