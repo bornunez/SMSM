@@ -15,19 +15,19 @@
 			"runSpeed":2,
 			"dualInt":0,
 			
-			"timePerShoot":0.5,
+			"timePerShoot":0.6,
 			"shootSpeed":3.75,
 			
 			"reloadTime":2,
 			"reloadSpeed":2.25,
 			
 			"numBullets":6,
-			"dispersion":4,
+			"dispersion":0.01,
 			"shootPosX": -10,
 			"shootPosY": 0.175,
 			"shootPosZ": 0.75,
 			
-			"shootAudio":"ShotgunShoot"
+			"shootAudio":"ShotGunShoot"
 		}
 	]
 }
