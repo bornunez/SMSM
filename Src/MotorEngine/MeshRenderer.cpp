@@ -40,7 +40,9 @@ MeshRenderer::~MeshRenderer()
 
 void MeshRenderer::Start()
 {
+#ifdef C_DEBUG
 	std::cout << "Mesh Start: " << meshName << " Nombre: " << gameObject->getName() << endl;
+#endif
 	if (!started) {
 		gameObject->AddEntity(entity);
 	}

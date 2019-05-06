@@ -84,7 +84,9 @@ void RigidBodyComponent::Start()
 			break;
 		}
 	}
+#ifdef C_DEBUG
 	cout << "Creado RB de objeto [ " << gameObject->getName() << " ] " << "en la posicion [ " << gameObject->getPosition() << " ]" << endl;
+#endif
 }
 
 void RigidBodyComponent::OnDestroy()

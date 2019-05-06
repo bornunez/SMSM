@@ -32,8 +32,10 @@ void EnemyRigidBody::collisionHandler(int id)
 	if (!hit) {
 		// Si la ID es la ID de la bala.
 		if (id == 1) {
+#ifdef C_DEBUG
 			std::cout << "--> Ha colisionado conmigo un objeto con el identificador: " + to_string(id) << " <--" << std::endl;
 			cout << "llamando al ON HIT" << endl;
+#endif
 			enemy->OnHit();
 		}
 	}

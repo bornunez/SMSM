@@ -12,7 +12,9 @@ Room::~Room()
 
 void Room::OnEnter()
 {
+#ifdef C_DEBUG
 	cout << "Se ha entrado en la sala " << index << endl;
+#endif
 	RoomManager::getInstance()->SetActiveRoom(this);
 	//Quitamos las entradas
 	for (GameObject* g : entries) {
@@ -32,7 +34,9 @@ void Room::OnClear()
 {
 
 	if (!cleared) {
+#ifdef C_DEBUG
 		cout << "Se ha salido de la sala " << index << endl;
+#endif
 
 		//Quitamos las entradas
 		for (GameObject* g : entries)

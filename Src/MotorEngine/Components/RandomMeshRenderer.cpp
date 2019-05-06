@@ -20,7 +20,10 @@ void RandomMeshRenderer::LoadFromFile(json obj)
 
 	json meshObj = obj["mesh"];
 	int meshIdx = rand() % meshObj.size();
-	cout << "Elegida la mesh n: " << meshIdx << " de " << meshObj.size() << endl;
+	#ifdef C_DEBUG
+		cout << "Elegida la mesh n: " << meshIdx << " de " << meshObj.size() << endl;
+	#endif 
+
 	string mesh = meshObj.at(meshIdx);
 	meshName = mesh;
 
@@ -44,7 +47,9 @@ RandomMeshRenderer::~RandomMeshRenderer()
 
 void RandomMeshRenderer::Start()
 {
+#ifdef C_DEBUG
 	std::cout << "Mesh Start: " << meshName << " Nombre: " << gameObject->getName() << endl;
+#endif
 	if (!started) {
 		gameObject->AddEntity(entity);
 	}

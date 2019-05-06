@@ -88,7 +88,9 @@ void ButterGuy::Update()
 			//Crear bala con direccion auxvec
 			shootTimer += tm->getDeltaTime();
 			if (shootTimer >= shootTime) {
+#ifdef C_DEBUG
 				cout << "TE DISPARO CATAPUM CHIMP UM" << endl;
+#endif
 				Shoot();
 				shootTimer = 0;
 			}

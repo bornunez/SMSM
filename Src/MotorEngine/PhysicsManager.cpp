@@ -6,7 +6,9 @@ PhysicsManager* PhysicsManager::instance = nullptr;
 //Este manager inicializará el mundo fisico, y se encargará de comprobar las colisiones
 PhysicsManager::PhysicsManager()
 {
+#ifdef C_DEBUG
 	std::cout << " -- Setting up the physics world -- " << std::endl;
+#endif
 
 	_collisionConf = new btDefaultCollisionConfiguration();
 	_dispatcher = new btCollisionDispatcher(_collisionConf);
@@ -19,8 +21,9 @@ PhysicsManager::PhysicsManager()
 #ifdef _DEBUG
 	debug_ = true;
 #endif
-
+#ifdef C_DEBUG
 	std::cout << " -- Physics world initialized -- " << std::endl;
+#endif
 }
 
 
@@ -469,7 +472,7 @@ void PhysicsManager::removeFromWorld(btRigidBody * body)
 	if (found) 
 		_bodies.erase(it);	
 	else
-		std::cout << "No se encuentra el rigidbody en el array" << std::endl;
+		std::cout << "WARNING: No se encuentra el rigidbody en el array" << std::endl;
 
 }
 

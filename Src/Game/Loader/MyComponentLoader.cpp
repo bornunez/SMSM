@@ -19,12 +19,16 @@ std::list<Component*> MyComponentLoader::LoadComponents(json json, GameObject * 
 	std::list<Component*> components;
 	for (auto &comp : json)
 		if (comp.is_object()) {
+#ifdef C_DEBUG
 			cout << "Loading component [ " << comp["type"] << " ]" << endl;
+#endif
 				Component* c = ParseComponent(comp, gameObject);
 				if(c != nullptr)
 					components.push_back(c);
 		}
+#ifdef C_DEBUG
 	cout << "Succesfully loaded all components" << endl;
+#endif
 	return components;
 }
 
@@ -83,8 +87,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c->LoadFromFile(comp);
 		c->SetName(c_type);
 	}
-
+#ifdef C_DEBUG
 	cout << "Succesfully loaded component [ " << c_type << " ]" << endl;
-
+#endif
 	return c;
 }

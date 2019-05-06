@@ -22,25 +22,30 @@ Scene::~Scene() {}
 
 void Scene::Release()
 {
+#ifdef C_DEBUG
 	cout << endl << endl << "=======================================================================" << endl << endl;
 	cout << endl << "BORRANDO ESCENA " << endl << endl;
 	//Eliminar todos los GameObjects y sus componentes
 	cout << "Borrando GameObjects" << endl;
+#endif
 	for (GameObject* go : gameObjects) 
 		//delete go;
 		Destroy(go);
 
 	ClearTrash();
-
+#ifdef C_DEBUG
 	cout << "GameObjects borrados con exito" << endl;
 	
 	cout << "Borrando RigidBodies" << endl;
+#endif
 
 	PhysicsManager::Instance()->resetWorld();
 
+#ifdef C_DEBUG
 	cout << "RigidBodies borrados con exito" << endl;
 
 	cout << "Escena borrada con exito" << endl;
+#endif
 }
 
 //void Scene::parroThings(SceneManager* mSceneManager)
@@ -75,12 +80,16 @@ void Scene::Load(json sceneFile)
 void Scene::LoadFromFile(json sceneFile)
 {
 	//Cargar GameObjects
+#ifdef C_DEBUG
 	cout << "\n\n==================================================\n";
 	cout << "============    CARGA DE ESCENA       ============\n";
 	cout << "==================================================\n\n";
 	cout << "Cargando escena " << sceneFile["sceneName"] << endl << endl;
+#endif
 	if (!sceneFile["GameObjects"].empty()) {
+#ifdef C_DEBUG
 		cout << "Existen GameObjects a cargar" << endl << endl;
+#endif
 		for (auto &pref : sceneFile["GameObjects"])
 			if (pref.is_object()) {
 				//GameObject* o = ResourcesManager::GetInstance()->GetPrefabManager()->GenerateGameObject(pref["prefabName"], this, nullptr);
@@ -110,7 +119,9 @@ void Scene::LoadFromFile(json sceneFile)
 			b = ambLight["b"];
 		mSceneManager->setAmbientLight(ColourValue(r, g, b));
 	}
+#ifdef C_DEBUG
 	cout << "==================================================\n\n";
+#endif
 }
 
 void Scene::SetActive(bool active)
@@ -169,7 +180,7 @@ void Scene::Add(GameObject * o)
 	while (it != gameObjects.end() && (*it) != o)
 		it++;
 	if(it != gameObjects.end())
-		cout << "El objeto [ " << o->getName() << " ] ya esta en la escena" << endl;
+		cout << "WARNING: El objeto [ " << o->getName() << " ] ya esta en la escena" << endl;
 	else
 		gameObjects.push_back(o);
 	////Y tambien sus componentes
@@ -258,22 +269,30 @@ void Scene::ClearTrash()
 	//Vamos a vaciar toda la basura generada en el ciclo principal
 	while (!trash.empty()) {
 		GameObject* o = trash.front(); trash.pop();
+#ifdef C_DEBUG
 		cout << endl << "Destruyendo objeto [ "<< o->getName() <<" ]" << endl;
+#endif
 		//Primero le vaciamos los componentes al objeto. 
 		for (Component* c : o->getComponents()) {
+#ifdef C_DEBUG
 			cout << "Destruyendo componente [ " << c->GetName() << " ]" << endl;
+#endif
 			c->OnDestroy();
 			o->RemoveComponent(c);
 			//Luego los quitamos de la escena
 			//Y finalmente lo borramos
 			components.remove(c);
 			delete	c;
+#ifdef C_DEBUG
 			cout << "Destruido componente con exito " << endl;
+#endif
 		}
 		//Una vez vaciado el objeto, lo quitamos de la escena y finalmente lo borramos
 		mSceneManager->destroySceneNode(o->getNode());
 		gameObjects.remove(o);
 		delete o;
+#ifdef C_DEBUG
 		cout << "Destruido objeto con exito" << endl << endl;
+#endif
 	}
 }

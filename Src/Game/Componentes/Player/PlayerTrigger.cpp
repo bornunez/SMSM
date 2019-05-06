@@ -45,7 +45,9 @@ void PlayerTrigger::Update()
 	if (playerPos.x > pos.x - width / 2 && playerPos.x < pos.x + width / 2) {
 		if (playerPos.z > pos.z - height / 2 && playerPos.z < pos.z + height / 2) {
 			//El jugador esta dentro del area
+#ifdef C_DEBUG
 			cout << "El jugador ha entrado en el Trigger [ " << gameObject->getName() << " ]" << endl;	
+#endif
 			OnTriggerEnter();
 		}
 	}
