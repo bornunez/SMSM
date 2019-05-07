@@ -12,8 +12,9 @@ void PlayerController::LoadFromFile(json obj)
 	mouseSensitivity = obj["mouseSensitivity"];
 	speed = obj["speed"];
 
-	if (obj.contains("lives")) // Se asigna una vida al player
+	if (obj.contains("lives")) { // Se asigna una vida al player
 		lives = obj["lives"];
+	}
 }
 
 void PlayerController::Start()
@@ -29,9 +30,11 @@ void PlayerController::Start()
 	if (brazo == nullptr)
 		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
 
+#ifdef NDEBUG
 	for (int i = 0; i < lives; i++) {
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
 	}
+#endif
 }
 
 void PlayerController::Update()
@@ -123,13 +126,19 @@ void PlayerController::modifySensitivity(bool v)
 
 void PlayerController::receiveDamage()
 {
-	lives--;
-	//livesHeart.at(lives)->
-	if (lives == 0) {
+	if (lives > 0) {
+		lives--;
+		livesHeart.at(lives)->hide();
+		if (lives == 0) {
 #ifdef C_DEBUG
-		cout << endl << "AY QUE ME MUERO" << endl << endl;
+			cout << endl << "AY QUE ME MUERO" << endl << endl;
 #endif
+		}
 	}
+}
+
+void PlayerController::gainHealth()
+{
 }
 
 Vector3  PlayerController::getPlayerDirection()

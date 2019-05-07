@@ -29,6 +29,7 @@ private:
 
 	// Attributes
 	float speed = 0;
+	int maxHealth = 3;
 	int lives = 3;
 	int sensitivityLevel = 2;
 
@@ -45,7 +46,9 @@ public:
 	void handleInput();
 
 	void modifySensitivity(bool v);
+	
 	void receiveDamage();
+	void gainHealth();
 
 	Vector3 getPlayerDirection();
 };
