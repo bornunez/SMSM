@@ -58,7 +58,7 @@ void WeaponBullet::Update()
 	if (!hit)
 	{
 		float finalSpeed = speed * playerController->getGameSpeed();
-		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed / 2, direccion.z*finalSpeed));
+		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
 	}
 	else //Se posria hacer aqui un contador para que desapareciese la bala
 	{

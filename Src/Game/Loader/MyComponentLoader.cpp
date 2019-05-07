@@ -4,6 +4,7 @@
 #include "../../../Src/MotorEngine/Components/MyParticleSystem.h"
 #include "../Mapa/SkipRoom.h"
 #include "../Mapa/MapHandler.h"
+#include "../Armas/ShotgunBullet.h"
 
 MyComponentLoader::MyComponentLoader()
 {
@@ -77,6 +78,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new SkipRoom(gameObject);
 	else if (c_type == "MapHandler")
 		c = new MapHandler(gameObject);
+	else if (c_type == "ShotgunBullet")
+		c = new ShotgunBullet(gameObject);
 	else if (c_type == "SpawnOnDestroy")
 		c = new SpawnOnDestroy(gameObject);
 #ifndef _DEBUG

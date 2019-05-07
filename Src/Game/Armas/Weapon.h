@@ -41,8 +41,8 @@ private:
 	void PhysicShoot();
 	void reloads();
 
-	float specialReloadTime = 0.73;
-	float actSpecialReload = 0.73;
+	float specialReloadTime = 0.65;
+	float actSpecialReload = 0.65;
 	bool specialReloading = false;
 	Vector3 offset;
 public:
@@ -52,9 +52,11 @@ public:
 	virtual void Update();
 	void handleInput();
 	void Start();
-	void directionalShoot(float randOff);
+	void directionalShoot(float randOff, bool shotgun);
 	void shoot();
 	void reload();
 	void SpecialReload();
+	Vector3 getOffset() { return offset; };
+	float getDispersion() { return dispersion; };
 };
 

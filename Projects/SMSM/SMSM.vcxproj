@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\Game\Armas\ShotgunBullet.cpp" />
     <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp" />
     <ClCompile Include="..\..\Src\Game\Armas\WeaponBullet.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ButterGuy.cpp" />
@@ -50,6 +51,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\Game\Armas\ShotgunBullet.h" />
     <ClInclude Include="..\..\Src\Game\Armas\Weapon.h" />
     <ClInclude Include="..\..\Src\Game\Armas\WeaponBullet.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ButterGuy.h" />

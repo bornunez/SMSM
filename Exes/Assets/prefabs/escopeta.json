@@ -19,13 +19,13 @@
 			"shootSpeed":3.75,
 			
 			"reloadTime":2,
-			"reloadSpeed":2.25,
+			"reloadSpeed":2.5,
 			
-			"numBullets":6,
-			"dispersion":0.01,
-			"shootPosX": -10,
-			"shootPosY": 0.175,
-			"shootPosZ": 0.75,
+			"numBullets":10,
+			"dispersion":0.009,
+			"shootPosX": -8,
+			"shootPosY": 0.2,
+			"shootPosZ": 0.6,
 			
 			"shootAudio":"ShotGunShoot"
 		}
