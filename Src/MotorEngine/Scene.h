@@ -38,6 +38,7 @@ private:
 	//void parroThings(SceneManager* mSceneManager);
 	void ClearTrash();
 	bool started = false;
+	bool destroying = false;
 	int i = 0;
 
 	void LoadFromFile(json sceneFile);

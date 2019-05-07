@@ -13,6 +13,8 @@
 #include "../Componentes/Enemies/ShyGuy.h"
 #include "../Componentes/Enemies/ButterGuy.h"
 #include "../Componentes/Enemies//EnemyBullet.h"
+#include "../Componentes/Enemies/HouseGuy.h"
+#include "../Componentes/Enemies//SpawnOnDestroy.h"
 #include "../Componentes/GUILoader.h"
 
 class MyComponentLoader : public ComponentLoader

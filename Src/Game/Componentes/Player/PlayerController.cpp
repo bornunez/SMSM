@@ -99,6 +99,15 @@ void PlayerController::handleInput()
 	else if (input->getKey(OIS::KeyCode::KC_D)) {
 		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
 	}
+
+	if (input->getKey(OIS::KeyCode::KC_L)) {
+		cout << "SlowMotion: ON" << endl;
+		gameSpeed = 0.2f;
+	}
+	else if (input->getKey(OIS::KeyCode::KC_K)) {
+		cout << "SlowMotion: OFF" << endl;
+		gameSpeed = 1;
+	}
 }
 
 void PlayerController::modifySensitivity(bool v)

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="3576">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="3909">
  <tileset firstgid="1" source="City.tsx"/>
  <layer id="3" name="Capa de Patrones 1" width="100" height="100" locked="1">
   <data encoding="base64" compression="zlib">
    eJztwTEBAAAAwqD1T+1lC6AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAbnEAAAQ==
   </data>
  </layer>
- <objectgroup id="2" name="Borders" locked="1">
+ <objectgroup id="2" name="Borders">
   <object id="597" gid="139" x="280" y="380" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
@@ -1252,8 +1252,1143 @@
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
+  <object id="3576" gid="139" x="184" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3577" gid="139" x="224" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3578" gid="139" x="228" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3579" gid="139" x="232" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3580" gid="139" x="236" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3581" gid="139" x="240" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3582" gid="139" x="244" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3583" gid="139" x="248" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3584" gid="139" x="248" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3585" gid="139" x="248" y="204" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3586" gid="139" x="248" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3590" gid="139" x="248" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3591" gid="139" x="248" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3592" gid="139" x="248" y="232" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3593" gid="139" x="248" y="236" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3594" gid="139" x="248" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3596" gid="139" x="156" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3597" gid="139" x="160" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3598" gid="139" x="164" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3599" gid="139" x="168" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3600" gid="139" x="172" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3601" gid="139" x="176" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3602" gid="139" x="216" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3603" gid="139" x="212" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3604" gid="139" x="208" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3605" gid="139" x="204" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3606" gid="139" x="200" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3607" gid="139" x="180" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3608" gid="139" x="248" y="192" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3609" gid="139" x="248" y="196" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3610" gid="139" x="140" y="272" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3611" gid="146" x="140" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3612" gid="146" x="144" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3613" gid="146" x="148" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3614" gid="146" x="152" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3615" gid="146" x="220" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3616" gid="146" x="224" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3617" gid="146" x="228" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3618" gid="146" x="232" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3619" gid="146" x="236" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3620" gid="146" x="240" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3621" gid="146" x="244" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3622" gid="146" x="248" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3623" gid="146" x="248" y="272" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3624" gid="146" x="248" y="268" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3625" gid="146" x="248" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3626" gid="146" x="248" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3627" gid="146" x="248" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3628" gid="146" x="248" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3629" gid="146" x="248" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3630" gid="146" x="248" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3635" gid="146" x="140" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3636" gid="146" x="144" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3637" gid="146" x="148" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3638" gid="146" x="152" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3639" gid="146" x="156" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3643" gid="146" x="172" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3644" gid="146" x="180" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3645" gid="146" x="176" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3646" gid="146" x="184" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3647" gid="146" x="200" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3648" gid="146" x="204" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3649" gid="146" x="208" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3650" gid="146" x="212" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3651" gid="146" x="220" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3652" gid="146" x="216" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3653" gid="139" x="140" y="204" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3654" gid="146" x="140" y="196" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3655" gid="146" x="140" y="192" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3656" gid="146" x="140" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3657" gid="139" x="140" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3658" gid="139" x="140" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3659" gid="139" x="140" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3660" gid="139" x="140" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3666" gid="139" x="140" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3667" gid="139" x="140" y="236" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3668" gid="139" x="140" y="232" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3669" gid="139" x="140" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3670" gid="139" x="140" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3671" gid="139" x="140" y="220" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3672" gid="139" x="140" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3673" gid="139" x="140" y="212" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3674" gid="139" x="140" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3675" gid="146" x="188" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3676" gid="146" x="192" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3677" gid="146" x="196" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3678" gid="146" x="140" y="268" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3679" gid="142" x="140" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3680" gid="146" x="192" y="192" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3682" gid="139" x="192" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3683" gid="146" x="192" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3684" gid="146" x="192" y="196" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3685" gid="146" x="192" y="204" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3686" gid="139" x="196" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3687" gid="139" x="192" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3688" gid="139" x="192" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3689" gid="139" x="192" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3695" gid="139" x="192" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3696" gid="139" x="192" y="236" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3697" gid="139" x="192" y="232" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3698" gid="139" x="192" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3699" gid="139" x="192" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3700" gid="139" x="192" y="220" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3701" gid="139" x="192" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3702" gid="139" x="192" y="212" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3703" gid="146" x="140" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3704" gid="139" x="192" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3712" gid="139" x="156" y="184" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3713" gid="139" x="156" y="180" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3714" gid="139" x="156" y="176" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3715" gid="139" x="188" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3716" gid="139" x="196" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3717" gid="139" x="172" y="184" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3718" gid="139" x="172" y="180" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3719" gid="139" x="172" y="176" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3720" gid="139" x="156" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3721" gid="139" x="196" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3722" gid="139" x="200" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3723" gid="139" x="204" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3724" gid="139" x="208" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3725" gid="139" x="212" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3726" gid="139" x="216" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3727" gid="139" x="220" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3728" gid="139" x="220" y="96" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3729" gid="139" x="220" y="100" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3730" gid="139" x="220" y="104" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3731" gid="139" x="220" y="120" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3732" gid="139" x="220" y="124" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3733" gid="139" x="220" y="128" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3734" gid="139" x="220" y="132" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3735" gid="139" x="220" y="136" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3736" gid="139" x="128" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3737" gid="139" x="132" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3738" gid="139" x="136" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3739" gid="139" x="140" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3740" gid="139" x="144" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3741" gid="139" x="148" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3742" gid="139" x="188" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3743" gid="139" x="184" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3744" gid="139" x="180" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3745" gid="139" x="176" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3746" gid="139" x="172" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3747" gid="139" x="152" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3748" gid="139" x="220" y="88" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3749" gid="139" x="220" y="92" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3750" gid="139" x="112" y="168" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3751" gid="146" x="112" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3752" gid="146" x="116" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3753" gid="146" x="120" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3754" gid="146" x="124" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3755" gid="146" x="192" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3756" gid="146" x="196" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3757" gid="146" x="200" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3758" gid="146" x="204" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3759" gid="146" x="208" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3760" gid="146" x="212" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3761" gid="146" x="216" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3762" gid="146" x="220" y="172" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3763" gid="146" x="220" y="168" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3764" gid="146" x="220" y="164" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3765" gid="146" x="220" y="160" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3766" gid="146" x="220" y="156" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3767" gid="146" x="220" y="152" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3768" gid="146" x="220" y="148" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3769" gid="146" x="220" y="144" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3770" gid="146" x="220" y="140" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3771" gid="146" x="112" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3772" gid="146" x="116" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3773" gid="146" x="120" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3774" gid="146" x="124" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3775" gid="146" x="128" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3776" gid="146" x="144" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3777" gid="146" x="152" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3778" gid="146" x="148" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3779" gid="146" x="156" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3780" gid="146" x="172" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3781" gid="146" x="176" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3782" gid="146" x="180" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3783" gid="146" x="184" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3784" gid="146" x="192" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3785" gid="146" x="188" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3786" gid="139" x="112" y="100" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3787" gid="146" x="112" y="92" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3788" gid="146" x="112" y="88" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3789" gid="146" x="112" y="96" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3790" gid="139" x="112" y="152" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3791" gid="139" x="112" y="148" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3792" gid="139" x="112" y="144" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3793" gid="139" x="112" y="140" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3794" gid="139" x="112" y="136" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3795" gid="139" x="112" y="132" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3796" gid="139" x="112" y="128" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3797" gid="139" x="112" y="124" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3798" gid="139" x="112" y="120" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3799" gid="139" x="112" y="116" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3800" gid="139" x="112" y="112" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3801" gid="139" x="112" y="108" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3802" gid="139" x="112" y="104" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3803" gid="146" x="160" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3804" gid="146" x="164" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3805" gid="146" x="168" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3806" gid="146" x="112" y="164" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3807" gid="142" x="112" y="156" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3825" gid="146" x="112" y="160" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3829" gid="139" x="220" y="108" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3830" gid="139" x="220" y="112" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3831" gid="139" x="220" y="116" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3832" gid="146" x="132" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3833" gid="146" x="140" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3834" gid="146" x="136" y="84" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3851" gid="146" x="196" y="192" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3852" gid="139" x="196" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3853" gid="146" x="196" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3854" gid="146" x="196" y="196" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3855" gid="146" x="196" y="204" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3856" gid="139" x="196" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3857" gid="139" x="196" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3858" gid="139" x="196" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3859" gid="139" x="196" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3860" gid="139" x="196" y="236" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3861" gid="139" x="196" y="232" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3862" gid="139" x="196" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3863" gid="139" x="196" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3864" gid="139" x="196" y="220" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3865" gid="139" x="196" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3866" gid="139" x="196" y="212" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3867" gid="139" x="192" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup id="9" name="Player" locked="1">
+ <objectgroup id="9" name="Player" visible="0" locked="1">
   <object id="638" gid="151" x="336" y="380" width="4" height="4">
    <properties>
     <property name="prefab" value="Player"/>
@@ -1261,7 +2396,7 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup id="4" name="Spawners" locked="1">
+ <objectgroup id="4" name="Spawners">
   <object id="783" gid="83" x="320" y="316" width="4" height="4">
    <properties>
     <property name="KnifeGuy" type="bool" value="true"/>
@@ -1449,6 +2584,82 @@
    <properties>
     <property name="KnifeGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="3835" x="232" y="204" width="8" height="20">
+   <properties>
+    <property name="entry" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="3836" x="172" y="248" width="8" height="24">
+   <properties>
+    <property name="entry" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="3837" x="172" y="240" width="20" height="8">
+   <properties>
+    <property name="entry" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="3838" x="156" y="152" width="20" height="8">
+   <properties>
+    <property name="entry" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="3840" x="148" y="152" width="8" height="16">
+   <properties>
+    <property name="entry" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="3841" x="176" y="152" width="8" height="16">
+   <properties>
+    <property name="entry" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="3842" x="232" y="196" width="16" height="8">
+   <properties>
+    <property name="entry" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="3843" x="232" y="224" width="16" height="8">
+   <properties>
+    <property name="entry" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="3878" gid="83" x="212" y="200" width="4" height="4">
+   <properties>
+    <property name="HouseGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="3879" gid="83" x="212" y="240" width="4" height="4">
+   <properties>
+    <property name="HouseGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="3880" gid="83" x="224" y="260" width="4" height="4">
+   <properties>
+    <property name="HouseGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="3881" gid="83" x="156" y="204" width="4" height="4">
+   <properties>
+    <property name="HouseGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="3882" gid="83" x="176" y="232" width="4" height="4">
+   <properties>
+    <property name="KnifeGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="3883" gid="83" x="152" y="260" width="4" height="4">
+   <properties>
+    <property name="KnifeGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="4"/>
    </properties>
   </object>
  </objectgroup>
@@ -2575,7 +3786,7 @@
     <property name="prefab" value="RandomSpawnedTree"/>
    </properties>
   </object>
-  <object id="2153" gid="687" x="292.545" y="207.818" width="4" height="4">
+  <object id="2153" gid="687" x="292" y="208" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="RandomSpawnedTree"/>
@@ -2626,6 +3837,258 @@
   <object id="2177" gid="687" x="336" y="232" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3844" gid="687" x="248" y="212" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3845" gid="687" x="248" y="220" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3846" gid="687" x="248" y="216" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3847" gid="687" x="196" y="260" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3848" gid="687" x="196" y="268" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3849" gid="687" x="196" y="264" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3850" gid="687" x="196" y="272" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3868" gid="687" x="192" y="260" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3869" gid="687" x="192" y="264" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3870" gid="687" x="192" y="268" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3871" gid="687" x="192" y="272" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3872" gid="687" x="168" y="188" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3873" gid="687" x="160" y="188" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3874" gid="687" x="164" y="188" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3875" gid="687" x="160" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="5"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3876" gid="687" x="164" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="5"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3877" gid="687" x="168" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="5"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3884" gid="687" x="164" y="216" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3885" gid="687" x="164" y="228" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3886" gid="687" x="164" y="232" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3887" gid="687" x="164" y="224" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3888" gid="687" x="164" y="220" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3889" gid="687" x="164" y="236" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3890" gid="687" x="164" y="240" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3891" gid="687" x="160" y="228" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3892" gid="687" x="156" y="228" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3893" gid="687" x="164" y="244" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3894" gid="687" x="164" y="248" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3895" gid="687" x="168" y="216" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3896" gid="687" x="172" y="216" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3897" gid="687" x="176" y="216" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3898" gid="687" x="180" y="216" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="4"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3899" gid="687" x="216" y="272" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3900" gid="687" x="216" y="268" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3901" gid="687" x="216" y="264" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3902" gid="687" x="216" y="260" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3903" gid="687" x="216" y="256" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3904" gid="687" x="216" y="252" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3905" gid="687" x="244" y="240" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3906" gid="687" x="240" y="240" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3907" gid="687" x="236" y="240" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3908" gid="687" x="232" y="240" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="3"/>
     <property name="prefab" value="RandomSpawnedTree"/>
    </properties>
   </object>

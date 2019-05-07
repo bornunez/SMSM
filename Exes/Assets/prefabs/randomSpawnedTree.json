@@ -30,6 +30,10 @@
 			"script":"BigPoof",
 			"name":"BigPoof",
 			"duration":0.5
+		},
+		{
+			"type":"SpawnOnDestroy",
+			"objects":["PoofPS"]
 		}
 	]
 }

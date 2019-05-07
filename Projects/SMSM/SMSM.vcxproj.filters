@@ -105,6 +105,12 @@
     <ClCompile Include="..\..\Src\Game\Mapa\MapHandler.cpp">
       <Filter>Mapa</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\SpawnOnDestroy.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
