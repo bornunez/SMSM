@@ -135,6 +135,7 @@ void PlayerController::receiveDamage()
 #ifdef C_DEBUG
 			cout << endl << "AY QUE ME MUERO" << endl << endl;
 #endif
+			GUIManager::Instance()->GameOver();
 		}
 	}
 }
@@ -144,14 +145,8 @@ void PlayerController::gainHealth()
 	if (lives < maxHealth) {
 //#ifdef NDEBUG
 		livesHeart.at(lives)->show();
-//#endif
-		
+//#endif		
 		lives++;
-		if (lives == 0) {
-#ifdef C_DEBUG
-			cout << endl << "AY QUE ME MUERO" << endl << endl;
-#endif
-		}
 	}
 }
 

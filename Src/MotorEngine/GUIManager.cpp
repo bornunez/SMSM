@@ -163,8 +163,20 @@ CEGUI::Window * GUIManager::CreateLifeIcon(std::string buttonName, float pos_x, 
 
 		mButtons[buttonName] = temp; // Se añade al diccionario
 
+		hearthLifes.push_back(temp);
 	}
 	return mButtons[buttonName];
+}
+
+void GUIManager::GameOver()
+{
+	gameOverHUD = true;
+	gameHUD = false;
+	pauseHUD = false;
+	menuHUD = false;
+
+	ShowWindow("GameOverWnd");
+	CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
 }
 
 CEGUI::FrameWindow * GUIManager::AddWindow(std::string wndName, std::string frameWindowLook, float posX, float posY, float sizeX, float sizeY, std::string backgroundMatName){
@@ -178,11 +190,6 @@ CEGUI::FrameWindow * GUIManager::AddWindow(std::string wndName, std::string fram
 		stateWnds[wndName]->setCloseButtonEnabled(false);
 		stateWnds[wndName]->setSizingEnabled(false);
 
-
-		// Si el material está definido
-		/*if (backgroundMatName != " ") {
-			FrameWndImage(backgroundMatName);
-		}*/
 		mWindows[wndName] = stateWnds[wndName]; // Se añade al diccionario
 	}
 
@@ -227,8 +234,26 @@ void GUIManager::InitMainScene()
 	if (g_ != nullptr) {
 		gameHUD = true;
 		menuHUD = false;
+		gameOverHUD = false;
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
+		
+		if (hearthLifes.size() > 0) {
+			for (int i = 0; i < hearthLifes.size(); i++) {
+				hearthLifes.at(i)->show();
+			}
+		}
+
 		g_->ReLoadScene("mainScene");		
+	}
+}
+
+void GUIManager::RestartMainScene()
+{
+	if (g_ != nullptr) {
+		gameHUD = true;
+		menuHUD = false;
+		gameOverHUD = false;
+		g_->ReLoadScene("mainScene");
 	}
 }
 
