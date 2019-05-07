@@ -14,6 +14,7 @@ void PlayerController::LoadFromFile(json obj)
 
 	if (obj.contains("lives")) { // Se asigna una vida al player
 		lives = obj["lives"];
+		maxHealth = lives;
 	}
 }
 
@@ -30,11 +31,11 @@ void PlayerController::Start()
 	if (brazo == nullptr)
 		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
 
-//#ifdef NDEBUG
+#ifdef NDEBUG
 	for (int i = 0; i < lives; i++) {
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
 	}
-//#endif
+#endif
 }
 
 void PlayerController::Update()
@@ -129,17 +130,18 @@ void PlayerController::modifySensitivity(bool v)
 		else
 			sensitivityLevel--;
 	}
-
+#ifdef NDEBUG
 	GUIManager::Instance()->getButton("Sensitivity")->setText("Sensitivity: " + std::to_string(sensitivityLevel));
+#endif
 }
 
 void PlayerController::receiveDamage()
 {
 	if (lives > 0) {
 		lives--;
-//#ifdef NDEBUG
+#ifdef NDEBUG
 		livesHeart.at(lives)->hide();
-//#endif
+#endif
 		if (lives == 0) {
 #ifdef C_DEBUG
 			cout << endl << "AY QUE ME MUERO" << endl << endl;
