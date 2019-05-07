@@ -11,7 +11,8 @@ public:
 	virtual void Update();
 	virtual void Start();
 
-	virtual void receiveDamage();
+	void receiveDamage();
+	void gainHealth();
 
 private:
 

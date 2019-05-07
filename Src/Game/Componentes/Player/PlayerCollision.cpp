@@ -31,6 +31,11 @@ void PlayerCollision::Update()
 	gameObject->getNode()->setOrientation(trans.getRotation().w(),trans.getRotation().x(), trans.getRotation().y(), trans.getRotation().z());
 	//gameObject->getNode()->setPosition(trans.getOrigin().x() + offSetX, trans.getOrigin().y() + offSetY, trans.getOrigin().z() + offSetZ);
 
+
+	if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_T))
+		receiveDamage();
+	else if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_Y))
+		gainHealth();
 }
 
 void PlayerCollision::Start()
@@ -44,9 +49,12 @@ void PlayerCollision::Start()
 void PlayerCollision::receiveDamage()
 {
 	if (canGetDamage) {
-		canGetDamage = false;
-		
+		//canGetDamage = false;		
 		gameObject->getComponent<PlayerController>()->receiveDamage();
-
 	}
+}
+
+void PlayerCollision::gainHealth()
+{
+	gameObject->getComponent<PlayerController>()->gainHealth();
 }
