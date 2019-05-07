@@ -5,6 +5,8 @@
 #include "../../../Src/Game/Componentes/Player/PlayerCollision.h"
 #include "../../../Src/MotorEngine/GUIManager.h"
 
+#include <vector>
+
 
 class MyCamera;
 class PlayerController: public Component
@@ -27,10 +29,13 @@ private:
 
 	// Attributes
 	float speed = 0;
+	int maxHealth = 3;
 	int lives = 3;
 	int sensitivityLevel = 2;
 
-	CEGUI::Window * livesHeart;
+	float gameSpeed = 1;
+
+	std::vector<CEGUI::Window *> livesHeart;
 
 	void updateLivesHeart(); // Se debe llamar cuando el player reciba daño
 
@@ -43,6 +48,11 @@ public:
 	void handleInput();
 
 	void modifySensitivity(bool v);
+	
+	void receiveDamage();
+	void gainHealth();
 
 	Vector3 getPlayerDirection();
+
+	float getGameSpeed() { return gameSpeed; }
 };

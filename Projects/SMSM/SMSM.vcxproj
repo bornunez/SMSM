@@ -29,6 +29,7 @@
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\KnifeGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\SpawnOnDestroy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\GUILoader.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\ObstacleRigidBody.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerCollision.cpp" />
@@ -59,6 +60,7 @@
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\KnifeGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\SpawnOnDestroy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\GUILoader.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\ObstacleRigidBody.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerCollision.h" />

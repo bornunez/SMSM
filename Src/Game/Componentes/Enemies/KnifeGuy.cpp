@@ -8,27 +8,13 @@ KnifeGuy::~KnifeGuy()
 void KnifeGuy::Start() {
 	Enemy::Start();
 
-	//Find mesh renderer
-	std::list<Component*> comps = gameObject->getComponents();
-	bool found = false;
-	auto it = comps.begin();
-	while (!found && it != comps.end())
-	{
-		MeshRenderer* c = dynamic_cast<MeshRenderer*>(*it);
-		if (c != nullptr) {
-			found = true;
-			meshRend = c;
-		}
-		it++;
-	}
-
+	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
 	meshRend->AnimationSpeed(2);
-
-
 }
+
 void KnifeGuy::LoadFromFile(json obj)
 {
 	//Params from file
@@ -44,7 +30,8 @@ void KnifeGuy::Update()
 	if (estado == state::ALIVE) {
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		auxVec.normalise(); 
-		auxVec*=moveSpeed;
+		auxVec *= (moveSpeed * playerController->getGameSpeed());
+		meshRend->AnimationSpeed(playerController->getGameSpeed());
 
 		float angle = atan2(auxVec.x, auxVec.z);
 		btQuaternion q;

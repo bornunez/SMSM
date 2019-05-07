@@ -1,6 +1,6 @@
 ﻿#pragma once
 
-#define C_DEBUG
+//#define C_DEBUG
 
 #include <OgreRoot.h>
 #include <OgreConfigFile.h>

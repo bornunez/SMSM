@@ -2,6 +2,7 @@
 #include "../../Src/MotorEngine/TimeSwitch.h"
 #include "../../../Src/MotorEngine/Scene.h"
 #include "../../../Src/MotorEngine/RigidBodyComponent.h"
+#include "../Componentes/Player/PlayerController.h"
 
 class WeaponBullet: public RigidBodyComponent
 {
@@ -10,6 +11,7 @@ private:
 	int grav;
 	float linDamp, angDamp;
 	Vector3 direccion;
+	PlayerController* playerController;
 
 public:
 	WeaponBullet(GameObject* obj);

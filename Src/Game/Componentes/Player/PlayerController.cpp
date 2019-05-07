@@ -12,15 +12,16 @@ void PlayerController::LoadFromFile(json obj)
 	mouseSensitivity = obj["mouseSensitivity"];
 	speed = obj["speed"];
 
-	if (obj.contains("lives")) // Se asigna una vida al player
+	if (obj.contains("lives")) { // Se asigna una vida al player
 		lives = obj["lives"];
+	}
 }
 
 void PlayerController::Start()
 {
-	playerColl = getComponent<PlayerCollision>();
+	playerColl = gameObject->getComponent<PlayerCollision>();
 	playerRb = playerColl->getRB();
-	cam = getComponent<MyCamera>();
+	cam = gameObject->getComponent<MyCamera>();
 	input = scene->getGame()->getInputManager();
 
 	lastMouseX = input->getMouseX();
@@ -29,10 +30,11 @@ void PlayerController::Start()
 	if (brazo == nullptr)
 		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
 
-#ifndef _DEBUG
-	livesHeart = GUIManager::Instance()->getButton("livesHeart");
-	livesHeart->setText(std::to_string(lives));
-#endif
+//#ifdef NDEBUG
+	for (int i = 0; i < lives; i++) {
+		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
+	}
+//#endif
 }
 
 void PlayerController::Update()
@@ -97,6 +99,15 @@ void PlayerController::handleInput()
 	else if (input->getKey(OIS::KeyCode::KC_D)) {
 		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
 	}
+
+	if (input->getKey(OIS::KeyCode::KC_L)) {
+		cout << "SlowMotion: ON" << endl;
+		gameSpeed = 0.2f;
+	}
+	else if (input->getKey(OIS::KeyCode::KC_K)) {
+		cout << "SlowMotion: OFF" << endl;
+		gameSpeed = 1;
+	}
 }
 
 void PlayerController::modifySensitivity(bool v)
@@ -114,12 +125,43 @@ void PlayerController::modifySensitivity(bool v)
 		mouseSensitivity -= 0.05f;
 
 		if (mouseSensitivity < 0.05f)
-			mouseSensitivity = 0.5f;
+			mouseSensitivity = 0.05f;
 		else
 			sensitivityLevel--;
 	}
 
-	GUIManager::Instance()->getButton("Sensitivity")->setText("Sensitivity: " + sensitivityLevel);
+	GUIManager::Instance()->getButton("Sensitivity")->setText("Sensitivity: " + std::to_string(sensitivityLevel));
+}
+
+void PlayerController::receiveDamage()
+{
+	if (lives > 0) {
+		lives--;
+//#ifdef NDEBUG
+		livesHeart.at(lives)->hide();
+//#endif
+		if (lives == 0) {
+#ifdef C_DEBUG
+			cout << endl << "AY QUE ME MUERO" << endl << endl;
+#endif
+		}
+	}
+}
+
+void PlayerController::gainHealth()
+{
+	if (lives < maxHealth) {
+//#ifdef NDEBUG
+		livesHeart.at(lives)->show();
+//#endif
+		
+		lives++;
+		if (lives == 0) {
+#ifdef C_DEBUG
+			cout << endl << "AY QUE ME MUERO" << endl << endl;
+#endif
+		}
+	}
 }
 
 Vector3  PlayerController::getPlayerDirection()
@@ -130,7 +172,7 @@ Vector3  PlayerController::getPlayerDirection()
 
 void PlayerController::updateLivesHeart()
 {
-	#ifndef _DEBUG
+	/*#ifndef _DEBUG
 		livesHeart->setText(std::to_string(lives));
-	#endif
+	#endif*/
 }

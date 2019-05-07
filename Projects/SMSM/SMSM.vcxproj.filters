@@ -105,6 +105,9 @@
     <ClCompile Include="..\..\Src\Game\Mapa\MapHandler.cpp">
       <Filter>Mapa</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\SpawnOnDestroy.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.cpp">
       <Filter>Componentes\Enemies</Filter>
     </ClCompile>
@@ -172,9 +175,6 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Mapa\MapHandler.h">
       <Filter>Mapa</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.h">
-      <Filter>Componentes\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

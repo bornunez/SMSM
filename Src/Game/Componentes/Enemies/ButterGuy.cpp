@@ -8,20 +8,7 @@ ButterGuy::~ButterGuy()
 void ButterGuy::Start() {
 	Enemy::Start();
 
-	//Find mesh renderer
-	std::list<Component*> comps = gameObject->getComponents();
-	bool found = false;
-	auto it = comps.begin();
-	while (!found && it != comps.end())
-	{
-		MeshRenderer* c = dynamic_cast<MeshRenderer*>(*it);
-		if (c != nullptr) {
-			found = true;
-			meshRend = c;
-		}
-		it++;
-	}
-
+	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
 
@@ -74,7 +61,8 @@ void ButterGuy::Update()
 		else if (estado == state::FLEEING) {
 			auxVec = -auxVec;
 			auxVec.normalise();
-			auxVec *= moveSpeed;
+			auxVec *= (moveSpeed * playerController->getGameSpeed());
+			meshRend->AnimationSpeed(playerController->getGameSpeed());
 			rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
 			if (absDist > dist) {
 				estado = state::IDLE;
