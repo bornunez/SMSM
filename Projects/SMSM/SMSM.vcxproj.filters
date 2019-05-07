@@ -105,8 +105,8 @@
     <ClCompile Include="..\..\Src\Game\Mapa\MapHandler.cpp">
       <Filter>Mapa</Filter>
     </ClCompile>
-    <ClCompile Include="ShotgunBullet.cpp">
-      <Filter>Archivos de origen</Filter>
+    <ClCompile Include="..\..\Src\Game\Armas\ShotgunBullet.cpp">
+      <Filter>Armas</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -173,8 +173,8 @@
     <ClInclude Include="..\..\Src\Game\Mapa\MapHandler.h">
       <Filter>Mapa</Filter>
     </ClInclude>
-    <ClInclude Include="ShotgunBullet.h">
-      <Filter>Archivos de encabezado</Filter>
+    <ClInclude Include="..\..\Src\Game\Armas\ShotgunBullet.h">
+      <Filter>Armas</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

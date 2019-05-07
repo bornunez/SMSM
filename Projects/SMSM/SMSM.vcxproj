@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Src\Game\Armas\ShotgunBullet.cpp" />
     <ClCompile Include="..\..\Src\Game\Armas\Weapon.cpp" />
     <ClCompile Include="..\..\Src\Game\Armas\WeaponBullet.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ButterGuy.cpp" />
@@ -41,7 +42,6 @@
     <ClCompile Include="..\..\Src\Game\Mapa\RoomManager.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\SkipRoom.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\Spawner.cpp" />
-    <ClCompile Include="ShotgunBullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MotorEngine\MotorEngine.vcxproj">
@@ -49,6 +49,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\Src\Game\Armas\ShotgunBullet.h" />
     <ClInclude Include="..\..\Src\Game\Armas\Weapon.h" />
     <ClInclude Include="..\..\Src\Game\Armas\WeaponBullet.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ButterGuy.h" />
@@ -70,7 +71,6 @@
     <ClInclude Include="..\..\Src\Game\Mapa\RoomManager.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\SkipRoom.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Spawner.h" />
-    <ClInclude Include="ShotgunBullet.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

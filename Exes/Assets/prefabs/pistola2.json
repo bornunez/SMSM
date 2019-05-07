@@ -24,7 +24,7 @@
 			"numBullets":1,
 			"dispersion":0,
 			"shootPosX": -12,
-			"shootPosY": 17,
+			"shootPosY": 0.18,
 			"shootPosZ": 0.5,
 			
 			"shootAudio": "GunShoot"

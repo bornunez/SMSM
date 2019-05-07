@@ -12,7 +12,7 @@
 			"type":"WeaponBullet",
 			"shape":2,
 			"id":1,
-			"mass":15,
+			"mass":1,
 			"restFactor":0.5,
 			"positionX":0,
 			"positionY":0,
