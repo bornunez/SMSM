@@ -61,7 +61,8 @@ void ButterGuy::Update()
 		else if (estado == state::FLEEING) {
 			auxVec = -auxVec;
 			auxVec.normalise();
-			auxVec *= moveSpeed;
+			auxVec *= (moveSpeed * playerController->getGameSpeed());
+			meshRend->AnimationSpeed(playerController->getGameSpeed());
 			rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
 			if (absDist > dist) {
 				estado = state::IDLE;

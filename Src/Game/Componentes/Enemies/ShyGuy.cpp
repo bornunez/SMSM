@@ -34,6 +34,7 @@ void ShyGuy::Update()
 		float absDist = abs(auxVec.x) + abs(auxVec.z);
 		if (estado == state::IDLE) {
 			if (absDist > dist*distFactor) {
+				auxVec *= playerController->getGameSpeed();
 				rb->setLinearVelocity({ auxVec.x / 4, 0, auxVec.z / 4 });
 			}
 			else if (absDist < dist) {
@@ -44,7 +45,8 @@ void ShyGuy::Update()
 		}
 		else if (estado == state::FLEEING) {
 			auxVec.normalise();
-			auxVec *= -moveSpeed;
+			auxVec *= -(moveSpeed * playerController->getGameSpeed());
+
 			rb->setLinearVelocity({ auxVec.x * ((rand() % maxFactor + minFactor)/100) , 0, auxVec.z * ((rand() % maxFactor + minFactor) / 100) });
 			if (absDist > dist) {
 				rb->setLinearVelocity(btVector3(0, 0, 0));
@@ -60,6 +62,8 @@ void ShyGuy::Update()
 		q.setW(cos(angle / 2));
 
 		rb->getWorldTransform().setRotation(q);
+
+		meshRend->AnimationSpeed(playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {

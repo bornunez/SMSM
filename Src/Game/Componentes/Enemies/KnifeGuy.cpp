@@ -30,7 +30,8 @@ void KnifeGuy::Update()
 	if (estado == state::ALIVE) {
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		auxVec.normalise(); 
-		auxVec*=moveSpeed;
+		auxVec *= (moveSpeed * playerController->getGameSpeed());
+		meshRend->AnimationSpeed(playerController->getGameSpeed());
 
 		float angle = atan2(auxVec.x, auxVec.z);
 		btQuaternion q;

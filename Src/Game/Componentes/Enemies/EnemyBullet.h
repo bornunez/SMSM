@@ -2,6 +2,7 @@
 #include "../../Src/MotorEngine/TimeSwitch.h"
 #include "../../../Src/MotorEngine/Scene.h"
 #include "../../../Src/MotorEngine/RigidBodyComponent.h"
+#include "../Player/PlayerController.h"
 
 class EnemyBullet: public RigidBodyComponent
 {
@@ -11,6 +12,7 @@ private:
 	float linDamp, angDamp;
 	Vector3 direccion;
 	int ownerID;
+	PlayerController* playerController;
 
 public:
 	EnemyBullet(GameObject* obj);
