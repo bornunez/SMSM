@@ -10,6 +10,7 @@ protected:
 	float duration = -1; //Duracion de la emision, -1 es infinito
 	float maxDuration = -1; //Duracion de la emision, -1 es infinito
 	Ogre::ParticleSystem* sys = nullptr;
+	bool destroyOnFinish = false;
 public:
 	MyParticleSystem(GameObject* o) : Component(o) {};
 	~MyParticleSystem();

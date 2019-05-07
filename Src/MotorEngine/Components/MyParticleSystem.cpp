@@ -23,6 +23,8 @@ void MyParticleSystem::LoadFromFile(json obj)
 	if (obj.contains("duration"))
 		maxDuration = duration = obj["duration"];
 	sys = gameObject->getSceneManager()->createParticleSystem(name,script);
+	if (obj.contains("Destroy"))
+		destroyOnFinish = obj["Destroy"];
 }
 
 void MyParticleSystem::Awake()
@@ -42,7 +44,10 @@ void MyParticleSystem::Update()
 		duration -= TimeManager::getInstance()->getDeltaTime();
 		if (duration <= 0) {
 			duration = 0;
-			SetEnabled(false);
+			if (destroyOnFinish)
+				gameObject->Destroy();
+			else
+				SetEnabled(false);
 		}
 	}
 }

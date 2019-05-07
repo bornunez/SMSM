@@ -89,9 +89,10 @@ void GameObject::setPosition(Vector3 pos)
 	mNode->setPosition(pos);
 }
 
-void GameObject::setScale(float scale)
+void GameObject::setScale(float _scale)
 {
-	mNode->setScale(scale, scale, scale);
+	mNode->setScale(_scale, _scale, _scale);
+	scale = scale;
 }
 
 Ogre::Quaternion GameObject::getGlobalOrientation()

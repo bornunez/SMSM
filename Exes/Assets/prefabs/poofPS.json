@@ -1,0 +1,14 @@
+{
+	"prefabName":"PoofPS",
+	"name":"PoofPS",
+	"active":true,
+	"components":[
+		{
+			"type":"ParticleSystem",
+			"script":"Poof",
+			"name":"Poof",
+			"duration":0.5,
+			"Destroy":true
+		}
+	]
+}

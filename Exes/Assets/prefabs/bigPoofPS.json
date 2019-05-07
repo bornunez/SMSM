@@ -1,0 +1,14 @@
+{
+	"prefabName":"BigPoofPS",
+	"name":"PoofPS",
+	"active":true,
+	"components":[
+		{
+			"type":"ParticleSystem",
+			"script":"BigPoof",
+			"name":"BigPoof",
+			"duration":0.5,
+			"Destroy":true
+		}
+	]
+}
