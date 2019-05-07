@@ -33,6 +33,7 @@ public:
 	CEGUI::FrameWindow * AddWindow(std::string wndName, std::string frameWindowLook, float posX, float posy, float sizeX, float sizeY, std::string backgroundMatName = " ");
 	void FrameWndImage(std::string name, Ogre::Real left = -1.0, Ogre::Real top = 1.0, Ogre::Real right = 1.0, Ogre::Real down = -1.0);						// Side values go from -1 to 1 from the center of the screen
 	CEGUI::Window* CreateButton(std::string stateWnd, std::string buttonName, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName);
+	
 	CEGUI::Window* CreateLifeIcon(std::string buttonName, float pos_x, float pos_y, float size_x, float size_y);
 
 	bool getGameOn() { return gameHUD; }

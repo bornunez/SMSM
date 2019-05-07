@@ -4,6 +4,7 @@
 #include "OgreRectangle2D.h"
 #include "AudioManager.h"
 #include "GameSceneManager.h"
+#include "../../../Src/Game/Componentes/Player/PlayerController.h"
 
 GUIManager* GUIManager::instance_ = nullptr;
 
@@ -248,13 +249,14 @@ void GUIManager::Mute()
 
 void GUIManager::SensitivityUp()
 {
-	cout << "sensibilidad subida" << endl;
+	g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->modifySensitivity(true);
+	//cout << "sensibilidad subida" << endl;
 }
 
 void GUIManager::SensitivityDown()
 {
-	//g_->getActiveScene()->getGameObject("Player")->getComponents()
-	cout << "sensibilidad bajada" << endl;
+	g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->modifySensitivity(false);
+	//cout << "sensibilidad bajada" << endl;
 }
 
 void GUIManager::ToggleWindow(std::string wndName)

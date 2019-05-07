@@ -29,11 +29,9 @@ void PlayerController::Start()
 	if (brazo == nullptr)
 		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
 
-//#ifndef _DEBUG
 	for (int i = 0; i < lives; i++) {
-		GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075);
+		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
 	}
-//#endif
 }
 
 void PlayerController::Update()
@@ -115,12 +113,23 @@ void PlayerController::modifySensitivity(bool v)
 		mouseSensitivity -= 0.05f;
 
 		if (mouseSensitivity < 0.05f)
-			mouseSensitivity = 0.5f;
+			mouseSensitivity = 0.05f;
 		else
 			sensitivityLevel--;
 	}
 
-	GUIManager::Instance()->getButton("Sensitivity")->setText("Sensitivity: " + sensitivityLevel);
+	GUIManager::Instance()->getButton("Sensitivity")->setText("Sensitivity: " + std::to_string(sensitivityLevel));
+}
+
+void PlayerController::receiveDamage()
+{
+	lives--;
+	//livesHeart.at(lives)->
+	if (lives == 0) {
+#ifdef C_DEBUG
+		cout << endl << "AY QUE ME MUERO" << endl << endl;
+#endif
+	}
 }
 
 Vector3  PlayerController::getPlayerDirection()
@@ -131,7 +140,7 @@ Vector3  PlayerController::getPlayerDirection()
 
 void PlayerController::updateLivesHeart()
 {
-	#ifndef _DEBUG
+	/*#ifndef _DEBUG
 		livesHeart->setText(std::to_string(lives));
-	#endif
+	#endif*/
 }

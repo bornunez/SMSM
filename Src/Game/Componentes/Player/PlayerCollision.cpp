@@ -1,4 +1,5 @@
 #include "PlayerCollision.h"
+#include "PlayerController.h"
 
 PlayerCollision::PlayerCollision(GameObject * obj) : RigidBodyComponent(obj)
 {
@@ -38,4 +39,14 @@ void PlayerCollision::Start()
 	physicRB->setRollingFriction(0);
 	physicRB->setFriction(0);
 	physicRB->setAngularFactor(btVector3(0, 1, 0));
+}
+
+void PlayerCollision::receiveDamage()
+{
+	if (canGetDamage) {
+		canGetDamage = false;
+		
+		gameObject->getComponent<PlayerController>()->
+
+	}
 }
