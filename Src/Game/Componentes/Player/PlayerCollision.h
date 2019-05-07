@@ -7,10 +7,16 @@ class PlayerCollision : public RigidBodyComponent
 public:
 	PlayerCollision(GameObject* obj);
 	~PlayerCollision();
-	//No hace nada más adicional que el metodo de su padre
-	/*void LoadFromFile(json obj);*/
 	virtual void collisionHandler(int id);
 	virtual void Update();
 	virtual void Start();
+
+	void receiveDamage();
+	void gainHealth();
+
+private:
+
+	bool canGetDamage = true;
+	float inmunityTime = 1.0f;
 };
 

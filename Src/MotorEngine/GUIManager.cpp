@@ -4,6 +4,7 @@
 #include "OgreRectangle2D.h"
 #include "AudioManager.h"
 #include "GameSceneManager.h"
+#include "../../../Src/Game/Componentes/Player/PlayerController.h"
 
 GUIManager* GUIManager::instance_ = nullptr;
 
@@ -150,6 +151,22 @@ CEGUI::Window*  GUIManager::CreateButton(std::string stateWnd, std::string butto
 	return mButtons[buttonName];
 }
 
+CEGUI::Window * GUIManager::CreateLifeIcon(std::string buttonName, float pos_x, float pos_y, float size_x, float size_y)
+{
+	if (mButtons[buttonName] == nullptr) {
+		CEGUI::Window *temp = wmgr->createWindow("TaharezLook/HeartButton", buttonName);
+
+		myRoot->addChild(temp);
+
+		temp->setPosition(CEGUI::UVector2(CEGUI::UDim(pos_x, 0.0f), CEGUI::UDim(pos_y, 0.0f)));
+		temp->setSize(CEGUI::USize(CEGUI::UDim(size_x, 0), CEGUI::UDim(size_y, 0)));		
+
+		mButtons[buttonName] = temp; // Se añade al diccionario
+
+	}
+	return mButtons[buttonName];
+}
+
 CEGUI::FrameWindow * GUIManager::AddWindow(std::string wndName, std::string frameWindowLook, float posX, float posY, float sizeX, float sizeY, std::string backgroundMatName){
 	
 	if (stateWnds[wndName] == nullptr) {	// Si esa ventana no se ha creado ya
@@ -232,12 +249,14 @@ void GUIManager::Mute()
 
 void GUIManager::SensitivityUp()
 {
-	cout << "sensibilidad subida" << endl;
+	g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->modifySensitivity(true);
+	//cout << "sensibilidad subida" << endl;
 }
 
 void GUIManager::SensitivityDown()
 {
-	cout << "sensibilidad bajada" << endl;
+	g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->modifySensitivity(false);
+	//cout << "sensibilidad bajada" << endl;
 }
 
 void GUIManager::ToggleWindow(std::string wndName)

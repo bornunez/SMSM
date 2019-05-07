@@ -88,4 +88,19 @@ public:
 
 	string getName() { return name; }
 	void setName(string _name) { name = _name; }
+
+	//Get Component
+	template<typename T>
+	T* getComponent()
+	{
+		//Compopnent
+		for (Component* c : components) {
+			T* component = dynamic_cast<T*>(c);
+			if (component != nullptr)
+				return component;
+		}
+
+		//If component not found
+		return nullptr;
+	};
 };

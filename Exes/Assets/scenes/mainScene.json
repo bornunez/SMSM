@@ -100,9 +100,9 @@
 							"buttonName":"fondoPausaButton",
 							"buttonScheme":"TaharezLook/BackgroundPausa",
 							"buttonPosX":-0.1,
-							"buttonPosY":0.1,
+							"buttonPosY":-0.1,
 							"buttonSizeX":1.1,
-							"buttonSizeY":0.95,
+							"buttonSizeY":1.1,
 							"buttonText":" ",
 							"buttonFunctionName":"null",
 							"active":true,
@@ -222,19 +222,6 @@
 							"buttonSizeY":0.05,
 							"buttonText":"Quit",
 							"buttonFunctionName":"exit",
-							"active":true,
-							"interactable": true
-						},
-						{
-							"frameWndParentName":"null",
-							"buttonName":"livesHeart",
-							"buttonScheme":"TaharezLook/HeartButton",
-							"buttonPosX":0.05,
-							"buttonPosY":0.05,
-							"buttonSizeX":0.075,
-							"buttonSizeY":0.075,
-							"buttonText":" ",
-							"buttonFunctionName":"null",
 							"active":true,
 							"interactable": true
 						}
