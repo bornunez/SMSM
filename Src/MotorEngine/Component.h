@@ -53,19 +53,4 @@ public:
 	//Gets y sets
 	GameObject* getGameObject() { return gameObject; }
 	Scene * getScene() { return scene; }
-
-	//Get Component
-	template<typename T>
-	T* getComponent()
-	{
-		//Compopnent
-		for (Component* c : gameObject->getComponents()) {
-			T* component = dynamic_cast<T*>(c);
-			if (component != nullptr)
-				return component;
-		}
-
-		//If component not found
-		return nullptr;
-	};
 };

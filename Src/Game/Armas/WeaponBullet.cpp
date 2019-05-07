@@ -26,7 +26,7 @@ void WeaponBullet::Start()
 	q.setY(1 * sin(angle / 2));
 	q.setZ(0);
 	q.setW(cos(angle / 2));
-	btRigidBody* rb = getComponent<RigidBodyComponent>()->getRB();
+	btRigidBody* rb = gameObject->getComponent<RigidBodyComponent>()->getRB();
 	rb->getWorldTransform().setRotation(q);
 	
 }
