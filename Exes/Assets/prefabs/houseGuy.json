@@ -1,0 +1,47 @@
+{
+	"prefabName":"HouseGuy",
+	"name":"HouseGuy",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"pocholo_casa.mesh"
+		},
+		{
+			"type":"EnemyRigidBody",
+			"shape":0,
+			"id":6,
+			"mass":1,
+			"restFactor":0.5,
+			"positionX":-2,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0,
+			"offsetZ":0,
+			"isTrigger":true,
+			"sizeX": 0.4,
+			"sizeY": 0.4,
+			"sizeZ": 0.4,
+			"recoilTime": 0
+		},
+		{
+			"type":"HouseGuy",
+			"moveSpeed":4,
+			"gravity":-15,
+			"linDamp":0.2,
+			"angDamp":0.2,
+			"spawnTime":2,
+			"speedTime":1,
+			"spawnDelay":0.5,
+			"spawnDistance":0.4
+		},
+		{
+			"type":"ParticleSystem",
+			"script":"Poof",
+			"name":"PS",
+			"duration":0.5
+		}
+	]
+}

@@ -28,7 +28,7 @@ void WeaponBullet::Start()
 	q.setW(cos(angle / 2));
 	btRigidBody* rb = gameObject->getComponent<RigidBodyComponent>()->getRB();
 	rb->getWorldTransform().setRotation(q);
-	
+	playerController = scene->getGameObject("Player")->getComponent<PlayerController>();
 }
 
 void WeaponBullet::LoadFromFile(json obj)
@@ -57,8 +57,8 @@ void WeaponBullet::Update()
 {
 	if (!hit)
 	{
-		physicRB->applyCentralImpulse(btVector3(direccion.x*speed, direccion.y*speed, direccion.z*speed));
-		//physicRB->clearForces();
+		float finalSpeed = speed * playerController->getGameSpeed();
+		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
 	}
 	else //Se posria hacer aqui un contador para que desapareciese la bala
 	{

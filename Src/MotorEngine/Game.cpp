@@ -161,7 +161,7 @@ void Game::Play()
 		}
 
 #ifdef NDEBUG
-		if (!GUIManager::Instance()->getMenuOn() && !GUIManager::Instance()->getPauseOn()) {
+		if (!GUIManager::Instance()->getMenuOn() && !GUIManager::Instance()->getPauseOn() && !GUIManager::Instance()->getGameOverOn()) {
 #endif
 			mWindow->update();
 

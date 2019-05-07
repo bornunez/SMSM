@@ -22,6 +22,7 @@ Scene::~Scene() {}
 
 void Scene::Release()
 {
+	destroying = true;
 #ifdef C_DEBUG
 	cout << endl << endl << "=======================================================================" << endl << endl;
 	cout << endl << "BORRANDO ESCENA " << endl << endl;
@@ -46,6 +47,7 @@ void Scene::Release()
 
 	cout << "Escena borrada con exito" << endl;
 #endif
+	destroying = false;
 }
 
 //void Scene::parroThings(SceneManager* mSceneManager)
@@ -233,9 +235,15 @@ GameObject* Scene::Instantiate(GameObject * o, Vector3 position, float scale, Ga
 
 GameObject* Scene::Instantiate(string prefab, Vector3 position, float scale, GameObject * parent)
 {
-	GameObject* o = PrefabManager::getInstance()->Instantiate(prefab, this, parent, position, scale);
-	o = Instantiate(o, position, scale, parent);
-	return o;
+	if (!destroying) {
+		GameObject* o = PrefabManager::getInstance()->Instantiate(prefab, this, parent, position, scale);
+		o = Instantiate(o, position, scale, parent);
+		return o;
+	}
+	else {
+		cout << "WARNING: Intentando Instanciar en el bucle de limpieza" << endl;
+		return nullptr;
+	}
 }
 
 void Scene::Destroy(GameObject * o)

@@ -31,6 +31,7 @@ private:
 
 	string name;
 	bool active;
+	float scale = 1;
 
 	void OnActive();
 	void OnInactive();
@@ -53,7 +54,8 @@ public:
 	Ogre::Vector3 getPosition();
 	Ogre::Vector3 getGlobalPosition();
 	void setPosition(Ogre::Vector3 pos);
-	void setScale(float scale);
+	void setScale(float _scale);
+	float getScale() { return scale; }
 	Ogre::Quaternion getGlobalOrientation();
 	Ogre::Quaternion getOrientation();
 

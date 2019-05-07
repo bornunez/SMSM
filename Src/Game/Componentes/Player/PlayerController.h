@@ -33,6 +33,8 @@ private:
 	int lives = 3;
 	int sensitivityLevel = 2;
 
+	float gameSpeed = 1;
+
 	std::vector<CEGUI::Window *> livesHeart;
 
 	void updateLivesHeart(); // Se debe llamar cuando el player reciba daño
@@ -51,4 +53,6 @@ public:
 	void gainHealth();
 
 	Vector3 getPlayerDirection();
+
+	float getGameSpeed() { return gameSpeed; }
 };

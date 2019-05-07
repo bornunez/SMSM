@@ -6,6 +6,7 @@
 #include <CEGUI/CEGUI.h>
 #include <CEGUI/RendererModules/Ogre/Renderer.h>
 #include <map>
+#include <vector>
 #include <iostream>
 
 class GUILoader;
@@ -36,9 +37,12 @@ public:
 	
 	CEGUI::Window* CreateLifeIcon(std::string buttonName, float pos_x, float pos_y, float size_x, float size_y);
 
-	bool getGameOn() { return gameHUD; }
-	bool getPauseOn() { return pauseHUD; }
-	bool getMenuOn() { return menuHUD; }
+	bool getGameOn()		{ return gameHUD; }
+	bool getPauseOn()		{ return pauseHUD; }
+	bool getMenuOn()		{ return menuHUD; }
+	bool getGameOverOn()	{ return gameOverHUD; }
+
+	void GameOver();
 
 	// Devuelve una ventana / un boton segun un nombre dado
 	CEGUI::FrameWindow * getWindow(std::string windowName) { return mWindows[windowName]; };
@@ -56,9 +60,10 @@ private:
 	std::map<std::string, CEGUI::FrameWindow *> mWindows;
 	std::map<std::string, CEGUI::Window *> mButtons;
 
-	bool gameHUD = false;
-	bool pauseHUD = false;
-	bool menuHUD = true;		// Se comienza en el menu
+	bool gameHUD		= false;
+	bool pauseHUD		= false;
+	bool menuHUD		= true;		// Se comienza en el menu
+	bool gameOverHUD	= false;
 
 	Ogre::RenderWindow* renderWindow_ = nullptr;
 	Game* g_ = nullptr;
@@ -74,12 +79,12 @@ private:
 	void togglePause();
 	void Exit();
 	void InitMainScene();
+	void RestartMainScene();
 	void VolumeUp();
 	void VolumeDown();
 	void Mute();
 	void SensitivityUp();
 	void SensitivityDown();
 
-	// Solo temporal para el estilo de creación de botones
-	//GUILoader * loader;
+	std::vector<CEGUI::Window*> hearthLifes;
 };

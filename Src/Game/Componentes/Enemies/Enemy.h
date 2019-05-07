@@ -3,6 +3,7 @@
 #include "../../../Src/MotorEngine/Scene.h"
 #include "../../Mapa/Room.h"
 #include "../../Mapa/RoomManager.h"
+#include "../Player/PlayerController.h"
 
 class EnemyRigidBody;
 class Enemy : public Component
@@ -14,9 +15,11 @@ protected:
 	float moveSpeed = 0;
 	bool alive = true;
 	GameObject* player = nullptr;
+	PlayerController* playerController = nullptr;
 	EnemyRigidBody* rbComp = nullptr;
 	btRigidBody* rb = nullptr;
 	Room* currRoom = nullptr;
+
 public:
 	void Start();
 
