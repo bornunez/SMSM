@@ -52,7 +52,7 @@ public:
 	virtual void Update();
 	void handleInput();
 	void Start();
-	void directionalShoot(float randOff);
+	void directionalShoot(float randOff, bool shotgun);
 	void shoot();
 	void reload();
 	void SpecialReload();

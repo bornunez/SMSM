@@ -55,8 +55,11 @@ void WeaponBullet::collisionHandler(int id)
 
 void WeaponBullet::Update()
 {
-	if(!hit)
+	if (!hit)
+	{
 		physicRB->applyCentralImpulse(btVector3(direccion.x*speed, direccion.y*speed, direccion.z*speed));
+		//physicRB->clearForces();
+	}
 	else //Se posria hacer aqui un contador para que desapareciese la bala
 	{
 		

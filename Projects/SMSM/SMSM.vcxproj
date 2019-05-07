@@ -41,6 +41,7 @@
     <ClCompile Include="..\..\Src\Game\Mapa\RoomManager.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\SkipRoom.cpp" />
     <ClCompile Include="..\..\Src\Game\Mapa\Spawner.cpp" />
+    <ClCompile Include="ShotgunBullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MotorEngine\MotorEngine.vcxproj">
@@ -69,6 +70,7 @@
     <ClInclude Include="..\..\Src\Game\Mapa\RoomManager.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\SkipRoom.h" />
     <ClInclude Include="..\..\Src\Game\Mapa\Spawner.h" />
+    <ClInclude Include="ShotgunBullet.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
