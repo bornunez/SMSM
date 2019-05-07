@@ -14,6 +14,7 @@ private:
 	float dist = 0;
 	float distFactor = 0;
 
+	float scale = 0;
 	float shootSpeed = 0;
 	float shootTime = 0;
 	float shootTimer = 0;

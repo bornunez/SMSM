@@ -13,6 +13,7 @@ private:
 protected:
 	int HP = 0;
 	float moveSpeed = 0;
+	float gravity = 0;
 	bool alive = true;
 	GameObject* player = nullptr;
 	PlayerController* playerController = nullptr;

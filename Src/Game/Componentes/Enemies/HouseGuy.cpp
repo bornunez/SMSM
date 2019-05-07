@@ -15,7 +15,7 @@ void HouseGuy::Start() {
 	meshRend->PlayAnimation("Move", true);
 	meshRend->AnimationSpeed(2);
 
-	rb->setGravity(btVector3(0, gravity, 0));
+	gameObject->setScale(scale);
 	
 	tm = TimeManager::getInstance();
 }
@@ -23,6 +23,7 @@ void HouseGuy::LoadFromFile(json obj)
 {
 	//Params from file
 	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
+	scale = obj["scale"];
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
 	speedTime = obj["speedTime"];
@@ -54,6 +55,7 @@ void HouseGuy::Update()
 				q.setZ(0);
 				q.setW(cos(angle / 2));
 				//Asignar orientacion
+				rb->clearForces();
 				rb->getWorldTransform().setRotation(q);
 
 				speedTimer = 0;
@@ -112,6 +114,6 @@ void HouseGuy::Spawn()
 void HouseGuy::SpawnEnemy(Vector3 pos)
 {
 	scene->Instantiate("PoofPS", pos, 0.025f);
-	scene->Instantiate("ShyGuy", pos, 0.6f);
+	scene->Instantiate("ShyGuy", pos, 0.5f);
 	RoomManager::getInstance()->GetActiveRoom()->AddEnemy();
 }

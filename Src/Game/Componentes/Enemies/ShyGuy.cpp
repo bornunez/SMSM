@@ -11,15 +11,15 @@ void ShyGuy::Start() {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
-	rb->setGravity(btVector3(0, gravity, 0));
-
+	gameObject->setScale(scale);
 }
 
 void ShyGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	gravity = obj["gravity"];
 	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
+	gravity = obj["gravity"];
+	scale = obj["scale"];
 	moveSpeed = obj["moveSpeed"];
 	dist = obj["dist"];
 	distFactor = obj["distFactor"];

@@ -13,7 +13,7 @@ private:
 	float distFactor = 0;
 	int minFactor = 0;
 	int maxFactor = 0;
-	float gravity = 0;
+	float scale = 0;
 
 public:
 	void Start();

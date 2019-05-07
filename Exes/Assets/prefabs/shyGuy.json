@@ -22,14 +22,15 @@
 			"offsetZ":0,
 			"isTrigger":true,
 			"gravity":-15,
-			"sizeX": 0.4,
-			"sizeY": 0.4,
-			"sizeZ": 0.4,
+			"sizeX": 0.25,
+			"sizeY": 0.25,
+			"sizeZ": 0.25,
 			"recoilTime": 0
 		},
 		{
 			"type":"ShyGuy",
 			"moveSpeed":8,
+			"scale": 0.4,
 			"dist":10,
 			"distFactor":1.5,
 			"gravity":-15,

@@ -28,6 +28,7 @@
 		},
 		{
 			"type":"KnifeGuy",
+			"scale": 0.4,
 			"moveSpeed":6,
 			"gravity":-15,
 			"linDamp":0.2,
