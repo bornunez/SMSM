@@ -46,7 +46,7 @@ void PlayerCollision::receiveDamage()
 	if (canGetDamage) {
 		canGetDamage = false;
 		
-		gameObject->getComponent<PlayerController>()->
+		gameObject->getComponent<PlayerController>()->receiveDamage();
 
 	}
 }
