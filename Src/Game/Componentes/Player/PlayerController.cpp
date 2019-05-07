@@ -31,7 +31,7 @@ void PlayerController::Start()
 	if (brazo == nullptr)
 		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
 
-#ifdef NDEBUG
+#ifndef _DEBUG
 	for (int i = 0; i < lives; i++) {
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
 	}
