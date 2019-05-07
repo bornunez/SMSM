@@ -224,19 +224,6 @@
 							"buttonFunctionName":"exit",
 							"active":true,
 							"interactable": true
-						},
-						{
-							"frameWndParentName":"null",
-							"buttonName":"livesHeart",
-							"buttonScheme":"TaharezLook/HeartButton",
-							"buttonPosX":0.05,
-							"buttonPosY":0.05,
-							"buttonSizeX":0.075,
-							"buttonSizeY":0.075,
-							"buttonText":" ",
-							"buttonFunctionName":"null",
-							"active":true,
-							"interactable": true
 						}
 					]
 				}	
