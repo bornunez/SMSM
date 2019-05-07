@@ -102,7 +102,7 @@
                  "name":"",
                  "properties":[
                         {
-                         "name":"KnifeGuy",
+                         "name":"HouseGuy",
                          "type":"bool",
                          "value":true
                         }, 

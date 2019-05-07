@@ -128,5 +128,5 @@ void ButterGuy::Spawn()
 
 void ButterGuy::Shoot()
 {
-	GameObject* go = scene->Instantiate("EnemyBullet", (gameObject->getPosition() + Vector3(shootPosX, shootPosY, shootPosZ)), 0.08);
+	scene->Instantiate("EnemyBullet", (gameObject->getPosition() + Vector3(shootPosX, shootPosY, shootPosZ)), 0.08);
 }
