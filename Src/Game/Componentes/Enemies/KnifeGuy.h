@@ -9,6 +9,8 @@ private:
 	enum state{ALIVE, DEAD};
 	state estado = state::ALIVE;
 	MeshRenderer* meshRend = nullptr;
+	float gravity = 0;
+
 
 public:
 	void Start();

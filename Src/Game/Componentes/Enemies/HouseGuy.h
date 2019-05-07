@@ -16,6 +16,8 @@ private:
 	float spawnTimer = 0;
 	float spawnDelay = 0;
 	float spawnDistance = 0;
+	float gravity = 0;
+	int onDeathSpawns = 0;
 	Ogre::Vector3 velVec = { 0,0,0 };
 
 	TimeManager* tm = nullptr;
@@ -28,7 +30,7 @@ public:
 	virtual void Update();
 	virtual void OnDeath();
 	virtual void Spawn();
-	void SpawnEnemy();
+	void SpawnEnemy(Vector3 pos);
 
 
 

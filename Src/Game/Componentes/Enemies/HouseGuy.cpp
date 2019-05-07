@@ -8,37 +8,28 @@ HouseGuy::~HouseGuy()
 void HouseGuy::Start() {
 	Enemy::Start();
 
-	//Find mesh renderer
-	std::list<Component*> comps = gameObject->getComponents();
-	bool found = false;
-	auto it = comps.begin();
-	while (!found && it != comps.end())
-	{
-		MeshRenderer* c = dynamic_cast<MeshRenderer*>(*it);
-		if (c != nullptr) {
-			found = true;
-			meshRend = c;
-		}
-		it++;
-	}
+	meshRend = gameObject->getComponent<MeshRenderer>();
 
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
 	meshRend->AnimationSpeed(2);
 
+	rb->setGravity(btVector3(0, gravity, 0));
+	
 	tm = TimeManager::getInstance();
 }
 void HouseGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setGravity(btVector3(0, obj["gravity"], 0));
 	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
+	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
 	speedTime = obj["speedTime"];
 	spawnTime = obj["spawnTime"];
 	spawnDelay = obj["spawnDelay"];
 	spawnDistance = obj["spawnDistance"];
+	onDeathSpawns = obj["onDeathSpawns"];
 	Enemy::alive = true;
 }
 
@@ -75,6 +66,7 @@ void HouseGuy::Update()
 				estado = state::SPAWNING;
 				//Calculo orientacion
 				velVec = player->getPosition() - gameObject->getPosition();
+				velVec.normalise();
 				float angle = atan2(velVec.x, velVec.z);
 				btQuaternion q;
 				q.setX(0);
@@ -89,7 +81,7 @@ void HouseGuy::Update()
 		}
 		else if (estado == state::SPAWNING) {
 			if (spawnTimer >= spawnTime + spawnDelay) {
-				SpawnEnemy();
+				SpawnEnemy(gameObject->getPosition() + velVec * spawnDistance);
 				spawnTimer = 0;
 				estado = state::IDLE;
 				speedTimer = speedTime;
@@ -99,6 +91,9 @@ void HouseGuy::Update()
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {
+		for (int i = 0; i < onDeathSpawns; i++) {
+			SpawnEnemy(gameObject->getPosition());
+		}
 		Enemy::OnDeath();
 	}
 }
@@ -114,8 +109,9 @@ void HouseGuy::Spawn()
 {
 }
 
-void HouseGuy::SpawnEnemy()
+void HouseGuy::SpawnEnemy(Vector3 pos)
 {
-	scene->Instantiate("ShyGuy", gameObject->getPosition() + velVec * spawnDistance, 1.0);
+	scene->Instantiate("PoofPS", pos, 0.025f);
+	scene->Instantiate("ShyGuy", pos, 0.6f);
 	RoomManager::getInstance()->GetActiveRoom()->AddEnemy();
 }
