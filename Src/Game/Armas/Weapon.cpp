@@ -14,18 +14,8 @@ void Weapon::Start()
 }
 void Weapon::LoadFromFile(json obj)
 {
-	std::list<Component*> comps = gameObject->getComponents();
-	bool found = false;
-	auto it = comps.begin();
-	while (!found && it != comps.end())
-	{
-		MeshRenderer* c = dynamic_cast<MeshRenderer*>(*it);
-		if (c != nullptr) {
-			found = true;
-			meshRend = c;
-		}
-		it++;
-	}
+	meshRend = gameObject->getComponent<MeshRenderer>();
+
 	//MeshRenderer* c = dynamic_cast<MeshRenderer*>(gameObject->getComponent<MeshRenderer>());
 	magazine = obj["magazine"];
 	moveSpeed = obj["moveSpeed"];

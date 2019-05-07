@@ -18,9 +18,9 @@ void PlayerController::LoadFromFile(json obj)
 
 void PlayerController::Start()
 {
-	playerColl = getComponent<PlayerCollision>();
+	playerColl = gameObject->getComponent<PlayerCollision>();
 	playerRb = playerColl->getRB();
-	cam = getComponent<MyCamera>();
+	cam = gameObject->getComponent<MyCamera>();
 	input = scene->getGame()->getInputManager();
 
 	lastMouseX = input->getMouseX();
