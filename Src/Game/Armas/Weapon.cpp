@@ -14,18 +14,8 @@ void Weapon::Start()
 }
 void Weapon::LoadFromFile(json obj)
 {
-	std::list<Component*> comps = gameObject->getComponents();
-	bool found = false;
-	auto it = comps.begin();
-	while (!found && it != comps.end())
-	{
-		MeshRenderer* c = dynamic_cast<MeshRenderer*>(*it);
-		if (c != nullptr) {
-			found = true;
-			meshRend = c;
-		}
-		it++;
-	}
+	meshRend = gameObject->getComponent<MeshRenderer>();
+
 	//MeshRenderer* c = dynamic_cast<MeshRenderer*>(gameObject->getComponent<MeshRenderer>());
 	magazine = obj["magazine"];
 	moveSpeed = obj["moveSpeed"];
@@ -143,17 +133,17 @@ void Weapon::PhysicShoot()
 	{
 		for (int i = 0; i < bulletsAmount; i++)
 		{
-			int disp = dispersion;
-			float randX = rand() % (disp)-(disp / 2);
-			float randY = rand() % (disp)-(disp / 2);
+			//int disp = dispersion;
+			//float randX = rand() % (disp)-(disp / 2);
+			//float randY = rand() % (disp)-(disp / 2);
 			//scene->Instantiate("Bullet",(gameObject->getPosition() + Vector3(randX*0.01, 0.05 + randY * 0.01, -0.5)), 0.01);
-			directionalShoot();
+			directionalShoot(dispersion);
 		}
 	}
 	else
 	{
 		//scene->Instantiate("Bullet", (gameObject->getPosition() + Vector3(0, 0.05, -0.5)), 0.01);
-		directionalShoot();
+		directionalShoot(0);
 	}
 	//cout << "Disparo en: [ " <<gameObject->getGlobalPosition().x << ", "<< gameObject->getGlobalPosition().y <<", " << gameObject->getGlobalPosition().z << " ]" << endl;
 	
@@ -161,13 +151,16 @@ void Weapon::PhysicShoot()
 
 }
 
-void Weapon::directionalShoot()
+void Weapon::directionalShoot(float randOff)
 {
 	Vector3 auxVec = scene->getGame()->getViewport()->getCamera()->getRealOrientation() * Vector3::NEGATIVE_UNIT_Z*offset.z;
 	//Vector3 auxVec = gameObject->getParent()->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
 	//Vector3 auxVec2 = gameObject->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
 	//float angle2 = atan(auxVec2.y / auxVec2.z)* -57.2958;
 	Vector3 auxVecFinal = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * auxVec;
+	Vector3 auxOff = auxVecFinal.perpendicular();
+	auxOff = Quaternion(Degree(rand() % 360), auxVecFinal) * auxOff;
+	auxVecFinal = auxVecFinal + (auxOff* randOff);
 	//auxVecFinal = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * auxVecFinal;
 	//auxVecFinal.normalise();
 	//auxVecFinal *= offset.z;

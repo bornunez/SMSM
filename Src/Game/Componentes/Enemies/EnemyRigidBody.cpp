@@ -4,20 +4,7 @@
 
 void EnemyRigidBody::Start() {
 
-	std::list<Component*> comps = gameObject->getComponents();
-	bool found = false;
-	auto it = comps.begin();
-	
-	while (!found && it != comps.end())
-	{
-		Enemy* c = dynamic_cast<Enemy*>(*it);
-		if (c != nullptr) {
-			found = true;
-			enemy = c;
-		}
-		it++;
-	}
-
+	enemy = gameObject->getComponent<Enemy>();
 	RigidBodyComponent::Start();
 }
 

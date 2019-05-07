@@ -34,14 +34,9 @@
 			],
 			"children":[
 				{
-					"prefab":"Pistola",
-					"position": {"x":-0.2, "y":0.3, "z":-0.2},
-					"scale": 0.05
-				},
-				{
-					"prefab":"Pistola2",
-					"position": {"x":0.2, "y":0.3, "z":-0.2},
-					"scale": 0.05
+					"prefab":"Escopeta",
+					"position": {"x":0.15, "y":0.35, "z":-0.5},
+					"scale": 0.02
 				},
 				{
 					"prefab":"Camera",
