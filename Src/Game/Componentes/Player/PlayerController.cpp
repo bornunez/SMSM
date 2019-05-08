@@ -130,7 +130,7 @@ void PlayerController::modifySensitivity(bool v)
 		else
 			sensitivityLevel--;
 	}
-#ifdef NDEBUG
+#ifndef _DEBUG
 	GUIManager::Instance()->getButton("Sensitivity")->setText("Sensitivity: " + std::to_string(sensitivityLevel));
 #endif
 }
@@ -139,7 +139,7 @@ void PlayerController::receiveDamage()
 {
 	if (lives > 0) {
 		lives--;
-#ifdef NDEBUG
+#ifndef _DEBUG
 		livesHeart.at(lives)->hide();
 #endif
 		if (lives == 0) {
@@ -154,9 +154,9 @@ void PlayerController::receiveDamage()
 void PlayerController::gainHealth()
 {
 	if (lives < maxHealth) {
-//#ifdef NDEBUG
+#ifndef _DEBUG
 		livesHeart.at(lives)->show();
-//#endif		
+#endif		
 		lives++;
 	}
 }
