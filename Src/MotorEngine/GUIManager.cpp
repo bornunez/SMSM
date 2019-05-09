@@ -44,7 +44,8 @@ GUIManager * GUIManager::Instance(Ogre::RenderWindow* w, Game* g)
 void GUIManager::Update()
 {
 	checkKeys();
-	checkMouse();	
+	checkMouse();
+	CEGUI::System::getSingleton().injectTimePulse(TimeManager::getInstance()->getDeltaTime());
 }
 
 void GUIManager::checkMouse()
