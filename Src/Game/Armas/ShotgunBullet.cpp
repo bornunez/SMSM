@@ -39,7 +39,7 @@ void ShotgunBullet::Start()
 	if((auxVecNorm.x < 0 &&Math::Abs(auxVecNorm.x) >= Math::Abs(auxVecNorm.z)*1.34) || (-auxVecNorm.z < 0 && Math::Abs(auxVecNorm.z) >= Math::Abs(auxVecNorm.x)*0.74))
 		auxOffImp = Vector3(0, esco->getOffset().y - 0.004, 0);
 	else 
-		auxOffImp = Vector3(0, esco->getOffset().y, 0);
+		auxOffImp = Vector3(0, esco->getOffset().y+0.003, 0);
 	pos2 += (pos - (esco->getGameObject()->getParent()->getGlobalPosition() + auxVecFinal + auxOffImp))*10;
 	direccion = pos2 - pos;
 	playerController = scene->getGameObject("Player")->getComponent<PlayerController>();
