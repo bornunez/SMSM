@@ -9,9 +9,12 @@ class WeaponBullet: public RigidBodyComponent
 private:
 	float speed = 1;
 	int grav;
+	float actGrav = 0;
 	float linDamp, angDamp;
 	Vector3 direccion;
 	PlayerController* playerController;
+	float deathTime = 3;
+	float actDeathTime = 0;
 
 public:
 	WeaponBullet(GameObject* obj);

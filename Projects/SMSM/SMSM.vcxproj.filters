@@ -105,16 +105,14 @@
     <ClCompile Include="..\..\Src\Game\Mapa\MapHandler.cpp">
       <Filter>Mapa</Filter>
     </ClCompile>
-<<<<<<< HEAD
     <ClCompile Include="..\..\Src\Game\Armas\ShotgunBullet.cpp">
       <Filter>Armas</Filter>
-=======
+	</ClCompile>
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\SpawnOnDestroy.cpp">
       <Filter>Componentes\Enemies</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.cpp">
       <Filter>Componentes\Enemies</Filter>
->>>>>>> master
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

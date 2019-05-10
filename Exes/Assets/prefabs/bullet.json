@@ -25,7 +25,7 @@
 			"gravity":-25,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"speed": 30,
+			"speed": 50,
 			"recoilTime": 0
 		}
 	]
