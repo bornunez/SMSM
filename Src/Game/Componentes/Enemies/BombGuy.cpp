@@ -39,6 +39,7 @@ void BombGuy::Update()
 		if (estado == state::IDLE) {
 			if (absDist < chaseDist) {
 				estado = state::CHASING;
+				meshRend->PlayAnimation("Move", true);
 			}
 		}
 		else if (estado == state::CHASING) {
@@ -55,7 +56,7 @@ void BombGuy::Update()
 				rb->setLinearVelocity(btVector3(0, 0, 0));
 				estado = state::EXPLODING;
 				meshRend->StopAnimation(true);
-				//meshRend->PlayAnimation("EXPLOTIDO");
+				meshRend->PlayAnimation("Explode", true);
 			}
 		}
 		else if (estado == state::EXPLODING) {

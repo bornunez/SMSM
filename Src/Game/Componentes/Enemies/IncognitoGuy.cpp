@@ -12,7 +12,7 @@ void IncognitoGuy::Start() {
 
 	meshRend->InitAnimations();
 
-	meshRend->PlayAnimation("Move", true);
+	meshRend->PlayAnimation("Idle", true);
 	meshRend->AnimationSpeed(2);
 
 	gameObject->setScale(scale);
@@ -21,8 +21,6 @@ void IncognitoGuy::Start() {
 
 	rng = default_random_engine{};
 
-	xVec.resize(posVec.size() * 2);
-	zVec.resize(posVec.size() * 2);
 	for (int i = 0; i<posVec.size(); i++) {
 		xVec.push_back(posVec[i]);
 		zVec.push_back(posVec[i]);
@@ -100,24 +98,25 @@ void IncognitoGuy::Teleport()
 	curT.setOrigin(newOrigin);
 	rb->setWorldTransform(curT);
 
-	cout << "Pos X: " << newOrigin.x() << " Pos Y: " << newOrigin.z() << endl;
+	//cout << "Pos X: " << newOrigin.x() << " Pos Y: " << newOrigin.z() << endl;
 
-	btTransform testT;
-	rb->getMotionState()->getWorldTransform(testT);
-	btVector3 testOrigin = testT.getOrigin();
+	//btTransform testT;
+	//rb->getMotionState()->getWorldTransform(testT);
+	//btVector3 testOrigin = testT.getOrigin();
 
-	cout << "New X: " << testOrigin.x() << " New Y: " << testOrigin.z() << endl;
+	//cout << "New X: " << testOrigin.x() << " New Y: " << testOrigin.z() << endl;
 
 	// Generar particulas
 	//scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
 	posIndex++;
 
-	if (posIndex > (xVec.size())) {
+	if (posIndex >= xVec.size()) {
 		RandomizeVecs();
 		posIndex = 0;
 	}
 
-	rb->clearForces();
+	rb->setLinearVelocity({ 0, 0, 0 });
+	rb->setAngularVelocity({ 0, 0, 0 });
 }
 
 void IncognitoGuy::RandomizeVecs()
