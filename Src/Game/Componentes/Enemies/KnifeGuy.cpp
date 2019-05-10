@@ -13,13 +13,16 @@ void KnifeGuy::Start() {
 
 	meshRend->PlayAnimation("Move", true);
 	meshRend->AnimationSpeed(2);
+	gameObject->setScale(scale);
+
 }
 
 void KnifeGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setGravity(btVector3(0, obj["gravity"], 0));
 	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
+	scale = obj["scale"];
+	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
 	Enemy::alive = true;
 }

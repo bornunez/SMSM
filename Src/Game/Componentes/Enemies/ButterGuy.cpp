@@ -12,14 +12,17 @@ void ButterGuy::Start() {
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
 
+	gameObject->setScale(scale);
+
 	tm = TimeManager::getInstance();
 }
 
 void ButterGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setGravity(btVector3(0, obj["gravity"], 0));
 	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
+	gravity = obj["gravity"];
+	scale = obj["scale"];
 	moveSpeed = obj["moveSpeed"];
 	dist = obj["dist"];
 	distFactor = obj["distFactor"];

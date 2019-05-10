@@ -29,6 +29,7 @@
 		{
 			"type":"ButterGuy",
 			"moveSpeed":8,
+			"scale": 0.4,
 			"dist":6,
 			"distFactor":1.5,
 			"gravity":-15,

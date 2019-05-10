@@ -19,6 +19,9 @@ void Enemy::Start()
 
 	rbComp = gameObject->getComponent<EnemyRigidBody>();
 	rb = rbComp->getRB();
+
+	rb->setGravity(btVector3(0, gravity, 0));
+
 	alive = true;
 }
 

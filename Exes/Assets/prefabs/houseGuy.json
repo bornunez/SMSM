@@ -29,13 +29,15 @@
 		{
 			"type":"HouseGuy",
 			"moveSpeed":4,
+			"scale": 0.5,
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"spawnTime":2,
+			"spawnTime":3.5,
 			"speedTime":1,
-			"spawnDelay":0.5,
-			"spawnDistance":0.4
+			"spawnDelay":1.2,
+			"spawnDistance":2,
+			"onDeathSpawns":3
 		},
 		{
 			"type":"ParticleSystem",
