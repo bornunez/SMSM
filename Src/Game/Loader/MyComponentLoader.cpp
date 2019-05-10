@@ -74,6 +74,10 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new EnemyBullet(gameObject);
 	else if (c_type == "HouseGuy")
 		c = new HouseGuy(gameObject);
+	else if (c_type == "BombGuy")
+		c = new BombGuy(gameObject);
+	else if (c_type == "IncognitoGuy")
+		c = new IncognitoGuy(gameObject);
 	else if (c_type == "SkipRoom")
 		c = new SkipRoom(gameObject);
 	else if (c_type == "MapHandler")
