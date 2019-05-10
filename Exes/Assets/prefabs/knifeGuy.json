@@ -21,14 +21,14 @@
 			"offsetY":0,
 			"offsetZ":0,
 			"isTrigger":true,
-			"sizeX": 0.4,
-			"sizeY": 0.4,
-			"sizeZ": 0.4,
+			"sizeX": 0.3,
+			"sizeY": 0.3,
+			"sizeZ": 0.3,
 			"recoilTime": 0
 		},
 		{
 			"type":"KnifeGuy",
-			"scale": 0.4,
+			"scale": 0.3,
 			"moveSpeed":6,
 			"gravity":-15,
 			"linDamp":0.2,
