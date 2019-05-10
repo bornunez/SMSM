@@ -21,11 +21,13 @@ void IncognitoGuy::Start() {
 
 	rng = default_random_engine{};
 
-	xVec.resize(1 + tpFactor * 2);
-	zVec.resize(1 + tpFactor * 2);
-	for (int i = -tpFactor; i++; i <= tpFactor) {
-		xVec.push_back(i);
-		zVec.push_back(i);
+	xVec.resize(posVec.size() * 2);
+	zVec.resize(posVec.size() * 2);
+	for (int i = 0; i<posVec.size(); i++) {
+		xVec.push_back(posVec[i]);
+		zVec.push_back(posVec[i]);
+		xVec.push_back(-(float)posVec[i]);
+		zVec.push_back(-(float)posVec[i]);
 	}
 	
 	RandomizeVecs();
@@ -38,7 +40,7 @@ void IncognitoGuy::LoadFromFile(json obj)
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
 	tpTime = obj["tpTime"];
-	tpFactor = obj["tpFactor"];
+	posVec = obj["posVec"];
 
 	Enemy::alive = true;
 }
@@ -93,18 +95,29 @@ void IncognitoGuy::Teleport()
 	rb->getMotionState()->getWorldTransform(curT);
 
 	// Sumamos desplazamiento y aplicamos transform
-	curT.setOrigin(curT.getOrigin() + btVector3{ btScalar(xVec[posIndex]), 0, btScalar(zVec[posIndex])});
-	rb->getMotionState()->setWorldTransform(curT);
+	btVector3 newOrigin = btVector3{xVec[posIndex], 0, zVec[posIndex]};
+	newOrigin += curT.getOrigin();
+	curT.setOrigin(newOrigin);
+	rb->setWorldTransform(curT);
+
+	cout << "Pos X: " << newOrigin.x() << " Pos Y: " << newOrigin.z() << endl;
+
+	btTransform testT;
+	rb->getMotionState()->getWorldTransform(testT);
+	btVector3 testOrigin = testT.getOrigin();
+
+	cout << "New X: " << testOrigin.x() << " New Y: " << testOrigin.z() << endl;
 
 	// Generar particulas
-	scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
+	//scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
 	posIndex++;
 
-	if (posIndex > (tpFactor * 2)) {
+	if (posIndex > (xVec.size())) {
 		RandomizeVecs();
 		posIndex = 0;
 	}
 
+	rb->clearForces();
 }
 
 void IncognitoGuy::RandomizeVecs()

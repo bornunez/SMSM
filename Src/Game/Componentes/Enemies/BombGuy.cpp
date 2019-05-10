@@ -61,7 +61,7 @@ void BombGuy::Update()
 		else if (estado == state::EXPLODING) {
 			expTimer += tm->getDeltaTime();
 			if (expTimer >= expTime) {
-				Explode();
+				OnDeath();
 			}
 		}
 		float angle = atan2(auxVec.x, auxVec.z);
@@ -85,6 +85,7 @@ void BombGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+	Explode();
 }
 
 void BombGuy::Spawn()
@@ -95,7 +96,14 @@ void BombGuy::Explode()
 {
 	//crear particulas
 	scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
-	//Crear explosion
-	HP = 0;
-	Enemy::OnHit();
+	//Calcular explosion
+	Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
+	float absDist = abs(auxVec.x) + abs(auxVec.z);
+	if (absDist < expRadius) {
+		//Enviar daño a jugador
+		cout << "jugador caiste en mi trampa whahahhaahhh" << endl;
+	}
+
+	//Sonido explosion
+
 }
