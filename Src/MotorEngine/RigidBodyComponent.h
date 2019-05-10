@@ -46,6 +46,8 @@ protected:
 	float height;
 	float radius;
 
+	float gravity = -1;
+
 private:
 	float timeSinceLastHit = 0;
 };
