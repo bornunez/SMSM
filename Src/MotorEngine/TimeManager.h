@@ -10,15 +10,8 @@ private:
 	int fps;
 	float globalTime = 1;
 public:
-	static TimeManager* getInstance()
-	{
-		if (instance == 0)
-		{
-			instance = new TimeManager();
-		}
-
-		return instance;
-	};
+	static TimeManager* getInstance();
+	static void ResetInstance();
 	TimeManager();
 	~TimeManager();
 	void Update();

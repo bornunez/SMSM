@@ -16,6 +16,8 @@ public:
 
 		return instance;
 	};
+
+	static void ResetInstance();
 	void init();
 	SoundSystemClass soundSystem;
 	std::map<string, string> sounds;

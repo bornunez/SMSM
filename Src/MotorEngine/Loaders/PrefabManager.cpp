@@ -12,6 +12,12 @@ PrefabManager::~PrefabManager()
 {
 }
 
+void PrefabManager::ResetInstance()
+{
+	delete instance; 
+	instance = nullptr; 
+}
+
 PrefabManager * PrefabManager::getInstance()
 {
 	if (instance == nullptr)

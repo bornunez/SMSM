@@ -7,6 +7,7 @@ class myDebugDrawer: public btIDebugDraw
 public:
 	myDebugDrawer();
 	virtual ~myDebugDrawer() {};
+	static void ResetInstance();
 
 	static myDebugDrawer* Instance(Ogre::SceneManager* m = nullptr);
 

@@ -15,7 +15,7 @@ public:
 	RoomManager();
 	~RoomManager();
 	static RoomManager* getInstance();
-
+	static void ResetInstance();
 	Room* GetRoom(int index);
 	void SetActiveRoom(Room* r) { currRoom = r; }
 	Room* GetActiveRoom() { return currRoom; }	

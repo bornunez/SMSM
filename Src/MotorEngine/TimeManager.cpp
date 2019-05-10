@@ -21,3 +21,19 @@ void TimeManager::Update()
 TimeManager::~TimeManager()
 {
 }
+
+TimeManager * TimeManager::getInstance()
+{
+	if (instance == 0)
+	{
+		instance = new TimeManager();
+	}
+
+	return instance;
+}
+
+void TimeManager::ResetInstance()
+{
+	delete instance;
+	instance = nullptr;
+}

@@ -6,7 +6,13 @@ GameSceneManager::GameSceneManager(Game* g, string scenesFolder) : game(g), root
 {
 }
 
-GameSceneManager::~GameSceneManager() {}
+GameSceneManager::~GameSceneManager() {
+
+	for (auto current = scenes_.begin(); current != scenes_.end(); ++current) {
+		delete current->second;
+	}
+	scenes_.clear();
+}
 
 struct pathToString
 {

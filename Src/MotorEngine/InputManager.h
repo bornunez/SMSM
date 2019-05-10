@@ -24,7 +24,7 @@ public:
 		*/
 	static void CreateInstance(Ogre::RenderWindow* window);
 
-
+	static void ResetInstance();
 	//KeyBoard
 
 	/**

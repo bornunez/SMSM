@@ -29,28 +29,6 @@ PhysicsManager::PhysicsManager()
 
 PhysicsManager::~PhysicsManager()
 {
-	std::deque<btRigidBody*>::iterator itBody = _bodies.begin();
-
-	while (itBody != _bodies.end()) {
-		delete *itBody;
-		++itBody;
-	}
-
-	std::deque<btCollisionShape*>::iterator itShape = _shapes.begin();
-
-	while (itShape != _shapes.end()) {
-		delete *itShape;
-		++itShape;
-	}
-
-	_bodies.clear();
-	_shapes.clear();
-
-	delete _world;
-	delete _solver;
-	delete _broadphase;
-	delete _dispatcher;
-	delete _collisionConf;
 }
 
 PhysicsManager* PhysicsManager::Instance()
@@ -60,6 +38,12 @@ PhysicsManager* PhysicsManager::Instance()
 	}
 
 	return instance;
+}
+
+void PhysicsManager::ResetInstance()
+{
+	delete instance;
+	instance = nullptr;
 }
 
 void PhysicsManager::Update()
@@ -280,6 +264,9 @@ void PhysicsManager::clearRigidBodies()
 
 void PhysicsManager::resetWorld()
 {
+
+	delete _world;
+
 	std::deque<btRigidBody*>::iterator itBody = _bodies.begin();
 
 	while (itBody != _bodies.end()) {
@@ -305,13 +292,13 @@ void PhysicsManager::resetWorld()
 	_shapes.clear();
 	_bulletObjects.clear();
 
-	delete _world;
 	delete _solver;
 	delete _broadphase;
 	delete _dispatcher;
 	delete _collisionConf;
 
-	instance = new PhysicsManager();
+	delete instance;
+	instance = nullptr;
 }
 
 void PhysicsManager::CreateRaycast(btVector3 from, btVector3 to, bool hit, string name)

@@ -15,11 +15,13 @@ Room * RoomManager::AddRoom(int index)
 
 RoomManager::RoomManager()
 {
+	
 }
 
 
 RoomManager::~RoomManager()
 {
+	Destroy();
 }
 
 RoomManager * RoomManager::getInstance()
@@ -27,6 +29,12 @@ RoomManager * RoomManager::getInstance()
 	if (instance == nullptr)
 		instance = new RoomManager();
 	return instance;
+}
+
+void RoomManager::ResetInstance() 
+{
+	delete instance;
+	instance = nullptr;
 }
 
 Room * RoomManager::GetRoom(int index)

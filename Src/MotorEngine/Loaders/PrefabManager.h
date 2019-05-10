@@ -19,7 +19,7 @@ private:
 public:
 	PrefabManager();
 	virtual ~PrefabManager();
-
+	static void ResetInstance();
 	static PrefabManager* getInstance();
 
 	void Init(string path, ComponentLoader* compLoader);
