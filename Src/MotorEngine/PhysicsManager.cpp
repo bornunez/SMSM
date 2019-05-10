@@ -71,13 +71,16 @@ void PhysicsManager::Update()
 				bulletObject* b = getBulletObject(sceneNode);
 
 				//Player
-				if(b->_id == 0)
+				/*if(b->_id == 0)
 					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX() - b->_offSet.x(), trans.getOrigin().getY() - b->_offSet.y(), trans.getOrigin().getZ() - b->_offSet.z()));
-				else
-					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
+				else {
+					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));					
+				}*/
 
 				sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
 				sceneNode->setOrientation(Ogre::Quaternion(orientation.getW(), orientation.getX(), orientation.getY(), orientation.getZ()));
+
+
 			}
 		}
 	}
@@ -168,6 +171,7 @@ btRigidBody * PhysicsManager::CreateBoxCollider(RigidBodyComponent* rb, int id, 
 
 btRigidBody * PhysicsManager::CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float radius, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ)
 {
+	std::cout << "creo balas de radio: " << radius << std::endl;
 	btCollisionShape *newRigidShape;
 	newRigidShape = new btSphereShape(radius);
 	_shapes.push_back(newRigidShape);
@@ -176,7 +180,7 @@ btRigidBody * PhysicsManager::CreateSphereCollider(RigidBodyComponent* rb, int i
 	_bulletObjects.push_back(b);
 
 	btVector3 v(radius, radius, radius);
-	CreateDebugObject(node, 0, 0, v);
+	CreateDebugObject(node, 0, radius, v);
 
 	return CreatePhysicObject(newRigidShape, node, mass, btVector3(posX, posY, posZ), btQuaternion(rotX, rotY, rotZ, 0), restitutionFactor);
 }

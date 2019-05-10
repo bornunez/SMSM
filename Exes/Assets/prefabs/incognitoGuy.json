@@ -1,17 +1,17 @@
 {
-	"prefabName":"BombGuy",
-	"name":"BombGuy",
+	"prefabName":"IncognitoGuy",
+	"name":"IncognitoGuy",
 	"active":true,
 	"isListener":true,
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"pocholo_casa.mesh"
+			"mesh":"pocholo_teletransportador.mesh"
 		},
 		{
 			"type":"EnemyRigidBody",
 			"shape":0,
-			"id":3,
+			"id":6,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":-2,
@@ -21,23 +21,20 @@
 			"offsetY":0,
 			"offsetZ":0,
 			"isTrigger":true,
-			"gravity":-15,
-			"sizeX": 0.25,
-			"sizeY": 0.25,
-			"sizeZ": 0.25,
+			"sizeX": 0.35,
+			"sizeY": 0.35,
+			"sizeZ": 0.35,
 			"recoilTime": 0
 		},
 		{
-			"type":"BombGuy",
-			"moveSpeed":8,
+			"type":"IncognitoGuy",
+			"moveSpeed":4,
 			"scale": 0.4,
-			"chaseDist":14,
-			"expDist":4,
-			"expTime":0.5,
-			"expRadius": 6,
-			"gravity":-15,
+			"gravity":0,
 			"linDamp":0.2,
-			"angDamp":0.2
+			"angDamp":0.2,
+			"tpTime":1.5,
+			"posVec":[2,2.5,3,3.5]
 		},
 		{
 			"type":"ParticleSystem",

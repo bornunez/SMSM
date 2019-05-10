@@ -29,6 +29,7 @@
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\EnemyRigidBody.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\EnemyTest.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\IncognitoGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\KnifeGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\SpawnOnDestroy.cpp" />
@@ -62,6 +63,7 @@
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\EnemyRigidBody.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\EnemyTest.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\IncognitoGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\KnifeGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\SpawnOnDestroy.h" />
