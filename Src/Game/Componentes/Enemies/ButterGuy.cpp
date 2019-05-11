@@ -26,9 +26,7 @@ void ButterGuy::LoadFromFile(json obj)
 	moveSpeed = obj["moveSpeed"];
 	dist = obj["dist"];
 	distFactor = obj["distFactor"];
-	shootSpeed = obj["shootSpeed"];
 	shootTime = obj["shootTime"];
-	dispersion = obj["dispersion"];
 	shootPosX = obj["shootPosX"];
 	shootPosY = obj["shootPosY"];
 	shootPosZ = obj["shootPosZ"];
@@ -60,7 +58,6 @@ void ButterGuy::Update()
 				estado = state::AIMING;
 				rb->setLinearVelocity(btVector3(0, 0, 0));
 				shootTimer = 0;
-			//	meshRend->StopAnimation(true);
 			}
 		}
 		//si esta huyendo...

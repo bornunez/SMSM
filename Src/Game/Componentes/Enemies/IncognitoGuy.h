@@ -10,7 +10,7 @@ class IncognitoGuy :
 	public Enemy
 {
 private:
-	enum state{IDLE, DEAD};
+	enum state{IDLE, AIMING, DEAD};
 	state estado = state::IDLE;
 	MeshRenderer* meshRend = nullptr;
 	float scale = 0;
@@ -21,9 +21,17 @@ private:
 	std::vector<float> xVec;
 	std::vector<float> zVec;
 	int posIndex = 0;
+	bool hasSpawnedPS = false;
 	bool hasTeleported = false;
 
 	json posVec;
+
+	float shootDist = 0;
+	float shootTime = 0;
+	float shootTimer = 0;
+	float shootPosX = 0;
+	float shootPosY = 0;
+	float shootPosZ = 0;
 
 	TimeManager* tm = nullptr;
 
@@ -37,7 +45,7 @@ public:
 	virtual void Spawn();
 	void Teleport();
 	void RandomizeVecs();
-
+	void Shoot();
 
 
 };

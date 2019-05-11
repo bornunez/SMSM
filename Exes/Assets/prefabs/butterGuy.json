@@ -38,8 +38,6 @@
 			"angDamp":0.2,
 			
 			"shootTime":1.5,
-			"shootSpeed":2, 
-			"dispersion":0,
 			"shootPosX":0.5,
 			"shootPosY":0.6,
 			"shootPosZ":0,
