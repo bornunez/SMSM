@@ -32,6 +32,7 @@ void HouseGuy::LoadFromFile(json obj)
 	spawnDistance = obj["spawnDistance"];
 	onDeathSpawns = obj["onDeathSpawns"];
 	Enemy::alive = true;
+	HP = obj["HP"];
 }
 
 

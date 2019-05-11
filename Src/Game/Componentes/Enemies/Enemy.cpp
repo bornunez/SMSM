@@ -5,6 +5,10 @@ Enemy::~Enemy()
 {
 }
 
+void Enemy::LoadFromFile(json obj)
+{
+}
+
 void Enemy::Start()
 {
 	currRoom = RoomManager::getInstance()->GetActiveRoom();
@@ -64,6 +68,7 @@ void Enemy::OnHit()
 		// Crea las particulas
 		scene->Instantiate("DeathPS", gameObject->getGlobalPosition(), 0.1f);
 		HP--;
+		cout << HP << endl;
 		if (HP <= 0) {
 			alive = false;
 			OnDeath();

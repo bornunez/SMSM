@@ -41,6 +41,7 @@ void IncognitoGuy::LoadFromFile(json obj)
 	posVec = obj["posVec"];
 
 	Enemy::alive = true;
+	HP = obj["HP"];
 }
 
 

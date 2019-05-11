@@ -50,7 +50,6 @@ void PlayerController::Update()
 		actRecoverTime += TimeManager::getInstance()->getDeltaTime();
 	}
 	else {
-		cout << "YA ME PUEDEN PEGAR" << endl;
 		invulnerability = false;
 		actRecoverTime = 0;
 	}
@@ -151,7 +150,6 @@ void PlayerController::modifySensitivity(bool v)
 void PlayerController::receiveDamage()
 {
 	if (!invulnerability && lives > 0) {
-		cout << "SOY INMORTAL" << endl;
 		invulnerability = true;
 		lives--;
 #ifndef _DEBUG
@@ -159,7 +157,7 @@ void PlayerController::receiveDamage()
 #endif
 		if (lives == 0) {
 #ifdef C_DEBUG
-			cout << endl << "AY QUE ME MUERO" << endl << endl;
+			cout << endl << "MUERTE" << endl << endl;
 #endif
 			GUIManager::Instance()->GameOver();
 		}

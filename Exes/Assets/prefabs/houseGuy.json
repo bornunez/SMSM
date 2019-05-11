@@ -11,7 +11,7 @@
 		{
 			"type":"EnemyRigidBody",
 			"shape":0,
-			"id":6,
+			"id":2,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":-2,
@@ -37,7 +37,8 @@
 			"speedTime":1,
 			"spawnDelay":1.2,
 			"spawnDistance":2,
-			"onDeathSpawns":3
+			"onDeathSpawns":3,
+			"HP": 40
 		},
 		{
 			"type":"ParticleSystem",

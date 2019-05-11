@@ -25,6 +25,7 @@ void KnifeGuy::LoadFromFile(json obj)
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
 	Enemy::alive = true;
+	HP = obj["HP"];
 }
 
 

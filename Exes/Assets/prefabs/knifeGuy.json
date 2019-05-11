@@ -24,7 +24,8 @@
 			"sizeX": 0.3,
 			"sizeY": 0.3,
 			"sizeZ": 0.3,
-			"recoilTime": 0
+			"recoilTime": 0,
+			"HP": 30
 		},
 		{
 			"type":"KnifeGuy",

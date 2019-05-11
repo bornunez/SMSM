@@ -11,7 +11,7 @@
 		{
 			"type":"EnemyRigidBody",
 			"shape":0,
-			"id":4,
+			"id":2,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":-2,
@@ -42,7 +42,8 @@
 			"dispersion":0,
 			"shootPosX":0.5,
 			"shootPosY":0.6,
-			"shootPosZ":0
+			"shootPosZ":0,
+			"HP": 20
 		}
 	]
 }

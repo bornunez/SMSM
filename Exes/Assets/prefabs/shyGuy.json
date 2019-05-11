@@ -11,7 +11,7 @@
 		{
 			"type":"EnemyRigidBody",
 			"shape":0,
-			"id":3,
+			"id":2,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":-2,
@@ -37,7 +37,8 @@
 			"linDamp":0.2,
 			"angDamp":0.2,
 			"maxFactor":125,
-			"minFactor":75
+			"minFactor":75,
+			"HP": 1
 		}
 	]
 }
