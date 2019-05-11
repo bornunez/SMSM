@@ -6,7 +6,7 @@
 #include "GameSceneManager.h"
 #include "AudioManager.h"
 #include "GUIManager.h"
-
+#include "ResourcesManager/ParticleManager.h"
 
 Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BLANKSTRING), mPluginsCfg(Ogre::BLANKSTRING), componentLoader(_componentLoader)
 {
@@ -178,7 +178,10 @@ void Game::Play()
 		}
 #endif
 
-		//if (mInputM->getKeyUp(OIS::KeyCode::KC_ESCAPE)) endGame = true;
+		if (mInputM->getKeyUp(OIS::KeyCode::KC_ESCAPE)) {
+			endGame = true;
+		}
+			
 	}
 }
 
@@ -217,5 +220,32 @@ void Game::MessagePump()
 
 Game::~Game()
 {
+	delete componentLoader;
+	delete sceneManager;
+	resourcesManager->ResetInstance();
+	InputManager::ResetInstance();
 	delete mRoot;
+	
+	PrefabManager::ResetInstance();
+
+	TimeManager::ResetInstance();
+	//GUIManager::ResetInstance();
+
+	AudioManager::ResetInstance();
+	// Libera el debug de las colisiones 
+#ifdef DEBUG
+	myDebugDrawer::ResetInstance();
+
+#endif
+
+	//Borrar cosas que solo se utilizan en release
+#ifdef NDEBUG
+	// Da error al borrar
+	//delete GUIManager::Instance();
+	ParticleManager::ResetInstance();
+	
+#endif
+
+		PhysicsManager::Instance()->resetWorld();
+		delete PhysicsManager::Instance();
 }

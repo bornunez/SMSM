@@ -57,11 +57,14 @@ void WeaponBullet::Update()
 {
 	if (!hit)
 	{
+		actGrav += grav* TimeManager::getInstance()->getDeltaTime();
+		if (actDeathTime < deathTime) actDeathTime += TimeManager::getInstance()->getDeltaTime()*playerController->getGameSpeed();
+		else
+		{
+			physicRB->clearForces();
+			gameObject->Destroy();
+		}
 		float finalSpeed = speed * playerController->getGameSpeed();
-		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
-	}
-	else //Se posria hacer aqui un contador para que desapareciese la bala
-	{
-		
+		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed + (actGrav*finalSpeed / 600), direccion.z*finalSpeed));
 	}
 }

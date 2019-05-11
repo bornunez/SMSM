@@ -81,9 +81,6 @@
     <ClInclude Include="..\..\Src\MotorEngine\OISExample.h">
       <Filter>Ejemplos</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\MotorEngine\InputManager.h">
-      <Filter>Ejemplos</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\MotorEngine\MyCamera.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -123,6 +120,12 @@
     <ClInclude Include="..\..\Src\MotorEngine\Components\RandomMeshRenderer.h">
       <Filter>Components</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\InputManager.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\MotorEngine\Components\JukeBox.h">
+      <Filter>Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Game.cpp">
@@ -139,9 +142,6 @@
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\GameObject.cpp">
       <Filter>Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\MotorEngine\AudioEngine.cpp">
-      <Filter>Archivos de origen\Audio</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\AudioManager.cpp">
       <Filter>Archivos de origen\Audio</Filter>
@@ -165,9 +165,6 @@
       <Filter>Core\Loaders</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\OISExample.cpp">
-      <Filter>Ejemplos</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Src\MotorEngine\InputManager.cpp">
       <Filter>Ejemplos</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\MyCamera.cpp">
@@ -207,6 +204,12 @@
       <Filter>Core\ResourcesManager</Filter>
     </ClCompile>
     <ClCompile Include="..\..\Src\MotorEngine\Components\RandomMeshRenderer.cpp">
+      <Filter>Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\InputManager.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\MotorEngine\Components\JukeBox.cpp">
       <Filter>Components</Filter>
     </ClCompile>
   </ItemGroup>

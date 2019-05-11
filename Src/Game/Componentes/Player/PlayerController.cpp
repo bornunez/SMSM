@@ -50,7 +50,7 @@ void PlayerController::handleInput()
 	int currentMouseX = input->getMouseX();
 	int currentMouseY = input->getMouseY();
 	float xInput = input->getMouseXDif() * mouseSensitivity * 1.5;
-	float yInput = input->getMouseYDif() * mouseSensitivity * 0.05;
+	float yInput = input->getMouseYDif() * mouseSensitivity * 0.0225;
 	yAngle += yInput;
 	if (yAngle > 0.7)
 		yAngle = 0.7;

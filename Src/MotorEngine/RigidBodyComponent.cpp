@@ -18,6 +18,9 @@ void RigidBodyComponent::LoadFromFile(json obj)
 
 	isTrigger = obj["isTrigger"];
 
+	if (obj.contains("gravity"))
+		gravity = obj["gravity"];
+
 	switch (shape)
 	{
 		case 0: {
@@ -72,15 +75,24 @@ void RigidBodyComponent::Start()
 	switch (shape)
 	{
 		case 0: {
-			physicRB = PhysicsManager::Instance()->CreateBoxCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z, restitutionFactor, sizeX, sizeY, sizeZ);
+			physicRB = PhysicsManager::Instance()->CreateBoxCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x + offSetX, gameObject->getPosition().y + offSetY, gameObject->getPosition().z + offSetZ, restitutionFactor, sizeX, sizeY, sizeZ);
+			//physicRB = PhysicsManager::Instance()->CreateBoxCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z, restitutionFactor, sizeX, sizeY, sizeZ);
+			if(gravity!=-1)
+				physicRB->setGravity(btVector3(0, gravity, 0));
 			break;
 		}
 		case 1: {
-			physicRB = PhysicsManager::Instance()->CreateCapsuleCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z, restitutionFactor, height, radius);
+			physicRB = PhysicsManager::Instance()->CreateCapsuleCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x + offSetX, gameObject->getPosition().y + offSetY, gameObject->getPosition().z + offSetZ, restitutionFactor, height, radius);
+			//physicRB = PhysicsManager::Instance()->CreateCapsuleCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z, restitutionFactor, height, radius);
+			if (gravity != -1)
+				physicRB->setGravity(btVector3(0, gravity, 0));
 			break;
 		}
 		case 2: {
-			physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z, restitutionFactor, radius);
+			physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x + offSetX, gameObject->getPosition().y + offSetY, gameObject->getPosition().z + offSetZ, restitutionFactor, radius);
+			//physicRB = PhysicsManager::Instance()->CreateSphereCollider(this, id, gameObject->getNode(), mass, gameObject->getPosition().x, gameObject->getPosition().y, gameObject->getPosition().z, restitutionFactor, radius);
+			if (gravity != -1)
+				physicRB->setGravity(btVector3(0, gravity, 0));
 			break;
 		}
 	}

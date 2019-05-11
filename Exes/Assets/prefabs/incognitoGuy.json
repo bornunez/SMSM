@@ -1,0 +1,46 @@
+{
+	"prefabName":"IncognitoGuy",
+	"name":"IncognitoGuy",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"pocholo_teletransportador.mesh"
+		},
+		{
+			"type":"EnemyRigidBody",
+			"shape":0,
+			"id":6,
+			"mass":1,
+			"restFactor":0.5,
+			"positionX":-2,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0,
+			"offsetZ":0,
+			"isTrigger":true,
+			"sizeX": 0.35,
+			"sizeY": 0.35,
+			"sizeZ": 0.35,
+			"recoilTime": 0
+		},
+		{
+			"type":"IncognitoGuy",
+			"moveSpeed":4,
+			"scale": 0.4,
+			"gravity":0,
+			"linDamp":0.2,
+			"angDamp":0.2,
+			"tpTime":0.5,
+			"posVec":[1.5,2,2.5]
+		},
+		{
+			"type":"ParticleSystem",
+			"script":"Poof",
+			"name":"PS",
+			"duration":0.5
+		}
+	]
+}

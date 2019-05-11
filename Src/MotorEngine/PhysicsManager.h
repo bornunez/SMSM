@@ -45,7 +45,8 @@ public:
 	virtual ~PhysicsManager();
 
 	static PhysicsManager* Instance();
-
+	PhysicsManager* getInstance() { return instance; }
+	static void ResetInstance();
 	void Update();
 
 	void DetectCollision();

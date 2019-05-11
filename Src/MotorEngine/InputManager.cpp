@@ -21,12 +21,20 @@ InputManager::~InputManager()
 
 		OIS::InputManager::destroyInputSystem(mInputManager);
 		mInputManager = 0;
+		mMouse = 0;
+		mKeyboard = 0;
 	}
 }
 
 InputManager * InputManager::getInstance()
 {
 	return instance;
+}
+
+void InputManager::ResetInstance()
+{
+	delete instance;
+	instance = nullptr;
 }
 
 void InputManager::CreateInstance(Ogre::RenderWindow * window)

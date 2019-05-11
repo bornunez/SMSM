@@ -54,7 +54,13 @@ void Weapon::handleInput()
 	if ((meshRend->AnimationHasEnded("Shoot") || meshRend->AnimationHasEnded("Reload") || animationPassed == "Move"))
 	{
 		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_W) || 
-			(InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) && (animationPassed == "Shoot" || animationPassed == "Reload")))
+			(InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) && (animationPassed == "Shoot" || animationPassed == "Reload"))||
+			InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_A) ||
+			(InputManager::getInstance()->getKey(OIS::KeyCode::KC_A) && (animationPassed == "Shoot" || animationPassed == "Reload")) || 
+			InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_D) ||
+			(InputManager::getInstance()->getKey(OIS::KeyCode::KC_D) && (animationPassed == "Shoot" || animationPassed == "Reload")) || 
+			InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_S) ||
+			(InputManager::getInstance()->getKey(OIS::KeyCode::KC_S) && (animationPassed == "Shoot" || animationPassed == "Reload")))
 		{
 			animationPassed = "Move";
 			meshRend->PlayAnimation("Move", true, false);
@@ -88,6 +94,10 @@ void Weapon::handleInput()
 }
 void Weapon::reloads()
 {
+	if (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_R) && (!meshRend->isPlaying("Reload")||(meshRend->isPlaying("Reload") && meshRend->AnimationHasEnded("Reload"))))
+	{
+		reload();
+	}
 	if (actReloadTime > reloadTime)
 	{
 		if (actTimePerShot > timePerShot)
@@ -205,6 +215,8 @@ void Weapon::reload()
 	meshRend->AnimationSpeed(reloadSpeed);
 	actMagazine = 0;
 	actReloadTime = 0;
+	actTimePerShot = 0;
+	canShoot = false;
 	if (gameObject->getName() == "Escopeta")
 	{
 		actSpecialReload = 0;

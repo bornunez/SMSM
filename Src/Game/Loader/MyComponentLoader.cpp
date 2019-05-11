@@ -5,6 +5,7 @@
 #include "../Mapa/SkipRoom.h"
 #include "../Mapa/MapHandler.h"
 #include "../Armas/ShotgunBullet.h"
+#include "../../../Src/MotorEngine//Components/JukeBox.h"
 
 MyComponentLoader::MyComponentLoader()
 {
@@ -74,12 +75,18 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new EnemyBullet(gameObject);
 	else if (c_type == "HouseGuy")
 		c = new HouseGuy(gameObject);
+	else if (c_type == "BombGuy")
+		c = new BombGuy(gameObject);
+	else if (c_type == "IncognitoGuy")
+		c = new IncognitoGuy(gameObject);
 	else if (c_type == "SkipRoom")
 		c = new SkipRoom(gameObject);
 	else if (c_type == "MapHandler")
 		c = new MapHandler(gameObject);
 	else if (c_type == "ShotgunBullet")
 		c = new ShotgunBullet(gameObject);
+	else if (c_type == "JukeBox")
+		c = new JukeBox(gameObject);
 	else if (c_type == "SpawnOnDestroy")
 		c = new SpawnOnDestroy(gameObject);
 #ifndef _DEBUG

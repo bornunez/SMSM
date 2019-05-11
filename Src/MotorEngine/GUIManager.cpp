@@ -41,6 +41,12 @@ GUIManager * GUIManager::Instance(Ogre::RenderWindow* w, Game* g)
 	return instance_;
 }
 
+void GUIManager::ResetInstance()
+{
+	delete instance_;
+	instance_ = nullptr;
+}
+
 void GUIManager::Update()
 {
 	checkKeys();

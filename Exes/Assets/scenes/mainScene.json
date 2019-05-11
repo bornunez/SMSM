@@ -13,7 +13,12 @@
 				},
 				{
 					"type":"MapLoader",
-					"path":"Assets/maps/baseRoom.json",
+					"path":"Assets/maps/testRoom.json",
+					"scale":0.5
+				},	
+				{
+					"type":"JukeBox",
+					"song":"BandaSonora1",
 					"scale":0.5
 				}	
 			]

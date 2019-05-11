@@ -35,13 +35,14 @@ void ShotgunBullet::Start()
 	Vector3 auxOffImp;
 	Vector3 auxVecNorm = auxVec;
 	auxVecNorm.normalise();
-	//VARIABLE MAGICA 1.34 Y LA INVERSA 1.74 NO TOCAR
+	//VARIABLE MAGICA 1.34 Y LA INVERSA 0.74 NO TOCAR
 	if((auxVecNorm.x < 0 &&Math::Abs(auxVecNorm.x) >= Math::Abs(auxVecNorm.z)*1.34) || (-auxVecNorm.z < 0 && Math::Abs(auxVecNorm.z) >= Math::Abs(auxVecNorm.x)*0.74))
 		auxOffImp = Vector3(0, esco->getOffset().y - 0.004, 0);
 	else 
-		auxOffImp = Vector3(0, esco->getOffset().y, 0);
+		auxOffImp = Vector3(0, esco->getOffset().y+0.003, 0);
 	pos2 += (pos - (esco->getGameObject()->getParent()->getGlobalPosition() + auxVecFinal + auxOffImp))*10;
 	direccion = pos2 - pos;
+	playerController = scene->getGameObject("Player")->getComponent<PlayerController>();
 	/*direccion = auxVec;
 	direccion.normalise();
 	nuevaDir = gameObject->getGlobalPosition() - (esco->getGameObject()->getParent()->getGlobalPosition() + auxVecFinal + Vector3(0, esco->getOffset().y, 0));
@@ -69,7 +70,7 @@ void ShotgunBullet::LoadFromFile(json obj)
 void ShotgunBullet::collisionHandler(int id)
 {
 	//Destruye la bala cuando colisiona con algo que no sea el jugador
-	if (!hit && id != 0 && id != 1) {
+	if (!hit && id != 0 && id != 1 && id != 10) {
 		hit = true;
 		physicRB->clearForces();
 		gameObject->Destroy();
@@ -80,12 +81,16 @@ void ShotgunBullet::Update()
 {
 	if (!hit)
 	{
-		physicRB->applyCentralImpulse(btVector3(direccion.x*speed, direccion.y*speed, direccion.z*speed));
+		if (actDeathTime < deathTime) actDeathTime += TimeManager::getInstance()->getDeltaTime()*playerController->getGameSpeed();
+		else
+		{
+			physicRB->clearForces();
+			gameObject->Destroy();
+		}
+		float finalSpeed = speed * playerController->getGameSpeed();
+		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
+		//physicRB->applyCentralImpulse(btVector3(0, grav*speed/10, 0));
 		//physicRB->clearForces();
-	}
-	else //Se posria hacer aqui un contador para que desapareciese la bala
-	{
-
 	}
 }
 

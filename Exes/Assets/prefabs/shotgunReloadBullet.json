@@ -17,15 +17,15 @@
 			"positionX":0,
 			"positionY":0,
 			"positionZ":0,
-			"offsetX":0,
-			"offsetY":0,
-			"offsetZ":0,
+			"offsetX":10000,
+			"offsetY":10000,
+			"offsetZ":10000,
 			"isTrigger":true,
 			"radius":0.03,
-			"gravity":-55,
+			"gravity":-175,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"speed": 25,
+			"speed": 50,
 			"recoilTime": 0
 		}
 	]
