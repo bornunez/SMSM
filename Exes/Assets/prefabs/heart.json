@@ -6,7 +6,8 @@
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"Cubo.mesh"
+			"mesh":"Corazon.mesh",
+			"StartAnimation":"Idle"
 		},
 		{
 			"type":"ItemRigidBody",
