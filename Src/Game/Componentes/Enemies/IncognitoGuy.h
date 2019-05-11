@@ -21,6 +21,7 @@ private:
 	std::vector<float> xVec;
 	std::vector<float> zVec;
 	int posIndex = 0;
+	bool hasTeleported = false;
 
 	json posVec;
 

@@ -33,8 +33,10 @@
 			"gravity":0,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"tpTime":0.5,
-			"posVec":[1.5,2,2.5]
+			"tpTime":1,
+			"posVec":[1.5,2,2.5],
+			"HP":15,
+			"heartProb":50
 		},
 		{
 			"type":"ParticleSystem",

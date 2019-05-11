@@ -49,21 +49,24 @@ void IncognitoGuy::LoadFromFile(json obj)
 void IncognitoGuy::Update()
 {
 	if (estado != state::DEAD) {
+		rb->activate();
 		if (estado == state::IDLE) {
+			//Calculo orientacion
+			Ogre::Vector3 dir = player->getPosition() - gameObject->getPosition();
+			//Asignar orientacion
+			rb->getWorldTransform().setRotation(VecToQuat(dir));
 			tpTimer += tm->getDeltaTime();
+			if (!hasTeleported && tpTimer >= tpTime - 0.2f) {
+				// Generar particulas
+				scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
+				hasTeleported = true;
+			}
 			if (tpTimer >= tpTime) {
-				//Teletransportar
-
-				//Calculo orientacion
-				Ogre::Vector3 dir = player->getPosition() - gameObject->getPosition();
-
-				//Asignar orientacion
-				rb->getWorldTransform().setRotation(VecToQuat(dir));
 				rb->clearForces();
-
 				Teleport();
 				tpTimer = 0;
-			}			
+			}		
+
 		}
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
@@ -94,17 +97,6 @@ void IncognitoGuy::Teleport()
 	newOrigin += curT.getOrigin();
 	curT.setOrigin(newOrigin);
 	rb->setWorldTransform(curT);
-
-	//cout << "Pos X: " << newOrigin.x() << " Pos Y: " << newOrigin.z() << endl;
-
-	//btTransform testT;
-	//rb->getMotionState()->getWorldTransform(testT);
-	//btVector3 testOrigin = testT.getOrigin();
-
-	//cout << "New X: " << testOrigin.x() << " New Y: " << testOrigin.z() << endl;
-
-	// Generar particulas
-	//scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
 	posIndex++;
 
 	if (posIndex >= xVec.size()) {
@@ -114,6 +106,11 @@ void IncognitoGuy::Teleport()
 
 	rb->setLinearVelocity({ 0, 0, 0 });
 	rb->setAngularVelocity({ 0, 0, 0 });
+
+
+	// Generar particulas
+	scene->Instantiate("PoofPS", { newOrigin.x(), newOrigin.y(), newOrigin.z() }, 0.025f);
+	hasTeleported = false;
 }
 
 void IncognitoGuy::RandomizeVecs()
