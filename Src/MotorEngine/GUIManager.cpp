@@ -340,6 +340,7 @@ void GUIManager::toggleMenu()
 		pauseHUD = false;
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
 		
+		g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHealth();
 		g_->ChangeScene("menuScene");
 	}
 }

@@ -55,6 +55,7 @@ public:
 	
 	void receiveDamage();
 	void gainHealth();
+	void hideHealth();
 
 	Vector3 getPlayerDirection();
 
