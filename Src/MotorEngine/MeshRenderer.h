@@ -6,6 +6,7 @@ class MeshRenderer : public Component
 private:
 	string meshName;
 	string materialName;
+	string startAnim = "";
 	Ogre::Entity* entity;
 	std::vector<Ogre::AnimationState*> animationStates;
 	void Update();

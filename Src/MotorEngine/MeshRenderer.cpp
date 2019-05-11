@@ -18,6 +18,11 @@ void MeshRenderer::LoadFromFile(json obj)
 {
 	Component::LoadFromFile(obj);
 	string mesh = obj["mesh"];
+	if (obj.contains("StartAnimation"))
+	{
+		string animAux = obj["StartAnimation"];
+		startAnim = animAux;
+	}
 	meshName = mesh;
 
 	if (obj.find("material") != obj.end()) {
@@ -45,6 +50,11 @@ void MeshRenderer::Start()
 #endif
 	if (!started) {
 		gameObject->AddEntity(entity);
+	}
+	if (startAnim != "")
+	{
+		InitAnimations();
+		PlayAnimation(startAnim, true);
 	}
 }
 
