@@ -6,7 +6,7 @@
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"wall_corUR.mesh"
+			"mesh":"wall_corUL.mesh"
 		},
 		{
 			"type":"ObstacleRB",
