@@ -145,8 +145,11 @@ void GameObject::AddEntity(Ogre::MovableObject * entity)
 	auto it = entities.begin();
 	while (it != entities.end() && *it != entity)
 		it++;
-	if (it != entities.end())
+	if (it != entities.end()) {
+#ifdef C_DEBUG
 		cout << "ERROR: La entidad: " << entity->getName() << " del objeto " << name << " ya ha sido añadida" << endl;
+#endif
+	}
 	else {
 		mNode->attachObject(entity);
 		entities.push_back(entity);
@@ -163,7 +166,9 @@ void GameObject::RemoveEntity(Ogre::MovableObject * entity)
 		entities.remove(entity);
 	}
 	else {
+#ifdef C_DEBUG
 		cout << "ERROR: La entidad: " << entity->getName() << " del objeto " << name << " ya ha sido eliminada" << endl;
+#endif
 	}
 }
 

@@ -12,12 +12,19 @@ void Enemy::LoadFromFile(json obj)
 void Enemy::Start()
 {
 	currRoom = RoomManager::getInstance()->GetActiveRoom();
-	if (currRoom == nullptr)
+	if (currRoom == nullptr) {
+#ifdef C_DEBUG
 		cout << "ERROR: El enemigo no tiene asignada una sala" << endl;
+#endif
+	}
 	currRoom->AddEnemy();
 
 	player = scene->getGameObject("Player");
-	if(player==nullptr) cout << "ERROR: No se ha encontrado el player en " << gameObject->getName() << endl;
+	if (player == nullptr) {
+#ifdef C_DEBUG
+		cout << "ERROR: No se ha encontrado el player en " << gameObject->getName() << endl;
+#endif
+	}
 
 	playerController = player->getComponent<PlayerController>();
 
