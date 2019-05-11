@@ -17,7 +17,7 @@ void JukeBox::Awake()
 
 void JukeBox::Start()
 {
-	AudioManager::getInstance()->playSound(song, true, 1, CHANNEL::Fondo);
+	AudioManager::getInstance()->playSound(song, true, 0.3, CHANNEL::Fondo);
 }
 
 void JukeBox::LoadFromFile(json obj)
