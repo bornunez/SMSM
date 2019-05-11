@@ -41,6 +41,7 @@ void ButterGuy::LoadFromFile(json obj)
 void ButterGuy::Update()
 {
 	if (estado != state::DEAD) {
+		rb->activate();
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		float absDist = abs(auxVec.x) + abs(auxVec.z);
 		//No esta tan cerca como para tener que alejarse

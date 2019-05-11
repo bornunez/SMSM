@@ -32,6 +32,7 @@ void KnifeGuy::LoadFromFile(json obj)
 void KnifeGuy::Update()
 {
 	if (estado == state::ALIVE) {
+		rb->activate();
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		auxVec.normalise(); 
 		auxVec *= (moveSpeed * playerController->getGameSpeed());

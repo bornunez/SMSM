@@ -35,6 +35,7 @@ void BombGuy::LoadFromFile(json obj)
 void BombGuy::Update()
 {
 	if (estado != state::DEAD) {
+		rb->activate();
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		float absDist = abs(auxVec.x) + abs(auxVec.z);
 		if (estado == state::IDLE) {
