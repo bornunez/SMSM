@@ -34,13 +34,9 @@ void PlayerController::Start()
 	if (brazo == nullptr)
 		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
 
-	if (brazo->GetChild("Sangre") == nullptr)
-		cout << "ERROR: No se ha encontrado el hijo sangre en player" << endl;
-	else
-		sangre = brazo->GetChild("Sangre")->getComponent<MeshRenderer>();
-	
-	// Se carga y despues se desactiva 
-	sangre->SetEnabled(false);
+	// Crea el compositor para la sangre en pantalla al contacto
+	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Blood");
+	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Blood", false);
 
 #ifndef _DEBUG
 	for (int i = 0; i < lives; i++) {
@@ -68,7 +64,7 @@ void PlayerController::handleInput()
 		yAngle = 0.7;
 	else if (yAngle < -0.7)
 		yAngle = -0.7;
-	//cout << "Angulo Y: "<< yAngle << endl;
+
 	//// Reset mouse if it hits a window border
 	if (currentMouseX == scene->getGame()->getRenderWindow()->getWidth() || currentMouseX == 0)
 		input->CenterMouse();
@@ -132,7 +128,6 @@ void PlayerController::modifySensitivity(bool v)
 			mouseSensitivity = 0.5f;		
 		else 
 			sensitivityLevel++;
-		
 	}
 	else {
 		mouseSensitivity -= 0.05f;
@@ -151,7 +146,7 @@ void PlayerController::receiveDamage()
 {
 	if (!invulnerability && lives > 0) {
 		
-		sangre->SetEnabled(true);
+		CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Blood", true);
 
 		invulnerability = true;
 		lives--;
@@ -195,7 +190,7 @@ void PlayerController::SetInvulnerability() {
 		actRecoverTime += TimeManager::getInstance()->getDeltaTime();
 		// Cuando se llega  a la mitad del tiempo de invulnerable se quita la sangre en pantalla
 		if (actRecoverTime > (recoverTime / 2)) {
-			sangre->SetEnabled(false);
+			CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Blood", false);
 		}
 		
 	}
@@ -203,6 +198,4 @@ void PlayerController::SetInvulnerability() {
 		invulnerability = false;
 		actRecoverTime = 0;
 	}
-
-	
 }

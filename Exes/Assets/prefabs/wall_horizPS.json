@@ -1,0 +1,36 @@
+{
+	"prefabName":"WallHorizPS",
+	"name":"WallHorizPS",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"wall_horiz.mesh"
+		},
+		{
+			"type":"ObstacleRB",
+			"shape":0,
+			"id":10,
+			"mass":0,
+			"restFactor":0,
+			"positionX":0,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0,
+			"offsetZ":0,
+			"isTrigger":false,
+			"sizeX":0.65,
+			"sizeY":1,
+			"sizeZ":0.65
+		},
+		{
+			"type":"ParticleSystem",
+			"script":"BigPoof",
+			"name":"BigPoof",
+			"duration":0.5
+		}
+
+	]
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="3909">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="3989">
  <tileset firstgid="1" source="City.tsx"/>
  <layer id="3" name="Capa de Patrones 1" width="100" height="100" locked="1">
   <data encoding="base64" compression="zlib">
@@ -52,7 +52,7 @@
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="606" gid="139" x="384" y="288" width="4" height="4">
+  <object id="606" gid="139" x="388" y="292" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -188,11 +188,6 @@
    </properties>
   </object>
   <object id="633" gid="139" x="320" y="396" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="636" gid="139" x="388" y="292" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -389,7 +384,7 @@
   </object>
   <object id="1208" gid="146" x="324" y="288" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="1212" gid="146" x="340" y="288" width="4" height="4">
@@ -674,512 +669,512 @@
   </object>
   <object id="1828" gid="139" x="324" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1830" gid="139" x="364" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1831" gid="139" x="368" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1832" gid="139" x="372" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1833" gid="139" x="376" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1834" gid="139" x="380" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1835" gid="139" x="384" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1836" gid="139" x="388" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="1837" gid="139" x="388" y="132" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1838" gid="139" x="388" y="136" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1839" gid="139" x="388" y="140" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1840" gid="139" x="388" y="144" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1841" gid="139" x="388" y="148" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1842" gid="139" x="388" y="152" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1843" gid="139" x="388" y="156" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1844" gid="139" x="388" y="160" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1845" gid="139" x="388" y="164" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1846" gid="139" x="388" y="168" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1847" gid="139" x="388" y="172" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1848" gid="139" x="388" y="176" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1849" gid="139" x="296" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1850" gid="139" x="300" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1851" gid="139" x="304" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1852" gid="139" x="308" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1853" gid="139" x="312" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1854" gid="139" x="316" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1855" gid="139" x="356" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1856" gid="139" x="352" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1857" gid="139" x="348" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1858" gid="139" x="344" y="228" width="4" height="4">
+  <object id="1858" gid="139" x="384" y="288" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
   <object id="1859" gid="139" x="340" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1862" gid="139" x="320" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1863" gid="139" x="388" y="124" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1864" gid="139" x="388" y="128" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1865" gid="139" x="280" y="224" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1867" gid="146" x="280" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="1868" gid="146" x="284" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1869" gid="146" x="288" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1870" gid="146" x="292" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1871" gid="146" x="360" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1872" gid="146" x="364" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1873" gid="146" x="368" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1874" gid="146" x="372" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1875" gid="146" x="376" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1876" gid="146" x="380" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1877" gid="146" x="384" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1878" gid="146" x="388" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallCorUL"/>
    </properties>
   </object>
   <object id="1879" gid="146" x="388" y="224" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1880" gid="146" x="388" y="220" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1881" gid="146" x="388" y="216" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1882" gid="146" x="388" y="212" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1883" gid="146" x="388" y="208" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1884" gid="146" x="388" y="204" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1885" gid="146" x="388" y="200" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1886" gid="146" x="388" y="196" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1887" gid="146" x="388" y="192" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1888" gid="146" x="388" y="188" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1889" gid="146" x="388" y="184" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1890" gid="146" x="388" y="180" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1891" gid="146" x="280" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
   <object id="1892" gid="146" x="284" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1893" gid="146" x="288" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1894" gid="146" x="292" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1895" gid="146" x="296" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1896" gid="146" x="300" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1897" gid="146" x="304" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1898" gid="146" x="308" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1899" gid="146" x="312" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1900" gid="146" x="320" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1901" gid="146" x="316" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1902" gid="146" x="324" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1903" gid="146" x="340" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1904" gid="146" x="344" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1905" gid="146" x="348" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1906" gid="146" x="352" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1907" gid="146" x="360" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1908" gid="146" x="356" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1909" gid="139" x="280" y="136" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1910" gid="146" x="280" y="128" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1911" gid="146" x="280" y="124" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1912" gid="146" x="280" y="132" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1913" gid="139" x="280" y="208" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1914" gid="139" x="280" y="204" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1915" gid="139" x="280" y="200" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1916" gid="139" x="280" y="196" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1917" gid="139" x="280" y="192" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1918" gid="139" x="280" y="188" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1919" gid="139" x="280" y="184" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1920" gid="139" x="280" y="180" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1921" gid="139" x="280" y="176" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1922" gid="139" x="280" y="172" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1923" gid="139" x="280" y="168" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1924" gid="139" x="280" y="164" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1925" gid="139" x="280" y="160" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1926" gid="139" x="280" y="156" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1927" gid="139" x="280" y="152" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1928" gid="139" x="280" y="148" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1929" gid="139" x="280" y="144" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1930" gid="139" x="280" y="140" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1931" gid="146" x="328" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1932" gid="146" x="332" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1933" gid="146" x="336" y="120" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2156" gid="146" x="276" y="224" width="4" height="4">
@@ -2387,6 +2382,249 @@
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
+  <object id="3909" gid="139" x="344" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallHoriz"/>
+   </properties>
+  </object>
+  <object id="3923" gid="146" x="269.75" y="161.125" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUL"/>
+   </properties>
+  </object>
+  <object id="3924" gid="139" x="265.75" y="161.125" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallHoriz"/>
+   </properties>
+  </object>
+  <object id="3925" gid="146" x="269.75" y="157.125" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallVert"/>
+   </properties>
+  </object>
+  <object id="3926" gid="146" x="265.75" y="153.125" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallHoriz"/>
+   </properties>
+  </object>
+  <object id="3927" gid="146" x="261.75" y="157.125" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallVert"/>
+   </properties>
+  </object>
+  <object id="3928" gid="146" x="269.75" y="153.125" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3929" gid="146" x="261.75" y="153.125" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3930" gid="146" x="261.75" y="161.125" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUR"/>
+   </properties>
+  </object>
+  <object id="3931" gid="146" x="360" y="204" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3932" gid="146" x="360" y="204" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3933" gid="146" x="360" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallCorUL"/>
+   </properties>
+  </object>
+  <object id="3934" gid="139" x="356" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallHoriz"/>
+   </properties>
+  </object>
+  <object id="3935" gid="146" x="360" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallVert"/>
+   </properties>
+  </object>
+  <object id="3936" gid="146" x="356" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallHoriz"/>
+   </properties>
+  </object>
+  <object id="3937" gid="146" x="352" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallVert"/>
+   </properties>
+  </object>
+  <object id="3938" gid="146" x="360" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3939" gid="146" x="352" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3940" gid="146" x="352" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallCorUR"/>
+   </properties>
+  </object>
+  <object id="3941" gid="146" x="336" y="204" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUL"/>
+   </properties>
+  </object>
+  <object id="3942" gid="146" x="336" y="204" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUR"/>
+   </properties>
+  </object>
+  <object id="3943" gid="146" x="348" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3944" gid="146" x="348" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3945" gid="146" x="308" y="188" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3946" gid="146" x="308" y="188" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3949" gid="146" x="356" y="132" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUR"/>
+   </properties>
+  </object>
+  <object id="3950" gid="146" x="348" y="132" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3951" gid="146" x="348" y="132" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3952" gid="146" x="336" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3953" gid="146" x="336" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3954" gid="146" x="356" y="120" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3955" gid="146" x="356" y="120" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3956" gid="146" x="320" y="120" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3957" gid="146" x="320" y="120" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3958" gid="146" x="304" y="120" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3959" gid="146" x="304" y="120" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3960" gid="146" x="280" y="188" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUR"/>
+   </properties>
+  </object>
+  <object id="3961" gid="146" x="280" y="188" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="3985" gid="146" x="320" y="228" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUL"/>
+   </properties>
+  </object>
+  <object id="3986" gid="146" x="320" y="228" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUR"/>
+   </properties>
+  </object>
+  <object id="3987" gid="146" x="344" y="228" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUR"/>
+   </properties>
+  </object>
+  <object id="3988" gid="146" x="344" y="228" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUL"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="9" name="Player" visible="0" locked="1">
   <object id="638" gid="151" x="336" y="380" width="4" height="4">
@@ -2414,19 +2652,13 @@
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="847" gid="83" x="320" y="372" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
   <object id="851" gid="83" x="348" y="316" width="4" height="4">
    <properties>
     <property name="KnifeGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1766" gid="83" x="324" y="356" width="4" height="4">
+  <object id="1766" gid="83" x="324" y="344" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
@@ -2438,19 +2670,7 @@
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1768" gid="83" x="336" y="352" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="1769" gid="83" x="352" y="372" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="1770" gid="83" x="348" y="356" width="4" height="4">
+  <object id="1770" gid="83" x="348" y="344" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
@@ -2468,19 +2688,7 @@
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1773" gid="83" x="320" y="360" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
   <object id="1774" gid="83" x="328" y="352" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="1775" gid="83" x="332" y="344" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
@@ -2492,19 +2700,7 @@
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1777" gid="83" x="340" y="344" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
   <object id="1778" gid="83" x="344" y="352" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="1779" gid="83" x="352" y="360" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
@@ -2544,7 +2740,7 @@
     <property name="spawner" type="int" value="2"/>
    </properties>
   </object>
-  <object id="2182" gid="83" x="376" y="180" width="4" height="4">
+  <object id="2182" gid="83" x="380" y="180" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="2"/>
@@ -2568,13 +2764,13 @@
     <property name="spawner" type="int" value="2"/>
    </properties>
   </object>
-  <object id="2186" gid="83" x="288" y="152" width="4" height="4">
+  <object id="2186" gid="83" x="304" y="144" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="2"/>
    </properties>
   </object>
-  <object id="2187" gid="83" x="328" y="184" width="4" height="4">
+  <object id="2187" gid="83" x="312" y="156" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="2"/>
@@ -2703,1105 +2899,1051 @@
   <object id="1941" gid="687" x="320" y="224" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="1942" gid="687" x="320" y="220" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="1943" gid="687" x="320" y="216" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="1944" gid="687" x="320" y="212" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="1945" gid="687" x="320" y="208" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="1946" gid="687" x="320" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
   <object id="1947" gid="687" x="324" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1948" gid="687" x="328" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1949" gid="687" x="332" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1950" gid="687" x="336" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1951" gid="687" x="340" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1952" gid="687" x="344" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1956" gid="687" x="348" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1957" gid="687" x="352" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1958" gid="687" x="356" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1959" gid="687" x="360" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHorizPS"/>
    </properties>
   </object>
   <object id="1960" gid="687" x="364" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1961" gid="687" x="368" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1962" gid="687" x="372" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1963" gid="687" x="376" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUL"/>
    </properties>
   </object>
   <object id="1964" gid="687" x="376" y="200" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1965" gid="687" x="376" y="196" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1966" gid="687" x="376" y="192" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1967" gid="687" x="376" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1968" gid="687" x="376" y="184" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="1969" gid="687" x="372" y="184" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1970" gid="687" x="368" y="184" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1971" gid="687" x="364" y="184" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1972" gid="687" x="360" y="184" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
   <object id="1973" gid="687" x="360" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1974" gid="687" x="360" y="192" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1982" gid="687" x="348" y="192" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1983" gid="687" x="348" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1984" gid="687" x="348" y="184" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1985" gid="687" x="348" y="180" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1986" gid="687" x="348" y="176" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1987" gid="687" x="348" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1988" gid="687" x="352" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1989" gid="687" x="356" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1990" gid="687" x="360" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1993" gid="687" x="364" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1994" gid="687" x="368" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1995" gid="687" x="372" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1996" gid="687" x="376" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUL"/>
    </properties>
   </object>
   <object id="1997" gid="687" x="376" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1998" gid="687" x="376" y="164" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1999" gid="687" x="376" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2000" gid="687" x="376" y="156" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2001" gid="687" x="376" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2002" gid="687" x="372" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2003" gid="687" x="368" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2004" gid="687" x="364" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2005" gid="687" x="360" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2006" gid="687" x="356" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2007" gid="687" x="356" y="128" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2008" gid="687" x="356" y="124" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2009" gid="687" x="376" y="136" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2010" gid="687" x="376" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2011" gid="687" x="376" y="144" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUL"/>
    </properties>
   </object>
   <object id="2012" gid="687" x="372" y="144" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2013" gid="687" x="368" y="144" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2014" gid="687" x="364" y="144" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2015" gid="687" x="360" y="144" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2016" gid="687" x="352" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2017" gid="687" x="348" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2018" gid="687" x="348" y="136" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2019" gid="687" x="348" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2020" gid="687" x="348" y="144" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2021" gid="687" x="348" y="148" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2022" gid="687" x="348" y="152" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2023" gid="687" x="348" y="156" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="2024" gid="687" x="352" y="156" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="2025" gid="687" x="356" y="156" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="2026" gid="687" x="364" y="156" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="2027" gid="687" x="360" y="156" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2028" gid="687" x="364" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2029" gid="687" x="360" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2030" gid="687" x="356" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2031" gid="687" x="352" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2032" gid="687" x="348" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="2033" gid="687" x="364" y="188" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="2034" gid="687" x="364" y="192" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2035" gid="687" x="344" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2036" gid="687" x="340" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2037" gid="687" x="336" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2038" gid="687" x="332" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
   <object id="2039" gid="687" x="332" y="136" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2040" gid="687" x="332" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2041" gid="687" x="332" y="144" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2042" gid="687" x="332" y="148" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2043" gid="687" x="332" y="152" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2044" gid="687" x="336" y="152" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2045" gid="687" x="320" y="124" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2046" gid="687" x="320" y="128" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2047" gid="687" x="320" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2048" gid="687" x="320" y="136" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2049" gid="687" x="316" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2050" gid="687" x="320" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUL"/>
    </properties>
   </object>
   <object id="2051" gid="687" x="312" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2052" gid="687" x="308" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2053" gid="687" x="292" y="136" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2054" gid="687" x="304" y="128" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2055" gid="687" x="320" y="152" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2058" gid="687" x="308" y="152" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2059" gid="687" x="304" y="152" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2060" gid="687" x="308" y="156" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2061" gid="687" x="308" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2062" gid="687" x="320" y="156" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2063" gid="687" x="320" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2064" gid="687" x="324" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2065" gid="687" x="324" y="164" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2066" gid="687" x="328" y="164" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2068" gid="687" x="328" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2069" gid="687" x="332" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2070" gid="687" x="332" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2071" gid="687" x="336" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2072" gid="687" x="340" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2073" gid="687" x="344" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2075" gid="687" x="304" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2076" gid="687" x="300" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2077" gid="687" x="296" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2078" gid="687" x="292" y="140" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2079" gid="687" x="300" y="152" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2080" gid="687" x="296" y="152" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
   <object id="2085" gid="687" x="308" y="164" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2086" gid="687" x="312" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2087" gid="687" x="316" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2088" gid="687" x="308" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2089" gid="687" x="312" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2090" gid="687" x="316" y="176" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2091" gid="687" x="320" y="176" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2092" gid="687" x="320" y="180" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2093" gid="687" x="324" y="180" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2094" gid="687" x="324" y="184" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2096" gid="687" x="336" y="176" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2097" gid="687" x="336" y="180" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2098" gid="687" x="336" y="184" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2099" gid="687" x="336" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2100" gid="687" x="336" y="192" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="2101" gid="687" x="324" y="208" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="2102" gid="687" x="324" y="212" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="2103" gid="687" x="328" y="208" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2104" gid="687" x="292" y="200" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2105" gid="687" x="292" y="204" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2106" gid="687" x="280" y="220" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="2107" gid="687" x="296" y="208" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2108" gid="687" x="300" y="208" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2110" gid="687" x="308" y="196" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2111" gid="687" x="308" y="212" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2113" gid="687" x="284" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2114" gid="687" x="288" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2115" gid="687" x="292" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2116" gid="687" x="296" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2117" gid="687" x="300" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2118" gid="687" x="304" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2119" gid="687" x="308" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2120" gid="687" x="316" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2121" gid="687" x="312" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2122" gid="687" x="320" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2123" gid="687" x="296" y="156" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2124" gid="687" x="296" y="160" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2125" gid="687" x="296" y="164" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2126" gid="687" x="296" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2127" gid="687" x="296" y="172" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2128" gid="687" x="296" y="176" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2129" gid="687" x="296" y="180" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2132" gid="687" x="336" y="196" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2133" gid="687" x="336" y="200" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2134" gid="687" x="324" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUL"/>
    </properties>
   </object>
   <object id="2136" gid="687" x="304" y="208" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="2137" gid="687" x="308" y="208" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="2138" gid="687" x="308" y="216" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2139" gid="687" x="308" y="192" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2141" gid="687" x="292" y="132" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2142" gid="687" x="304" y="124" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2143" gid="687" x="344" y="224" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="2144" gid="687" x="344" y="220" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="2145" gid="687" x="344" y="216" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="2146" gid="687" x="360" y="208" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2147" gid="687" x="360" y="212" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2148" gid="687" x="360" y="216" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="2153" gid="687" x="292" y="208" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
   <object id="2154" gid="687" x="280" y="216" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="2155" gid="687" x="280" y="212" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
+    <property name="prefab" value="WallVertPS"/>
    </properties>
   </object>
   <object id="2172" gid="687" x="328" y="284" width="4" height="4">
@@ -4089,6 +4231,90 @@
   <object id="3908" gid="687" x="232" y="240" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="3"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3948" gid="146" x="356" y="132" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUL"/>
+   </properties>
+  </object>
+  <object id="3972" gid="687" x="300" y="220" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3973" gid="687" x="300" y="200" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3974" gid="687" x="368" y="192" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3975" gid="687" x="308" y="180" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3976" gid="687" x="304" y="176" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3977" gid="687" x="312" y="128" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3978" gid="687" x="340" y="140" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3979" gid="687" x="360" y="152" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3980" gid="687" x="364" y="152" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3981" gid="687" x="372" y="220" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3982" gid="687" x="376" y="216" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3983" gid="687" x="376" y="212" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3984" gid="687" x="372" y="216" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
     <property name="prefab" value="RandomSpawnedTree"/>
    </properties>
   </object>
