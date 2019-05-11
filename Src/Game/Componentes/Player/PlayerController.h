@@ -18,7 +18,6 @@ private:
 	PlayerCollision * playerColl;
 	btRigidBody* playerRb;
 	GameObject* brazo;
-	MeshRenderer* sangre;
 
 	// Camera
 	MyCamera* cam;
