@@ -197,8 +197,8 @@
                  "type":"",
                  "visible":true,
                  "width":4,
-                 "x":384,
-                 "y":288
+                 "x":388,
+                 "y":292
                 }, 
                 {
                  "gid":139,
@@ -685,24 +685,6 @@
                  "width":4,
                  "x":320,
                  "y":396
-                }, 
-                {
-                 "gid":139,
-                 "height":4,
-                 "id":636,
-                 "name":"",
-                 "properties":[
-                        {
-                         "name":"prefab",
-                         "type":"string",
-                         "value":"RandomTree"
-                        }],
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":4,
-                 "x":388,
-                 "y":292
                 }, 
                 {
                  "gid":139,
@@ -1397,7 +1379,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallCorDL"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2783,7 +2765,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2801,7 +2783,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2819,7 +2801,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2837,7 +2819,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2855,7 +2837,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2873,7 +2855,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2891,7 +2873,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2909,7 +2891,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2927,7 +2909,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -2951,8 +2933,8 @@
                  "type":"",
                  "visible":true,
                  "width":4,
-                 "x":344,
-                 "y":228
+                 "x":384,
+                 "y":288
                 }, 
                 {
                  "gid":139,
@@ -2981,7 +2963,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3035,7 +3017,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallVert"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3053,7 +3035,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3071,7 +3053,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3089,7 +3071,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3107,7 +3089,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3125,7 +3107,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3143,7 +3125,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3161,7 +3143,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3179,7 +3161,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3197,7 +3179,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3215,7 +3197,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -3233,7 +3215,7 @@
                         {
                          "name":"prefab",
                          "type":"string",
-                         "value":"RandomTree"
+                         "value":"WallHoriz"
                         }],
                  "rotation":0,
                  "type":"",
@@ -8587,6 +8569,60 @@
                  "width":4,
                  "x":192,
                  "y":256
+                }, 
+                {
+                 "gid":139,
+                 "height":4,
+                 "id":3909,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"WallHoriz"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":344,
+                 "y":228
+                }, 
+                {
+                 "gid":139,
+                 "height":4,
+                 "id":3910,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"WallHoriz"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":332,
+                 "y":308
+                }, 
+                {
+                 "gid":139,
+                 "height":4,
+                 "id":3911,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"WallVert"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":352,
+                 "y":328
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -14879,6 +14915,236 @@
                  "width":4,
                  "x":180,
                  "y":216
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3899,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":216,
+                 "y":272
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3900,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":216,
+                 "y":268
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3901,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":216,
+                 "y":264
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3902,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":216,
+                 "y":260
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3903,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":216,
+                 "y":256
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3904,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":216,
+                 "y":252
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3905,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":244,
+                 "y":240
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3906,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":240,
+                 "y":240
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3907,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":236,
+                 "y":240
+                }, 
+                {
+                 "gid":687,
+                 "height":4,
+                 "id":3908,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"gate",
+                         "type":"int",
+                         "value":3
+                        }, 
+                        {
+                         "name":"prefab",
+                         "type":"string",
+                         "value":"RandomSpawnedTree"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":232,
+                 "y":240
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -32880,7 +33146,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":3899,
+ "nextobjectid":3912,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.3",

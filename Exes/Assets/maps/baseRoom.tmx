@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="3909">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="3912">
  <tileset firstgid="1" source="City.tsx"/>
  <layer id="3" name="Capa de Patrones 1" width="100" height="100" locked="1">
   <data encoding="base64" compression="zlib">
@@ -52,7 +52,7 @@
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="606" gid="139" x="384" y="288" width="4" height="4">
+  <object id="606" gid="139" x="388" y="292" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -188,11 +188,6 @@
    </properties>
   </object>
   <object id="633" gid="139" x="320" y="396" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="636" gid="139" x="388" y="292" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -389,7 +384,7 @@
   </object>
   <object id="1208" gid="146" x="324" y="288" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="1212" gid="146" x="340" y="288" width="4" height="4">
@@ -774,50 +769,50 @@
   </object>
   <object id="1849" gid="139" x="296" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1850" gid="139" x="300" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1851" gid="139" x="304" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1852" gid="139" x="308" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1853" gid="139" x="312" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1854" gid="139" x="316" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1855" gid="139" x="356" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1856" gid="139" x="352" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1857" gid="139" x="348" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1858" gid="139" x="344" y="228" width="4" height="4">
+  <object id="1858" gid="139" x="384" y="288" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -829,7 +824,7 @@
   </object>
   <object id="1862" gid="139" x="320" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1863" gid="139" x="388" y="124" width="4" height="4">
@@ -844,62 +839,62 @@
   </object>
   <object id="1865" gid="139" x="280" y="224" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1867" gid="146" x="280" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1868" gid="146" x="284" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1869" gid="146" x="288" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1870" gid="146" x="292" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1871" gid="146" x="360" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1872" gid="146" x="364" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1873" gid="146" x="368" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1874" gid="146" x="372" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1875" gid="146" x="376" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1876" gid="146" x="380" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1877" gid="146" x="384" y="228" width="4" height="4">
    <properties>
-    <property name="prefab" value="RandomTree"/>
+    <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
   <object id="1878" gid="146" x="388" y="228" width="4" height="4">
@@ -2385,6 +2380,21 @@
   <object id="3867" gid="139" x="192" y="256" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3909" gid="139" x="344" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallHoriz"/>
+   </properties>
+  </object>
+  <object id="3910" gid="139" x="332" y="308" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallHoriz"/>
+   </properties>
+  </object>
+  <object id="3911" gid="139" x="352" y="328" width="4" height="4">
+   <properties>
+    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
  </objectgroup>
