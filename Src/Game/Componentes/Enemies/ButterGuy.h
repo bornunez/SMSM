@@ -17,9 +17,6 @@ private:
 	float scale = 0;
 	float shootTime = 0;
 	float shootTimer = 0;
-	float shootPosX = 0;
-	float shootPosY = 0;
-	float shootPosZ = 0;
 
 	TimeManager* tm = nullptr;
 

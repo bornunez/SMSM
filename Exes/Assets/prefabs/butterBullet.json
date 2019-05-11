@@ -1,6 +1,6 @@
 {
-	"prefabName":"EnemyBullet",
-	"name":"EnemyBullet",
+	"prefabName":"ButterBullet",
+	"name":"ButterBullet",
 	"active":true,
 	"isListener":true,
 	"components":[
@@ -29,7 +29,7 @@
 			"speed": 10,
 			"recoilTime": 0,
 			"deathTime": 5,
-			"scale": 0.1
+			"scale": 1
 		}
 	]
 }

@@ -27,9 +27,6 @@ void ButterGuy::LoadFromFile(json obj)
 	dist = obj["dist"];
 	distFactor = obj["distFactor"];
 	shootTime = obj["shootTime"];
-	shootPosX = obj["shootPosX"];
-	shootPosY = obj["shootPosY"];
-	shootPosZ = obj["shootPosZ"];
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
@@ -109,5 +106,5 @@ void ButterGuy::Spawn()
 
 void ButterGuy::Shoot()
 {
-	scene->Instantiate("EnemyBullet", (gameObject->getPosition() + Vector3(shootPosX, shootPosY, shootPosZ)), 0.08);
+	scene->Instantiate("EnemyBullet", gameObject->getPosition(), 0.08);
 }

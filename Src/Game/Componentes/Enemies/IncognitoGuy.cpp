@@ -42,9 +42,6 @@ void IncognitoGuy::LoadFromFile(json obj)
 
 	shootDist = obj["shootDist"];
 	shootTime = obj["shootTime"];
-	shootPosX = obj["shootPosX"];
-	shootPosY = obj["shootPosY"];
-	shootPosZ = obj["shootPosZ"];
 
 	Enemy::alive = true;
 	HP = obj["HP"];
@@ -143,6 +140,5 @@ void IncognitoGuy::RandomizeVecs()
 
 void IncognitoGuy::Shoot()
 {
-	cout << "yo, TIPO DE INCOGNITO, te disparo" << endl;
-	scene->Instantiate("EnemyBullet", (gameObject->getPosition() + Vector3(shootPosX, shootPosY, shootPosZ)), 0.08);
+	scene->Instantiate("IncognitoBullet", gameObject->getPosition(), 1);
 }
