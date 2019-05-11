@@ -23,6 +23,7 @@ GUIManager::GUIManager(Ogre::RenderWindow* w, Game* g)
 	functions["Mute"]			= &GUIManager::Mute;
 	functions["SensitivityUp"]	= &GUIManager::SensitivityUp;
 	functions["SensitivityDown"]= &GUIManager::SensitivityDown;
+	functions["credits"]		= &GUIManager::toggleCredits;
 }
 
 GUIManager::~GUIManager()
@@ -181,6 +182,7 @@ void GUIManager::GameOver()
 	gameHUD = false;
 	pauseHUD = false;
 	menuHUD = false;
+	creditsHUD = false;
 
 	ShowWindow("GameOverWnd");
 	CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
@@ -242,6 +244,7 @@ void GUIManager::InitMainScene()
 		gameHUD = true;
 		menuHUD = false;
 		gameOverHUD = false;
+		creditsHUD = false;
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		
 		if (hearthLifes.size() > 0) {
@@ -260,6 +263,7 @@ void GUIManager::RestartMainScene()
 		gameHUD = true;
 		menuHUD = false;
 		gameOverHUD = false;
+		creditsHUD = false;
 		g_->ReLoadScene("mainScene");
 	}
 }
@@ -282,13 +286,11 @@ void GUIManager::Mute()
 void GUIManager::SensitivityUp()
 {
 	g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->modifySensitivity(true);
-	//cout << "sensibilidad subida" << endl;
 }
 
 void GUIManager::SensitivityDown()
 {
 	g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->modifySensitivity(false);
-	//cout << "sensibilidad bajada" << endl;
 }
 
 void GUIManager::ToggleWindow(std::string wndName)
@@ -335,13 +337,34 @@ void GUIManager::toggleMenu()
 	if (g_ != nullptr) {
 		//ShowWindow("MenuWnd");
 		HideWindow("PauseWnd");
+		HideWindow("CreditsWnd");
 		gameHUD = false;
 		menuHUD = true;
 		pauseHUD = false;
+		creditsHUD = false;
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
-		
-		g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHealth();
+		GameObject* p = g_->getActiveScene()->getGameObject("Player");
+		if (p != nullptr)
+			g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHealth();
 		g_->ChangeScene("menuScene");
+	}
+}
+
+void GUIManager::toggleCredits()
+{
+	if (g_ != nullptr) {	
+		gameHUD = false;
+		menuHUD = false;
+		pauseHUD = false;
+		creditsHUD = true;
+		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
+		GameObject* p = g_->getActiveScene()->getGameObject("Player");
+		if(p!=nullptr)
+			g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHealth();
+
+		HideWindow("MenuWnd");
+
+		g_->ReLoadScene("creditsScene");
 	}
 }
 

@@ -29,7 +29,6 @@ void KnifeGuy::LoadFromFile(json obj)
 	hearthProb = obj["hearthProb"];
 }
 
-
 void KnifeGuy::Update()
 {
 	if (estado == state::ALIVE) {

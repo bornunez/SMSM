@@ -1,7 +1,7 @@
 #include "PlayerController.h"
 #include "MyCamera.h"
 #include "../../../Src/MotorEngine/GUIManager.h"
-
+#include "../../Src/MotorEngine/MeshRenderer.h"
 
 PlayerController::~PlayerController()
 {
@@ -34,6 +34,14 @@ void PlayerController::Start()
 	if (brazo == nullptr)
 		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
 
+	if (brazo->GetChild("Sangre") == nullptr)
+		cout << "ERROR: No se ha encontrado el hijo sangre en player" << endl;
+	else
+		sangre = brazo->GetChild("Sangre")->getComponent<MeshRenderer>();
+	
+	// Se carga y despues se desactiva 
+	sangre->SetEnabled(false);
+
 #ifndef _DEBUG
 	for (int i = 0; i < lives; i++) {
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
@@ -44,15 +52,7 @@ void PlayerController::Start()
 void PlayerController::Update()
 {
 	handleInput();
-
-
-	if (invulnerability  && actRecoverTime < recoverTime) {
-		actRecoverTime += TimeManager::getInstance()->getDeltaTime();
-	}
-	else {
-		invulnerability = false;
-		actRecoverTime = 0;
-	}
+	SetInvulnerability();
 }
 
 void PlayerController::handleInput()
@@ -61,7 +61,7 @@ void PlayerController::handleInput()
 
 	int currentMouseX = input->getMouseX();
 	int currentMouseY = input->getMouseY();
-	float xInput = input->getMouseXDif() * mouseSensitivity * 1.5;
+	float xInput = input->getMouseXDif() * mouseSensitivity * 1.57;
 	float yInput = input->getMouseYDif() * mouseSensitivity * 0.0225;
 	yAngle += yInput;
 	if (yAngle > 0.7)
@@ -150,6 +150,9 @@ void PlayerController::modifySensitivity(bool v)
 void PlayerController::receiveDamage()
 {
 	if (!invulnerability && lives > 0) {
+		
+		sangre->SetEnabled(true);
+
 		invulnerability = true;
 		lives--;
 #ifndef _DEBUG
@@ -184,4 +187,22 @@ void PlayerController::hideHealth()
 Vector3  PlayerController::getPlayerDirection()
 {
 	return getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
+}
+
+void PlayerController::SetInvulnerability() {
+
+	if (invulnerability  && actRecoverTime < recoverTime) {
+		actRecoverTime += TimeManager::getInstance()->getDeltaTime();
+		// Cuando se llega  a la mitad del tiempo de invulnerable se quita la sangre en pantalla
+		if (actRecoverTime > (recoverTime / 2)) {
+			sangre->SetEnabled(false);
+		}
+		
+	}
+	else {
+		invulnerability = false;
+		actRecoverTime = 0;
+	}
+
+	
 }

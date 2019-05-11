@@ -9,6 +9,7 @@
 
 enum collisionID {PlayerID, BulletID, EnemyID, HearthID};
 
+class MeshRenderer;
 class MyCamera;
 class PlayerController: public Component
 {
@@ -17,6 +18,7 @@ private:
 	PlayerCollision * playerColl;
 	btRigidBody* playerRb;
 	GameObject* brazo;
+	MeshRenderer* sangre;
 
 	// Camera
 	MyCamera* cam;
@@ -56,6 +58,7 @@ public:
 	void receiveDamage();
 	void gainHealth();
 	void hideHealth();
+	void SetInvulnerability();
 
 	Vector3 getPlayerDirection();
 

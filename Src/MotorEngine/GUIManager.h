@@ -42,12 +42,16 @@ public:
 	bool getPauseOn()		{ return pauseHUD; }
 	bool getMenuOn()		{ return menuHUD; }
 	bool getGameOverOn()	{ return gameOverHUD; }
+	bool getCreditsOn()		{ return creditsHUD; }
 
 	void GameOver();
 
 	// Devuelve una ventana / un boton segun un nombre dado
 	CEGUI::FrameWindow * getWindow(std::string windowName) { return mWindows[windowName]; };
 	CEGUI::Window * getButton(std::string buttonName) { return mButtons[buttonName]; };
+
+	// Funciones concretas para el videojuego
+	void toggleMenu();
 
 private:
 	static GUIManager * instance_;
@@ -65,6 +69,7 @@ private:
 	bool pauseHUD		= false;
 	bool menuHUD		= true;		// Se comienza en el menu
 	bool gameOverHUD	= false;
+	bool creditsHUD = false;
 
 	Ogre::RenderWindow* renderWindow_ = nullptr;
 	Game* g_ = nullptr;
@@ -76,7 +81,7 @@ private:
 	CEGUI::OgreRenderer* renderer_;
 
 	// Funciones concretas para el videojuego
-	void toggleMenu();
+	void toggleCredits();
 	void togglePause();
 	void Exit();
 	void InitMainScene();
