@@ -26,12 +26,13 @@ void KnifeGuy::LoadFromFile(json obj)
 	moveSpeed = obj["moveSpeed"];
 	Enemy::alive = true;
 	HP = obj["HP"];
-	hearthProb = obj["hearthProb"];
+	heartProb = obj["heartProb"];
 }
 
 void KnifeGuy::Update()
 {
 	if (estado == state::ALIVE) {
+		rb->activate();
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		auxVec.normalise(); 
 		auxVec *= (moveSpeed * playerController->getGameSpeed());

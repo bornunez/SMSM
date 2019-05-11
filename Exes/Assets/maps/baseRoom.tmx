@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="3989">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="3992">
  <tileset firstgid="1" source="City.tsx"/>
  <layer id="3" name="Capa de Patrones 1" width="100" height="100" locked="1">
   <data encoding="base64" compression="zlib">
@@ -380,11 +380,6 @@
   <object id="1207" gid="146" x="316" y="288" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1208" gid="146" x="324" y="288" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
   <object id="1212" gid="146" x="340" y="288" width="4" height="4">
@@ -2625,6 +2620,11 @@
     <property name="prefab" value="WallCorUL"/>
    </properties>
   </object>
+  <object id="3989" gid="146" x="264" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="ShotgunItem"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup id="9" name="Player" visible="0" locked="1">
   <object id="638" gid="151" x="336" y="380" width="4" height="4">
@@ -4316,6 +4316,11 @@
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="3991" gid="146" x="324" y="288" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
  </objectgroup>

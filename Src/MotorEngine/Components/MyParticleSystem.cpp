@@ -13,13 +13,19 @@ void MyParticleSystem::LoadFromFile(json obj)
 {
 	if (obj.contains("name"))
 		SetName(obj["name"]);
-	else
+	else {
+#ifdef C_DEBUG
 		cout << "ERROR: Falta un nombre para el sistema de particulas " << endl;
+#endif
+	}
 	
 	if (obj.contains("script"))
 		SetScript(obj["script"]);
-	else
+	else {
+#ifdef C_DEBUG
 		cout << "ERROR: Falta un script para el sistema de particulas " << endl;
+#endif
+	}
 	if (obj.contains("duration"))
 		maxDuration = duration = obj["duration"];
 	sys = gameObject->getSceneManager()->createParticleSystem(name,script);

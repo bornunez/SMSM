@@ -28,13 +28,14 @@ void BombGuy::LoadFromFile(json obj)
 	expRadius = obj["expRadius"];
 	expTime = obj["expTime"];
 	Enemy::alive = true;
-	hearthProb = obj["hearthProb"];
+	heartProb = obj["heartProb"];
 }
 
 
 void BombGuy::Update()
 {
 	if (estado != state::DEAD) {
+		rb->activate();
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		float absDist = abs(auxVec.x) + abs(auxVec.z);
 		if (estado == state::IDLE) {

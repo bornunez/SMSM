@@ -462,8 +462,11 @@ void PhysicsManager::removeFromWorld(btRigidBody * body)
 
 	if (found) 
 		_bodies.erase(it);	
-	else
+	else {
+#ifdef C_DEBUG
 		std::cout << "WARNING: No se encuentra el rigidbody en el array" << std::endl;
+#endif
+	}
 
 }
 

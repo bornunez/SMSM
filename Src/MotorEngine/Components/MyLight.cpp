@@ -12,8 +12,11 @@ void MyLight::LoadFromFile(json obj)
 	//Creamos el objeto de la luz
 	if (obj.contains("name"))
 		light = scnMgr->createLight(obj["name"]);
-	else
+	else {
+#ifdef C_DEBUG
 		std::cout << "ERROR: La luz tiene que tener un nombre" << endl;
+#endif
+	}
 
 	//Se lo vinculamos al GO
 	
@@ -23,8 +26,11 @@ void MyLight::LoadFromFile(json obj)
 		type = getType(obj["lightTpye"]);
 		light->setType(type);
 	}
-	else
+	else {
+#ifdef C_DEBUG
 		std::cout<< "ERROR: La luz necesita un tipo " << endl;
+#endif
+	}
 
 	if(gameObject->isActive())
 		gameObject->getNode()->attachObject(light);
@@ -92,8 +98,11 @@ Ogre::Light::LightTypes MyLight::getType(string type)
 		lightType = Ogre::Light::LT_SPOTLIGHT;
 	else if (type == "directional")
 		lightType = Ogre::Light::LT_DIRECTIONAL;
-	else
+	else {
+#ifdef C_DEBUG
 		std::cout << "Error en el tipo de luz" << endl;
+#endif
+	}
 
 	return lightType;
 }

@@ -31,8 +31,11 @@ void PlayerController::Start()
 	lastMouseX = input->getMouseX();
 
 	brazo = gameObject->GetChild("Brazo");
-	if (brazo == nullptr)
+	if (brazo == nullptr) {
+#ifdef C_DEBUG
 		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
+#endif
+	}
 
 	// Crea el compositor para la sangre en pantalla al contacto
 	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Blood");
@@ -92,6 +95,8 @@ void PlayerController::handleInput()
 	brazo->getNode()->setOrientation(q);
 
 	playerRb->setLinearVelocity(btVector3(0, 0, 0));
+
+	playerRb->activate();
 
 	// Forwards / backwards
 	if (input->getKey(OIS::KeyCode::KC_W)) {

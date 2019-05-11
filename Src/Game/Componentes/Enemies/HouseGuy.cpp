@@ -22,7 +22,6 @@ void HouseGuy::Start() {
 void HouseGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	scale = obj["scale"];
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
@@ -34,13 +33,14 @@ void HouseGuy::LoadFromFile(json obj)
 	maxSpawns = obj["maxSpawns"];
 	Enemy::alive = true;
 	HP = obj["HP"];
-	hearthProb = obj["hearthProb"];
+	heartProb = obj["heartProb"];
 }
 
 
 void HouseGuy::Update()
 {
 	if (estado != state::DEAD) {
+		rb->activate();
 		spawnTimer += tm->getDeltaTime();
 		if (estado == state::IDLE) {
 			speedTimer += tm->getDeltaTime();

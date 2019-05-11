@@ -1,6 +1,6 @@
 {
-	"prefabName":"Hearth",
-	"name":"Hearth",
+	"prefabName":"Heart",
+	"name":"Heart",
 	"active":true,
 	"isListener":true,
 	"components":[

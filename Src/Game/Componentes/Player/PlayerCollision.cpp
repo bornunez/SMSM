@@ -15,7 +15,7 @@ void PlayerCollision::collisionHandler(int id)
 	if (id == EnemyID) {
 		receiveDamage();
 	}
-	else if (id == HearthID) {
+	else if (id == HeartID) {
 		gainHealth();
 	}
 	else if (id ==  ShotgunID) {

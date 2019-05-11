@@ -33,6 +33,8 @@ void ShyGuy::LoadFromFile(json obj)
 void ShyGuy::Update()
 {
 	if (estado != state::DEAD) {
+		rb->activate();
+
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		float absDist = abs(auxVec.x) + abs(auxVec.z);
 		if (estado == state::IDLE) {
@@ -46,7 +48,7 @@ void ShyGuy::Update()
 				estado = state::FLEEING;
 			}
 		}
-		else if (estado == state::FLEEING) {
+		else if (estado == state::FLEEING) {		
 			auxVec.normalise();
 			auxVec *= -(moveSpeed * playerController->getGameSpeed());
 

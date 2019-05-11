@@ -29,8 +29,11 @@ void PlayerTrigger::Awake()
 {
 	Component::Awake();
 	player = scene->getGameObject("Player");
-	if (player == nullptr)
+	if (player == nullptr) {
+#ifdef C_DEBUG
 		cout << "ERROR: No se asigno la variable player de trigger" << endl;
+#endif
+	}
 }
 
 void PlayerTrigger::Update()

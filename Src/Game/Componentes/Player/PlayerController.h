@@ -7,7 +7,7 @@
 
 #include <vector>
 
-enum collisionID {PlayerID, BulletID, EnemyID, HearthID, ShotgunID};
+enum collisionID {PlayerID, BulletID, EnemyID, HeartID, ShotgunID};
 
 enum WeaponState {Gun, ShotGun};
 class MeshRenderer;

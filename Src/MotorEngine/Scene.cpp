@@ -190,8 +190,11 @@ void Scene::Add(GameObject * o)
 	auto it = gameObjects.begin();
 	while (it != gameObjects.end() && (*it) != o)
 		it++;
-	if(it != gameObjects.end())
+	if (it != gameObjects.end()) {
+#ifdef C_DEBUG
 		cout << "WARNING: El objeto [ " << o->getName() << " ] ya esta en la escena" << endl;
+#endif
+	}
 	else
 		gameObjects.push_back(o);
 	////Y tambien sus componentes
@@ -250,7 +253,9 @@ GameObject* Scene::Instantiate(string prefab, Vector3 position, float scale, Gam
 		return o;
 	}
 	else {
+#ifdef C_DEBUG
 		cout << "WARNING: Intentando Instanciar en el bucle de limpieza" << endl;
+#endif
 		return nullptr;
 	}
 }
@@ -276,8 +281,11 @@ GameObject * Scene::getGameObject(string name)
 	while (it != gameObjects.end() && (*it)->getName() != name)
 		it++;
 	bool found = it != gameObjects.end();
-	if (!found)
+	if (!found) {
+#ifdef C_DEBUG
 		cout << "ERROR: No se ha encontrado el objeto [ " << name << " ]" << endl;
+#endif
+	}
 	return found ? *it : nullptr;
 }
 

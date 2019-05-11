@@ -39,7 +39,7 @@
 			"linDamp":0.2,
 			"angDamp":0.2,
 			"HP": 2,
-			"hearthProb": 20
+			"heartProb": 20
 		},
 		{
 			"type":"ParticleSystem",
