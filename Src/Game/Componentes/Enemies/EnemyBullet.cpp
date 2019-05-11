@@ -33,6 +33,7 @@ void EnemyBullet::LoadFromFile(json obj)
 	speed = obj["speed"];
 	recoilTime = obj["recoilTime"];
 	ownerID = obj["ownerID"];
+	deathTime = obj["deathTime"];
 }
 
 void EnemyBullet::collisionHandler(int id)
@@ -47,14 +48,17 @@ void EnemyBullet::collisionHandler(int id)
 
 void EnemyBullet::Update()
 {
-//	cout << gameObject->getPosition().x << " " << gameObject->getPosition().z << endl;
 	if (!hit) 
 	{
+		if (deathTimer < deathTime) 
+			deathTimer += TimeManager::getInstance()->getDeltaTime()*playerController->getGameSpeed();
+		else
+		{
+			physicRB->clearForces();
+			gameObject->Destroy();
+		}
 		float finalSpeed = speed * playerController->getGameSpeed();
-		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed / 2, direccion.z*finalSpeed));
+		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
 	}
-	else //Se posria hacer aqui un contador para que desapareciese la bala
-	{
-		
-	}
+
 }

@@ -11,7 +11,6 @@ private:
 	MeshRenderer* meshRend = nullptr;
 	float scale = 0;
 
-
 public:
 	void Start();
 	KnifeGuy(GameObject* obj) : Enemy(obj) {};

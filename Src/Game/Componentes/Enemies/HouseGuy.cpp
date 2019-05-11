@@ -31,7 +31,10 @@ void HouseGuy::LoadFromFile(json obj)
 	spawnDelay = obj["spawnDelay"];
 	spawnDistance = obj["spawnDistance"];
 	onDeathSpawns = obj["onDeathSpawns"];
+	maxSpawns = obj["maxSpawns"];
 	Enemy::alive = true;
+	HP = obj["HP"];
+	hearthProb = obj["hearthProb"];
 }
 
 
@@ -64,19 +67,13 @@ void HouseGuy::Update()
 			rb->setLinearVelocity({ velVec.x, 0, velVec.z});
 
 			//Gestion spawntimer
-			if (spawnTimer >= spawnTime) {
+			if (spawnTimer >= spawnTime && spawnCount < maxSpawns) {
 				estado = state::SPAWNING;
 				//Calculo orientacion
 				velVec = player->getPosition() - gameObject->getPosition();
 				velVec.normalise();
-				float angle = atan2(velVec.x, velVec.z);
-				btQuaternion q;
-				q.setX(0);
-				q.setY(1 * sin(angle / 2));
-				q.setZ(0);
-				q.setW(cos(angle / 2));
 				//Asignar orientacion
-				rb->getWorldTransform().setRotation(q);
+				rb->getWorldTransform().setRotation(VecToQuat(velVec));
 				rb->setLinearVelocity({ 0, 0, 0 });
 			}
 			
@@ -85,6 +82,7 @@ void HouseGuy::Update()
 			if (spawnTimer >= spawnTime + spawnDelay) {
 				SpawnEnemy(gameObject->getPosition() + velVec * spawnDistance);
 				spawnTimer = 0;
+				spawnCount++;
 				estado = state::IDLE;
 				speedTimer = speedTime;
 			}

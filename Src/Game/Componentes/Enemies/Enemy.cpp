@@ -5,6 +5,10 @@ Enemy::~Enemy()
 {
 }
 
+void Enemy::LoadFromFile(json obj)
+{
+}
+
 void Enemy::Start()
 {
 	currRoom = RoomManager::getInstance()->GetActiveRoom();
@@ -32,8 +36,36 @@ void Enemy::Update()
 
 void Enemy::OnDeath()
 {
+	//Crea un corazon al matar al enemigo
+	int hearthRand = rand() % 100;
+	if (hearthProb > hearthRand) {
+		scene->Instantiate("Hearth", gameObject->getPosition(), 0.5f);
+	}
+	
 	currRoom->RemoveEnemies();
 	gameObject->Destroy();
+}
+
+btQuaternion Enemy::VecToQuat(Vector3 vec)
+{
+	float angle = atan2(vec.x, vec.z);
+	btQuaternion q;
+	q.setX(0);
+	q.setY(1 * sin(angle / 2));
+	q.setZ(0);
+	q.setW(cos(angle / 2));
+	return q;
+}
+
+btQuaternion Enemy::VecToQuat(btVector3 vec)
+{
+	float angle = atan2(vec.x(), vec.z());
+	btQuaternion q;
+	q.setX(0);
+	q.setY(1 * sin(angle / 2));
+	q.setZ(0);
+	q.setW(cos(angle / 2));
+	return q;
 }
 
 void Enemy::OnHit()
@@ -42,6 +74,7 @@ void Enemy::OnHit()
 		// Crea las particulas
 		scene->Instantiate("DeathPS", gameObject->getGlobalPosition(), 0.1f);
 		HP--;
+		cout << HP << endl;
 		if (HP <= 0) {
 			alive = false;
 			OnDeath();

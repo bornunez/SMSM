@@ -41,6 +41,8 @@ void IncognitoGuy::LoadFromFile(json obj)
 	posVec = obj["posVec"];
 
 	Enemy::alive = true;
+	HP = obj["HP"];
+	hearthProb = obj["hearthProb"];
 }
 
 
@@ -54,14 +56,9 @@ void IncognitoGuy::Update()
 
 				//Calculo orientacion
 				Ogre::Vector3 dir = player->getPosition() - gameObject->getPosition();
-				float angle = atan2(dir.x, dir.z);
-				btQuaternion q;
-				q.setX(0);
-				q.setY(1 * sin(angle / 2));
-				q.setZ(0);
-				q.setW(cos(angle / 2));
+
 				//Asignar orientacion
-				rb->getWorldTransform().setRotation(q);
+				rb->getWorldTransform().setRotation(VecToQuat(dir));
 				rb->clearForces();
 
 				Teleport();

@@ -25,8 +25,9 @@ void KnifeGuy::LoadFromFile(json obj)
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
 	Enemy::alive = true;
+	HP = obj["HP"];
+	hearthProb = obj["hearthProb"];
 }
-
 
 void KnifeGuy::Update()
 {
@@ -36,14 +37,7 @@ void KnifeGuy::Update()
 		auxVec *= (moveSpeed * playerController->getGameSpeed());
 		meshRend->AnimationSpeed(playerController->getGameSpeed());
 
-		float angle = atan2(auxVec.x, auxVec.z);
-		btQuaternion q;
-		q.setX(0);
-		q.setY(1 * sin(angle / 2));
-		q.setZ(0);
-		q.setW(cos(angle / 2));
-
-		rb->getWorldTransform().setRotation(q);
+		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 		rb->setLinearVelocity({auxVec.x, 0, auxVec.z});
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
@@ -53,6 +47,7 @@ void KnifeGuy::Update()
 }
 
 void KnifeGuy::OnDeath() {
+
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);

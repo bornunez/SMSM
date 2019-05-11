@@ -1,0 +1,30 @@
+{
+	"prefabName":"ShotgunItem",
+	"name":"ShotgunItem",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"Escopeta.mesh",
+			"StartAnimation":"Idle"
+		},
+		{
+			"type":"ItemRigidBody",
+			"shape":0,
+			"id":4,
+			"mass":10,
+			"restFactor":0,
+			"positionX":0,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0,
+			"offsetZ":0,
+			"isTrigger":true,
+			"sizeX":0.65,
+			"sizeY":1,
+			"sizeZ":0.65
+		}
+	]
+}

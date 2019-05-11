@@ -11,7 +11,7 @@
 		{
 			"type":"EnemyBullet",
 			"shape":2,
-			"id":5,
+			"id":2,
 			"ownerID":4,
 			"mass":1,
 			"restFactor":0.5,
@@ -27,7 +27,8 @@
 			"linDamp":0.2,
 			"angDamp":0.2,
 			"speed": 10,
-			"recoilTime": 0
+			"recoilTime": 0,
+			"deathTime": 5
 		}
 	]
 }

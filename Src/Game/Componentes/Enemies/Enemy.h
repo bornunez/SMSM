@@ -15,6 +15,7 @@ protected:
 	float moveSpeed = 0;
 	float gravity = 0;
 	bool alive = true;
+	int hearthProb = 0;
 	GameObject* player = nullptr;
 	PlayerController* playerController = nullptr;
 	EnemyRigidBody* rbComp = nullptr;
@@ -31,6 +32,8 @@ public:
 	virtual void OnHit();
 	virtual void OnDeath();
 	virtual void Spawn() = 0;
+	btQuaternion VecToQuat(Vector3 vec);
+	btQuaternion VecToQuat(btVector3 vec);
 
 };
 

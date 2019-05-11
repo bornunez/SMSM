@@ -1,7 +1,7 @@
 #include "PlayerController.h"
 #include "MyCamera.h"
 #include "../../../Src/MotorEngine/GUIManager.h"
-
+#include "../../Src/MotorEngine/MeshRenderer.h"
 
 PlayerController::~PlayerController()
 {
@@ -11,6 +11,9 @@ void PlayerController::LoadFromFile(json obj)
 {
 	mouseSensitivity = obj["mouseSensitivity"];
 	speed = obj["speed"];
+
+	// Tiempo invulnerable
+	recoverTime = obj["recoverTime"];
 
 	if (obj.contains("lives")) { // Se asigna una vida al player
 		lives = obj["lives"];
@@ -31,6 +34,10 @@ void PlayerController::Start()
 	if (brazo == nullptr)
 		cout << "ERROR: No se ha encontrado el brazo del player" << endl;
 
+	// Crea el compositor para la sangre en pantalla al contacto
+	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Blood");
+	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Blood", false);
+
 #ifndef _DEBUG
 	for (int i = 0; i < lives; i++) {
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
@@ -41,6 +48,7 @@ void PlayerController::Start()
 void PlayerController::Update()
 {
 	handleInput();
+	SetInvulnerability();
 }
 
 void PlayerController::handleInput()
@@ -49,14 +57,14 @@ void PlayerController::handleInput()
 
 	int currentMouseX = input->getMouseX();
 	int currentMouseY = input->getMouseY();
-	float xInput = input->getMouseXDif() * mouseSensitivity * 1.5;
+	float xInput = input->getMouseXDif() * mouseSensitivity * 1.57;
 	float yInput = input->getMouseYDif() * mouseSensitivity * 0.0225;
 	yAngle += yInput;
 	if (yAngle > 0.7)
 		yAngle = 0.7;
 	else if (yAngle < -0.7)
 		yAngle = -0.7;
-	//cout << "Angulo Y: "<< yAngle << endl;
+
 	//// Reset mouse if it hits a window border
 	if (currentMouseX == scene->getGame()->getRenderWindow()->getWidth() || currentMouseX == 0)
 		input->CenterMouse();
@@ -120,7 +128,6 @@ void PlayerController::modifySensitivity(bool v)
 			mouseSensitivity = 0.5f;		
 		else 
 			sensitivityLevel++;
-		
 	}
 	else {
 		mouseSensitivity -= 0.05f;
@@ -137,14 +144,18 @@ void PlayerController::modifySensitivity(bool v)
 
 void PlayerController::receiveDamage()
 {
-	if (lives > 0) {
+	if (!invulnerability && lives > 0) {
+		
+		CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Blood", true);
+
+		invulnerability = true;
 		lives--;
 #ifndef _DEBUG
 		livesHeart.at(lives)->hide();
 #endif
 		if (lives == 0) {
 #ifdef C_DEBUG
-			cout << endl << "AY QUE ME MUERO" << endl << endl;
+			cout << endl << "MUERTE" << endl << endl;
 #endif
 			GUIManager::Instance()->GameOver();
 		}
@@ -166,10 +177,18 @@ Vector3  PlayerController::getPlayerDirection()
 	return getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
 }
 
+void PlayerController::SetInvulnerability() {
 
-void PlayerController::updateLivesHeart()
-{
-	/*#ifndef _DEBUG
-		livesHeart->setText(std::to_string(lives));
-	#endif*/
+	if (invulnerability  && actRecoverTime < recoverTime) {
+		actRecoverTime += TimeManager::getInstance()->getDeltaTime();
+		// Cuando se llega  a la mitad del tiempo de invulnerable se quita la sangre en pantalla
+		if (actRecoverTime > (recoverTime / 2)) {
+			CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Blood", false);
+		}
+		
+	}
+	else {
+		invulnerability = false;
+		actRecoverTime = 0;
+	}
 }

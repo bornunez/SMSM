@@ -8,6 +8,10 @@ void EnemyRigidBody::Start() {
 	RigidBodyComponent::Start();
 }
 
+EnemyRigidBody::~EnemyRigidBody()
+{
+}
+
 void EnemyRigidBody::LoadFromFile(json obj)
 {
 	RigidBodyComponent::LoadFromFile(obj);	
@@ -45,6 +49,3 @@ void EnemyRigidBody::Update()
 	//gameObject->getNode()->setPosition(trans.getOrigin().x() + offSetX, trans.getOrigin().y() + offSetY, trans.getOrigin().z() + offSetZ);
 }
 
-EnemyRigidBody::~EnemyRigidBody()
-{
-}
