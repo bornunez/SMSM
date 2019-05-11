@@ -38,7 +38,10 @@
 			"spawnDelay":1.2,
 			"spawnDistance":2,
 			"onDeathSpawns":3,
-			"HP": 40
+			"maxSpawns":10,
+			"HP": 40,
+			"onDeathSpawns":3,
+			"maxSpawns":10
 		},
 		{
 			"type":"ParticleSystem",
