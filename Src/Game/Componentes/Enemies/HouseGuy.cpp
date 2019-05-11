@@ -33,7 +33,7 @@ void HouseGuy::LoadFromFile(json obj)
 	maxSpawns = obj["maxSpawns"];
 	Enemy::alive = true;
 	HP = obj["HP"];
-	hearthProb = obj["hearthProb"];
+	heartProb = obj["heartProb"];
 }
 
 

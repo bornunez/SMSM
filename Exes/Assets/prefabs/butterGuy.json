@@ -44,7 +44,7 @@
 			"shootPosY":0.6,
 			"shootPosZ":0,
 			"HP": 20,
-			"hearthProb": 50
+			"heartProb": 50
 		}
 	]
 }
