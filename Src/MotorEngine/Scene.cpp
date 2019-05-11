@@ -25,6 +25,9 @@ Scene::~Scene() {
 void Scene::Release()
 {
 	destroying = true;
+
+	//mSceneManager->setSkyBoxEnabled(false);
+
 #ifdef C_DEBUG
 	cout << endl << endl << "=======================================================================" << endl << endl;
 	cout << endl << "BORRANDO ESCENA " << endl << endl;

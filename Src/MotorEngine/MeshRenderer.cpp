@@ -35,7 +35,6 @@ void MeshRenderer::LoadFromFile(json obj)
 
 	entity = gameObject->getSceneManager()->createEntity(meshName);
 	
-	// Asigna el material a la mesh
 }
 
 MeshRenderer::~MeshRenderer()

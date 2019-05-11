@@ -17,7 +17,6 @@ public:
 	~GUILoader();
 
 	virtual void LoadFromFile(json obj);
-	virtual void Update();
 	virtual void Start();
 	virtual void OnEnable();
 	virtual void OnDisable();
