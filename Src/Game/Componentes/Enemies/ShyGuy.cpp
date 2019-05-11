@@ -26,6 +26,7 @@ void ShyGuy::LoadFromFile(json obj)
 	maxFactor = obj["maxFactor"];
 	minFactor = obj["maxFactor"];
 	Enemy::alive = true;
+	HP = obj["HP"];
 }
 
 

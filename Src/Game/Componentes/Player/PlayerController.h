@@ -7,7 +7,9 @@
 
 #include <vector>
 
+enum collisionID {PlayerID, BulletID, EnemyID, HearthID};
 
+class MeshRenderer;
 class MyCamera;
 class PlayerController: public Component
 {
@@ -54,6 +56,7 @@ public:
 	
 	void receiveDamage();
 	void gainHealth();
+	void SetInvulnerability();
 
 	Vector3 getPlayerDirection();
 

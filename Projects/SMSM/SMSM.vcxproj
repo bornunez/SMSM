@@ -34,6 +34,7 @@
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\SpawnOnDestroy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\GUILoader.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\ItemRigidBody.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\ObstacleRigidBody.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerCollision.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Player\PlayerController.cpp" />
@@ -68,6 +69,7 @@
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ShyGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\SpawnOnDestroy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\GUILoader.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\ItemRigidBody.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\ObstacleRigidBody.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerCollision.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Player\PlayerController.h" />

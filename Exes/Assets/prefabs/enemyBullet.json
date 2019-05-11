@@ -11,7 +11,7 @@
 		{
 			"type":"EnemyBullet",
 			"shape":2,
-			"id":5,
+			"id":2,
 			"ownerID":4,
 			"mass":1,
 			"restFactor":0.5,

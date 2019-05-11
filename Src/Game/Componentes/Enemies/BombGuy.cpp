@@ -28,6 +28,7 @@ void BombGuy::LoadFromFile(json obj)
 	expRadius = obj["expRadius"];
 	expTime = obj["expTime"];
 	Enemy::alive = true;
+	hearthProb = obj["hearthProb"];
 }
 
 

@@ -15,6 +15,7 @@ protected:
 	float moveSpeed = 0;
 	float gravity = 0;
 	bool alive = true;
+	int hearthProb = 0;
 	GameObject* player = nullptr;
 	PlayerController* playerController = nullptr;
 	EnemyRigidBody* rbComp = nullptr;

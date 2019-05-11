@@ -6,11 +6,11 @@
 #include "../Mapa/MapHandler.h"
 #include "../Armas/ShotgunBullet.h"
 #include "../../../Src/MotorEngine//Components/JukeBox.h"
+#include "../Componentes/ItemRigidBody.h"
 
 MyComponentLoader::MyComponentLoader()
 {
 }
-
 
 MyComponentLoader::~MyComponentLoader()
 {
@@ -65,6 +65,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new EnemyTest(gameObject);
 	else if (c_type == "EnemyRigidBody")
 		c = new EnemyRigidBody(gameObject);
+	else if (c_type == "ItemRigidBody")
+		c = new ItemRigidBody(gameObject);
 	else if (c_type == "KnifeGuy")
 		c = new KnifeGuy(gameObject);
 	else if (c_type == "ShyGuy")

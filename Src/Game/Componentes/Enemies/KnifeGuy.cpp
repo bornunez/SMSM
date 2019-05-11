@@ -25,8 +25,9 @@ void KnifeGuy::LoadFromFile(json obj)
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
 	Enemy::alive = true;
+	HP = obj["HP"];
+	hearthProb = obj["hearthProb"];
 }
-
 
 void KnifeGuy::Update()
 {
@@ -46,6 +47,7 @@ void KnifeGuy::Update()
 }
 
 void KnifeGuy::OnDeath() {
+
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
