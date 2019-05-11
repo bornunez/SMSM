@@ -123,6 +123,9 @@
     <ClCompile Include="..\..\Src\Game\Componentes\ItemRigidBody.cpp">
       <Filter>Componentes\RigidBodyComponents</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\creditsManager.cpp">
+      <Filter>Componentes\GUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -205,6 +208,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\ItemRigidBody.h">
       <Filter>Componentes\RigidBodyComponents</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\creditsManager.h">
+      <Filter>Componentes\GUI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

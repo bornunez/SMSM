@@ -96,6 +96,8 @@ Component * MyComponentLoader::ParseComponent(json comp , GameObject * gameObjec
 		c = new MyParticleSystem(gameObject);
 	else if (c_type == "GUILoader")
 		c = new GUILoader(gameObject);
+	else if (c_type == "CreditsManager")
+		c = new creditsManager(gameObject);
 #endif
 
 	if (c != nullptr) {

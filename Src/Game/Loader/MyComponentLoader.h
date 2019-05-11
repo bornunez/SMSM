@@ -18,6 +18,7 @@
 #include "../Componentes/Enemies/IncognitoGuy.h"
 #include "../Componentes/Enemies//SpawnOnDestroy.h"
 #include "../Componentes/GUILoader.h"
+#include "../Componentes/creditsManager.h"
 
 class MyComponentLoader : public ComponentLoader
 {

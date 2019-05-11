@@ -40,7 +40,7 @@
 							"frameWndParentName":"MenuWnd",
 							"buttonName":"startButton",
 							"buttonScheme":"TaharezLook/Button",
-							"buttonPosX":0.25,
+							"buttonPosX":0.2,
 							"buttonPosY":0.5,
 							"buttonSizeX":0.175,
 							"buttonSizeY":0.05,
@@ -53,8 +53,8 @@
 							"frameWndParentName":"MenuWnd",
 							"buttonName":"quitButton",
 							"buttonScheme":"TaharezLook/Button",
-							"buttonPosX":0.25,
-							"buttonPosY":0.6,
+							"buttonPosX":0.2,
+							"buttonPosY":0.7,
 							"buttonSizeX":0.175,
 							"buttonSizeY":0.05,
 							"buttonText":"Quit",
@@ -62,8 +62,27 @@
 							"active":true,
 							"interactable": true
 						}
+						,
+						{
+							"frameWndParentName":"MenuWnd",
+							"buttonName":"creditsButton",
+							"buttonScheme":"TaharezLook/Button",
+							"buttonPosX":0.2,
+							"buttonPosY":0.6,
+							"buttonSizeX":0.175,
+							"buttonSizeY":0.05,
+							"buttonText":"Credits",
+							"buttonFunctionName":"credits",
+							"active":true,
+							"interactable": true
+						}
 					]
-				}	
+				},	
+				{
+					"type":"JukeBox",
+					"song":"BandaSonora1",
+					"scale":0.5
+				}		
 			]
 		}
 	]
