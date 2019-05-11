@@ -93,6 +93,8 @@ void PlayerController::handleInput()
 
 	playerRb->setLinearVelocity(btVector3(0, 0, 0));
 
+	playerRb->activate();
+
 	// Forwards / backwards
 	if (input->getKey(OIS::KeyCode::KC_W)) {
 		playerRb->setLinearVelocity(forward *speed);
