@@ -39,6 +39,7 @@ void BombGuy::Update()
 		if (estado == state::IDLE) {
 			if (absDist < chaseDist) {
 				estado = state::CHASING;
+				meshRend->PlayAnimation("Move", true);
 			}
 		}
 		else if (estado == state::CHASING) {
@@ -55,7 +56,7 @@ void BombGuy::Update()
 				rb->setLinearVelocity(btVector3(0, 0, 0));
 				estado = state::EXPLODING;
 				meshRend->StopAnimation(true);
-				//meshRend->PlayAnimation("EXPLOTIDO");
+				meshRend->PlayAnimation("Explode", true);
 			}
 		}
 		else if (estado == state::EXPLODING) {
@@ -64,14 +65,8 @@ void BombGuy::Update()
 				OnDeath();
 			}
 		}
-		float angle = atan2(auxVec.x, auxVec.z);
-		btQuaternion q;
-		q.setX(0);
-		q.setY(1 * sin(angle / 2));
-		q.setZ(0);
-		q.setW(cos(angle / 2));
 
-		rb->getWorldTransform().setRotation(q);
+		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 
 		meshRend->AnimationSpeed(playerController->getGameSpeed());
 	}

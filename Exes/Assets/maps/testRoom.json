@@ -97,12 +97,12 @@
          "objects":[
                 {
                  "gid":83,
-                 "height":4,
+                 "height":5,
                  "id":783,
                  "name":"",
                  "properties":[
                         {
-                         "name":"HouseGuy",
+                         "name":"BombGuy",
                          "type":"bool",
                          "value":true
                         }, 

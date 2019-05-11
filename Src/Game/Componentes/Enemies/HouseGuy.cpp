@@ -69,14 +69,8 @@ void HouseGuy::Update()
 				//Calculo orientacion
 				velVec = player->getPosition() - gameObject->getPosition();
 				velVec.normalise();
-				float angle = atan2(velVec.x, velVec.z);
-				btQuaternion q;
-				q.setX(0);
-				q.setY(1 * sin(angle / 2));
-				q.setZ(0);
-				q.setW(cos(angle / 2));
 				//Asignar orientacion
-				rb->getWorldTransform().setRotation(q);
+				rb->getWorldTransform().setRotation(VecToQuat(velVec));
 				rb->setLinearVelocity({ 0, 0, 0 });
 			}
 			

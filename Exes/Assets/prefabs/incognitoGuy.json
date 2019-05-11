@@ -33,8 +33,8 @@
 			"gravity":0,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"tpTime":1.5,
-			"posVec":[2,2.5,3,3.5]
+			"tpTime":0.5,
+			"posVec":[1.5,2,2.5]
 		},
 		{
 			"type":"ParticleSystem",

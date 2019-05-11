@@ -10,6 +10,8 @@ private:
 	float speed = 1;
 	int grav;
 	float linDamp, angDamp;
+	float deathTime = 0;
+	float deathTimer = 0;
 	Vector3 direccion;
 	int ownerID;
 	PlayerController* playerController;

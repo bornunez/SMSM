@@ -22,6 +22,7 @@
     <ClInclude Include="..\..\Src\MotorEngine\Component.h" />
     <ClInclude Include="..\..\Src\MotorEngine\AudioEngine.h" />
     <ClInclude Include="..\..\Src\MotorEngine\AudioManager.h" />
+    <ClInclude Include="..\..\Src\MotorEngine\Components\JukeBox.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Components\MapLoader.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Components\MyLight.h" />
     <ClInclude Include="..\..\Src\MotorEngine\Components\MyParticleSystem.h" />
@@ -52,6 +53,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Component.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\AudioManager.cpp" />
+    <ClCompile Include="..\..\Src\MotorEngine\Components\JukeBox.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Components\MapLoader.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Components\MyLight.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Components\MyParticleSystem.cpp" />

@@ -36,6 +36,28 @@ void Enemy::OnDeath()
 	gameObject->Destroy();
 }
 
+btQuaternion Enemy::VecToQuat(Vector3 vec)
+{
+	float angle = atan2(vec.x, vec.z);
+	btQuaternion q;
+	q.setX(0);
+	q.setY(1 * sin(angle / 2));
+	q.setZ(0);
+	q.setW(cos(angle / 2));
+	return q;
+}
+
+btQuaternion Enemy::VecToQuat(btVector3 vec)
+{
+	float angle = atan2(vec.x(), vec.z());
+	btQuaternion q;
+	q.setX(0);
+	q.setY(1 * sin(angle / 2));
+	q.setZ(0);
+	q.setW(cos(angle / 2));
+	return q;
+}
+
 void Enemy::OnHit()
 {
 	if (alive) {
