@@ -65,14 +65,8 @@ void BombGuy::Update()
 				OnDeath();
 			}
 		}
-		float angle = atan2(auxVec.x, auxVec.z);
-		btQuaternion q;
-		q.setX(0);
-		q.setY(1 * sin(angle / 2));
-		q.setZ(0);
-		q.setW(cos(angle / 2));
 
-		rb->getWorldTransform().setRotation(q);
+		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 
 		meshRend->AnimationSpeed(playerController->getGameSpeed());
 	}
