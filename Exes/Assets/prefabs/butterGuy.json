@@ -18,13 +18,14 @@
 			"positionY":0,
 			"positionZ":0,
 			"offsetX":0,
-			"offsetY":0,
+			"offsetY":1,
 			"offsetZ":0,
 			"isTrigger":true,
 			"sizeX": 0.3,
 			"sizeY": 0.3,
 			"sizeZ": 0.3,
-			"recoilTime": 0
+			"recoilTime": 0,
+			"gravity": 0
 		},
 		{
 			"type":"ButterGuy",

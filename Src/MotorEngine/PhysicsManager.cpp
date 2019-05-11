@@ -29,28 +29,6 @@ PhysicsManager::PhysicsManager()
 
 PhysicsManager::~PhysicsManager()
 {
-	std::deque<btRigidBody*>::iterator itBody = _bodies.begin();
-
-	while (itBody != _bodies.end()) {
-		delete *itBody;
-		++itBody;
-	}
-
-	std::deque<btCollisionShape*>::iterator itShape = _shapes.begin();
-
-	while (itShape != _shapes.end()) {
-		delete *itShape;
-		++itShape;
-	}
-
-	_bodies.clear();
-	_shapes.clear();
-
-	delete _world;
-	delete _solver;
-	delete _broadphase;
-	delete _dispatcher;
-	delete _collisionConf;
 }
 
 PhysicsManager* PhysicsManager::Instance()
@@ -60,6 +38,12 @@ PhysicsManager* PhysicsManager::Instance()
 	}
 
 	return instance;
+}
+
+void PhysicsManager::ResetInstance()
+{
+	delete instance;
+	instance = nullptr;
 }
 
 void PhysicsManager::Update()
@@ -87,13 +71,16 @@ void PhysicsManager::Update()
 				bulletObject* b = getBulletObject(sceneNode);
 
 				//Player
-				if(b->_id == 0)
+				/*if(b->_id == 0)
 					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX() - b->_offSet.x(), trans.getOrigin().getY() - b->_offSet.y(), trans.getOrigin().getZ() - b->_offSet.z()));
-				else
-					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
+				else {
+					sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));					
+				}*/
 
 				sceneNode->setPosition(Ogre::Vector3(trans.getOrigin().getX(), trans.getOrigin().getY(), trans.getOrigin().getZ()));
 				sceneNode->setOrientation(Ogre::Quaternion(orientation.getW(), orientation.getX(), orientation.getY(), orientation.getZ()));
+
+
 			}
 		}
 	}
@@ -184,6 +171,7 @@ btRigidBody * PhysicsManager::CreateBoxCollider(RigidBodyComponent* rb, int id, 
 
 btRigidBody * PhysicsManager::CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float radius, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ)
 {
+	std::cout << "creo balas de radio: " << radius << std::endl;
 	btCollisionShape *newRigidShape;
 	newRigidShape = new btSphereShape(radius);
 	_shapes.push_back(newRigidShape);
@@ -192,7 +180,7 @@ btRigidBody * PhysicsManager::CreateSphereCollider(RigidBodyComponent* rb, int i
 	_bulletObjects.push_back(b);
 
 	btVector3 v(radius, radius, radius);
-	CreateDebugObject(node, 0, 0, v);
+	CreateDebugObject(node, 0, radius, v);
 
 	return CreatePhysicObject(newRigidShape, node, mass, btVector3(posX, posY, posZ), btQuaternion(rotX, rotY, rotZ, 0), restitutionFactor);
 }
@@ -280,6 +268,9 @@ void PhysicsManager::clearRigidBodies()
 
 void PhysicsManager::resetWorld()
 {
+
+	delete _world;
+
 	std::deque<btRigidBody*>::iterator itBody = _bodies.begin();
 
 	while (itBody != _bodies.end()) {
@@ -305,13 +296,13 @@ void PhysicsManager::resetWorld()
 	_shapes.clear();
 	_bulletObjects.clear();
 
-	delete _world;
 	delete _solver;
 	delete _broadphase;
 	delete _dispatcher;
 	delete _collisionConf;
 
-	instance = new PhysicsManager();
+	delete instance;
+	instance = nullptr;
 }
 
 void PhysicsManager::CreateRaycast(btVector3 from, btVector3 to, bool hit, string name)

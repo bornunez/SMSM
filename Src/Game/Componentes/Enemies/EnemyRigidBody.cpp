@@ -34,12 +34,15 @@ void EnemyRigidBody::collisionHandler(int id)
 
 void EnemyRigidBody::Update()
 {
+	if (gravity != -1)	// Si no se ajusta de forma continuada, pasa a afectarle la gravedad del mundo normal
+		physicRB->setGravity(btVector3(0, gravity, 0));
+
 	btTransform trans;
 	physicRB->getMotionState()->getWorldTransform(trans);
 
 	trans.setOrigin(btVector3(trans.getOrigin().x() - 1, trans.getOrigin().y(), trans.getOrigin().z()));
 
-	gameObject->getNode()->setPosition(trans.getOrigin().x(), trans.getOrigin().y(), trans.getOrigin().z());
+	//gameObject->getNode()->setPosition(trans.getOrigin().x() + offSetX, trans.getOrigin().y() + offSetY, trans.getOrigin().z() + offSetZ);
 }
 
 EnemyRigidBody::~EnemyRigidBody()

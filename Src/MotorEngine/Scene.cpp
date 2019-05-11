@@ -18,7 +18,9 @@ Scene::Scene(Game* _g) : g(_g)
 	myDebugDrawer::Instance(mSceneManager);
 }
 
-Scene::~Scene() {}
+Scene::~Scene() {
+	Release();
+}
 
 void Scene::Release()
 {
@@ -40,7 +42,11 @@ void Scene::Release()
 	cout << "Borrando RigidBodies" << endl;
 #endif
 
+	// Borra el mundo actual
 	PhysicsManager::Instance()->resetWorld();
+
+	// Crea un nuevo PhysicsManager
+	PhysicsManager::Instance();
 
 #ifdef C_DEBUG
 	cout << "RigidBodies borrados con exito" << endl;

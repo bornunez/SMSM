@@ -17,6 +17,7 @@ class GUIManager
 {
 public:
 	static GUIManager * Instance(Ogre::RenderWindow* w = nullptr, Game* g = nullptr);	
+	static void ResetInstance();
 
 	GUIManager(Ogre::RenderWindow* w, Game* g);
 	virtual ~GUIManager();

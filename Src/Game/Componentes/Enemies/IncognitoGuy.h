@@ -16,12 +16,13 @@ private:
 	float scale = 0;
 	float tpTime = 0;
 	float tpTimer = 0;
-	float tpFactor = 0;
 	default_random_engine rng;
 
-	std::vector<int> xVec;
-	std::vector<int> zVec;
+	std::vector<float> xVec;
+	std::vector<float> zVec;
 	int posIndex = 0;
+
+	json posVec;
 
 	TimeManager* tm = nullptr;
 

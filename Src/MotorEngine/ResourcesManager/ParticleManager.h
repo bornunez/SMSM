@@ -11,6 +11,7 @@ public:
 	~ParticleManager();
 
 	static ParticleManager* GetInstance();
+	static void ResetInstance();
 
 	string getName(string originalName);
 };

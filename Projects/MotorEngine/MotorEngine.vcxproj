@@ -52,7 +52,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\Src\MotorEngine\Component.cpp" />
-    <ClCompile Include="..\..\Src\MotorEngine\AudioEngine.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\AudioManager.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Components\JukeBox.cpp" />
     <ClCompile Include="..\..\Src\MotorEngine\Components\MapLoader.cpp" />

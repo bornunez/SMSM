@@ -18,6 +18,12 @@ myDebugDrawer* myDebugDrawer::Instance(Ogre::SceneManager* m)
 	return instance_;
 }
 
+void myDebugDrawer::ResetInstance()
+{
+	delete instance_;
+	instance_ = nullptr;
+}
+
 void myDebugDrawer::drawLine(const btVector3 &from, const btVector3 &to, const btVector3 &color)
 {
 	lineCounter++;

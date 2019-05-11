@@ -18,6 +18,13 @@ ParticleManager * ParticleManager::GetInstance()
 	return instance;
 }
 
+void ParticleManager::ResetInstance()
+{
+	delete instance;
+	instance = nullptr;
+}
+
+
 string ParticleManager::getName(string originalName)
 {
 	string name = originalName +  std::to_string(registeredNames[originalName]);

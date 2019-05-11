@@ -6,7 +6,7 @@
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"pocholo_casa.mesh"
+			"mesh":"pocholo_bomba.mesh"
 		},
 		{
 			"type":"EnemyRigidBody",
@@ -31,10 +31,10 @@
 			"type":"BombGuy",
 			"moveSpeed":8,
 			"scale": 0.4,
-			"chaseDist":15,
-			"expDist":5,
-			"expTime":0.5,
-			"expRadius": 4,
+			"chaseDist":14,
+			"expDist":4,
+			"expTime":1.5,
+			"expRadius": 6,
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2

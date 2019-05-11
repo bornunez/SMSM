@@ -11,6 +11,13 @@ AudioManager::AudioManager()
 
 AudioManager::~AudioManager()
 {
+	delete sound;
+}
+
+void AudioManager::ResetInstance()
+{
+	delete instance;
+	instance = nullptr;
 }
 
 void AudioManager::init()

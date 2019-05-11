@@ -114,10 +114,10 @@
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.cpp">
       <Filter>Componentes\Enemies</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\BombGuy.cpp">
-      <Filter>Archivos de origen</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\IncognitoGuy.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\BombGuy.cpp">
       <Filter>Componentes\Enemies</Filter>
     </ClCompile>
   </ItemGroup>
@@ -194,10 +194,10 @@
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\HouseGuy.h">
       <Filter>Componentes\Enemies</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\BombGuy.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\IncognitoGuy.h">
+      <Filter>Componentes\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\BombGuy.h">
       <Filter>Componentes\Enemies</Filter>
     </ClInclude>
   </ItemGroup>

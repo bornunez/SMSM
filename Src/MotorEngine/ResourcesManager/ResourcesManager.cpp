@@ -22,3 +22,10 @@ ResourcesManager::ResourcesManager() : localizationManager_(LocalizationManager(
 ResourcesManager::~ResourcesManager()
 {
 }
+
+void ResourcesManager::ResetInstance()
+{
+	delete instance;
+	instance = nullptr;
+}
+
