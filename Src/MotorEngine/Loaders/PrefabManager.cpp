@@ -101,7 +101,9 @@ GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene,
 		PhysicsManager::Instance()->CreateBoxCollider(rb, 1, o->getNode(), 10, btVector3(o->getPosition().x, o->getPosition().y, o->getPosition().z), btQuaternion(1, 0, 0, 0), 1, btVector3(1, 1, 1));*/
 	}
 	else {
+#ifdef C_DEBUG
 		cout << "ERROR: Prefab [ " << prefabName << " ]" << " doesn't exists" << endl << endl;
+#endif
 	}
 
 	return o;
