@@ -23,7 +23,9 @@
 		{
 			"type":"PlayerController",
 			"mouseSensitivity": 0.1,
-			"speed": 10
+			"speed": 10,
+			"lives": 3,
+			"recoverTime": 3
 		}
 	],
 	"children":[

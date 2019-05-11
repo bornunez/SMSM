@@ -12,6 +12,9 @@ void PlayerController::LoadFromFile(json obj)
 	mouseSensitivity = obj["mouseSensitivity"];
 	speed = obj["speed"];
 
+	// Tiempo invulnerable
+	recoverTime = obj["recoverTime"];
+
 	if (obj.contains("lives")) { // Se asigna una vida al player
 		lives = obj["lives"];
 		maxHealth = lives;
@@ -41,6 +44,16 @@ void PlayerController::Start()
 void PlayerController::Update()
 {
 	handleInput();
+
+
+	if (invulnerability  && actRecoverTime < recoverTime) {
+		actRecoverTime += TimeManager::getInstance()->getDeltaTime();
+	}
+	else {
+		cout << "YA ME PUEDEN PEGAR" << endl;
+		invulnerability = false;
+		actRecoverTime = 0;
+	}
 }
 
 void PlayerController::handleInput()
@@ -137,7 +150,9 @@ void PlayerController::modifySensitivity(bool v)
 
 void PlayerController::receiveDamage()
 {
-	if (lives > 0) {
+	if (!invulnerability && lives > 0) {
+		cout << "SOY INMORTAL" << endl;
+		invulnerability = true;
 		lives--;
 #ifndef _DEBUG
 		livesHeart.at(lives)->hide();
@@ -164,12 +179,4 @@ void PlayerController::gainHealth()
 Vector3  PlayerController::getPlayerDirection()
 {
 	return getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
-}
-
-
-void PlayerController::updateLivesHeart()
-{
-	/*#ifndef _DEBUG
-		livesHeart->setText(std::to_string(lives));
-	#endif*/
 }

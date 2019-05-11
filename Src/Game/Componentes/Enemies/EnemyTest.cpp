@@ -38,12 +38,4 @@ void EnemyTest::collisionHandler(int id)
 {
 	if(!hit && id == 7)
 		hit = true;
-	//Comprobar id -> bala
-	/*if (id == 0) {
-		if (!hit) {
-			std::cout << "Fui disparado" << std::endl;
-			hit = true;
-			physicRB->clearForces();
-		}
-	}*/
 }
