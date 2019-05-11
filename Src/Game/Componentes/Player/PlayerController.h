@@ -7,6 +7,7 @@
 
 #include <vector>
 
+enum collisionID {PlayerID, BulletID, EnemyID, HearthID};
 
 class MyCamera;
 class PlayerController: public Component

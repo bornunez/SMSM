@@ -34,6 +34,7 @@ void ButterGuy::LoadFromFile(json obj)
 	shootPosZ = obj["shootPosZ"];
 	Enemy::alive = true;
 	HP = obj["HP"];
+	hearthProb = obj["hearthProb"];
 }
 
 

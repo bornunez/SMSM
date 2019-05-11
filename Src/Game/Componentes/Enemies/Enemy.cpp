@@ -36,6 +36,12 @@ void Enemy::Update()
 
 void Enemy::OnDeath()
 {
+	//Crea un corazon al matar al enemigo
+	int hearthRand = rand() % 100;
+	if (hearthProb > hearthRand) {
+		scene->Instantiate("Hearth", gameObject->getPosition(), 0.5f);
+	}
+	
 	currRoom->RemoveEnemies();
 	gameObject->Destroy();
 }

@@ -38,7 +38,8 @@
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"HP": 2
+			"HP": 2,
+			"hearthProb": 20
 		},
 		{
 			"type":"ParticleSystem",

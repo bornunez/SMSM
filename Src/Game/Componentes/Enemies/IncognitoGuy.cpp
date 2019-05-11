@@ -42,6 +42,7 @@ void IncognitoGuy::LoadFromFile(json obj)
 
 	Enemy::alive = true;
 	HP = obj["HP"];
+	hearthProb = obj["hearthProb"];
 }
 
 

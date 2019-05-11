@@ -12,13 +12,13 @@ PlayerCollision::~PlayerCollision()
 void PlayerCollision::collisionHandler(int id)
 {
 	// Si te golpea un enemigo baja tu salud
-	if (id == 2) {
+	if (id == EnemyID) {
 		receiveDamage();
-
-#ifdef C_DEBUG
-		cout << "OUCH OUCH ME DISPARARON" << endl;
-#endif // C_DEBUG
 	}
+	else if (id == HearthID) {
+		gainHealth();
+	}
+
 }
 
 void PlayerCollision::Update()
