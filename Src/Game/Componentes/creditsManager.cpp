@@ -26,12 +26,11 @@ void creditsManager::LoadFromFile(json obj)
 
 void creditsManager::Update()
 {
-	if (currentTime > timeToGoToMenu) {
+	if (currentTime >= timeToGoToMenu) {
 		GUIManager::Instance()->toggleMenu();
 		resetPositions();
 	}
 	else {
-
 		auto it = Buttons.begin();
 
 		while (it != Buttons.end()) {
@@ -48,6 +47,8 @@ void creditsManager::Update()
 
 		currentTime += TimeManager::getInstance()->getDeltaTime();
 
+		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_RETURN))
+			currentTime = timeToGoToMenu;
 	}
 }
 

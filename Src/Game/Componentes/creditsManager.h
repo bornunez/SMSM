@@ -2,6 +2,7 @@
 #include "GUILoader.h"
 #include "../../../Src/MotorEngine/GUIManager.h"
 #include "../../../Src/MotorEngine/TimeManager.h"
+#include "../../../Src/MotorEngine/InputManager.h"
 
 
 class creditsManager :
