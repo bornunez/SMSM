@@ -79,9 +79,6 @@ void ButterGuy::Update()
 			//Crear bala con direccion auxvec
 			shootTimer += tm->getDeltaTime();
 			if (shootTimer >= shootTime) {
-#ifdef C_DEBUG
-				cout << "TE DISPARO CATAPUM CHIMP UM" << endl;
-#endif
 				Shoot();
 				shootTimer = 0;
 			}
@@ -92,14 +89,7 @@ void ButterGuy::Update()
 			}
 		}
 		//Mira al jugador
-		float angle = atan2(auxVec.x, auxVec.z);
-		btQuaternion q;
-		q.setX(0);
-		q.setY(1 * sin(angle / 2));
-		q.setZ(0);
-		q.setW(cos(angle / 2));
-
-		rb->getWorldTransform().setRotation(q);
+		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {

@@ -3,9 +3,18 @@
 #include <iostream>
 
 void EnemyRigidBody::Start() {
+	GameObject* player = scene->getGameObject("Player");
+	if(player == nullptr) 
+		cout << "ERROR: No se ha encontrado el player en " << gameObject->getName() << endl;
+
+	playerController = player->getComponent<PlayerController>();
 
 	enemy = gameObject->getComponent<Enemy>();
 	RigidBodyComponent::Start();
+}
+
+EnemyRigidBody::~EnemyRigidBody()
+{
 }
 
 void EnemyRigidBody::LoadFromFile(json obj)
@@ -24,6 +33,10 @@ void EnemyRigidBody::collisionHandler(int id)
 			cout << "llamando al ON HIT" << endl;
 #endif
 			enemy->OnHit();
+		}
+		// Si el enemigo choca con el player
+		else if (id == 0) {
+			playerController->receiveDamage();
 		}
 	}
 	else {
@@ -45,6 +58,3 @@ void EnemyRigidBody::Update()
 	//gameObject->getNode()->setPosition(trans.getOrigin().x() + offSetX, trans.getOrigin().y() + offSetY, trans.getOrigin().z() + offSetZ);
 }
 
-EnemyRigidBody::~EnemyRigidBody()
-{
-}

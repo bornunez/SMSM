@@ -178,7 +178,7 @@ void Game::Play()
 		}
 #endif
 
-		if (mInputM->getKeyUp(OIS::KeyCode::KC_ESCAPE)) {
+		if (mInputM->getKeyUp(OIS::KeyCode::KC_0)) {
 			endGame = true;
 		}
 			

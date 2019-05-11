@@ -37,7 +37,10 @@ private:
 
 	std::vector<CEGUI::Window *> livesHeart;
 
-	void updateLivesHeart(); // Se debe llamar cuando el player reciba daño
+	// Control de invulnerabilidad
+	bool invulnerability = false;
+	float recoverTime;
+	float actRecoverTime = 0;
 
 public:
 	PlayerController(GameObject* obj) : Component(obj) {};

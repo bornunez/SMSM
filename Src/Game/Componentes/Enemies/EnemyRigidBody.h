@@ -8,6 +8,7 @@ class EnemyRigidBody :
 {
 private:
 	Enemy* enemy = nullptr;
+	PlayerController* playerController = nullptr;
 
 public:
 	virtual void Start();

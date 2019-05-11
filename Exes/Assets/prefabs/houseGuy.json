@@ -37,7 +37,8 @@
 			"speedTime":1,
 			"spawnDelay":1.2,
 			"spawnDistance":2,
-			"onDeathSpawns":3
+			"onDeathSpawns":3,
+			"maxSpawns":10
 		},
 		{
 			"type":"ParticleSystem",

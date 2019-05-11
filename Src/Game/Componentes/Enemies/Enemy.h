@@ -31,6 +31,8 @@ public:
 	virtual void OnHit();
 	virtual void OnDeath();
 	virtual void Spawn() = 0;
+	btQuaternion VecToQuat(Vector3 vec);
+	btQuaternion VecToQuat(btVector3 vec);
 
 };
 
