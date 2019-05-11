@@ -18,7 +18,9 @@ void PlayerCollision::collisionHandler(int id)
 	else if (id == HearthID) {
 		gainHealth();
 	}
-
+	else if (id ==  ShotgunID) {
+		gameObject->getComponent<PlayerController>()->setState(WeaponState::ShotGun);
+	}
 }
 
 void PlayerCollision::Update()
