@@ -171,7 +171,6 @@ btRigidBody * PhysicsManager::CreateBoxCollider(RigidBodyComponent* rb, int id, 
 
 btRigidBody * PhysicsManager::CreateSphereCollider(RigidBodyComponent* rb, int id, SceneNode * node, float mass, float posX, float posY, float posZ, float restitutionFactor, float radius, float offsetX, float offsetY, float offsetZ, float rotX, float rotY, float rotZ)
 {
-	std::cout << "creo balas de radio: " << radius << std::endl;
 	btCollisionShape *newRigidShape;
 	newRigidShape = new btSphereShape(radius);
 	_shapes.push_back(newRigidShape);
