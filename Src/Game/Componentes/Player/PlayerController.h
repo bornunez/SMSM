@@ -7,8 +7,9 @@
 
 #include <vector>
 
-enum collisionID {PlayerID, BulletID, EnemyID, HearthID};
+enum collisionID {PlayerID, BulletID, EnemyID, HearthID, ShotgunID};
 
+enum WeaponState {Gun, ShotGun};
 class MeshRenderer;
 class MyCamera;
 class PlayerController: public Component
@@ -34,8 +35,8 @@ private:
 	int maxHealth = 3;
 	int lives = 3;
 	int sensitivityLevel = 2;
-
 	float gameSpeed = 1;
+	WeaponState state = WeaponState::Gun;
 
 	std::vector<CEGUI::Window *> livesHeart;
 
@@ -56,9 +57,12 @@ public:
 	
 	void receiveDamage();
 	void gainHealth();
+	void hideHealth();
 	void SetInvulnerability();
 
 	Vector3 getPlayerDirection();
 
 	float getGameSpeed() { return gameSpeed; }
+
+	void setState(WeaponState state_) { state = state_; }
 };

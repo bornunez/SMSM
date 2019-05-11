@@ -172,6 +172,13 @@ void PlayerController::gainHealth()
 	}
 }
 
+void PlayerController::hideHealth()
+{
+	for (int i = 0; i < livesHeart.size(); i++) {
+		livesHeart.at(i)->hide();
+	}
+}
+
 Vector3  PlayerController::getPlayerDirection()
 {
 	return getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
