@@ -39,7 +39,6 @@ void MeshRenderer::LoadFromFile(json obj)
 
 MeshRenderer::~MeshRenderer()
 {
-	delete entity;
 }  
 
 
