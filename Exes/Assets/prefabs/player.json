@@ -23,7 +23,8 @@
 		{
 			"type":"PlayerController",
 			"mouseSensitivity": 0.1,
-			"speed": 10,
+			"walkSpeed": 6,
+			"runSpeed": 10,
 			"lives": 3,
 			"recoverTime": 3
 		}

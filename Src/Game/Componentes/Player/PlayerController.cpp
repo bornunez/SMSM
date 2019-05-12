@@ -10,7 +10,9 @@ PlayerController::~PlayerController()
 void PlayerController::LoadFromFile(json obj)
 {
 	mouseSensitivity = obj["mouseSensitivity"];
-	speed = obj["speed"];
+	walkSpeed = obj["walkSpeed"];
+	runSpeed = obj["runSpeed"];
+	speed = walkSpeed;
 
 	// Tiempo invulnerable
 	recoverTime = obj["recoverTime"];
@@ -76,6 +78,14 @@ void PlayerController::handleInput()
 		input->CenterMouse();
 
 	//// PLAYER MOVEMENT --------------------------------------------------------------------
+
+	// Running
+	if (input->getKey(OIS::KeyCode::KC_LSHIFT)) {
+		speed = runSpeed;
+	}
+	else {
+		speed = walkSpeed;
+	}
 
 	// Player Direction
 	Vector3 dir = getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;

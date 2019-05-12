@@ -32,6 +32,8 @@ private:
 
 	// Attributes
 	float speed = 0;
+	float walkSpeed = 0;
+	float runSpeed = 0;
 	int maxHealth = 3;
 	int lives = 3;
 	int sensitivityLevel = 2;
