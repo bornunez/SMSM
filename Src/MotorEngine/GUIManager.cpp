@@ -383,8 +383,6 @@ void GUIManager::creditsAnim()
 
 		currentTime += TimeManager::getInstance()->getDeltaTime();
 
-		std::cout << "Tiempo a: " << currentTime << " de " << creditsTime << std::endl;
-
 		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_RETURN) || InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_ESCAPE))
 			currentTime = creditsTime;
 	}
@@ -399,8 +397,6 @@ void GUIManager::resetPositions()
 	while (it != creditsElements.end()) {
 
 		if (it->first != "BackgroundCredits") {
-
-			std::cout << it->first << std::endl;
 
 			it->second->setPosition(originalPos[i]);
 			
