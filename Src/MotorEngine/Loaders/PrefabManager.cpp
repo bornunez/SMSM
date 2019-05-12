@@ -132,6 +132,8 @@ GameObject * PrefabManager::GenerateGameObject(json obj, Scene * scene, GameObje
 	}
 
 	o->setPosition(position);
+	if (obj.contains("scale"))
+		scale = obj["scale"];
 	o->setScale(scale);
 
 	
