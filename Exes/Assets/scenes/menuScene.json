@@ -14,10 +14,10 @@
 						{
 							"frameWndName":"MenuWnd",
 							"frameWndLook":"TaharezLook/FrameWindow",
-							"wndPosX":-0.05,
-							"wndPosY":-0.05,
-							"wndSizeX":1.05,
-							"wndSizeY":1.05,
+							"wndPosX":-0.06,
+							"wndPosY":0,
+							"wndSizeX":1.065,
+							"wndSizeY":1,
 							"backgroundMat":"FondoMenu.png",
 							"active":true
 						}
