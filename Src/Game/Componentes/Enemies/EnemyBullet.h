@@ -7,13 +7,14 @@
 class EnemyBullet: public RigidBodyComponent
 {
 private:
-	float speed = 1;
-	int grav;
+	float speed = 0;
+	int grav = 0;
 	float linDamp, angDamp;
 	float deathTime = 0;
 	float deathTimer = 0;
 	Vector3 direccion;
-	int ownerID;
+	int ownerID = 0;
+	float scale = 0;
 	PlayerController* playerController;
 
 public:

@@ -26,12 +26,7 @@ void ButterGuy::LoadFromFile(json obj)
 	moveSpeed = obj["moveSpeed"];
 	dist = obj["dist"];
 	distFactor = obj["distFactor"];
-	shootSpeed = obj["shootSpeed"];
 	shootTime = obj["shootTime"];
-	dispersion = obj["dispersion"];
-	shootPosX = obj["shootPosX"];
-	shootPosY = obj["shootPosY"];
-	shootPosZ = obj["shootPosZ"];
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
@@ -60,7 +55,6 @@ void ButterGuy::Update()
 				estado = state::AIMING;
 				rb->setLinearVelocity(btVector3(0, 0, 0));
 				shootTimer = 0;
-			//	meshRend->StopAnimation(true);
 			}
 		}
 		//si esta huyendo...
@@ -112,5 +106,5 @@ void ButterGuy::Spawn()
 
 void ButterGuy::Shoot()
 {
-	scene->Instantiate("EnemyBullet", (gameObject->getPosition() + Vector3(shootPosX, shootPosY, shootPosZ)), 0.08);
+	scene->Instantiate("ButterBullet", gameObject->getPosition(), 1);
 }
