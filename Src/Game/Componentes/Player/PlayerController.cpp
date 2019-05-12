@@ -47,6 +47,14 @@ void PlayerController::Start()
 	for (int i = 0; i < lives; i++) {
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
 	}
+
+	gunWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/Button", 0.025, 0.9, 0.07, 0.075, "", "null");
+	gunWindow->disable();
+
+	shotGunWindow = GUIManager::Instance()->CreateButton("null", "shotGunIcon", "TaharezLook/Button", 0.115, 0.9, 0.07, 0.075, "", "null");
+	// Desactivado porque empezamos con ella
+	//shotGunWindow->disable();
+
 #endif
 }
 
@@ -187,16 +195,32 @@ void PlayerController::gainHealth()
 	}
 }
 
-void PlayerController::hideHealth()
+void PlayerController::hideHud()
 {
 	for (int i = 0; i < livesHeart.size(); i++) {
 		livesHeart.at(i)->hide();
 	}
+
+	gunWindow->hide();
+	shotGunWindow->hide();
 }
 
 Vector3  PlayerController::getPlayerDirection()
 {
 	return getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
+}
+
+void PlayerController::setState(WeaponState state_)
+{
+	state = state_;
+	if (state == WeaponState::Gun) {
+		shotGunWindow->enable();
+		gunWindow->disable();
+	}
+	else {
+		shotGunWindow->disable();
+		gunWindow->enable();
+	}
 }
 
 void PlayerController::SetInvulnerability() {

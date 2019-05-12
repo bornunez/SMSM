@@ -354,7 +354,7 @@ void GUIManager::toggleMenu()
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
 		GameObject* p = g_->getActiveScene()->getGameObject("Player");
 		if (p != nullptr)
-			g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHealth();
+			g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHud();
 		g_->ChangeScene("menuScene");
 	}
 }
@@ -418,7 +418,7 @@ void GUIManager::toggleCredits()
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		GameObject* p = g_->getActiveScene()->getGameObject("Player");
 		if(p!=nullptr)
-			g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHealth();
+			g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHud();
 
 		HideWindow("MenuWnd");
 
