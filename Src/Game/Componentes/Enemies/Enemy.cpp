@@ -46,7 +46,7 @@ void Enemy::OnDeath()
 	//Crea un corazon al matar al enemigo
 	int heartRand = rand() % 100;
 	if (heartProb > heartRand) {
-		scene->Instantiate("Heart", gameObject->getPosition(), 0.5f);
+		scene->Instantiate("Heart", gameObject->getPosition(), 0.1f);
 	}
 	
 	currRoom->RemoveEnemies();
