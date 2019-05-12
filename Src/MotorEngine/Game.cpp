@@ -160,12 +160,14 @@ void Game::Play()
 			}
 		}
 
+		TimeManager::getInstance()->Update();
+
 #ifdef NDEBUG
-		if (!GUIManager::Instance()->getMenuOn() && !GUIManager::Instance()->getPauseOn() && !GUIManager::Instance()->getGameOverOn()) {
+		if (!GUIManager::Instance()->getMenuOn() && !GUIManager::Instance()->getPauseOn() && !GUIManager::Instance()->getGameOverOn() && !GUIManager::Instance()->getCreditsOn()) {
 #endif
 			mWindow->update();
 
-			TimeManager::getInstance()->Update();
+			//TimeManager::getInstance()->Update();
 			
 			//printf(" PRE RENDER");
 			mRoot->renderOneFrame();

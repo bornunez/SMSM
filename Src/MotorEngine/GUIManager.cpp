@@ -52,6 +52,10 @@ void GUIManager::Update()
 {
 	checkKeys();
 	checkMouse();
+
+	if (creditsHUD)
+		creditsAnim();
+
 	CEGUI::System::getSingleton().injectTimePulse(TimeManager::getInstance()->getDeltaTime());
 }
 
@@ -154,6 +158,11 @@ CEGUI::Window*  GUIManager::CreateButton(std::string stateWnd, std::string butto
 			temp->subscribeEvent(CEGUI::PushButton::EventClicked, CEGUI::Event::Subscriber(functions[methodName], this));
 
 		mButtons[buttonName] = temp; // Se añade al diccionario
+
+		if (stateWnd == "CreditsWnd") {
+			creditsElements[buttonName] = temp;
+			originalPos.push_back(temp->getPosition());
+		}
 
 	}
 	return mButtons[buttonName];
@@ -348,6 +357,59 @@ void GUIManager::toggleMenu()
 			g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHealth();
 		g_->ChangeScene("menuScene");
 	}
+}
+
+void GUIManager::creditsAnim()
+{
+
+	if (currentTime >= creditsTime) {
+		toggleMenu();
+		resetPositions();
+	}
+	else {
+		auto it = creditsElements.begin();
+
+		while (it != creditsElements.end()) {
+
+			if (it->first != "BackgroundCredits") {
+				CEGUI::UVector2 pos;
+				pos = it->second->getPosition();
+				pos.d_y -= scrollSpeed;
+				it->second->setPosition(pos);
+			}
+
+			it++;
+		}
+
+		currentTime += TimeManager::getInstance()->getDeltaTime();
+
+		std::cout << "Tiempo a: " << currentTime << " de " << creditsTime << std::endl;
+
+		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_RETURN) || InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_ESCAPE))
+			currentTime = creditsTime;
+	}
+
+}
+
+void GUIManager::resetPositions()
+{
+	auto it = creditsElements.begin();
+	int i = 0;
+
+	while (it != creditsElements.end()) {
+
+		if (it->first != "BackgroundCredits") {
+
+			std::cout << it->first << std::endl;
+
+			it->second->setPosition(originalPos[i]);
+			
+		}
+		i++;
+		it++;
+	}
+
+	currentTime = 0;
 }
 
 void GUIManager::toggleCredits()

@@ -43,6 +43,9 @@ public:
 	bool getMenuOn()		{ return menuHUD; }
 	bool getGameOverOn()	{ return gameOverHUD; }
 	bool getCreditsOn()		{ return creditsHUD; }
+	
+	void setScrollSpeed(float v) { scrollSpeed = CEGUI::UDim(v,v); }
+	void setCreditsTime(float t) { creditsTime = t; }
 
 	void GameOver();
 
@@ -69,7 +72,20 @@ private:
 	bool pauseHUD		= false;
 	bool menuHUD		= true;		// Se comienza en el menu
 	bool gameOverHUD	= false;
-	bool creditsHUD = false;
+	bool creditsHUD		= false;
+
+
+	//CREDITOS
+
+		std::map<std::string, CEGUI::Window *> creditsElements;
+		float creditsTime = 10;
+		CEGUI::UDim scrollSpeed = CEGUI::UDim(0.01, 0.01);
+		float currentTime = 0;
+		std::vector<CEGUI::UVector2> originalPos;
+
+		void creditsAnim();
+		void resetPositions();
+
 
 	Ogre::RenderWindow* renderWindow_ = nullptr;
 	Game* g_ = nullptr;

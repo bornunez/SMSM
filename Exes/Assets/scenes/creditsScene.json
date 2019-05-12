@@ -64,7 +64,7 @@
 						}
 					],
 					"timeToMenu":10,
-					"scrollSpeed":0.01
+					"scrollSpeed":0.005
 				}
 			]
 		}
