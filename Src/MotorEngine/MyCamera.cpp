@@ -47,11 +47,14 @@ void MyCamera::Initialize(string camName)
 // Destructor de la clase, destruye los nodos y la camara
 MyCamera::~MyCamera()
 {
+	// Los nodos ya los destruye la escena
+	/*
 	sm->destroyEntity(name);
 	sm->destroySceneNode(cameraRollNode);
 	sm->destroySceneNode(cameraPitchNode);
 	sm->destroySceneNode(cameraYawNode);
 	sm->destroySceneNode(cameraNode);
+	*/
 }
 
 // Hacer yaw

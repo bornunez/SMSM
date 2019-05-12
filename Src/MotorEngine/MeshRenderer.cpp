@@ -39,6 +39,7 @@ void MeshRenderer::LoadFromFile(json obj)
 
 MeshRenderer::~MeshRenderer()
 {
+	delete entity;
 }  
 
 
@@ -59,7 +60,7 @@ void MeshRenderer::Start()
 
 void MeshRenderer::OnDestroy()
 {
-	//gameObject->getNode()->detachObject()
+
 }
 void MeshRenderer::OnDisable()
 {

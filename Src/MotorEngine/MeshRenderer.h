@@ -23,7 +23,7 @@ public:
 	bool isPlaying(string name);
 	bool AnimationHasEnded(string name);
 	virtual void LoadFromFile(json obj);
-	~MeshRenderer();
+	virtual ~MeshRenderer();
 
 	virtual void Start();
 	void OnDestroy();
