@@ -20,6 +20,8 @@ void EnemyBullet::Start()
 	direccion = scene->getGameObject("Player")->getNode()->getPosition() - gameObject->getPosition();
 	direccion.normalise();
 	playerController = scene->getGameObject("Player")->getComponent<PlayerController>();
+
+	gameObject->setScale(scale);
 }
 
 void EnemyBullet::LoadFromFile(json obj)
@@ -34,6 +36,7 @@ void EnemyBullet::LoadFromFile(json obj)
 	recoilTime = obj["recoilTime"];
 	ownerID = obj["ownerID"];
 	deathTime = obj["deathTime"];
+	scale = obj["scale"];
 }
 
 void EnemyBullet::collisionHandler(int id)

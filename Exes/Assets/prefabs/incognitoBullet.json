@@ -1,6 +1,6 @@
 {
-	"prefabName":"EnemyBullet",
-	"name":"EnemyBullet",
+	"prefabName":"IncognitoBullet",
+	"name":"IncognitoBullet",
 	"active":true,
 	"isListener":true,
 	"components":[
@@ -18,7 +18,7 @@
 			"positionX":0,
 			"positionY":0,
 			"positionZ":0,
-			"offsetX":0,
+			"offsetX":-0.55,
 			"offsetY":0,
 			"offsetZ":0,
 			"isTrigger":true,
@@ -26,10 +26,12 @@
 			"gravity":-2,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"speed": 10,
+			"speed": 12,
 			"recoilTime": 0,
 			"deathTime": 5,
-			"scale": 0.1
+			"scale": 0.05
+
+			
 		}
 	]
 }
