@@ -20,7 +20,10 @@ GUIManager::GUIManager(Ogre::RenderWindow* w, Game* g)
 	functions["menu"]			= &GUIManager::toggleMenu;
 	functions["VolumeUp"]		= &GUIManager::VolumeUp;
 	functions["VolumeDown"]		= &GUIManager::VolumeDown;
+	functions["VolumeMusicUp"]	= &GUIManager::VolumeMusicUp;
+	functions["VolumeMusicDown"]= &GUIManager::VolumeMusicDown;
 	functions["Mute"]			= &GUIManager::Mute;
+	functions["MuteMusic"]		= &GUIManager::MuteMusic;
 	functions["SensitivityUp"]	= &GUIManager::SensitivityUp;
 	functions["SensitivityDown"]= &GUIManager::SensitivityDown;
 	functions["credits"]		= &GUIManager::toggleCredits;
@@ -287,9 +290,24 @@ void GUIManager::VolumeDown()
 	AudioManager::getInstance()->modifyVolume(false);
 }
 
+void GUIManager::VolumeMusicUp()
+{
+	AudioManager::getInstance()->modifyMusicVolume(true);
+}
+
+void GUIManager::VolumeMusicDown()
+{
+	AudioManager::getInstance()->modifyMusicVolume(false);
+}
+
 void GUIManager::Mute()
 {
 	AudioManager::getInstance()->muteVolume();
+}
+
+void GUIManager::MuteMusic()
+{
+	AudioManager::getInstance()->muteMusicVolume();
 }
 
 void GUIManager::SensitivityUp()

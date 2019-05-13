@@ -10,7 +10,8 @@ private:
 	state estado = state::ALIVE;
 	MeshRenderer* meshRend = nullptr;
 	float scale = 0;
-
+	float defAnimSp = 0;
+	float deathAnimSp = 0;
 public:
 	void Start();
 	KnifeGuy(GameObject* obj) : Enemy(obj) {};

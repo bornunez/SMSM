@@ -1,5 +1,6 @@
 #include "ShyGuy.h"
 #include "../../Src/MotorEngine/MeshRenderer.h"
+#include "../../Src/MotorEngine/AudioManager.h"
 
 ShyGuy::~ShyGuy()
 {
@@ -11,6 +12,7 @@ void ShyGuy::Start() {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	gameObject->setScale(scale);
 }
 
@@ -25,6 +27,8 @@ void ShyGuy::LoadFromFile(json obj)
 	distFactor = obj["distFactor"];
 	maxFactor = obj["maxFactor"];
 	minFactor = obj["maxFactor"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 	Enemy::alive = true;
 	HP = obj["HP"];
 }
@@ -62,7 +66,7 @@ void ShyGuy::Update()
 
 		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 
-		meshRend->AnimationSpeed(playerController->getGameSpeed());
+		meshRend->SetAnimationSpeed(2*playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {
@@ -75,6 +79,9 @@ void ShyGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+	meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
+	playSound("ShyGuyShout", false, 1);
+
 }
 
 void ShyGuy::Spawn()

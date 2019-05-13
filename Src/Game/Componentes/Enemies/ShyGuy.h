@@ -14,7 +14,8 @@ private:
 	int minFactor = 0;
 	int maxFactor = 0;
 	float scale = 0;
-
+	float defAnimSp = 0;
+	float deathAnimSp = 0;
 public:
 	void Start();
 	ShyGuy(GameObject* obj) : Enemy(obj) {};

@@ -1,5 +1,6 @@
 #include "Enemy.h"
 #include "EnemyRigidBody.h"
+#include "../../Src/MotorEngine/AudioManager.h"
 
 Enemy::~Enemy()
 {
@@ -54,6 +55,19 @@ void Enemy::Update()
 		}
 	}
 }
+
+void Enemy::playSound(string name, bool loop, float volume)
+{
+	GameObject* playerAux = scene->getGameObject("Player");
+	Ogre::Matrix4 A;
+	A.makeTransform(gameObject->getGlobalPosition(), Ogre::Vector3::UNIT_SCALE, gameObject->getGlobalOrientation());
+	Ogre::Matrix4 B;
+	B.makeTransform(player->getGlobalPosition(), Ogre::Vector3::UNIT_SCALE, player->getGlobalOrientation());
+
+	Ogre::Matrix4 A_BSpace = B.inverse() * A;
+	Vector3 relPos = A_BSpace.getTrans();
+	AudioManager::getInstance()->play3DSound(name, relPos.x, relPos.y, relPos.z, loop, volume, CHANNEL::Enemigos);
+};
 
 void Enemy::OnDeath()
 {

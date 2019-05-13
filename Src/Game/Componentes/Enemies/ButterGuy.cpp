@@ -11,6 +11,7 @@ void ButterGuy::Start() {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 
 	gameObject->setScale(scale);
 
@@ -30,6 +31,8 @@ void ButterGuy::LoadFromFile(json obj)
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 }
 
 
@@ -62,7 +65,7 @@ void ButterGuy::Update()
 			auxVec = -auxVec;
 			auxVec.normalise();
 			auxVec *= (moveSpeed * playerController->getGameSpeed());
-			meshRend->AnimationSpeed(playerController->getGameSpeed());
+			meshRend->SetAnimationSpeed(playerController->getGameSpeed());
 			rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
 			if (absDist > dist) {
 				estado = state::IDLE;
@@ -74,7 +77,7 @@ void ButterGuy::Update()
 		else if (estado == state::AIMING) {
 			//Dispara cada cierto tiempo
 			//Crear bala con direccion auxvec
-			shootTimer += tm->getDeltaTime();
+			shootTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (shootTimer >= shootTime) {
 				Shoot();
 				shootTimer = 0;
@@ -100,6 +103,7 @@ void ButterGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 }
 
 void ButterGuy::Spawn()

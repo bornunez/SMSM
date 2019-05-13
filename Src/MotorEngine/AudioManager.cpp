@@ -29,9 +29,17 @@ void AudioManager::cargaSonidos()
 {
 	string path = ".\\Assets\\Audio\\";
 
+	//MUSIC
+	sounds["BandaSonora1"] = path + "DeathMatch (Boss Theme).mp3";
+
+	//WEAPONS
 	sounds["GunShoot"] = path + "PISTOL-SHOOT.mp3";
 	sounds["ShotGunShoot"] = path + "shotgun.mp3";
-	sounds["BandaSonora1"] = path + "DeathMatch (Boss Theme).mp3";
+
+	//SHOUTS
+	sounds["ShyGuyShout"] = path + "chillido1.mp3";
+	sounds["PocholoShout"] = path + "chillido2.mp3";
+	sounds["BossShout"] = path + "boss_shout.mp3";
 }
 
 void AudioManager::getSound(string fileName)
@@ -50,30 +58,58 @@ void AudioManager::change3DPosition(int x, int y, int z, CHANNEL channel)
 void AudioManager::modifyVolume(bool v)
 {
 	if (v) {
-		globalVolume += 0.2f;
-		if (globalVolume > 2.0f)
-			globalVolume = 2.0f;
+		globalEffectVolume += 0.2f;
+		if (globalEffectVolume > 2.0f)
+			globalEffectVolume = 2.0f;
 	}
 	else {
-		globalVolume -= 0.2f;
-		if (globalVolume < 0)
-			globalVolume = 0;
+		globalEffectVolume -= 0.2f;
+		if (globalEffectVolume < 0)
+			globalEffectVolume = 0;
 	}
+	sound->changeGlobalVolume(globalEffectVolume);
 
-	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalVolume * 100)) + "%");
+	GUIManager::Instance()->getButton("Volume")->setText("SFX: " + std::to_string((int)(globalEffectVolume * 100)) + "%");
+}
+void AudioManager::modifyMusicVolume(bool v)
+{
+	if (v) {
+		globalMusicVolume += 0.2f;
+		if (globalMusicVolume > 2.0f)
+			globalMusicVolume = 2.0f;
+	}
+	else {
+		globalMusicVolume -= 0.2f;
+		if (globalMusicVolume < 0)
+			globalMusicVolume = 0;
+	}
+	sound->changeGlobalMusicVolume(globalMusicVolume);
 
+	GUIManager::Instance()->getButton("VolumeMusic")->setText("Music: " + std::to_string((int)(globalMusicVolume * 100)) + "%");
+}
+void AudioManager::muteMusicVolume()
+{
+	if (globalMusicVolume > 0) {
+		savedMusicVolume = globalMusicVolume;
+		globalMusicVolume = 0;
+	}
+	else {
+		globalMusicVolume = savedMusicVolume;
+	}
+	sound->changeGlobalMusicVolume(globalMusicVolume);
+	GUIManager::Instance()->getButton("VolumeMusic")->setText("Music: " + std::to_string((int)(globalMusicVolume * 100)) + "%");
 }
 void AudioManager::muteVolume()
 {
-	if (globalVolume > 0) {
-		savedVolume = globalVolume;
-		globalVolume = 0;
+	if (globalEffectVolume > 0) {
+		savedVolume = globalEffectVolume;
+		globalEffectVolume = 0;
 	}
 	else {		
-		globalVolume = savedVolume;
+		globalEffectVolume = savedVolume;
 	}
-
-	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalVolume * 100)) + "%");
+	sound->changeGlobalVolume(globalEffectVolume);
+	GUIManager::Instance()->getButton("Volume")->setText("SFX: " + std::to_string((int)(globalEffectVolume * 100)) + "%");
 }
 void AudioManager::changePitch(float velocity, CHANNEL channel)
 {
@@ -91,7 +127,7 @@ void AudioManager::playSound(string fileName, bool loop, float volume, CHANNEL c
 		getSound(fileName);
 	}
 	// Play the sound, with loop mode
-	sound->playSound(soundSample, loop, volume * globalVolume, channel);
+	sound->playSound(soundSample, loop, volume * globalEffectVolume, channel);
 }
 void AudioManager::play3DSound(string fileName, int x, int y, int z, bool loop, float volume, CHANNEL channel)
 {
@@ -101,5 +137,5 @@ void AudioManager::play3DSound(string fileName, int x, int y, int z, bool loop, 
 		getSound(fileName);
 	}
 	// Play the sound, with loop mode
-	sound->play3DSound(soundSample, x, y, z, loop, volume, channel);
+	sound->play3DSound(soundSample, x, y, z, loop, volume*globalEffectVolume, channel);
 }

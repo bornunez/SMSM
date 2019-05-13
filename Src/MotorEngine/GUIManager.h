@@ -104,7 +104,10 @@ private:
 	void RestartMainScene();
 	void VolumeUp();
 	void VolumeDown();
+	void VolumeMusicUp();
+	void VolumeMusicDown();
 	void Mute();
+	void MuteMusic();
 	void SensitivityUp();
 	void SensitivityDown();
 

@@ -30,6 +30,8 @@ public:
 	void change3DPosition(int relX, int relY, int relZ, CHANNEL channel = CHANNEL::Default);
 
 	void modifyVolume(bool v);
+	void modifyMusicVolume(bool v);
+	void muteMusicVolume();
 	void muteVolume();
 
 private:
@@ -40,7 +42,9 @@ private:
 	SoundClass soundSample;
 	void cargaSonidos();
 
-	float globalVolume = 1.0f;
+	float globalEffectVolume = 1.0f;
 	float savedVolume = 1.0f;
+	float globalMusicVolume = 1.0f;
+	float savedMusicVolume = 1.0f;
 };
 
