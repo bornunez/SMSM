@@ -3,6 +3,7 @@
 #include "../../../Src/MotorEngine/GUIManager.h"
 #include "../../Src/MotorEngine/MeshRenderer.h"
 #include "../../Armas/Weapon.h"
+#include "../../Src/MotorEngine/AudioManager.h"
 
 
 PlayerController::~PlayerController()
@@ -207,6 +208,8 @@ void PlayerController::handleInput()
 			currentHability = HabilityEnum::FreezeTime;
 			gameSpeed = freezeTimeSpeed;
 			timeElapsed = 0;
+			AudioManager::getInstance()->playSound("TimeSound", false, 1, CHANNEL::Default);
+			
 		}
 	}
 }

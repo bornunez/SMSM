@@ -40,6 +40,7 @@ void AudioManager::cargaSonidos()
 	sounds["ShyGuyShout"] = path + "chillido1.mp3";
 	sounds["PocholoShout"] = path + "chillido2.mp3";
 	sounds["BossShout"] = path + "boss_shout.mp3";
+	sounds["TimeSound"] = path + "time_sound.mp3";
 }
 
 void AudioManager::getSound(string fileName)

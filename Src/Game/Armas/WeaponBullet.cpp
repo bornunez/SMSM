@@ -57,6 +57,7 @@ void WeaponBullet::Update()
 {
 	if (!hit)
 	{
+		actGrav += grav* TimeManager::getInstance()->getDeltaTime();
 		if (actDeathTime < deathTime) actDeathTime += TimeManager::getInstance()->getDeltaTime()*playerController->getGameSpeed();
 		else
 		{
