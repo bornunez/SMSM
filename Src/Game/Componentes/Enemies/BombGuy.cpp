@@ -45,14 +45,11 @@ void BombGuy::Update()
 			if (absDist < chaseDist) {
 				estado = state::CHASING;
 				meshRend->PlayAnimation("Move", true);
-				meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 			}
 		}
 		else if (estado == state::CHASING) {
 			auxVec.normalise();
 			auxVec *= (moveSpeed * playerController->getGameSpeed());
-			meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
-
 			rb->setLinearVelocity({ auxVec.x , 0, auxVec.z});
 			if (absDist > chaseDist) {
 				rb->setLinearVelocity(btVector3(0, 0, 0));
@@ -68,17 +65,20 @@ void BombGuy::Update()
 		}
 		else if (estado == state::EXPLODING) {
 			expTimer += tm->getDeltaTime() * playerController->getGameSpeed();
-			meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 			if (expTimer >= expTime) {
 				OnDeath();
 			}
 		}
 
+		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
-	else if (meshRend->AnimationHasEnded("Death")) {
-		Enemy::OnDeath();
+	else {
+		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+		if (meshRend->AnimationHasEnded("Death")) {
+			Enemy::OnDeath();
+		}
 	}
 	Enemy::Update();
 }
@@ -106,7 +106,5 @@ void BombGuy::Explode()
 		//Enviar daño a jugador
 		cout << "jugador caiste en mi trampa whahahhaahhh" << endl;
 	}
-	//Enemy::OnDeath();
 	//Sonido explosion
-
 }

@@ -69,7 +69,6 @@ void ButterGuy::Update()
 			if (absDist > dist) {
 				estado = state::IDLE;
 				rb->setLinearVelocity(btVector3(0, 0, 0));
-				//meshRend->StopAnimation(true);
 			}
 		}
 		//Si esta apuntando
@@ -84,17 +83,19 @@ void ButterGuy::Update()
 			//Si deja de estar en rango vuelve a estar idle
 			if (absDist < dist || absDist > dist*distFactor) {
 				estado = state::IDLE;
-				//meshRend->PlayAnimation("Move", true);
 			}
 		}
 		//Mira al jugador
 		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
+		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
-	else if (meshRend->AnimationHasEnded("Death")) {
-		Enemy::OnDeath();
+	else {
+		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+		if (meshRend->AnimationHasEnded("Death")) {
+			Enemy::OnDeath();
+		}
 	}
-	meshRend->SetAnimationSpeed(playerController->getGameSpeed());
 	Enemy::Update();
 }
 

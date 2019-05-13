@@ -18,14 +18,15 @@ private:
 	//Shoot
 	float actTimePerShot = 0;
 	float timePerShot = 1;
-		//Animation
-		float shootSpeed = 1;
+	int damage = 0;
+	//Animation
+	float shootSpeed = 1;
 
 	//Reload
 	float actReloadTime = 0;
 	float reloadTime = 2;
-		//Animation
-		float reloadSpeed = 1;
+	//Animation
+	float reloadSpeed = 1;
 
 	//Magazine
 	int actMagazine = 0;
@@ -58,5 +59,6 @@ public:
 	void SpecialReload();
 	Vector3 getOffset() { return offset; };
 	float getDispersion() { return dispersion; };
+	int getDamage() { return damage; };
 };
 

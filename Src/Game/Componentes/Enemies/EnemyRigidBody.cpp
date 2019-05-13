@@ -1,11 +1,23 @@
 #include "EnemyRigidBody.h"
 #include "../../../Src/MotorEngine/PhysicsManager.h"
 #include <iostream>
+#include "../../Armas/Weapon.h"
 
 void EnemyRigidBody::Start() {
 
 	enemy = gameObject->getComponent<Enemy>();
 	RigidBodyComponent::Start();
+
+	// Obtiene los valores de damage de las armas
+	if(scene->getGameObject("Pistola") == nullptr)
+		cout << "ERROR: No se ha encontrado Pistola en " << gameObject->getName() << endl;
+	else
+		gunDamage = scene->getGameObject("Pistola")->getComponent<Weapon>()->getDamage();
+
+	if (scene->getGameObject("Escopeta") == nullptr)
+		cout << "ERROR: No se ha encontrado Escopeta en " << gameObject->getName() << endl;
+	else
+		shotgunDamage = scene->getGameObject("Escopeta")->getComponent<Weapon>()->getDamage();
 }
 
 EnemyRigidBody::~EnemyRigidBody()
@@ -22,12 +34,14 @@ void EnemyRigidBody::collisionHandler(int id)
 {
 	if (!hit) {
 		// Si la ID es la ID de la bala.
-		if (id == 1) {
+		if (id == collisionID::BulletID) {
 #ifdef C_DEBUG
 			std::cout << "--> Ha colisionado conmigo un objeto con el identificador: " + to_string(id) << " <--" << std::endl;
-			cout << "llamando al ON HIT" << endl;
 #endif
-			enemy->OnHit();
+			enemy->OnHit(gunDamage);
+		}
+		else if (id == collisionID::ShotgunBulletID) {
+			enemy->OnHit(shotgunDamage);
 		}
 	}
 	else {

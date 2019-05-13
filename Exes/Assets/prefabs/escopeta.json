@@ -11,6 +11,7 @@
 		},
 		{
 			"type":"Weapon",
+			"damage":2,
 			"magazine":6,
 			"moveSpeed":1.75,
 			"runSpeed":2,

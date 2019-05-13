@@ -33,7 +33,7 @@ public:
 	~Enemy();
 	virtual void LoadFromFile(json obj) = 0;
 	virtual void Update() = 0;
-	virtual void OnHit();
+	virtual void OnHit(int damage);
 	virtual void OnDeath();
 	virtual void Spawn() = 0;
 	void playSound(string name, bool loop, float volume);
