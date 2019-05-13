@@ -2,6 +2,7 @@
 #include "MyCamera.h"
 #include "../../../Src/MotorEngine/GUIManager.h"
 #include "../../Src/MotorEngine/MeshRenderer.h"
+#include "../../Armas/Weapon.h"
 
 PlayerController::~PlayerController()
 {
@@ -39,6 +40,10 @@ void PlayerController::Start()
 #endif
 	}
 
+	pistolsGO = brazo->GetChild("PistolasDuales");
+	shotgunGO = brazo->GetChild("Escopeta");
+	shotgunGO->SetActive(false);
+
 	// Crea el compositor para la sangre en pantalla al contacto
 	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Blood");
 	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Blood", false);
@@ -48,8 +53,8 @@ void PlayerController::Start()
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
 	}
 
-	gunWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/Button", 0.025, 0.9, 0.07, 0.075, "", "null");
-	gunWindow->disable();
+	pistolWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/Button", 0.025, 0.9, 0.07, 0.075, "", "null");
+	pistolWindow->disable();
 
 	shotGunWindow = GUIManager::Instance()->CreateButton("null", "shotGunIcon", "TaharezLook/Button", 0.115, 0.9, 0.07, 0.075, "", "null");
 	// Desactivado porque empezamos con ella
@@ -132,13 +137,21 @@ void PlayerController::handleInput()
 		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
 	}
 
-	if (input->getKey(OIS::KeyCode::KC_L)) {
+	if (input->getKey(OIS::KeyCode::KC_L)) { // TESTING ------------------------------------------
 		cout << "SlowMotion: ON" << endl;
 		gameSpeed = 0.2f;
 	}
-	else if (input->getKey(OIS::KeyCode::KC_K)) {
+	else if (input->getKey(OIS::KeyCode::KC_K)) { // TESTING ------------------------------------------
 		cout << "SlowMotion: OFF" << endl;
 		gameSpeed = 1;
+	}
+
+	// Switch Weapons
+	if (input->getKey(OIS::KeyCode::KC_1)) {
+		switchWeapon(WeaponEnum::Pistol);
+	}
+	else if (input->getKey(OIS::KeyCode::KC_2)) {
+		switchWeapon(WeaponEnum::ShotGun);
 	}
 }
 
@@ -201,7 +214,7 @@ void PlayerController::hideHud()
 		livesHeart.at(i)->hide();
 	}
 
-	gunWindow->hide();
+	pistolWindow->hide();
 	shotGunWindow->hide();
 }
 
@@ -210,17 +223,31 @@ Vector3  PlayerController::getPlayerDirection()
 	return getGameObject()->getNode()->getOrientation() * Vector3::NEGATIVE_UNIT_Z;
 }
 
-void PlayerController::setState(WeaponState state_)
+void PlayerController::switchWeapon(WeaponEnum w)
 {
-	state = state_;
-	if (state == WeaponState::Gun) {
+	currentWeapon = w;
+	if (currentWeapon == WeaponEnum::Pistol) {
+		// Change weapon
+		pistolsGO->SetActive(true);
+		shotgunGO->SetActive(false);
+		// Update GUI
 		shotGunWindow->enable();
-		gunWindow->disable();
+		pistolWindow->disable();
 	}
-	else {
+	else if (currentWeapon == WeaponEnum::ShotGun && shotgunUnlocked) {
+		// Change weapon
+		pistolsGO->SetActive(false);
+		shotgunGO->SetActive(true);
+		// Update GUI
 		shotGunWindow->disable();
-		gunWindow->enable();
+		pistolWindow->enable();
 	}
+}
+
+void PlayerController::unlockWeapon(WeaponEnum w)
+{
+	if (w == WeaponEnum::ShotGun)
+		shotgunUnlocked = true;
 }
 
 void PlayerController::SetInvulnerability() {

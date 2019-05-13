@@ -9,7 +9,7 @@
 
 enum collisionID {PlayerID, BulletID, EnemyID, HeartID, ShotgunID};
 
-enum WeaponState {Gun, ShotGun};
+enum WeaponEnum {Pistol, ShotGun};
 class MeshRenderer;
 class MyCamera;
 class PlayerController: public Component
@@ -40,9 +40,12 @@ private:
 	float gameSpeed = 1;
 
 	// Weapons
-	WeaponState state = WeaponState::Gun;
-	CEGUI::Window* gunWindow;
+	WeaponEnum currentWeapon = WeaponEnum::Pistol;
+	CEGUI::Window* pistolWindow;
 	CEGUI::Window* shotGunWindow;
+	GameObject* pistolsGO;
+	GameObject* shotgunGO;
+	bool shotgunUnlocked = false;
 
 	// Control de invulnerabilidad
 	bool invulnerability = false;
@@ -69,5 +72,6 @@ public:
 
 	float getGameSpeed() { return gameSpeed; }
 
-	void setState(WeaponState state_);
+	void switchWeapon(WeaponEnum w);
+	void unlockWeapon(WeaponEnum w);
 };
