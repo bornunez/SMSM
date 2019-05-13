@@ -69,6 +69,21 @@ public:
 		m_pSystem->createSound(pFile, NULL, 0, pSound);
 		//      m_pSystem->createSound(pFile, FMOD_HARDWARE, 0, pSound);
 	}
+	void changeGlobalMusicVolume(float volume)
+	{
+		channel4->setVolume(volume);
+	}
+	void changeGlobalVolume(float volume)
+	{
+			channelPred->setVolume(volume);
+
+			channel1->setVolume(volume);
+
+			channel2->setVolume(volume);
+
+			channel3->setVolume(volume);
+
+	}
 	void changePitch(float velocity = 1, CHANNEL channel = CHANNEL::Default)
 	{
 		switch (channel)
@@ -93,7 +108,7 @@ public:
 	void change3DPosition(int relX, int relY, int relZ, CHANNEL channel = CHANNEL::Default, float volume = 1)
 	{
 		float magnitude = sqrt(pow(relX, 2) + pow(relY, 2) + pow(relZ, 2));
-		volumen3D = (1 - (magnitude / maxHearingDistance));
+		volumen3D = (1 - (magnitude / maxHearingDistance))*volume;
 
 		float rad = atan2(relZ, relX);
 		float angle = rad * (180 / 3.14);

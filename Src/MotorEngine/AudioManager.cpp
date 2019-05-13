@@ -67,9 +67,25 @@ void AudioManager::modifyVolume(bool v)
 		if (globalVolume < 0)
 			globalVolume = 0;
 	}
+	sound->changeGlobalVolume(globalVolume);
 
 	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalVolume * 100)) + "%");
+}
+void AudioManager::modifyMusicVolume(bool v)
+{
+	if (v) {
+		globalMusicVolume += 0.2f;
+		if (globalMusicVolume > 2.0f)
+			globalMusicVolume = 2.0f;
+	}
+	else {
+		globalVolume -= 0.2f;
+		if (globalMusicVolume < 0)
+			globalMusicVolume = 0;
+	}
+	sound->changeGlobalMusicVolume(globalMusicVolume);
 
+	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalVolume * 100)) + "%");
 }
 void AudioManager::muteVolume()
 {
@@ -80,7 +96,7 @@ void AudioManager::muteVolume()
 	else {		
 		globalVolume = savedVolume;
 	}
-
+	sound->changeGlobalVolume(globalVolume);
 	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalVolume * 100)) + "%");
 }
 void AudioManager::changePitch(float velocity, CHANNEL channel)
@@ -109,5 +125,5 @@ void AudioManager::play3DSound(string fileName, int x, int y, int z, bool loop, 
 		getSound(fileName);
 	}
 	// Play the sound, with loop mode
-	sound->play3DSound(soundSample, x, y, z, loop, volume, channel);
+	sound->play3DSound(soundSample, x, y, z, loop, volume*globalVolume, channel);
 }

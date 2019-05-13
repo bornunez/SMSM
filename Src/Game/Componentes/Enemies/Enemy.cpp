@@ -65,9 +65,8 @@ void Enemy::playSound(string name, bool loop, float volume)
 	B.makeTransform(player->getGlobalPosition(), Ogre::Vector3::UNIT_SCALE, player->getGlobalOrientation());
 
 	Ogre::Matrix4 A_BSpace = B.inverse() * A;
-	Ogre::Matrix4 derivedA = B * A_BSpace;
 	Vector3 relPos = A_BSpace.getTrans();
-	AudioManager::getInstance()->play3DSound("ShyGuyShout", relPos.x, relPos.y, relPos.z, false, 1, CHANNEL::Enemigos);
+	AudioManager::getInstance()->play3DSound(name, relPos.x, relPos.y, relPos.z, loop, volume, CHANNEL::Enemigos);
 };
 
 void Enemy::OnDeath()
