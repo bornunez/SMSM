@@ -13,7 +13,7 @@ void IncognitoGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Idle", true);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 
 	gameObject->setScale(scale);
 	
@@ -46,6 +46,8 @@ void IncognitoGuy::LoadFromFile(json obj)
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 }
 
 
@@ -99,7 +101,7 @@ void IncognitoGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(2);
 }
 
 void IncognitoGuy::Spawn()

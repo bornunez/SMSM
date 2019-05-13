@@ -13,7 +13,7 @@ void HouseGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 
 	gameObject->setScale(scale);
 	
@@ -34,6 +34,8 @@ void HouseGuy::LoadFromFile(json obj)
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 }
 
 
@@ -103,7 +105,7 @@ void HouseGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(2);
 }
 
 void HouseGuy::Spawn()

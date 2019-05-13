@@ -30,6 +30,9 @@ private:
 	float shootTime = 0;
 	float shootTimer = 0;
 
+	float defAnimSp = 0;
+	float deathAnimSp = 0;
+
 	TimeManager* tm = nullptr;
 
 public:

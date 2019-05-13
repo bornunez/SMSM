@@ -16,6 +16,9 @@ private:
 	float expRadius = 0;
 	float scale = 0;
 
+	float defAnimSp = 0;
+	float deathAnimSp = 0;
+
 	float expTimer = 0;	
 	TimeManager* tm = nullptr;
 
