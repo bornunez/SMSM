@@ -1,0 +1,14 @@
+{
+	"prefabName":"BoomPS",
+	"name":"BoomPS",
+	"active":true,
+	"components":[
+		{
+			"type":"ParticleSystem",
+			"script":"Boom",
+			"name":"Boom",
+			"duration":0.5,
+			"Destroy":true
+		}
+	]
+}

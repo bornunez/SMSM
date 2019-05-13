@@ -1,6 +1,7 @@
 {
 	"sceneName":"mainScene",
 	"Skybox":{"material":"Skybox" },
+	"SkyboxPath":"SMSM/Skybox",
 	"Ambient Light": {"r":0.2,"g":0.2,"b":0.2},	
 	"GameObjects": [		
 		{
@@ -13,7 +14,7 @@
 				},
 				{
 					"type":"MapLoader",
-					"path":"Assets/maps/testRoom.json",
+					"path":"Assets/maps/baseRoom.json",
 					"scale":0.5
 				},	
 				{
@@ -113,11 +114,11 @@
 						{
 							"frameWndParentName":"GameOverWnd",
 							"buttonName":"fondoGameOverButton",
-							"buttonScheme":"TaharezLook/BackgroundPausa",
-							"buttonPosX":-0.1,
-							"buttonPosY":-0.1,
+							"buttonScheme":"TaharezLook/GameOver",
+							"buttonPosX":-0.05,
+							"buttonPosY":0.15,
 							"buttonSizeX":1.1,
-							"buttonSizeY":1.1,
+							"buttonSizeY":0.9,
 							"buttonText":" ",
 							"buttonFunctionName":"null",
 							"active":true,
@@ -128,7 +129,7 @@
 							"buttonName":"RestartButton",
 							"buttonScheme":"TaharezLook/Button",
 							"buttonPosX":0.325,
-							"buttonPosY":0.45,
+							"buttonPosY":0.55,
 							"buttonSizeX":0.35,
 							"buttonSizeY":0.05,
 							"buttonText":"Restart",
@@ -166,10 +167,10 @@
 							"frameWndParentName":"PauseWnd",
 							"buttonName":"fondoPausaButton",
 							"buttonScheme":"TaharezLook/BackgroundPausa",
-							"buttonPosX":-0.1,
-							"buttonPosY":-0.1,
+							"buttonPosX":-0.05,
+							"buttonPosY":0.15,
 							"buttonSizeX":1.1,
-							"buttonSizeY":1.1,
+							"buttonSizeY":0.9,
 							"buttonText":" ",
 							"buttonFunctionName":"null",
 							"active":true,

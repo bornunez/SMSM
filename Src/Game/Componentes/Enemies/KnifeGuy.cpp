@@ -45,6 +45,7 @@ void KnifeGuy::Update()
 	else if (estado == state::DEAD && meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
+	Enemy::Update();
 }
 
 void KnifeGuy::OnDeath() {

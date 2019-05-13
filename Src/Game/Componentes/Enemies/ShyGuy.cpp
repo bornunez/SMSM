@@ -69,6 +69,7 @@ void ShyGuy::Update()
 	else if (meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
+	Enemy::Update();
 }
 
 void ShyGuy::OnDeath() {

@@ -26,8 +26,6 @@ void Scene::Release()
 {
 	destroying = true;
 
-	//mSceneManager->setSkyBoxEnabled(false);
-
 #ifdef C_DEBUG
 	cout << endl << endl << "=======================================================================" << endl << endl;
 	cout << endl << "BORRANDO ESCENA " << endl << endl;
@@ -116,7 +114,7 @@ void Scene::LoadFromFile(json sceneFile)
 
 	if (sceneFile.contains("Skybox")) {
 		json skyObj = sceneFile["Skybox"];
-		mSceneManager->setSkyDome(true, "SMSM/Skybox");
+		mSceneManager->setSkyDome(true, sceneFile["SkyboxPath"]);
 	}
 	if (sceneFile.contains("Ambient Light")) {
 		json ambLight = sceneFile["Ambient Light"];

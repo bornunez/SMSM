@@ -20,7 +20,7 @@ public:
 	void AddEntry(GameObject* e) { entries.push_back(e); }
 	void AddGate(GameObject* o) { gates.push_back(o); }
 	void AddEnemy() { nEnemies++; }
-	void RemoveEnemies() { nEnemies--; if (nEnemies <= 0) OnClear(); }
+	void RemoveEnemies() { nEnemies--; cout << "Enemigos en la sala: " << nEnemies << endl; if (nEnemies <= 0) OnClear(); }
 
 	void OnEnter();
 	void OnClear();

@@ -32,18 +32,23 @@ private:
 
 	// Attributes
 	float speed = 0;
+	float walkSpeed = 0;
+	float runSpeed = 0;
 	int maxHealth = 3;
 	int lives = 3;
 	int sensitivityLevel = 2;
 	float gameSpeed = 1;
-	WeaponState state = WeaponState::Gun;
 
-	std::vector<CEGUI::Window *> livesHeart;
+	// Weapons
+	WeaponState state = WeaponState::Gun;
+	CEGUI::Window* gunWindow;
+	CEGUI::Window* shotGunWindow;
 
 	// Control de invulnerabilidad
 	bool invulnerability = false;
 	float recoverTime;
 	float actRecoverTime = 0;
+	std::vector<CEGUI::Window *> livesHeart;
 
 public:
 	PlayerController(GameObject* obj) : Component(obj) {};
@@ -57,12 +62,12 @@ public:
 	
 	void receiveDamage();
 	void gainHealth();
-	void hideHealth();
+	void hideHud();
 	void SetInvulnerability();
 
 	Vector3 getPlayerDirection();
 
 	float getGameSpeed() { return gameSpeed; }
 
-	void setState(WeaponState state_) { state = state_; }
+	void setState(WeaponState state_);
 };

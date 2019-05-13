@@ -1,0 +1,10 @@
+material Materials/RedHurt
+{
+    technique
+    {
+        pass
+        {
+			diffuse 1.0 0.0 0.0
+        }   
+    }
+}

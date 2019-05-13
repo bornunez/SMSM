@@ -3,6 +3,7 @@
 	"name":"ShotgunItem",
 	"active":true,
 	"isListener":true,
+	"scale":0.02,
 	"components":[
 		{
 			"type":"meshRenderer",

@@ -8,6 +8,7 @@ private:
 	string materialName;
 	string startAnim = "";
 	Ogre::Entity* entity;
+	std::vector<string> materialNames;
 	std::vector<Ogre::AnimationState*> animationStates;
 	void Update();
 	float animationVelocity = 1;
@@ -23,7 +24,9 @@ public:
 	bool isPlaying(string name);
 	bool AnimationHasEnded(string name);
 	virtual void LoadFromFile(json obj);
-	~MeshRenderer();
+	virtual ~MeshRenderer();
+
+	void ResetMaterials();
 
 	virtual void Start();
 	void OnDestroy();

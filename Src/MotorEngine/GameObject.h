@@ -50,6 +50,9 @@ public:
 	void AddEntity(Ogre::MovableObject* entity);
 	void RemoveEntity(Ogre::MovableObject* entity);
 
+	std::list<Ogre::MovableObject*> getEntities() { return entities; }
+	void setMaterial(string material);
+
 	//Manejo del transform
 	Ogre::Vector3 getPosition();
 	Ogre::Vector3 getGlobalPosition();

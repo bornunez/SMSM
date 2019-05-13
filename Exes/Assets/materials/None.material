@@ -1,0 +1,10 @@
+material Materials/None
+{
+    technique
+    {
+        pass
+        {
+
+        }   
+    }
+}

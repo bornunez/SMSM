@@ -7,13 +7,13 @@
 		{
 			"type":"meshRenderer",
 			"mesh":"Corazon.mesh",
-			"StartAnimation":"Idle"
+			"StartAnimation":"my_animation"
 		},
 		{
 			"type":"ItemRigidBody",
 			"shape":0,
 			"id":3,
-			"mass":10,
+			"mass":1000,
 			"restFactor":0,
 			"positionX":0,
 			"positionY":0,
@@ -22,9 +22,9 @@
 			"offsetY":0,
 			"offsetZ":0,
 			"isTrigger":true,
-			"sizeX":0.65,
-			"sizeY":1,
-			"sizeZ":0.65
+			"sizeX":0.3,
+			"sizeY":0.3,
+			"sizeZ":0.3
 		}
 	]
 }

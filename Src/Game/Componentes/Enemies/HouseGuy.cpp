@@ -96,6 +96,7 @@ void HouseGuy::Update()
 		}
 		Enemy::OnDeath();
 	}
+	Enemy::Update();
 }
 
 void HouseGuy::OnDeath() {
@@ -111,7 +112,7 @@ void HouseGuy::Spawn()
 
 void HouseGuy::SpawnEnemy(Vector3 pos)
 {
-	scene->Instantiate("PoofPS", pos, 0.025f);
+	scene->Instantiate("LitlePoofPS", pos, 0.025f);
 	scene->Instantiate("ShyGuy", pos, 0.5f);
-	RoomManager::getInstance()->GetActiveRoom()->AddEnemy();
+	//RoomManager::getInstance()->GetActiveRoom()->AddEnemy();
 }

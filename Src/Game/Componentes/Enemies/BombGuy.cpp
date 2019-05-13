@@ -76,6 +76,7 @@ void BombGuy::Update()
 	else if (meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
+	Enemy::Update();
 }
 
 void BombGuy::OnDeath() {
@@ -92,7 +93,7 @@ void BombGuy::Spawn()
 void BombGuy::Explode()
 {
 	//crear particulas
-	scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
+	scene->Instantiate("BoomPS", gameObject->getPosition(), 0.025f);
 	//Calcular explosion
 	Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 	float absDist = abs(auxVec.x) + abs(auxVec.z);
@@ -100,7 +101,7 @@ void BombGuy::Explode()
 		//Enviar daño a jugador
 		cout << "jugador caiste en mi trampa whahahhaahhh" << endl;
 	}
-
+	//Enemy::OnDeath();
 	//Sonido explosion
 
 }

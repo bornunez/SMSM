@@ -3,6 +3,7 @@
 	"name":"Escopeta",
 	"active":true,
 	"isListener":true,
+	"scale":0.04,
 	"components":[
 		{
 			"type":"meshRenderer",

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="3992">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="4116">
  <tileset firstgid="1" source="City.tsx"/>
  <layer id="3" name="Capa de Patrones 1" width="100" height="100" locked="1">
   <data encoding="base64" compression="zlib">
@@ -7,22 +7,22 @@
   </data>
  </layer>
  <objectgroup id="2" name="Borders">
-  <object id="597" gid="139" x="280" y="380" width="4" height="4">
+  <object id="597" gid="139" x="280" y="344" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="598" gid="139" x="280" y="384" width="4" height="4">
+  <object id="598" gid="139" x="280" y="348" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="599" gid="139" x="324" y="396" width="4" height="4">
+  <object id="599" gid="139" x="324" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="600" gid="139" x="328" y="396" width="4" height="4">
+  <object id="600" gid="139" x="328" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -117,77 +117,72 @@
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="619" gid="139" x="388" y="344" width="4" height="4">
+  <object id="620" gid="139" x="296" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="620" gid="139" x="296" y="396" width="4" height="4">
+  <object id="621" gid="139" x="300" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="621" gid="139" x="300" y="396" width="4" height="4">
+  <object id="622" gid="139" x="304" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="622" gid="139" x="304" y="396" width="4" height="4">
+  <object id="623" gid="139" x="308" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="623" gid="139" x="308" y="396" width="4" height="4">
+  <object id="624" gid="139" x="312" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="624" gid="139" x="312" y="396" width="4" height="4">
+  <object id="625" gid="139" x="316" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="625" gid="139" x="316" y="396" width="4" height="4">
+  <object id="626" gid="139" x="356" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="626" gid="139" x="356" y="396" width="4" height="4">
+  <object id="627" gid="139" x="352" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="627" gid="139" x="352" y="396" width="4" height="4">
+  <object id="628" gid="139" x="348" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="628" gid="139" x="348" y="396" width="4" height="4">
+  <object id="629" gid="139" x="344" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="629" gid="139" x="344" y="396" width="4" height="4">
+  <object id="630" gid="139" x="340" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="630" gid="139" x="340" y="396" width="4" height="4">
+  <object id="631" gid="139" x="336" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="631" gid="139" x="336" y="396" width="4" height="4">
+  <object id="632" gid="139" x="332" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="632" gid="139" x="332" y="396" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="633" gid="139" x="320" y="396" width="4" height="4">
+  <object id="633" gid="139" x="320" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -197,132 +192,92 @@
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1171" gid="139" x="280" y="392" width="4" height="4">
+  <object id="1171" gid="139" x="280" y="356" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1172" gid="139" x="280" y="388" width="4" height="4">
+  <object id="1172" gid="139" x="280" y="352" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1173" gid="146" x="280" y="396" width="4" height="4">
+  <object id="1173" gid="146" x="280" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1174" gid="146" x="284" y="396" width="4" height="4">
+  <object id="1174" gid="146" x="284" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1175" gid="146" x="288" y="396" width="4" height="4">
+  <object id="1175" gid="146" x="288" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1176" gid="146" x="292" y="396" width="4" height="4">
+  <object id="1176" gid="146" x="292" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1177" gid="146" x="360" y="396" width="4" height="4">
+  <object id="1177" gid="146" x="360" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1178" gid="146" x="364" y="396" width="4" height="4">
+  <object id="1178" gid="146" x="364" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1179" gid="146" x="368" y="396" width="4" height="4">
+  <object id="1179" gid="146" x="368" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1180" gid="146" x="372" y="396" width="4" height="4">
+  <object id="1180" gid="146" x="372" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1181" gid="146" x="376" y="396" width="4" height="4">
+  <object id="1181" gid="146" x="376" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1182" gid="146" x="380" y="396" width="4" height="4">
+  <object id="1182" gid="146" x="380" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1183" gid="146" x="384" y="396" width="4" height="4">
+  <object id="1183" gid="146" x="384" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1184" gid="146" x="388" y="396" width="4" height="4">
+  <object id="1184" gid="146" x="388" y="360" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1185" gid="146" x="388" y="392" width="4" height="4">
+  <object id="1185" gid="146" x="388" y="356" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1186" gid="146" x="388" y="388" width="4" height="4">
+  <object id="1186" gid="146" x="388" y="352" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1187" gid="146" x="388" y="384" width="4" height="4">
+  <object id="1187" gid="146" x="388" y="348" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="1188" gid="146" x="388" y="380" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1189" gid="146" x="388" y="376" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1190" gid="146" x="388" y="372" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1191" gid="146" x="388" y="368" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1192" gid="146" x="388" y="364" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1193" gid="146" x="388" y="360" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1194" gid="146" x="388" y="356" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1195" gid="146" x="388" y="352" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1196" gid="146" x="388" y="348" width="4" height="4">
+  <object id="1188" gid="146" x="388" y="344" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -428,51 +383,6 @@
    </properties>
   </object>
   <object id="1226" gid="146" x="280" y="300" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1780" gid="139" x="280" y="376" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1781" gid="139" x="280" y="372" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1782" gid="139" x="280" y="368" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1783" gid="139" x="280" y="364" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1784" gid="139" x="280" y="360" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1785" gid="139" x="280" y="356" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1786" gid="139" x="280" y="352" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1787" gid="139" x="280" y="348" width="4" height="4">
-   <properties>
-    <property name="prefab" value="RandomTree"/>
-   </properties>
-  </object>
-  <object id="1788" gid="139" x="280" y="344" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -667,89 +577,39 @@
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1830" gid="139" x="364" y="120" width="4" height="4">
+  <object id="1830" gid="139" x="364" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1831" gid="139" x="368" y="120" width="4" height="4">
+  <object id="1831" gid="139" x="368" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1832" gid="139" x="372" y="120" width="4" height="4">
+  <object id="1832" gid="139" x="372" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1833" gid="139" x="376" y="120" width="4" height="4">
+  <object id="1833" gid="139" x="376" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1834" gid="139" x="380" y="120" width="4" height="4">
+  <object id="1834" gid="139" x="380" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1835" gid="139" x="384" y="120" width="4" height="4">
+  <object id="1835" gid="139" x="384" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1836" gid="139" x="388" y="120" width="4" height="4">
+  <object id="1836" gid="139" x="388" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="1837" gid="139" x="388" y="132" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1838" gid="139" x="388" y="136" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1839" gid="139" x="388" y="140" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1840" gid="139" x="388" y="144" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1841" gid="139" x="388" y="148" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1842" gid="139" x="388" y="152" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1843" gid="139" x="388" y="156" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1844" gid="139" x="388" y="160" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1845" gid="139" x="388" y="164" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1846" gid="139" x="388" y="168" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1847" gid="139" x="388" y="172" width="4" height="4">
@@ -820,16 +680,6 @@
   <object id="1862" gid="139" x="320" y="228" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="1863" gid="139" x="388" y="124" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1864" gid="139" x="388" y="128" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1865" gid="139" x="280" y="224" width="4" height="4">
@@ -957,114 +807,94 @@
     <property name="prefab" value="WallVert"/>
    </properties>
   </object>
-  <object id="1891" gid="146" x="280" y="120" width="4" height="4">
+  <object id="1891" gid="146" x="280" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
-  <object id="1892" gid="146" x="284" y="120" width="4" height="4">
+  <object id="1892" gid="146" x="284" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1893" gid="146" x="288" y="120" width="4" height="4">
+  <object id="1893" gid="146" x="288" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1894" gid="146" x="292" y="120" width="4" height="4">
+  <object id="1894" gid="146" x="292" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1895" gid="146" x="296" y="120" width="4" height="4">
+  <object id="1895" gid="146" x="296" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1896" gid="146" x="300" y="120" width="4" height="4">
+  <object id="1896" gid="146" x="300" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1897" gid="146" x="304" y="120" width="4" height="4">
+  <object id="1897" gid="146" x="304" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1898" gid="146" x="308" y="120" width="4" height="4">
+  <object id="1898" gid="146" x="308" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1899" gid="146" x="312" y="120" width="4" height="4">
+  <object id="1899" gid="146" x="312" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1900" gid="146" x="320" y="120" width="4" height="4">
+  <object id="1900" gid="146" x="320" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1901" gid="146" x="316" y="120" width="4" height="4">
+  <object id="1901" gid="146" x="316" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1902" gid="146" x="324" y="120" width="4" height="4">
+  <object id="1902" gid="146" x="324" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1903" gid="146" x="340" y="120" width="4" height="4">
+  <object id="1903" gid="146" x="340" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1904" gid="146" x="344" y="120" width="4" height="4">
+  <object id="1904" gid="146" x="344" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1905" gid="146" x="348" y="120" width="4" height="4">
+  <object id="1905" gid="146" x="348" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1906" gid="146" x="352" y="120" width="4" height="4">
+  <object id="1906" gid="146" x="352" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1907" gid="146" x="360" y="120" width="4" height="4">
+  <object id="1907" gid="146" x="360" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1908" gid="146" x="356" y="120" width="4" height="4">
+  <object id="1908" gid="146" x="356" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="1909" gid="139" x="280" y="136" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1910" gid="146" x="280" y="128" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1911" gid="146" x="280" y="124" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1912" gid="146" x="280" y="132" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
    </properties>
   </object>
   <object id="1913" gid="139" x="280" y="208" width="4" height="4">
@@ -1117,57 +947,17 @@
     <property name="prefab" value="WallVert"/>
    </properties>
   </object>
-  <object id="1923" gid="139" x="280" y="168" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1924" gid="139" x="280" y="164" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1925" gid="139" x="280" y="160" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1926" gid="139" x="280" y="156" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1927" gid="139" x="280" y="152" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1928" gid="139" x="280" y="148" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1929" gid="139" x="280" y="144" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1930" gid="139" x="280" y="140" width="4" height="4">
-   <properties>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1931" gid="146" x="328" y="120" width="4" height="4">
+  <object id="1931" gid="146" x="328" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1932" gid="146" x="332" y="120" width="4" height="4">
+  <object id="1932" gid="146" x="332" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="1933" gid="146" x="336" y="120" width="4" height="4">
+  <object id="1933" gid="146" x="336" y="168" width="4" height="4">
    <properties>
     <property name="prefab" value="WallHoriz"/>
    </properties>
@@ -1352,27 +1142,27 @@
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3602" gid="139" x="216" y="276" width="4" height="4">
+  <object id="3602" gid="139" x="216" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3603" gid="139" x="212" y="276" width="4" height="4">
+  <object id="3603" gid="139" x="212" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3604" gid="139" x="208" y="276" width="4" height="4">
+  <object id="3604" gid="139" x="208" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3605" gid="139" x="204" y="276" width="4" height="4">
+  <object id="3605" gid="139" x="204" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3606" gid="139" x="200" y="276" width="4" height="4">
+  <object id="3606" gid="139" x="200" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -1417,42 +1207,42 @@
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3615" gid="146" x="220" y="276" width="4" height="4">
+  <object id="3615" gid="146" x="220" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3616" gid="146" x="224" y="276" width="4" height="4">
+  <object id="3616" gid="146" x="224" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3617" gid="146" x="228" y="276" width="4" height="4">
+  <object id="3617" gid="146" x="228" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3618" gid="146" x="232" y="276" width="4" height="4">
+  <object id="3618" gid="146" x="232" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3619" gid="146" x="236" y="276" width="4" height="4">
+  <object id="3619" gid="146" x="236" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3620" gid="146" x="240" y="276" width="4" height="4">
+  <object id="3620" gid="146" x="240" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3621" gid="146" x="244" y="276" width="4" height="4">
+  <object id="3621" gid="146" x="244" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
   </object>
-  <object id="3622" gid="146" x="248" y="276" width="4" height="4">
+  <object id="3622" gid="146" x="248" y="280" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
    </properties>
@@ -2494,18 +2284,6 @@
     <property name="prefab" value="WallCorUR"/>
    </properties>
   </object>
-  <object id="3943" gid="146" x="348" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="3944" gid="146" x="348" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDR"/>
-   </properties>
-  </object>
   <object id="3945" gid="146" x="308" y="188" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
@@ -2518,67 +2296,37 @@
     <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
-  <object id="3949" gid="146" x="356" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="3950" gid="146" x="348" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDR"/>
-   </properties>
-  </object>
-  <object id="3951" gid="146" x="348" y="132" width="4" height="4">
+  <object id="3954" gid="146" x="356" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
-  <object id="3952" gid="146" x="336" y="172" width="4" height="4">
+  <object id="3955" gid="146" x="356" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
-  <object id="3953" gid="146" x="336" y="172" width="4" height="4">
+  <object id="3956" gid="146" x="320" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="WallCorDL"/>
    </properties>
   </object>
-  <object id="3954" gid="146" x="356" y="120" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="3955" gid="146" x="356" y="120" width="4" height="4">
+  <object id="3957" gid="146" x="320" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
-  <object id="3956" gid="146" x="320" y="120" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="3957" gid="146" x="320" y="120" width="4" height="4">
+  <object id="3958" gid="146" x="304" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="WallCorDR"/>
    </properties>
   </object>
-  <object id="3958" gid="146" x="304" y="120" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDR"/>
-   </properties>
-  </object>
-  <object id="3959" gid="146" x="304" y="120" width="4" height="4">
+  <object id="3959" gid="146" x="304" y="168" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="WallCorDL"/>
@@ -2625,9 +2373,363 @@
     <property name="prefab" value="ShotgunItem"/>
    </properties>
   </object>
+  <object id="3995" gid="146" x="388" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorUL"/>
+   </properties>
+  </object>
+  <object id="3996" gid="146" x="388" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3998" gid="146" x="348" y="168" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDL"/>
+   </properties>
+  </object>
+  <object id="3999" gid="146" x="348" y="168" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallCorDR"/>
+   </properties>
+  </object>
+  <object id="4016" gid="139" x="216" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4017" gid="139" x="212" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4018" gid="139" x="208" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4019" gid="139" x="204" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4020" gid="139" x="200" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4021" gid="146" x="220" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4022" gid="146" x="224" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4023" gid="146" x="228" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4024" gid="146" x="232" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4025" gid="146" x="236" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4026" gid="146" x="240" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4027" gid="146" x="244" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4028" gid="146" x="248" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4029" gid="139" x="252" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4030" gid="139" x="252" y="232" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4031" gid="139" x="252" y="236" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4032" gid="139" x="252" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4033" gid="146" x="252" y="272" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4034" gid="146" x="252" y="268" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4035" gid="146" x="252" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4036" gid="146" x="252" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4037" gid="146" x="252" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4038" gid="146" x="252" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4039" gid="146" x="252" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4040" gid="146" x="252" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4043" gid="146" x="252" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4044" gid="146" x="252" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4074" gid="139" x="160" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4075" gid="139" x="156" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4076" gid="139" x="152" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4077" gid="139" x="148" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4078" gid="139" x="144" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4079" gid="146" x="164" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4080" gid="146" x="168" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4081" gid="146" x="172" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4082" gid="146" x="176" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4083" gid="146" x="180" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4084" gid="146" x="184" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4085" gid="146" x="188" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4086" gid="146" x="192" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4087" gid="146" x="196" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4088" gid="139" x="140" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4089" gid="139" x="136" y="280" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4090" gid="146" x="136" y="196" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4091" gid="139" x="136" y="212" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4092" gid="146" x="136" y="204" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4093" gid="146" x="136" y="200" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4094" gid="146" x="136" y="208" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4095" gid="139" x="136" y="264" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4096" gid="139" x="136" y="260" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4097" gid="139" x="136" y="256" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4098" gid="139" x="136" y="252" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4099" gid="139" x="136" y="248" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4100" gid="139" x="136" y="244" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4101" gid="139" x="136" y="240" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4102" gid="139" x="136" y="236" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4103" gid="139" x="136" y="232" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4104" gid="139" x="136" y="228" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4105" gid="139" x="136" y="224" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4106" gid="139" x="136" y="220" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4107" gid="139" x="136" y="216" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4108" gid="146" x="136" y="276" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4109" gid="142" x="136" y="268" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4110" gid="146" x="136" y="272" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4111" gid="146" x="136" y="188" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="4112" gid="146" x="136" y="192" width="4" height="4">
+   <properties>
+    <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
  </objectgroup>
- <objectgroup id="9" name="Player" visible="0" locked="1">
-  <object id="638" gid="151" x="336" y="380" width="4" height="4">
+ <objectgroup id="9" name="Player">
+  <object id="638" gid="151" x="336" y="352" width="4" height="4">
    <properties>
     <property name="prefab" value="Player"/>
     <property name="scale" type="float" value="0.5"/>
@@ -2635,74 +2737,56 @@
   </object>
  </objectgroup>
  <objectgroup id="4" name="Spawners">
-  <object id="783" gid="83" x="320" y="316" width="4" height="4">
+  <object id="783" gid="83" x="324" y="296" width="4" height="4">
    <properties>
     <property name="KnifeGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="787" x="332" y="368" width="8" height="8">
+  <object id="787" x="328" y="344" width="20" height="12">
    <properties>
     <property name="entry" type="int" value="0"/>
    </properties>
   </object>
-  <object id="846" gid="83" x="336" y="360" width="4" height="4">
+  <object id="846" gid="83" x="336" y="332" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="851" gid="83" x="348" y="316" width="4" height="4">
+  <object id="851" gid="83" x="348" y="296" width="4" height="4">
    <properties>
     <property name="KnifeGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1766" gid="83" x="324" y="344" width="4" height="4">
+  <object id="1766" gid="83" x="324" y="320" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1767" gid="83" x="332" y="348" width="4" height="4">
+  <object id="1767" gid="83" x="332" y="324" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1770" gid="83" x="348" y="344" width="4" height="4">
+  <object id="1770" gid="83" x="348" y="320" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1771" gid="83" x="340" y="348" width="4" height="4">
+  <object id="1771" gid="83" x="340" y="324" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
-  <object id="1772" gid="83" x="336" y="344" width="4" height="4">
+  <object id="1776" gid="83" x="336" y="308" width="4" height="4">
    <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="1774" gid="83" x="328" y="352" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="1776" gid="83" x="336" y="340" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="0"/>
-   </properties>
-  </object>
-  <object id="1778" gid="83" x="344" y="352" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
+    <property name="BombGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="0"/>
    </properties>
   </object>
@@ -2711,7 +2795,7 @@
     <property name="entry" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2171" x="328" y="216" width="12" height="8">
+  <object id="2171" x="324" y="216" width="20" height="8">
    <properties>
     <property name="entry" type="int" value="2"/>
    </properties>
@@ -2722,13 +2806,7 @@
     <property name="spawner" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2179" gid="83" x="332" y="252" width="4" height="4">
-   <properties>
-    <property name="KnifeGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="2180" gid="83" x="352" y="212" width="4" height="4">
+  <object id="2180" gid="83" x="344" y="212" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="2"/>
@@ -2740,37 +2818,7 @@
     <property name="spawner" type="int" value="2"/>
    </properties>
   </object>
-  <object id="2182" gid="83" x="380" y="180" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="2183" gid="83" x="384" y="136" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="2184" gid="83" x="348" y="164" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="2185" gid="83" x="320" y="144" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="2186" gid="83" x="304" y="144" width="4" height="4">
-   <properties>
-    <property name="ShyGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="2187" gid="83" x="312" y="156" width="4" height="4">
+  <object id="2182" gid="83" x="376" y="176" width="4" height="4">
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="2"/>
@@ -2824,38 +2872,62 @@
   </object>
   <object id="3878" gid="83" x="212" y="200" width="4" height="4">
    <properties>
-    <property name="HouseGuy" type="bool" value="true"/>
+    <property name="KnifeGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="3"/>
    </properties>
   </object>
-  <object id="3879" gid="83" x="212" y="240" width="4" height="4">
+  <object id="3879" gid="83" x="208" y="220" width="4" height="4">
    <properties>
     <property name="HouseGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="3"/>
    </properties>
   </object>
-  <object id="3880" gid="83" x="224" y="260" width="4" height="4">
+  <object id="3880" gid="83" x="216" y="240" width="4" height="4">
    <properties>
     <property name="HouseGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="3"/>
    </properties>
   </object>
-  <object id="3881" gid="83" x="156" y="204" width="4" height="4">
+  <object id="3881" gid="83" x="176" y="236" width="4" height="4">
    <properties>
     <property name="HouseGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="4"/>
    </properties>
   </object>
-  <object id="3882" gid="83" x="176" y="232" width="4" height="4">
+  <object id="3882" gid="83" x="156" y="204" width="4" height="4">
    <properties>
     <property name="KnifeGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="4"/>
    </properties>
   </object>
-  <object id="3883" gid="83" x="152" y="260" width="4" height="4">
+  <object id="3883" gid="83" x="176" y="204" width="4" height="4">
+   <properties>
+    <property name="ButterGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="4000" gid="83" x="288" y="176" width="4" height="4">
+   <properties>
+    <property name="KnifeGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="4113" gid="83" x="148" y="260" width="4" height="4">
    <properties>
     <property name="KnifeGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="4114" gid="83" x="148" y="216" width="4" height="4">
+   <properties>
+    <property name="ButterGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="4115" gid="83" x="304" y="336" width="4" height="4">
+   <properties>
+    <property name="HouseGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="3"/>
    </properties>
   </object>
  </objectgroup>
@@ -3112,570 +3184,6 @@
     <property name="prefab" value="WallVert"/>
    </properties>
   </object>
-  <object id="1987" gid="687" x="348" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="1988" gid="687" x="352" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="1989" gid="687" x="356" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="1990" gid="687" x="360" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="1993" gid="687" x="364" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="1994" gid="687" x="368" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="1995" gid="687" x="372" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="1996" gid="687" x="376" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUL"/>
-   </properties>
-  </object>
-  <object id="1997" gid="687" x="376" y="168" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1998" gid="687" x="376" y="164" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="1999" gid="687" x="376" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2000" gid="687" x="376" y="156" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2001" gid="687" x="376" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="2002" gid="687" x="372" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2003" gid="687" x="368" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2004" gid="687" x="364" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2005" gid="687" x="360" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2006" gid="687" x="356" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2007" gid="687" x="356" y="128" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2008" gid="687" x="356" y="124" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2009" gid="687" x="376" y="136" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2010" gid="687" x="376" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2011" gid="687" x="376" y="144" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUL"/>
-   </properties>
-  </object>
-  <object id="2012" gid="687" x="372" y="144" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2013" gid="687" x="368" y="144" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2014" gid="687" x="364" y="144" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2015" gid="687" x="360" y="144" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2016" gid="687" x="352" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2017" gid="687" x="348" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2018" gid="687" x="348" y="136" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2019" gid="687" x="348" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2020" gid="687" x="348" y="144" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2021" gid="687" x="348" y="148" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2022" gid="687" x="348" y="152" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2023" gid="687" x="348" y="156" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2028" gid="687" x="364" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2029" gid="687" x="360" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2030" gid="687" x="356" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2031" gid="687" x="352" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2032" gid="687" x="348" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2035" gid="687" x="344" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2036" gid="687" x="340" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2037" gid="687" x="336" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2038" gid="687" x="332" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDR"/>
-   </properties>
-  </object>
-  <object id="2039" gid="687" x="332" y="136" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2040" gid="687" x="332" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2041" gid="687" x="332" y="144" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2042" gid="687" x="332" y="148" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2043" gid="687" x="332" y="152" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2044" gid="687" x="336" y="152" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2045" gid="687" x="320" y="124" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2046" gid="687" x="320" y="128" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2047" gid="687" x="320" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2048" gid="687" x="320" y="136" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2049" gid="687" x="316" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2050" gid="687" x="320" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUL"/>
-   </properties>
-  </object>
-  <object id="2051" gid="687" x="312" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2052" gid="687" x="308" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2053" gid="687" x="292" y="136" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2054" gid="687" x="304" y="128" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2055" gid="687" x="320" y="152" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2058" gid="687" x="308" y="152" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="2059" gid="687" x="304" y="152" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2060" gid="687" x="308" y="156" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2061" gid="687" x="308" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2062" gid="687" x="320" y="156" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2063" gid="687" x="320" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2064" gid="687" x="324" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="2065" gid="687" x="324" y="164" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2066" gid="687" x="328" y="164" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="2068" gid="687" x="328" y="168" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2069" gid="687" x="332" y="168" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="2070" gid="687" x="332" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2071" gid="687" x="336" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2072" gid="687" x="340" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2073" gid="687" x="344" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2075" gid="687" x="304" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2076" gid="687" x="300" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2077" gid="687" x="296" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2078" gid="687" x="292" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2079" gid="687" x="300" y="152" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallHoriz"/>
-   </properties>
-  </object>
-  <object id="2080" gid="687" x="296" y="152" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDR"/>
-   </properties>
-  </object>
-  <object id="2085" gid="687" x="308" y="164" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2086" gid="687" x="312" y="168" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="2087" gid="687" x="316" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="2088" gid="687" x="308" y="168" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2089" gid="687" x="312" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2090" gid="687" x="316" y="176" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2091" gid="687" x="320" y="176" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="2092" gid="687" x="320" y="180" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUR"/>
-   </properties>
-  </object>
-  <object id="2093" gid="687" x="324" y="180" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorDL"/>
-   </properties>
-  </object>
-  <object id="2094" gid="687" x="324" y="184" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2096" gid="687" x="336" y="176" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2097" gid="687" x="336" y="180" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
   <object id="2098" gid="687" x="336" y="184" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
@@ -3796,48 +3304,6 @@
     <property name="prefab" value="WallHoriz"/>
    </properties>
   </object>
-  <object id="2123" gid="687" x="296" y="156" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2124" gid="687" x="296" y="160" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2125" gid="687" x="296" y="164" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2126" gid="687" x="296" y="168" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2127" gid="687" x="296" y="172" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2128" gid="687" x="296" y="176" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2129" gid="687" x="296" y="180" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
   <object id="2132" gid="687" x="336" y="196" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
@@ -3875,18 +3341,6 @@
    </properties>
   </object>
   <object id="2139" gid="687" x="308" y="192" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2141" gid="687" x="292" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallVert"/>
-   </properties>
-  </object>
-  <object id="2142" gid="687" x="304" y="124" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="WallVert"/>
@@ -4234,12 +3688,6 @@
     <property name="prefab" value="RandomSpawnedTree"/>
    </properties>
   </object>
-  <object id="3948" gid="146" x="356" y="132" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="WallCorUL"/>
-   </properties>
-  </object>
   <object id="3972" gid="687" x="300" y="220" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
@@ -4253,42 +3701,6 @@
    </properties>
   </object>
   <object id="3974" gid="687" x="368" y="192" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="3975" gid="687" x="308" y="180" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="3976" gid="687" x="304" y="176" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="3977" gid="687" x="312" y="128" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="3978" gid="687" x="340" y="140" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="3979" gid="687" x="360" y="152" width="4" height="4">
-   <properties>
-    <property name="gate" type="int" value="2"/>
-    <property name="prefab" value="RandomSpawnedTree"/>
-   </properties>
-  </object>
-  <object id="3980" gid="687" x="364" y="152" width="4" height="4">
    <properties>
     <property name="gate" type="int" value="2"/>
     <property name="prefab" value="RandomSpawnedTree"/>
@@ -4321,6 +3733,24 @@
   <object id="3991" gid="146" x="324" y="288" width="4" height="4">
    <properties>
     <property name="prefab" value="RandomTree"/>
+   </properties>
+  </object>
+  <object id="3997" gid="687" x="348" y="172" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="WallVert"/>
+   </properties>
+  </object>
+  <object id="4001" gid="687" x="304" y="180" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
+   </properties>
+  </object>
+  <object id="4002" gid="687" x="304" y="176" width="4" height="4">
+   <properties>
+    <property name="gate" type="int" value="2"/>
+    <property name="prefab" value="RandomSpawnedTree"/>
    </properties>
   </object>
  </objectgroup>

@@ -40,6 +40,9 @@ void IncognitoGuy::LoadFromFile(json obj)
 	tpTime = obj["tpTime"];
 	posVec = obj["posVec"];
 
+	shootDist = obj["shootDist"];
+	shootTime = obj["shootTime"];
+
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
@@ -49,27 +52,47 @@ void IncognitoGuy::LoadFromFile(json obj)
 void IncognitoGuy::Update()
 {
 	if (estado != state::DEAD) {
+		rb->activate();
+		//Calculo orientacion
+		Ogre::Vector3 dir = player->getPosition() - gameObject->getPosition();
+		float absDist = abs(dir.x) + abs(dir.z);
 		if (estado == state::IDLE) {
 			tpTimer += tm->getDeltaTime();
-			if (tpTimer >= tpTime) {
-				//Teletransportar
-
-				//Calculo orientacion
-				Ogre::Vector3 dir = player->getPosition() - gameObject->getPosition();
-
-				//Asignar orientacion
-				rb->getWorldTransform().setRotation(VecToQuat(dir));
+			if (hasTeleported && absDist < shootDist) {
+				estado = state::AIMING;
+				shootTimer = 0;
+			}
+			else if (!hasSpawnedPS && tpTimer >= tpTime - 0.2f) {
+				// Generar particulas
+				scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
+				hasSpawnedPS = true;
+			}
+			else if (tpTimer >= tpTime) {
 				rb->clearForces();
-
 				Teleport();
+				hasSpawnedPS = false;
+				hasTeleported = true;
 				tpTimer = 0;
-			}			
+			}		
 		}
+		else if (estado == state::AIMING) {
+			//Dispara despues de apuntar cierto tiempo
+			shootTimer += tm->getDeltaTime();
+			if (shootTimer >= shootTime) {
+				Shoot();
+				shootTimer = 0;
+				estado = state::IDLE;
+				hasTeleported = false;
+			}
+		}
+		//Asignar orientacion
+		rb->getWorldTransform().setRotation(VecToQuat(dir));
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
+	Enemy::Update();
 }
 
 void IncognitoGuy::OnDeath() {
@@ -85,6 +108,11 @@ void IncognitoGuy::Spawn()
 
 void IncognitoGuy::Teleport()
 {
+	if (posIndex >= xVec.size()) {
+		RandomizeVecs();
+		posIndex = 0;
+	}
+
 	// Obtenemos transform actual
 	btTransform curT;
 	rb->getMotionState()->getWorldTransform(curT);
@@ -95,29 +123,23 @@ void IncognitoGuy::Teleport()
 	curT.setOrigin(newOrigin);
 	rb->setWorldTransform(curT);
 
-	//cout << "Pos X: " << newOrigin.x() << " Pos Y: " << newOrigin.z() << endl;
-
-	//btTransform testT;
-	//rb->getMotionState()->getWorldTransform(testT);
-	//btVector3 testOrigin = testT.getOrigin();
-
-	//cout << "New X: " << testOrigin.x() << " New Y: " << testOrigin.z() << endl;
-
-	// Generar particulas
-	//scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
-	posIndex++;
-
-	if (posIndex >= xVec.size()) {
-		RandomizeVecs();
-		posIndex = 0;
-	}
 
 	rb->setLinearVelocity({ 0, 0, 0 });
 	rb->setAngularVelocity({ 0, 0, 0 });
+
+
+	// Generar particulas
+	scene->Instantiate("PoofPS", { newOrigin.x(), newOrigin.y(), newOrigin.z() }, 0.025f);
+	posIndex++;
 }
 
 void IncognitoGuy::RandomizeVecs()
 {
 	shuffle(begin(xVec), end(xVec), rng);
 	shuffle(begin(zVec), end(zVec), rng);
+}
+
+void IncognitoGuy::Shoot()
+{
+	scene->Instantiate("IncognitoBullet", gameObject->getPosition(), 1);
 }
