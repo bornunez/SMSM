@@ -26,7 +26,12 @@
 			"walkSpeed": 6,
 			"runSpeed": 10,
 			"lives": 3,
-			"recoverTime": 3
+			"recoverTime": 3,
+			"slowTimeSpeed": 0.3,
+			"slowTimeDuration": 3,
+			"slowTimeCooldown": 10,
+			"freezeTimeSpeed": 0.015,
+			"freezeTimeDuration": 6
 		}
 	],
 	"children":[

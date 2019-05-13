@@ -15,6 +15,16 @@ void PlayerController::LoadFromFile(json obj)
 	runSpeed = obj["runSpeed"];
 	speed = walkSpeed;
 
+	// Habilities ---------------------------------
+	// Slow Time
+	slowTimeSpeed = obj["slowTimeSpeed"];
+	slowTimeDuration = obj["slowTimeDuration"];
+	slowTimeCooldown = obj["slowTimeCooldown"];
+
+	// Freeze Time
+	freezeTimeDuration = obj["freezeTimeDuration"];
+	freezeTimeSpeed = obj["freezeTimeSpeed"];
+
 	// Tiempo invulnerable
 	recoverTime = obj["recoverTime"];
 
@@ -61,17 +71,47 @@ void PlayerController::Start()
 	//shotGunWindow->disable();
 
 #endif
+
+	slowTimeCooldownTimer = slowTimeCooldown;
 }
 
 void PlayerController::Update()
 {
 	handleInput();
 	SetInvulnerability();
+
+	if (currentHability != HabilityEnum::None)
+	{
+		timeElapsed += TimeManager::getInstance()->getDeltaTime();
+
+		switch (currentHability)
+		{
+			case SlowTime:
+				if (timeElapsed >= slowTimeDuration) {
+					currentHability = HabilityEnum::None;
+					gameSpeed = 1;
+					slowTimeCooldownTimer = 0;
+				}
+				break;
+			case FreezeTime:
+				if (timeElapsed >= freezeTimeDuration) {
+					currentHability = HabilityEnum::None;
+					gameSpeed = 1;
+				}
+				break;
+			default:
+				break;
+		}
+	}
+	else
+	{
+		slowTimeCooldownTimer += TimeManager::getInstance()->getDeltaTime();
+	}
 }
 
 void PlayerController::handleInput()
 {
-	// PLAYER CAMERA ----------------------------------------------------------------------
+	// PLAYER CAMERA ------------------------------------------------------------------------------
 
 	int currentMouseX = input->getMouseX();
 	int currentMouseY = input->getMouseY();
@@ -90,7 +130,7 @@ void PlayerController::handleInput()
 	if (currentMouseY == scene->getGame()->getRenderWindow()->getHeight() || currentMouseY == 0)
 		input->CenterMouse();
 
-	//// PLAYER MOVEMENT --------------------------------------------------------------------
+	//// PLAYER MOVEMENT -----------------------------------------------------------------------------
 
 	// Running
 	if (input->getKey(OIS::KeyCode::KC_LSHIFT)) {
@@ -107,7 +147,6 @@ void PlayerController::handleInput()
 	// Forward and right vector
 	btVector3 forward = btVector3(dir.x, dir.y, dir.z);
 	btVector3 right = forward.cross(up);
-
 
 	forward.setY(0);
 	right.setY(0);
@@ -137,21 +176,30 @@ void PlayerController::handleInput()
 		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
 	}
 
-	if (input->getKey(OIS::KeyCode::KC_L)) { // TESTING ------------------------------------------
-		cout << "SlowMotion: ON" << endl;
-		gameSpeed = 0.2f;
-	}
-	else if (input->getKey(OIS::KeyCode::KC_K)) { // TESTING ------------------------------------------
-		cout << "SlowMotion: OFF" << endl;
-		gameSpeed = 1;
-	}
+	// SWITCH WEAPONS -----------------------------------------------------------------------------
 
-	// Switch Weapons
 	if (input->getKey(OIS::KeyCode::KC_1)) {
 		switchWeapon(WeaponEnum::Pistol);
 	}
 	else if (input->getKey(OIS::KeyCode::KC_2)) {
 		switchWeapon(WeaponEnum::ShotGun);
+	}
+
+	// PLAYER HABILITIES --------------------------------------------------------------------------
+
+	// Slow Time
+	if (currentHability == HabilityEnum::None) {
+		if (input->getKey(OIS::KeyCode::KC_E) && slowTimeCooldownTimer > slowTimeCooldown) {
+			currentHability = HabilityEnum::SlowTime;
+			gameSpeed = slowTimeSpeed;
+			timeElapsed = 0;
+		}
+		// Freeze Time
+		else if (input->getKey(OIS::KeyCode::KC_Q) && freezeTimeAvailable) {
+			currentHability = HabilityEnum::FreezeTime;
+			gameSpeed = freezeTimeSpeed;
+			timeElapsed = 0;
+		}
 	}
 }
 

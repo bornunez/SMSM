@@ -46,8 +46,9 @@ void Weapon::Update()
 void Weapon::handleInput()
 {
 	//Handlea el input
-	if ((InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left) && dualInt == 0)||
-		(InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Right) && dualInt == 1))
+	if (!InputManager::getInstance()->getKey(OIS::KC_LSHIFT) && 
+	   ((InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left) && dualInt == 0)||
+		(InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Right) && dualInt == 1)))
 	{
 		shoot();
 	}
