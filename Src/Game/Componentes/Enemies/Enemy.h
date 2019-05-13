@@ -16,6 +16,9 @@ protected:
 	float gravity = 0;
 	bool alive = true;
 	int heartProb = 0;
+	float hurtTime = 0.05;
+	float currHurtTime = -60;
+
 	GameObject* player = nullptr;
 	PlayerController* playerController = nullptr;
 	EnemyRigidBody* rbComp = nullptr;

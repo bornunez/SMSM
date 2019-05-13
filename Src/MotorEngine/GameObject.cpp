@@ -3,6 +3,7 @@
 #include "Component.h"
 #include "Scene.h"
 #include <OgreSceneManager.h>
+#include "MeshRenderer.h"
 #include "Component.h"
 
 void GameObject::OnActive()
@@ -169,6 +170,23 @@ void GameObject::RemoveEntity(Ogre::MovableObject * entity)
 #ifdef C_DEBUG
 		cout << "ERROR: La entidad: " << entity->getName() << " del objeto " << name << " ya ha sido eliminada" << endl;
 #endif
+	}
+}
+
+void GameObject::setMaterial(string material)
+{
+	for (auto obj : entities) {
+		Entity* e = dynamic_cast<Entity*>(obj);
+		if (e) {
+			if (material == "") {
+				MeshRenderer* mesh = getComponent<MeshRenderer>();
+				mesh->ResetMaterials();
+			}
+			else {
+				e->setMaterialName(material);
+
+			}
+		}
 	}
 }
 

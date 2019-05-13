@@ -92,6 +92,7 @@ void IncognitoGuy::Update()
 	else if (meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
+	Enemy::Update();
 }
 
 void IncognitoGuy::OnDeath() {

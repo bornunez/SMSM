@@ -92,6 +92,8 @@ void ButterGuy::Update()
 	else if (meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
+
+	Enemy::Update();
 }
 
 void ButterGuy::OnDeath() {

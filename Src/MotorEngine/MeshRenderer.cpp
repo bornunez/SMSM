@@ -32,14 +32,25 @@ void MeshRenderer::LoadFromFile(json obj)
 	if (materialName != "") {
 		entity->setMaterialName(materialName);
 	}
-
 	entity = gameObject->getSceneManager()->createEntity(meshName);
+
+	for (auto se : entity->getSubEntities()) {
+		materialNames.push_back(se->getMaterialName());
+	}
 	
 }
 
 MeshRenderer::~MeshRenderer()
 {
-}  
+}
+
+void MeshRenderer::ResetMaterials()
+{
+	for (int i = 0; i < entity->getNumSubEntities(); i++) {
+		auto se = entity->getSubEntity(i);
+		se->setMaterialName(materialNames[i]);
+	}
+}
 
 
 void MeshRenderer::Start()

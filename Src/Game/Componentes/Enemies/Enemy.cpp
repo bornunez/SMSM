@@ -11,34 +11,48 @@ void Enemy::LoadFromFile(json obj)
 
 void Enemy::Start()
 {
-	currRoom = RoomManager::getInstance()->GetActiveRoom();
-	if (currRoom == nullptr) {
+	if(!started){
+		currRoom = RoomManager::getInstance()->GetActiveRoom();
+		if (currRoom == nullptr) {
 #ifdef C_DEBUG
-		cout << "ERROR: El enemigo no tiene asignada una sala" << endl;
+			cout << "ERROR: El enemigo no tiene asignada una sala" << endl;
 #endif
-	}
-	currRoom->AddEnemy();
+		}
+		currRoom->AddEnemy();
 
-	player = scene->getGameObject("Player");
-	if (player == nullptr) {
+		player = scene->getGameObject("Player");
+		if (player == nullptr) {
 #ifdef C_DEBUG
-		cout << "ERROR: No se ha encontrado el player en " << gameObject->getName() << endl;
+			cout << "ERROR: No se ha encontrado el player en " << gameObject->getName() << endl;
 #endif
+		}
+
+		playerController = player->getComponent<PlayerController>();
+
+		rbComp = gameObject->getComponent<EnemyRigidBody>();
+		rb = rbComp->getRB();
+
+		rb->setGravity(btVector3(0, gravity, 0));
+
+		alive = true;
 	}
-
-	playerController = player->getComponent<PlayerController>();
-
-	rbComp = gameObject->getComponent<EnemyRigidBody>();
-	rb = rbComp->getRB();
-
-	rb->setGravity(btVector3(0, gravity, 0));
-
-	alive = true;
+	started = true;
 }
 
 
 void Enemy::Update()
 {
+	float dt = TimeManager::getInstance()->getDeltaTime();
+	if (currHurtTime > -50) {
+		if (currHurtTime - dt  >= 0) {
+			currHurtTime -= dt;
+		}
+		else {
+			cout << "Acabo de estar rojo" << endl;
+			currHurtTime = -60;
+			gameObject->setMaterial("");
+		}
+	}
 }
 
 void Enemy::OnDeath()
@@ -80,6 +94,10 @@ void Enemy::OnHit()
 	if (alive) {
 		// Crea las particulas
 		scene->Instantiate("DeathPS", gameObject->getGlobalPosition(), 0.1f);
+		gameObject->setMaterial("Materials/RedHurt");
+		currHurtTime = hurtTime;
+		
+
 		HP--;
 		cout << HP << endl;
 		if (HP <= 0) {

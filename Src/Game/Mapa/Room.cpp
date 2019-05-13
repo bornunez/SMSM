@@ -15,6 +15,7 @@ void Room::OnEnter()
 #ifdef C_DEBUG
 	cout << "Se ha entrado en la sala " << index << endl;
 #endif
+	nEnemies = 0;
 	RoomManager::getInstance()->SetActiveRoom(this);
 	//Quitamos las entradas
 	for (GameObject* g : entries) {
@@ -37,7 +38,7 @@ void Room::OnClear()
 #ifdef C_DEBUG
 		cout << "Se ha salido de la sala " << index << endl;
 #endif
-
+		nEnemies = 0;
 		//Quitamos las entradas
 		for (GameObject* g : entries)
 			g->Destroy();
