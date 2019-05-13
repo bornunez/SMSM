@@ -12,7 +12,7 @@ void KnifeGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
-	meshRend->AnimationSpeed(defAnimSp * playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	gameObject->setScale(scale);
 
 }
@@ -55,7 +55,7 @@ void KnifeGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(2* playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(2* playerController->getGameSpeed());
 	playSound("PocholoShout", false, 1);
 }
 

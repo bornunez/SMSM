@@ -11,7 +11,7 @@ void BombGuy::Start() {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
-	meshRend->AnimationSpeed(defAnimSp * playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	gameObject->setScale(scale);
 
 	tm = TimeManager::getInstance();
@@ -72,8 +72,6 @@ void BombGuy::Update()
 		}
 
 		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
-
-		meshRend->SetAnimationSpeed(playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {
@@ -86,7 +84,7 @@ void BombGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	Explode();
 }
 

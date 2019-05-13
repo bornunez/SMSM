@@ -11,7 +11,7 @@ void ButterGuy::Start() {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
-	meshRend->AnimationSpeed(defAnimSp * playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 
 	gameObject->setScale(scale);
 
@@ -103,7 +103,7 @@ void ButterGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 }
 
 void ButterGuy::Spawn()
