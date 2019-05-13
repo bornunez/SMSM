@@ -89,12 +89,15 @@ void IncognitoGuy::Update()
 		}
 		//Asignar orientacion
 		rb->getWorldTransform().setRotation(VecToQuat(dir));
+		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
-	else if (meshRend->AnimationHasEnded("Death")) {
-		Enemy::OnDeath();
+	else {
+		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+		if (meshRend->AnimationHasEnded("Death")) {
+			Enemy::OnDeath();
+		}
 	}
-	meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
 	Enemy::Update();
 }
 
@@ -102,7 +105,7 @@ void IncognitoGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 }
 
 void IncognitoGuy::Spawn()
