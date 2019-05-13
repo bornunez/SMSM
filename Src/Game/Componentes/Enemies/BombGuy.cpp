@@ -65,7 +65,7 @@ void BombGuy::Update()
 			}
 		}
 		else if (estado == state::EXPLODING) {
-			expTimer += tm->getDeltaTime();
+			expTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (expTimer >= expTime) {
 				OnDeath();
 			}

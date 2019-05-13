@@ -77,7 +77,7 @@ void ButterGuy::Update()
 		else if (estado == state::AIMING) {
 			//Dispara cada cierto tiempo
 			//Crear bala con direccion auxvec
-			shootTimer += tm->getDeltaTime();
+			shootTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (shootTimer >= shootTime) {
 				Shoot();
 				shootTimer = 0;
