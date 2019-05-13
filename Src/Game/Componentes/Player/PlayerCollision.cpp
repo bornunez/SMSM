@@ -19,7 +19,9 @@ void PlayerCollision::collisionHandler(int id)
 		gainHealth();
 	}
 	else if (id ==  ShotgunID) {
-		gameObject->getComponent<PlayerController>()->setState(WeaponState::ShotGun);
+		PlayerController* playerController = gameObject->getComponent<PlayerController>();
+		playerController->unlockWeapon(WeaponEnum::ShotGun);
+		playerController->switchWeapon(WeaponEnum::ShotGun);
 	}
 }
 

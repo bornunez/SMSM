@@ -139,6 +139,10 @@ void GameObject::SetActive(bool act)
 	else if (!act && active)
 		OnInactive();
 
+	for(GameObject* go : children)
+	{
+		go->SetActive(act);
+	}
 }
 
 void GameObject::AddEntity(Ogre::MovableObject * entity)
