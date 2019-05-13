@@ -234,16 +234,18 @@ void PlayerController::switchWeapon(WeaponEnum w)
 		pistolsGO->SetActive(true);
 		shotgunGO->SetActive(false);
 		// Update GUI
-		shotGunWindow->enable();
-		pistolWindow->disable();
+
+		shotGunWindow->disable();
+		pistolWindow->enable();
 	}
 	else if (currentWeapon == WeaponEnum::ShotGun && shotgunUnlocked) {
 		// Change weapon
 		pistolsGO->SetActive(false);
 		shotgunGO->SetActive(true);
 		// Update GUI
-		shotGunWindow->disable();
-		pistolWindow->enable();
+
+		shotGunWindow->enable();
+		pistolWindow->disable();
 	}
 }
 
