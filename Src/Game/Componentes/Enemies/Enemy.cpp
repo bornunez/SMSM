@@ -105,7 +105,7 @@ btQuaternion Enemy::VecToQuat(btVector3 vec)
 	return q;
 }
 
-void Enemy::OnHit()
+void Enemy::OnHit(int damage)
 {
 	if (alive) {
 		// Crea las particulas
@@ -114,7 +114,7 @@ void Enemy::OnHit()
 		currHurtTime = hurtTime;
 		
 
-		HP--;
+		HP -= damage;
 		cout << HP << endl;
 		if (HP <= 0) {
 			alive = false;

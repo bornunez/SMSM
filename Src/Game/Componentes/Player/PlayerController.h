@@ -7,7 +7,7 @@
 
 #include <vector>
 
-enum collisionID {PlayerID, BulletID, EnemyID, HeartID, ShotgunID};
+enum collisionID {PlayerID, BulletID, EnemyID, HeartID, ShotgunID, ShotgunBulletID};
 
 enum WeaponEnum {Pistol, ShotGun};
 enum HabilityEnum { None, SlowTime, FreezeTime };

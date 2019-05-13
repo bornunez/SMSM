@@ -17,6 +17,7 @@ void Weapon::LoadFromFile(json obj)
 	meshRend = gameObject->getComponent<MeshRenderer>();
 
 	//MeshRenderer* c = dynamic_cast<MeshRenderer*>(gameObject->getComponent<MeshRenderer>());
+	damage = obj["damage"];
 	magazine = obj["magazine"];
 	moveSpeed = obj["moveSpeed"];
 	runSpeed = obj["runSpeed"];
