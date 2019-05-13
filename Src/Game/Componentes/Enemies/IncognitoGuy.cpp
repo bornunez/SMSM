@@ -59,7 +59,7 @@ void IncognitoGuy::Update()
 		Ogre::Vector3 dir = player->getPosition() - gameObject->getPosition();
 		float absDist = abs(dir.x) + abs(dir.z);
 		if (estado == state::IDLE) {
-			tpTimer += tm->getDeltaTime();
+			tpTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (hasTeleported && absDist < shootDist) {
 				estado = state::AIMING;
 				shootTimer = 0;
@@ -79,7 +79,7 @@ void IncognitoGuy::Update()
 		}
 		else if (estado == state::AIMING) {
 			//Dispara despues de apuntar cierto tiempo
-			shootTimer += tm->getDeltaTime();
+			shootTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (shootTimer >= shootTime) {
 				Shoot();
 				shootTimer = 0;

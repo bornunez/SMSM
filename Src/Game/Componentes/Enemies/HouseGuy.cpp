@@ -43,14 +43,14 @@ void HouseGuy::Update()
 {
 	if (estado != state::DEAD) {
 		rb->activate();
-		spawnTimer += tm->getDeltaTime();
+		spawnTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 		if (estado == state::IDLE) {
-			speedTimer += tm->getDeltaTime();
+			speedTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (speedTimer >= speedTime) {
 				//Calculo velocidad
 				velVec = Ogre::Vector3(((rand() % 200 - 100)), 0 , ((rand() % 200 - 100)));
 				velVec.normalise();
-				velVec *=moveSpeed;
+				velVec *= (moveSpeed * playerController->getGameSpeed());
 
 				//Calculo orientacion
 				float angle = atan2(velVec.x, velVec.z);
