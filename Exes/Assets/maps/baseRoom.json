@@ -10591,6 +10591,29 @@
                  "width":4,
                  "x":148,
                  "y":216
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":4115,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"HouseGuy",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":0
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":304,
+                 "y":336
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -31749,7 +31772,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":4115,
+ "nextobjectid":4116,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.3",
