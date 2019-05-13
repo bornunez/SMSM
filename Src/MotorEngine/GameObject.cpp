@@ -23,6 +23,9 @@ void GameObject::OnActive()
 				c->OnEnable();
 		}
 	}
+	for (GameObject* child : children) {
+		child->SetActive(true);
+	}
 }
 
 void GameObject::OnInactive()
@@ -35,6 +38,9 @@ void GameObject::OnInactive()
 	for (Component* c : components) {
 		if(c->isEnabled() && c->isStarted())
 			c->OnDisable();
+	}
+	for (GameObject* child : children) {
+		child->SetActive(false);
 	}
 }
 
