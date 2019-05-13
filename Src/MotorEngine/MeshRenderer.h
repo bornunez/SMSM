@@ -20,7 +20,7 @@ public:
 	void PlayAnimation(string animationName, bool loop, bool continued = false);
 	void StopAnimation(bool stop);
 	void InitAnimations(float velocity = 1);
-	void AnimationSpeed(float _velocity) { animationVelocity = _velocity; };
+	void SetAnimationSpeed(float _velocity) { animationVelocity = _velocity; };
 	bool isPlaying(string name);
 	bool AnimationHasEnded(string name);
 	virtual void LoadFromFile(json obj);

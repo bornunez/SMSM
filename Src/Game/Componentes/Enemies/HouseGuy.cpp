@@ -105,7 +105,7 @@ void HouseGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+	meshRend->AnimationSpeed(2);
 }
 
 void HouseGuy::Spawn()

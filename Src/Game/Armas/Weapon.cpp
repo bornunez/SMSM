@@ -64,7 +64,7 @@ void Weapon::handleInput()
 		{
 			animationPassed = "Move";
 			meshRend->PlayAnimation("Move", true, false);
-			meshRend->AnimationSpeed(moveSpeed);
+			meshRend->SetAnimationSpeed(moveSpeed);
 		}
 		else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W))
 		{
@@ -72,13 +72,13 @@ void Weapon::handleInput()
 			{
 				animationPassed = "Move";
 				meshRend->PlayAnimation("Move", true, true);
-				meshRend->AnimationSpeed(moveSpeed);
+				meshRend->SetAnimationSpeed(moveSpeed);
 			}
 			else
 			{
 				animationPassed = "Run";
 				meshRend->PlayAnimation("Run", true, true);
-				meshRend->AnimationSpeed(runSpeed);
+				meshRend->SetAnimationSpeed(runSpeed);
 			}
 
 		}
@@ -89,7 +89,7 @@ void Weapon::handleInput()
 		animationPassed = "Move";
 		meshRend->PlayAnimation("Move", true, false);
 		meshRend->StopAnimation(true);
-		meshRend->AnimationSpeed(moveSpeed);
+		meshRend->SetAnimationSpeed(moveSpeed);
 	}
 }
 void Weapon::reloads()
@@ -124,7 +124,7 @@ void Weapon::shoot()
 			PhysicShoot();
 			animationPassed = "Shoot";
 			meshRend->PlayAnimation("Shoot", false);
-			meshRend->AnimationSpeed(shootSpeed);
+			meshRend->SetAnimationSpeed(shootSpeed);
 #ifdef C_DEBUG
 			std::cout << "DISPARO"<<endl;
 #endif
@@ -212,7 +212,7 @@ void Weapon::reload()
 {
 	animationPassed = "Reload";
 	meshRend->PlayAnimation("Reload", false);
-	meshRend->AnimationSpeed(reloadSpeed);
+	meshRend->SetAnimationSpeed(reloadSpeed);
 	actMagazine = 0;
 	actReloadTime = 0;
 	actTimePerShot = 0;

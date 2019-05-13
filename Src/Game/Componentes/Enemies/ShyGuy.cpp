@@ -66,7 +66,7 @@ void ShyGuy::Update()
 
 		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 
-		meshRend->AnimationSpeed(2*playerController->getGameSpeed());
+		meshRend->SetAnimationSpeed(2*playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {
@@ -79,7 +79,7 @@ void ShyGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+	meshRend->AnimationSpeed(2 * playerController->getGameSpeed());
 	playSound("ShyGuyShout", false, 1);
 
 }

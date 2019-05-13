@@ -12,7 +12,7 @@ void KnifeGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
-	meshRend->AnimationSpeed(defAnimSp);
+	meshRend->AnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	gameObject->setScale(scale);
 
 }
@@ -38,7 +38,7 @@ void KnifeGuy::Update()
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		auxVec.normalise(); 
 		auxVec *= (moveSpeed * playerController->getGameSpeed());
-		meshRend->AnimationSpeed(2 * playerController->getGameSpeed());
+		meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
 
 		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 		rb->setLinearVelocity({auxVec.x, 0, auxVec.z});
@@ -55,7 +55,7 @@ void KnifeGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+	meshRend->AnimationSpeed(2* playerController->getGameSpeed());
 	playSound("PocholoShout", false, 1);
 }
 
