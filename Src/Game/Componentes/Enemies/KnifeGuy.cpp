@@ -12,7 +12,7 @@ void KnifeGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
-	meshRend->AnimationSpeed(2);
+	meshRend->AnimationSpeed(defAnimSp);
 	gameObject->setScale(scale);
 
 }
@@ -27,6 +27,8 @@ void KnifeGuy::LoadFromFile(json obj)
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 }
 
 void KnifeGuy::Update()
@@ -53,7 +55,7 @@ void KnifeGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(2* playerController->getGameSpeed());
+	meshRend->AnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	playSound("PocholoShout", false, 1);
 }
 

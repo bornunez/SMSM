@@ -11,6 +11,7 @@ void ButterGuy::Start() {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
+	meshRend->AnimationSpeed(defAnimSp * playerController->getGameSpeed());
 
 	gameObject->setScale(scale);
 
@@ -30,6 +31,8 @@ void ButterGuy::LoadFromFile(json obj)
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 }
 
 
@@ -100,6 +103,7 @@ void ButterGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+	meshRend->AnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 }
 
 void ButterGuy::Spawn()

@@ -38,7 +38,9 @@
 			"angDamp":0.2,
 			"maxFactor":125,
 			"minFactor":75,
-			"HP": 1
+			"HP": 1,
+			"defAnimSp": 2,
+			"deathAnimSp": 2
 		}
 	]
 }

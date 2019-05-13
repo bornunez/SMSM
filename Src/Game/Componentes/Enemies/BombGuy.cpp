@@ -11,6 +11,7 @@ void BombGuy::Start() {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
+	meshRend->AnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	gameObject->setScale(scale);
 
 	tm = TimeManager::getInstance();
@@ -29,6 +30,8 @@ void BombGuy::LoadFromFile(json obj)
 	expTime = obj["expTime"];
 	Enemy::alive = true;
 	heartProb = obj["heartProb"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 }
 
 
@@ -83,6 +86,7 @@ void BombGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+	meshRend->AnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	Explode();
 }
 

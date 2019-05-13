@@ -39,7 +39,9 @@
 			"linDamp":0.2,
 			"angDamp":0.2,
 			"HP": 2,
-			"heartProb": 20
+			"heartProb": 20,
+			"defAnimSp": 2,
+			"deathAnimSp": 2
 		},
 		{
 			"type":"ParticleSystem",

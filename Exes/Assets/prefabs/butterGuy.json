@@ -39,7 +39,9 @@
 			
 			"shootTime":1.5,
 			"HP": 20,
-			"heartProb": 50
+			"heartProb": 50,
+			"defAnimSp": 2,
+			"deathAnimSp": 2
 		}
 	]
 }
