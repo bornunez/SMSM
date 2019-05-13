@@ -13,7 +13,7 @@ void HouseGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(2);
 
 	gameObject->setScale(scale);
 	
@@ -103,7 +103,7 @@ void HouseGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(2);
 }
 
 void HouseGuy::Spawn()

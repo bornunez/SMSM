@@ -70,7 +70,7 @@ void BombGuy::Update()
 
 		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 
-		meshRend->AnimationSpeed(playerController->getGameSpeed());
+		meshRend->SetAnimationSpeed(playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {

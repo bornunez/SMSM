@@ -62,7 +62,7 @@ void ButterGuy::Update()
 			auxVec = -auxVec;
 			auxVec.normalise();
 			auxVec *= (moveSpeed * playerController->getGameSpeed());
-			meshRend->AnimationSpeed(playerController->getGameSpeed());
+			meshRend->SetAnimationSpeed(playerController->getGameSpeed());
 			rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
 			if (absDist > dist) {
 				estado = state::IDLE;

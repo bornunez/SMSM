@@ -13,7 +13,7 @@ void IncognitoGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Idle", true);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(2);
 
 	gameObject->setScale(scale);
 	
@@ -99,7 +99,7 @@ void IncognitoGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(2);
 }
 
 void IncognitoGuy::Spawn()
