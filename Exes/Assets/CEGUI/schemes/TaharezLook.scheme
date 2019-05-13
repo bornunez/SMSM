@@ -8,6 +8,8 @@
 	<FalagardMapping windowType="TaharezLook/Label"       targetType="DefaultWindow"     renderer="Core/Default"      lookNFeel="TaharezLook/Label" />
 	<FalagardMapping windowType="TaharezLook/Button"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/Button" />
 	<FalagardMapping windowType="TaharezLook/HeartButton"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/HeartButton" />
+	<FalagardMapping windowType="TaharezLook/PistolaHUD"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/PistolaHUD" />
+	<FalagardMapping windowType="TaharezLook/EscopetaHUD"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/EscopetaHUD" />
 	<FalagardMapping windowType="TaharezLook/BackgroundMenu"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/BackgroundMenu" />
 	<FalagardMapping windowType="TaharezLook/BackgroundPausa"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/BackgroundPausa" />
 	<FalagardMapping windowType="TaharezLook/GameOver"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/GameOver" />
