@@ -71,6 +71,8 @@ void Enemy::playSound(string name, bool loop, float volume)
 
 void Enemy::OnDeath()
 {
+	playerController->increaseEnemyKillCount();
+
 	//Crea un corazon al matar al enemigo
 	int heartRand = rand() % 100;
 	if (heartProb > heartRand) {

@@ -23,8 +23,9 @@ void PlayerController::LoadFromFile(json obj)
 	slowTimeCooldown = obj["slowTimeCooldown"];
 
 	// Freeze Time
-	freezeTimeDuration = obj["freezeTimeDuration"];
 	freezeTimeSpeed = obj["freezeTimeSpeed"];
+	freezeTimeDuration = obj["freezeTimeDuration"];
+	freezeTimeEnemiesNeeded = obj["freezeTimeEnemiesNeeded"];
 
 	// Tiempo invulnerable
 	recoverTime = obj["recoverTime"];
@@ -203,7 +204,8 @@ void PlayerController::handleInput()
 			timeElapsed = 0;
 		}
 		// Freeze Time
-		else if (input->getKey(OIS::KeyCode::KC_Q) && freezeTimeAvailable) {
+		else if (input->getKey(OIS::KeyCode::KC_Q) && (freezeTimeEnemyCount >= freezeTimeEnemiesNeeded)) {
+			freezeTimeEnemyCount = 0;
 			currentHability = HabilityEnum::FreezeTime;
 			gameSpeed = freezeTimeSpeed;
 			timeElapsed = 0;

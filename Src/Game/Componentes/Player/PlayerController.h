@@ -61,7 +61,9 @@ private:
 
 	float freezeTimeSpeed = 0.01f;
 	float freezeTimeDuration = 5;
-	bool freezeTimeAvailable = true; // ToDo: Esto tiene que ir a false en la build final
+	int freezeTimeEnemyCount = 0;
+	int freezeTimeEnemiesNeeded = 10;
+	//bool freezeTimeAvailable = true; // ToDo: Esto tiene que ir a false en la build final
 
 	// Control de invulnerabilidad
 	bool invulnerability = false;
@@ -87,6 +89,8 @@ public:
 	Vector3 getPlayerDirection();
 
 	float getGameSpeed() { return gameSpeed; }
+
+	void increaseEnemyKillCount() { freezeTimeEnemyCount++; }
 
 	void switchWeapon(WeaponEnum w);
 	void unlockWeapon(WeaponEnum w);
