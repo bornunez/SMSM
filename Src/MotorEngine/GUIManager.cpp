@@ -307,7 +307,7 @@ void GUIManager::Mute()
 
 void GUIManager::MuteMusic()
 {
-	//AudioManager::getInstance()->muteMusicVolume();
+	AudioManager::getInstance()->muteMusicVolume();
 }
 
 void GUIManager::SensitivityUp()

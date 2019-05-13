@@ -236,7 +236,7 @@
 							"buttonPosY":0.5,
 							"buttonSizeX":0.3,
 							"buttonSizeY":0.05,
-							"buttonText":"Volume: 100%",
+							"buttonText":"SFX: 100%",
 							"buttonFunctionName":"Mute",
 							"active":true,
 							"interactable": true
@@ -275,7 +275,7 @@
 							"buttonPosY":0.6,
 							"buttonSizeX":0.3,
 							"buttonSizeY":0.05,
-							"buttonText":"Volume: 100%",
+							"buttonText":"Music: 100%",
 							"buttonFunctionName":"MuteMusic",
 							"active":true,
 							"interactable": true

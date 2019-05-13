@@ -69,7 +69,7 @@ void AudioManager::modifyVolume(bool v)
 	}
 	sound->changeGlobalVolume(globalEffectVolume);
 
-	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalEffectVolume * 100)) + "%");
+	GUIManager::Instance()->getButton("Volume")->setText("SFX: " + std::to_string((int)(globalEffectVolume * 100)) + "%");
 }
 void AudioManager::modifyMusicVolume(bool v)
 {
@@ -85,11 +85,11 @@ void AudioManager::modifyMusicVolume(bool v)
 	}
 	sound->changeGlobalMusicVolume(globalMusicVolume);
 
-	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalEffectVolume * 100)) + "%");
+	GUIManager::Instance()->getButton("VolumeMusic")->setText("Music: " + std::to_string((int)(globalMusicVolume * 100)) + "%");
 }
 void AudioManager::muteMusicVolume()
 {
-	if (globalEffectVolume > 0) {
+	if (globalMusicVolume > 0) {
 		savedMusicVolume = globalMusicVolume;
 		globalMusicVolume = 0;
 	}
@@ -97,7 +97,7 @@ void AudioManager::muteMusicVolume()
 		globalMusicVolume = savedMusicVolume;
 	}
 	sound->changeGlobalMusicVolume(globalMusicVolume);
-	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalEffectVolume * 100)) + "%");
+	GUIManager::Instance()->getButton("VolumeMusic")->setText("Music: " + std::to_string((int)(globalMusicVolume * 100)) + "%");
 }
 void AudioManager::muteVolume()
 {
@@ -109,7 +109,7 @@ void AudioManager::muteVolume()
 		globalEffectVolume = savedVolume;
 	}
 	sound->changeGlobalVolume(globalEffectVolume);
-	GUIManager::Instance()->getButton("Volume")->setText("Volume: " + std::to_string((int)(globalEffectVolume * 100)) + "%");
+	GUIManager::Instance()->getButton("Volume")->setText("SFX: " + std::to_string((int)(globalEffectVolume * 100)) + "%");
 }
 void AudioManager::changePitch(float velocity, CHANNEL channel)
 {

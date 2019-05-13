@@ -44,7 +44,7 @@ private:
 
 	float globalEffectVolume = 1.0f;
 	float savedVolume = 1.0f;
-	float globalMusicVolume = 0.2f;
-	float savedMusicVolume = 0.2f;
+	float globalMusicVolume = 1.0f;
+	float savedMusicVolume = 1.0f;
 };
 
