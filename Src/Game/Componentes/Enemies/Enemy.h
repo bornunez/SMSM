@@ -22,6 +22,7 @@ protected:
 	btRigidBody* rb = nullptr;
 	Room* currRoom = nullptr;
 
+
 public:
 	void Start();
 
@@ -32,6 +33,7 @@ public:
 	virtual void OnHit();
 	virtual void OnDeath();
 	virtual void Spawn() = 0;
+	void playSound(string name, bool loop, float volume);
 	btQuaternion VecToQuat(Vector3 vec);
 	btQuaternion VecToQuat(btVector3 vec);
 

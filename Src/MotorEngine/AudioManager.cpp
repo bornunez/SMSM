@@ -29,9 +29,17 @@ void AudioManager::cargaSonidos()
 {
 	string path = ".\\Assets\\Audio\\";
 
+	//MUSIC
+	sounds["BandaSonora1"] = path + "DeathMatch (Boss Theme).mp3";
+
+	//WEAPONS
 	sounds["GunShoot"] = path + "PISTOL-SHOOT.mp3";
 	sounds["ShotGunShoot"] = path + "shotgun.mp3";
-	sounds["BandaSonora1"] = path + "DeathMatch (Boss Theme).mp3";
+
+	//SHOUTS
+	sounds["ShyGuyShout"] = path + "chillido1.mp3";
+	sounds["PocholoShout"] = path + "chillido2.mp3";
+	sounds["BossShout"] = path + "boss_shout.mp3";
 }
 
 void AudioManager::getSound(string fileName)

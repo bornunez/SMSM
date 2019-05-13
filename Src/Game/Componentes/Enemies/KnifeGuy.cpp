@@ -53,6 +53,7 @@ void KnifeGuy::OnDeath() {
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
 	meshRend->AnimationSpeed(2);
+	playSound("PocholoShout", false, 1);
 }
 
 void KnifeGuy::Spawn()

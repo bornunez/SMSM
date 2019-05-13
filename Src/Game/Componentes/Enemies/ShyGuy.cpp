@@ -1,5 +1,6 @@
 #include "ShyGuy.h"
 #include "../../Src/MotorEngine/MeshRenderer.h"
+#include "../../Src/MotorEngine/AudioManager.h"
 
 ShyGuy::~ShyGuy()
 {
@@ -74,6 +75,8 @@ void ShyGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
+	playSound("ShyGuyShout", false, 1);
+
 }
 
 void ShyGuy::Spawn()
