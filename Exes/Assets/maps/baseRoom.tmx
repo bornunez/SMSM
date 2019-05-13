@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="4115">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="4116">
  <tileset firstgid="1" source="City.tsx"/>
  <layer id="3" name="Capa de Patrones 1" width="100" height="100" locked="1">
   <data encoding="base64" compression="zlib">
@@ -2922,6 +2922,12 @@
    <properties>
     <property name="ButterGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="4"/>
+   </properties>
+  </object>
+  <object id="4115" gid="83" x="304" y="336" width="4" height="4">
+   <properties>
+    <property name="HouseGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="3"/>
    </properties>
   </object>
  </objectgroup>
