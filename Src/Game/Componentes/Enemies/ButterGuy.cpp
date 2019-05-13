@@ -65,7 +65,6 @@ void ButterGuy::Update()
 			auxVec = -auxVec;
 			auxVec.normalise();
 			auxVec *= (moveSpeed * playerController->getGameSpeed());
-			meshRend->SetAnimationSpeed(playerController->getGameSpeed());
 			rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
 			if (absDist > dist) {
 				estado = state::IDLE;
@@ -95,7 +94,7 @@ void ButterGuy::Update()
 	else if (meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
-
+	meshRend->SetAnimationSpeed(playerController->getGameSpeed());
 	Enemy::Update();
 }
 

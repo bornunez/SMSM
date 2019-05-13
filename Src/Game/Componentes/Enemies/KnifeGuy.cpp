@@ -38,7 +38,6 @@ void KnifeGuy::Update()
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		auxVec.normalise(); 
 		auxVec *= (moveSpeed * playerController->getGameSpeed());
-		meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
 
 		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 		rb->setLinearVelocity({auxVec.x, 0, auxVec.z});
@@ -47,6 +46,7 @@ void KnifeGuy::Update()
 	else if (estado == state::DEAD && meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
+	meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
 	Enemy::Update();
 }
 

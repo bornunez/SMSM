@@ -45,11 +45,13 @@ void BombGuy::Update()
 			if (absDist < chaseDist) {
 				estado = state::CHASING;
 				meshRend->PlayAnimation("Move", true);
+				meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 			}
 		}
 		else if (estado == state::CHASING) {
 			auxVec.normalise();
 			auxVec *= (moveSpeed * playerController->getGameSpeed());
+			meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 
 			rb->setLinearVelocity({ auxVec.x , 0, auxVec.z});
 			if (absDist > chaseDist) {
@@ -66,6 +68,7 @@ void BombGuy::Update()
 		}
 		else if (estado == state::EXPLODING) {
 			expTimer += tm->getDeltaTime() * playerController->getGameSpeed();
+			meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 			if (expTimer >= expTime) {
 				OnDeath();
 			}

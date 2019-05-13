@@ -64,9 +64,10 @@ void HouseGuy::Update()
 				rb->getWorldTransform().setRotation(q);
 
 				speedTimer = 0;
+
+				//Asignar velocidad
+				rb->setLinearVelocity({ velVec.x, 0, velVec.z });
 			}
-			//Asignar velocidad
-			rb->setLinearVelocity({ velVec.x, 0, velVec.z});
 
 			//Gestion spawntimer
 			if (spawnTimer >= spawnTime && spawnCount < maxSpawns) {
@@ -98,6 +99,7 @@ void HouseGuy::Update()
 		}
 		Enemy::OnDeath();
 	}
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	Enemy::Update();
 }
 
@@ -105,7 +107,7 @@ void HouseGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->SetAnimationSpeed(2);
+	meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
 }
 
 void HouseGuy::Spawn()

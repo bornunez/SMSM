@@ -65,13 +65,13 @@ void ShyGuy::Update()
 		}
 
 		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
-
-		meshRend->SetAnimationSpeed(2*playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else if (meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
+
+	meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
 	Enemy::Update();
 }
 

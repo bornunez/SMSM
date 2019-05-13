@@ -89,8 +89,6 @@ void ShotgunBullet::Update()
 		}
 		float finalSpeed = speed * playerController->getGameSpeed();
 		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
-		//physicRB->applyCentralImpulse(btVector3(0, grav*speed/10, 0));
-		//physicRB->clearForces();
 	}
 }
 

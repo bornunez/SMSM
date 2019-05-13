@@ -94,6 +94,7 @@ void IncognitoGuy::Update()
 	else if (meshRend->AnimationHasEnded("Death")) {
 		Enemy::OnDeath();
 	}
+	meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
 	Enemy::Update();
 }
 
@@ -101,7 +102,7 @@ void IncognitoGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->SetAnimationSpeed(2);
+	meshRend->SetAnimationSpeed(2 * playerController->getGameSpeed());
 }
 
 void IncognitoGuy::Spawn()

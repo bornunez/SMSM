@@ -30,7 +30,7 @@
 			"slowTimeSpeed": 0.3,
 			"slowTimeDuration": 3,
 			"slowTimeCooldown": 10,
-			"freezeTimeSpeed": 0.015,
+			"freezeTimeSpeed": 0.001,
 			"freezeTimeDuration": 6
 		}
 	],
