@@ -24,6 +24,7 @@ void AudioManager::init()
 {
 	sound = new SoundSystemClass(100, 1);
 	cargaSonidos();
+	setVolumes();
 }
 void AudioManager::cargaSonidos()
 {
@@ -55,6 +56,12 @@ void AudioManager::getSound(string fileName)
 void AudioManager::change3DPosition(int x, int y, int z, CHANNEL channel)
 {
 	sound->change3DPosition(x, y, z, channel);
+}
+
+void AudioManager::setVolumes()
+{
+	sound->changeGlobalVolume(globalEffectVolume);
+	sound->changeGlobalMusicVolume(globalMusicVolume);
 }
 void AudioManager::modifyVolume(bool v)
 {
