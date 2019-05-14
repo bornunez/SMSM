@@ -63,5 +63,4 @@ void EnemyBullet::Update()
 		float finalSpeed = speed * playerController->getGameSpeed();
 		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
 	}
-
 }

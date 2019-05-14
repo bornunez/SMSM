@@ -126,6 +126,9 @@
     <ClCompile Include="..\..\Src\Game\Componentes\creditsManager.cpp">
       <Filter>Componentes\GUI</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\BossGuy.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -211,6 +214,9 @@
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\creditsManager.h">
       <Filter>Componentes\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\BossGuy.h">
+      <Filter>Componentes\Enemies</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

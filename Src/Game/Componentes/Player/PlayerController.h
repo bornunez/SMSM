@@ -41,8 +41,6 @@ private:
 
 	// Weapons
 	WeaponEnum currentWeapon = WeaponEnum::Pistol;
-	CEGUI::Window* pistolWindow;
-	CEGUI::Window* shotGunWindow;
 	GameObject* pistolsGO;
 	GameObject* shotgunGO;
 	bool shotgunUnlocked = false;
@@ -69,7 +67,15 @@ private:
 	bool invulnerability = false;
 	float recoverTime;
 	float actRecoverTime = 0;
+
+	// HUD
 	std::vector<CEGUI::Window *> livesHeart;
+	CEGUI::Window* pistolWindow;
+	CEGUI::Window* shotGunWindow;
+	CEGUI::Window* slowTimeWindow;
+	CEGUI::Window* slowTimeIndicator;
+	CEGUI::Window* stopTimeWindow;
+	CEGUI::Window* stopTimeIndicator;
 
 public:
 	PlayerController(GameObject* obj) : Component(obj) {};
