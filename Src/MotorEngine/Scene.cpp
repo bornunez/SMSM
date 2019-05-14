@@ -128,6 +128,7 @@ void Scene::LoadFromFile(json sceneFile)
 			b = ambLight["b"];
 		mSceneManager->setAmbientLight(ColourValue(r, g, b));
 	}
+
 #ifdef C_DEBUG
 	cout << "==================================================\n\n";
 #endif

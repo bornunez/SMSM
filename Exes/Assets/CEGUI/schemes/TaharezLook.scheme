@@ -10,6 +10,10 @@
 	<FalagardMapping windowType="TaharezLook/HeartButton"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/HeartButton" />
 	<FalagardMapping windowType="TaharezLook/PistolaHUD"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/PistolaHUD" />
 	<FalagardMapping windowType="TaharezLook/EscopetaHUD"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/EscopetaHUD" />
+	<FalagardMapping windowType="TaharezLook/SlowTimeHUD"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/SlowTimeHUD" />
+	<FalagardMapping windowType="TaharezLook/StopTimeHUD"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/StopTimeHUD" />
+	<FalagardMapping windowType="TaharezLook/SlowIndHUD"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/SlowIndHUD" />
+	<FalagardMapping windowType="TaharezLook/StopIndHUD"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/StopIndHUD" />
 	<FalagardMapping windowType="TaharezLook/BackgroundMenu"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/BackgroundMenu" />
 	<FalagardMapping windowType="TaharezLook/BackgroundPausa"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/BackgroundPausa" />
 	<FalagardMapping windowType="TaharezLook/GameOver"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/GameOver" />

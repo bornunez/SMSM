@@ -1,0 +1,36 @@
+#version 330 core // learnopengl.com
+out vec4 FragColor;
+
+//uniform sampler2D textura1; 
+uniform vec4 lightDir;
+uniform vec3 lightIntensity;
+
+uniform float shadow_level; //Valor por debajo del cual se pinta sombra
+uniform float shadow_color; //Valor de la sombra 
+
+in vec3 Normal; // en world space
+in vec2 TexCoords;
+
+
+void main() { 
+
+	//Color de la textura del vertice actual
+	//vec3 tex = vec3(texture(textura1, TexCoords));
+	
+	vec3 color = vec3(0.3,0.7,0.3);
+	vec3 norm = normalize(Normal);
+	vec3 norm_dir = normalize(vec3(lightDir));
+	
+	float diff = max(dot(norm,norm_dir ), 0.0);
+	
+	//Solo coloreamos en sombra a partir de cierto valor
+	if(diff > shadow_level){
+		diff = 1.0;
+	}
+	else{
+		diff = shadow_color;
+	}
+	vec3 diffuse = lightIntensity * diff;
+	
+	FragColor = vec4(color * diff, 1.0);
+}
