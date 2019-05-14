@@ -66,15 +66,19 @@ void PlayerController::Start()
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
 	}
 
-	pistolWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/PistolaHUD", 0.025, 0.85, 0.1, 0.12, "", "null");
-	//pistolWindow->disable();
-
+	// HUD ARMAS
+	pistolWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/PistolaHUD", 0.025, 0.85, 0.1, 0.12, "", "null", true);
 	shotGunWindow = GUIManager::Instance()->CreateButton("null", "shotGunIcon", "TaharezLook/EscopetaHUD", 0.13, 0.85, 0.1, 0.12, "", "null");
 	shotGunWindow->disable();
 	shotGunWindow->hide();
 
-	// Desactivado porque empezamos con ella
-	//shotGunWindow->disable();
+	// HUD TIEMPO
+	slowTimeWindow = GUIManager::Instance()->CreateButton("null", "slowTimeIcon", "TaharezLook/PistolaHUD", 0.885, 0.155, 0.1, 0.12, "", "null");
+	slowTimeWindow->disable();
+	stopTimeWindow = GUIManager::Instance()->CreateButton("null", "stopTimeIcon", "TaharezLook/EscopetaHUD", 0.885, 0.025, 0.1, 0.12, "", "null");
+	stopTimeWindow->disable();
+	slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/Button", 0.885, 0.155, 0, 0, "", "null");
+	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/Button", 0.885, 0.155, 0, 0, "", "null");
 
 #endif
 
