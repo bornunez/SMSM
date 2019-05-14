@@ -38,7 +38,7 @@
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"HP": 2,
+			"HP": 15,
 			"heartProb": 20,
 			"defAnimSp": 2,
 			"deathAnimSp": 2
