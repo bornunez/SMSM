@@ -29,10 +29,10 @@
 			"recoverTime": 3,
 			"slowTimeSpeed": 0.3,
 			"slowTimeDuration": 3,
-			"slowTimeCooldown": 10,
+			"slowTimeCooldown": 1,
 			"freezeTimeSpeed": 0.001,
 			"freezeTimeDuration": 6,
-			"freezeTimeEnemiesNeeded":10
+			"freezeTimeEnemiesNeeded":1
 		}
 	],
 	"children":[

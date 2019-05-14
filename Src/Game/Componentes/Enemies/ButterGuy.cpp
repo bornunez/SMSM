@@ -86,7 +86,7 @@ void ButterGuy::Update()
 			}
 		}
 		//Mira al jugador
-		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
+		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...

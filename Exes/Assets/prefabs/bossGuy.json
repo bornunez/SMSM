@@ -1,12 +1,12 @@
 {
-	"prefabName":"KnifeGuy",
-	"name":"KnifeGuy",
+	"prefabName":"BossGuy",
+	"name":"BossGuy",
 	"active":true,
 	"isListener":true,
 	"components":[
 		{
 			"type":"meshRenderer",
-			"mesh":"pocholo_clean.mesh"
+			"mesh":"boss.mesh"
 		},
 		{
 			"type":"EnemyRigidBody",
@@ -21,21 +21,27 @@
 			"offsetY":0,
 			"offsetZ":0,
 			"isTrigger":true,
-			"sizeX": 0.3,
-			"sizeY": 0.3,
-			"sizeZ": 0.3,
-			"recoilTime": 0,
-			"HP": 40
+			"sizeX": 0.5,
+			"sizeY": 0.5,
+			"sizeZ": 0.5,
+			"recoilTime": 0
 		},
 		{
-			"type":"KnifeGuy",
-			"scale": 0.3,
-			"moveSpeed":6,
+			"type":"BossGuy",
+			"moveSpeed":4,
+			"scale": 0.4,
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"HP": 20,
-			"heartProb": 50,
+			"tpTime":0.8,
+			"enemiesVec":["KnifeGuy","BombGuy","ButterGuy"],
+			"actionsVec":["Shoot","Spawn","Shoot"],
+			"HP":175,
+			"heartProb":0,
+			
+			"shootTime":1.5,
+			"spawnDelay":0.8,
+			"spawnTime":1.6,			
 			"defAnimSp": 2,
 			"deathAnimSp": 2
 		},

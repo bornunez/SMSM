@@ -37,7 +37,6 @@ void MeshRenderer::LoadFromFile(json obj)
 	for (auto se : entity->getSubEntities()) {
 		materialNames.push_back(se->getMaterialName());
 	}
-	
 }
 
 MeshRenderer::~MeshRenderer()

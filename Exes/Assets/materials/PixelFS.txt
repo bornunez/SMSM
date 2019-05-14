@@ -1,0 +1,26 @@
+#version 330 core 
+in vec2 vUv0;
+uniform sampler2D RTT0; // textura con la escena
+uniform float cols;
+uniform float fils;
+out vec4 fragColor;
+
+void main() {
+
+	vec2 uv0 = vUv0;
+	uv0.x *= cols;
+	uv0.y *= fils;
+	uv0.x = floor(uv0.x);
+	uv0.y = floor(uv0.y);
+	uv0.x /= cols;
+	uv0.y /= fils;
+	
+	
+	vec4 sceneColor = texture(RTT0, uv0);
+	
+	 // Simulate Amiga's color palette containing no less than 4096 colors (RGB444)
+    float r = step(0.1,sceneColor.x);
+    float g = step(0.1,sceneColor.y);
+    float b = step(0.1,sceneColor.z);
+	fragColor = vec4(sceneColor); 
+}

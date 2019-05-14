@@ -24,6 +24,7 @@
     <ClCompile Include="..\..\Src\Game\Armas\WeaponBullet.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\creditsManager.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\BombGuy.cpp" />
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\BossGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\ButterGuy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\Enemy.cpp" />
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\EnemyBullet.cpp" />
@@ -60,6 +61,7 @@
     <ClInclude Include="..\..\Src\Game\Armas\WeaponBullet.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\creditsManager.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\BombGuy.h" />
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\BossGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\ButterGuy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\Enemy.h" />
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\EnemyBullet.h" />

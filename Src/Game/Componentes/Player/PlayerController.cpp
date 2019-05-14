@@ -66,12 +66,23 @@ void PlayerController::Start()
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
 	}
 
-	pistolWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/PistolaHUD", 0.025, 0.85, 0.1, 0.12, "", "null");
-	//pistolWindow->disable();
-
+	// HUD ARMAS
+	pistolWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/PistolaHUD", 0.025, 0.85, 0.1, 0.12, "", "null", true);
 	shotGunWindow = GUIManager::Instance()->CreateButton("null", "shotGunIcon", "TaharezLook/EscopetaHUD", 0.13, 0.85, 0.1, 0.12, "", "null");
 	shotGunWindow->disable();
 	shotGunWindow->hide();
+
+	// HUD TIEMPO
+	slowTimeWindow = GUIManager::Instance()->CreateButton("null", "slowTimeIcon", "TaharezLook/SlowTimeHUD", 0.885, 0.155, 0.1, 0.12, "", "null");
+	slowTimeWindow->disable();
+	stopTimeWindow = GUIManager::Instance()->CreateButton("null", "stopTimeIcon", "TaharezLook/StopTimeHUD", 0.885, 0.025, 0.1, 0.12, "", "null");
+	stopTimeWindow->disable();
+	slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/SlowIndHUD", 0.885, 0.155, 0, 0, "", "null");
+	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/StopIndHUD", 0.885, 0.155, 0, 0, "", "null");
+	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Zawaru");
+	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
+	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Pixel");
+	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Pixel", false);
 
 	// Desactivado porque empezamos con ella
 	//shotGunWindow->disable();
@@ -98,6 +109,9 @@ void PlayerController::habilitiesLogic()
 		{
 		case SlowTime:
 			if (timeElapsed >= slowTimeDuration) {
+				// Crea el compositor para la sangre en pantalla al contacto
+				CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
+
 				currentHability = HabilityEnum::None;
 				gameSpeed = 1;
 				slowTimeCooldownTimer = 0;
@@ -105,6 +119,7 @@ void PlayerController::habilitiesLogic()
 			break;
 		case FreezeTime:
 			if (timeElapsed >= freezeTimeDuration) {
+				CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
 				currentHability = HabilityEnum::None;
 				gameSpeed = 1;
 			}
@@ -200,12 +215,14 @@ void PlayerController::handleInput()
 	// Slow Time
 	if (currentHability == HabilityEnum::None) {
 		if (input->getKey(OIS::KeyCode::KC_E) && slowTimeCooldownTimer > slowTimeCooldown) {
+			CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", true);
 			currentHability = HabilityEnum::SlowTime;
 			gameSpeed = slowTimeSpeed;
 			timeElapsed = 0;
 		}
 		// Freeze Time
 		else if (input->getKey(OIS::KeyCode::KC_Q) && (freezeTimeEnemyCount >= freezeTimeEnemiesNeeded)) {
+			CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", true);
 			freezeTimeEnemyCount = 0;
 			currentHability = HabilityEnum::FreezeTime;
 			gameSpeed = freezeTimeSpeed;
