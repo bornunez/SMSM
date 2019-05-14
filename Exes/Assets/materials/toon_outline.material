@@ -1,0 +1,97 @@
+//El shader consta de dos partes: 
+//OUTLINE: Dibuja el contorno negro
+//TOON: Da el aspecto plano redondeando las sombras
+
+
+//OUTLINE:
+//Amplia un poco el tamaño del objeto (moviendo los vertices hacia fuera)
+// y dibuja la silueta negra, para que luego al dibujarse 
+//el objeto sobre ella se forme el contorno
+
+// OUTLINE_WIDTH controla el tamaño del contorno
+//Para cambiar el color del contorno, ver el FS
+
+vertex_program outlineVS glsl
+{
+	source outlineVS.txt // archivo del código
+	default_params // valores para las variable uniform
+	{
+		param_named_auto modelViewProjMat worldviewproj_matrix
+		param_named_auto normal_mat inverse_transpose_world_matrix 
+		
+		param_named outline_width float 0.05	//Tamaño de la linea
+	}
+}
+fragment_program outlineFS glsl
+{
+	source outlineFS.txt // archivo
+	default_params // valores para las variable uniform
+	{
+	}
+}
+
+//TOON:
+//Da un aspecto de dibujos usando colores planos y sombreando por igual las zonas mas oscuras
+//
+// shadow_level modifica el valor bajo el cual se considera una zona sombreada
+// shadow_color cambia la intensidad de la sombra (0 negro, 1 transparente)
+//
+// Se podria aplicar a una textura si se pasara como parametro
+
+vertex_program toonVS glsl
+{
+	source toonVS.txt // archivo del código
+	default_params // valores para las variable uniform
+	{
+		param_named_auto modelViewProjMat worldviewproj_matrix
+		param_named_auto normal_mat inverse_transpose_world_matrix 
+	}
+}
+fragment_program toonFS glsl
+{
+	source toonFS.txt // archivo
+	default_params // valores para las variable uniform
+	{
+		param_named_auto lightDir light_position 0
+		param_named_auto lightIntensity light_diffuse_colour 0
+		
+		//Valores de la sombra 
+		param_named shadow_level float 0.5
+		param_named shadow_color float 0.5
+	}
+}
+
+//El material es una tecnica multipase, donde primero se dibuja la silueta y luego el objeto
+material toon_outline {
+	technique {
+		
+		pass {
+			
+			scene_blend alpha_blend
+			cull_hardware none
+			cull_software none
+			depth_write off
+			depth_check on
+			
+			
+			vertex_program_ref outlineVS glsl
+			{
+			}
+			fragment_program_ref outlineFS glsl
+			{
+			}
+		}	
+		
+		pass{
+			//ZWriteEnable = true
+			cull_hardware none
+			cull_software none
+			vertex_program_ref toonVS glsl
+			{
+			}
+			fragment_program_ref toonFS glsl
+			{
+			}
+		}
+	} 
+}

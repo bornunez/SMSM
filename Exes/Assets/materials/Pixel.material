@@ -1,0 +1,36 @@
+vertex_program PixelVS glsl
+{
+	source PixelVS.txt // podemos reutilizar
+	default_params // valores para las variable uniform
+	{
+		param_named_auto modelViewProjMat worldviewproj_matrix
+	}
+}
+fragment_program PixelFS glsl
+{
+	source PixelFS.txt
+	default_params {
+		param_named RTT0 int 0 // textura con la escena
+		param_named cols float 128
+		param_named fils float 128
+	}
+}
+
+
+material Pixel {
+	technique {
+		pass {
+			depth_check off // desactivar el depth-buffer
+			depth_write off
+			vertex_program_ref PixelVS {
+			}
+			fragment_program_ref PixelFS {
+			}	
+			texture_unit RTT0
+			{
+			// sin imagen de archivo -> previous render target
+			filtering none // tiene la resolución del viewport
+			}
+		} 
+	} 
+}

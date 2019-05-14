@@ -73,6 +73,11 @@ void PlayerController::Start()
 	shotGunWindow->disable();
 	shotGunWindow->hide();
 
+	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Zawaru");
+	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
+	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Pixel");
+	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Pixel", false);
+
 	// Desactivado porque empezamos con ella
 	//shotGunWindow->disable();
 
@@ -98,6 +103,9 @@ void PlayerController::habilitiesLogic()
 		{
 		case SlowTime:
 			if (timeElapsed >= slowTimeDuration) {
+				// Crea el compositor para la sangre en pantalla al contacto
+				CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
+
 				currentHability = HabilityEnum::None;
 				gameSpeed = 1;
 				slowTimeCooldownTimer = 0;
@@ -105,6 +113,7 @@ void PlayerController::habilitiesLogic()
 			break;
 		case FreezeTime:
 			if (timeElapsed >= freezeTimeDuration) {
+				CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
 				currentHability = HabilityEnum::None;
 				gameSpeed = 1;
 			}
@@ -200,12 +209,14 @@ void PlayerController::handleInput()
 	// Slow Time
 	if (currentHability == HabilityEnum::None) {
 		if (input->getKey(OIS::KeyCode::KC_E) && slowTimeCooldownTimer > slowTimeCooldown) {
+			CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", true);
 			currentHability = HabilityEnum::SlowTime;
 			gameSpeed = slowTimeSpeed;
 			timeElapsed = 0;
 		}
 		// Freeze Time
 		else if (input->getKey(OIS::KeyCode::KC_Q) && (freezeTimeEnemyCount >= freezeTimeEnemiesNeeded)) {
+			CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", true);
 			freezeTimeEnemyCount = 0;
 			currentHability = HabilityEnum::FreezeTime;
 			gameSpeed = freezeTimeSpeed;
