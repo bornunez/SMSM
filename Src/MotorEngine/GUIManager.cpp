@@ -141,7 +141,7 @@ void GUIManager::Initialize()
 
 // Hay que pasar el nombre con el que esta mapeado el metodo dentro de la lista "functions"
 
-CEGUI::Window*  GUIManager::CreateButton(std::string stateWnd, std::string buttonName, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName)
+CEGUI::Window*  GUIManager::CreateButton(std::string stateWnd, std::string buttonName, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName, bool gameHUDelement)
 {
 	if (mButtons[buttonName] == nullptr) {
 		CEGUI::Window *temp = wmgr->createWindow(buttonScheme, buttonName);
@@ -167,6 +167,12 @@ CEGUI::Window*  GUIManager::CreateButton(std::string stateWnd, std::string butto
 			originalPos.push_back(temp->getPosition());
 		}
 
+
+		// Este booleano nos permite indicar que elementos del HUD queremos que se activen al comenzar la escena
+		if (gameHUDelement) {
+			gameHUDelements.push_back(temp);
+		}
+
 	}
 	return mButtons[buttonName];
 }
@@ -183,22 +189,11 @@ CEGUI::Window * GUIManager::CreateLifeIcon(std::string buttonName, float pos_x, 
 
 		mButtons[buttonName] = temp; // Se añade al diccionario
 
-		hearthLifes.push_back(temp);
+		gameHUDelements.push_back(temp);
 	}
 	return mButtons[buttonName];
 }
 
-void GUIManager::GameOver()
-{
-	gameOverHUD = true;
-	gameHUD = false;
-	pauseHUD = false;
-	menuHUD = false;
-	creditsHUD = false;
-
-	ShowWindow("GameOverWnd");
-	CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
-}
 
 CEGUI::FrameWindow * GUIManager::AddWindow(std::string wndName, std::string frameWindowLook, float posX, float posY, float sizeX, float sizeY, std::string backgroundMatName){
 	
@@ -241,6 +236,17 @@ void GUIManager::FrameWndImage(std::string name, Ogre::Real left, Ogre::Real top
 	node->attachObject(rect);
 }
 
+void GUIManager::GameOver()
+{
+	gameOverHUD = true;
+	gameHUD = false;
+	pauseHUD = false;
+	menuHUD = false;
+	creditsHUD = false;
+
+	ShowWindow("GameOverWnd");
+	CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().show();
+}
 
 void GUIManager::Exit()
 {
@@ -259,9 +265,9 @@ void GUIManager::InitMainScene()
 		creditsHUD = false;
 		CEGUI::System::getSingleton().getDefaultGUIContext().getMouseCursor().hide();
 		
-		if (hearthLifes.size() > 0) {
-			for (int i = 0; i < hearthLifes.size(); i++) {
-				hearthLifes.at(i)->show();
+		if (gameHUDelements.size() > 0) {
+			for (int i = 0; i < gameHUDelements.size(); i++) {
+				gameHUDelements.at(i)->show();
 			}
 		}
 
