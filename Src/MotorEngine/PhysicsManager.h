@@ -90,6 +90,7 @@ private:
 	std::deque<btCollisionShape*> _shapes;
 	std::deque<btRigidBody*> _bodies;
 	std::deque<bulletObject*> _bulletObjects;
+	std::deque<btDefaultMotionState*> _btDefaultMotionStates;
 
 	bulletObject* getBulletObject(Ogre::SceneNode* node);
 
