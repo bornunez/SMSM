@@ -70,7 +70,7 @@ void ShotgunBullet::LoadFromFile(json obj)
 void ShotgunBullet::collisionHandler(int id)
 {
 	//Destruye la bala cuando colisiona con algo que no sea el jugador
-	if (!hit && id != PlayerID && id != BulletID && id != HeartID) {
+	if (!hit && id != PlayerID && id != BulletID && id != HeartID  && id != collisionID::ShotgunBulletID) {
 		hit = true;
 		physicRB->clearForces();
 		gameObject->Destroy();
