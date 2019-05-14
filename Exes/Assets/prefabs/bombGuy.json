@@ -34,7 +34,7 @@
 			"chaseDist":14,
 			"expDist":2,
 			"expTime":1.5,
-			"expRadius": 6,
+			"expRadius": 4,
 			"gravity":-15,
 			"linDamp":0.2,
 			"angDamp":0.2,

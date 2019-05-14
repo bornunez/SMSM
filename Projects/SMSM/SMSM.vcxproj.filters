@@ -129,6 +129,9 @@
     <ClCompile Include="..\..\Src\Game\Componentes\Enemies\BossGuy.cpp">
       <Filter>Componentes\Enemies</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Src\Game\Componentes\Enemies\HomingEnemyBullet.cpp">
+      <Filter>Componentes\Enemies</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Src\Game\Loader\MyComponentLoader.h">
@@ -216,6 +219,9 @@
       <Filter>Componentes\GUI</Filter>
     </ClInclude>
     <ClInclude Include="..\..\Src\Game\Componentes\Enemies\BossGuy.h">
+      <Filter>Componentes\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Src\Game\Componentes\Enemies\HomingEnemyBullet.h">
       <Filter>Componentes\Enemies</Filter>
     </ClInclude>
   </ItemGroup>

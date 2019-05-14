@@ -35,7 +35,7 @@
 			"angDamp":0.2,
 			"tpTime":0.8,
 			"enemiesVec":["KnifeGuy","BombGuy","ButterGuy"],
-			"actionsVec":["Shoot","Spawn","Shoot"],
+			"actionsVec":["Shoot","Spawn","Shoot","HomingShoot","Shoot"],
 			"HP":175,
 			"heartProb":0,
 			
@@ -43,6 +43,7 @@
 			"spawnDelay":0.8,
 			"spawnTime":1.6,			
 			"defAnimSp": 2,
+			"homingAnimSp": 1.4,
 			"deathAnimSp": 2
 		},
 		{

@@ -12,8 +12,9 @@ void BossGuy::Start() {
 
 	meshRend->InitAnimations();
 
+	currAnimSp = defAnimSp;
 	meshRend->PlayAnimation("Move", true);
-	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(currAnimSp * playerController->getGameSpeed());
 
 	gameObject->setScale(scale);
 	
@@ -52,6 +53,7 @@ void BossGuy::LoadFromFile(json obj)
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
 	defAnimSp = obj["defAnimSp"];
+	homingAnimSp = obj["homingAnimSp"];
 	deathAnimSp = obj["deathAnimSp"];
 }
 
@@ -100,15 +102,14 @@ void BossGuy::Update()
 		}
 		//Asignar orientacion
 		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(dir));
-		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else {
-		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 		if (meshRend->AnimationHasEnded("Death")) {
 			Enemy::OnDeath();
 		}
 	}
+	meshRend->SetAnimationSpeed(currAnimSp * playerController->getGameSpeed());
 	Enemy::Update();
 }
 
@@ -116,7 +117,8 @@ void BossGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+	currAnimSp = deathAnimSp;
+	meshRend->SetAnimationSpeed(currAnimSp * playerController->getGameSpeed());
 }
 
 void BossGuy::Spawn()
@@ -125,7 +127,7 @@ void BossGuy::Spawn()
 
 void BossGuy::Shoot()
 {
-	scene->Instantiate("BossBullet", gameObject->getPosition(), 1);
+	scene->Instantiate(bulletType, gameObject->getPosition(), 1);
 }
 
 void BossGuy::SpawnEnemy(Vector3 pos)
@@ -151,10 +153,18 @@ void BossGuy::UpdateNextAction() {
 
 void BossGuy::SetNextAction(string action)
 {
-	if (action == "Shoot")
+	if (action == "Shoot") {
 		nextAction = action::AIM;
-	else if (action == "Spawn")
+		bulletType = "BossBullet";
+	}
+	else if (action == "HomingShoot") {
+		nextAction = action::AIM;
+		bulletType = "HomingEnemyBullet";
+		currAnimSp = homingAnimSp;
+	}
+	else if (action == "Spawn") {
 		nextAction = action::SPAWN;
+	}
 }
 
 void BossGuy::ActionEnd()
@@ -162,4 +172,6 @@ void BossGuy::ActionEnd()
 	timer = 0;
 	estado = state::IDLE;
 	meshRend->PlayAnimation("Move", true);
+	currAnimSp = defAnimSp;
+	meshRend->SetAnimationSpeed(currAnimSp * playerController->getGameSpeed());
 }

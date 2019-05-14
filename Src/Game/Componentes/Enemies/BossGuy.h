@@ -12,6 +12,7 @@ class BossGuy :
 private:
 	enum state{IDLE, AIMING, SPAWNING, DEAD};
 	enum action{AIM, SPAWN};
+	string bulletType = "";
 	state estado = state::IDLE;
 	action nextAction = action::AIM;
 	MeshRenderer* meshRend = nullptr;
@@ -35,7 +36,9 @@ private:
 	float timer = 0;
 
 	float defAnimSp = 0;
+	float homingAnimSp = 0;
 	float deathAnimSp = 0;
+	float currAnimSp = 0;
 
 	TimeManager* tm = nullptr;
 
