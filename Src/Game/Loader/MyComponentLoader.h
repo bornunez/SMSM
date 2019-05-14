@@ -16,6 +16,7 @@
 #include "../Componentes/Enemies/HouseGuy.h"
 #include "../Componentes/Enemies/BombGuy.h"
 #include "../Componentes/Enemies/IncognitoGuy.h"
+#include "../Componentes/Enemies/BossGuy.h"
 #include "../Componentes/Enemies//SpawnOnDestroy.h"
 #include "../Componentes/GUILoader.h"
 #include "../Componentes/creditsManager.h"

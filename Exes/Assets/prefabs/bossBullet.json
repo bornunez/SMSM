@@ -1,6 +1,6 @@
 {
-	"prefabName":"ShotgunBullet",
-	"name":"ShotgunBullet",
+	"prefabName":"BossBullet",
+	"name":"BossBullet",
 	"active":true,
 	"isListener":true,
 	"components":[
@@ -9,24 +9,29 @@
 			"mesh":"Bullet.mesh"
 		},
 		{
-			"type":"ShotgunBullet",
+			"type":"EnemyBullet",
 			"shape":2,
-			"id":5,
+			"id":2,
+			"ownerID":2,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":0,
 			"positionY":0,
 			"positionZ":0,
 			"offsetX":0,
-			"offsetY":0,
-			"offsetZ":0,
+			"offsetY":0.1,
+			"offsetZ":0.5,
 			"isTrigger":true,
-			"radius":0.01,
-			"gravity":0,
+			"radius":0.02,
+			"gravity":-2,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"speed":80,
-			"recoilTime": 0
+			"speed": 20,
+			"recoilTime": 0,
+			"deathTime": 5,
+			"scale": 0.1
+
+			
 		}
 	]
 }

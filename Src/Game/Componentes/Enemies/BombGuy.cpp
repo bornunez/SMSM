@@ -71,7 +71,7 @@ void BombGuy::Update()
 		}
 
 		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
-		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
+		if(!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
 	else {
@@ -104,7 +104,7 @@ void BombGuy::Explode()
 	float absDist = abs(auxVec.x) + abs(auxVec.z);
 	if (absDist < expRadius) {
 		//Enviar daño a jugador
-		cout << "jugador caiste en mi trampa whahahhaahhh" << endl;
+		playerController->receiveDamage();
 	}
 	//Sonido explosion
 }

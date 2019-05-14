@@ -1,0 +1,25 @@
+#version 330 core // learnopengl.com
+
+in vec2 uv0; //Texturas
+in vec4 vertex; // atributos de los vertices a procesar
+in vec3 normal; //Normal de luz
+
+//uniform mat4 model;
+uniform mat4 modelViewProjMat; // constantes de programa
+uniform mat4 normal_mat;
+uniform float outline_width; //Grosor de la linea
+
+out vec3 Normal; // en world space
+out vec2 TexCoords;
+
+
+	void main() {
+		Normal = normalize(vec3( mat3(normal_mat) * normal)); //Hay que convertir la normal_mat en mat3 para que sea la misma dimension
+		
+		TexCoords = uv0; //Pasamos las coordenadas de texturas
+		
+		//Vamos a ampliar el modelo un poco para generar el borde negro
+		vec4 position = vertex - vec4(Normal,1) * outline_width;
+		
+		gl_Position = modelViewProjMat * position; // obligatorio
+	}

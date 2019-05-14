@@ -95,6 +95,7 @@ public:
 	Vector3 getPlayerDirection();
 
 	float getGameSpeed() { return gameSpeed; }
+	bool isTimeStopped() { return (gameSpeed == freezeTimeSpeed); }
 
 	void increaseEnemyKillCount() { 
 		freezeTimeEnemyCount++;
