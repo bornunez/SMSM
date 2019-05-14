@@ -29,6 +29,7 @@ void BombGuy::LoadFromFile(json obj)
 	expRadius = obj["expRadius"];
 	expTime = obj["expTime"];
 	Enemy::alive = true;
+	HP = obj["HP"];
 	heartProb = obj["heartProb"];
 	defAnimSp = obj["defAnimSp"];
 	deathAnimSp = obj["deathAnimSp"];

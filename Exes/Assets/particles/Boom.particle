@@ -22,8 +22,8 @@ particle_system Boom
 		duration_max 0.42
 		repeat_delay_min 2.92
 		repeat_delay_max 2.83
-		colour_range_start 1 0 0 1
-		colour_range_end 1 0 0 1
+		colour_range_start 1 0.1 0.1 1
+		colour_range_end 0.8 0.2 0.2 0.8
 	}
 	
 	affector Scaler
