@@ -67,7 +67,7 @@ void PlayerController::Start()
 	}
 
 	// HUD ARMAS
-	pistolWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/PistolaHUD", 0.025, 0.85, 0.1, 0.12, "", "null");
+	pistolWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/PistolaHUD", 0.025, 0.85, 0.1, 0.12, "", "null", true);
 	shotGunWindow = GUIManager::Instance()->CreateButton("null", "shotGunIcon", "TaharezLook/EscopetaHUD", 0.13, 0.85, 0.1, 0.12, "", "null");
 	shotGunWindow->disable();
 	shotGunWindow->hide();
