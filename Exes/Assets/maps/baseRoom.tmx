@@ -2924,12 +2924,6 @@
     <property name="spawner" type="int" value="4"/>
    </properties>
   </object>
-  <object id="4115" gid="83" x="304" y="336" width="4" height="4">
-   <properties>
-    <property name="HouseGuy" type="bool" value="true"/>
-    <property name="spawner" type="int" value="3"/>
-   </properties>
-  </object>
  </objectgroup>
  <objectgroup id="5" name="Puertas">
   <object id="858" gid="687" x="328" y="288" width="4" height="4">
