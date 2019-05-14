@@ -38,7 +38,7 @@
 			"angDamp":0.2,
 			
 			"shootTime":1.5,
-			"HP": 20,
+			"HP": 30,
 			"heartProb": 50,
 			"defAnimSp": 2,
 			"deathAnimSp": 2
