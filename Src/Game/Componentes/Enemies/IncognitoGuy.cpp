@@ -88,7 +88,7 @@ void IncognitoGuy::Update()
 			}
 		}
 		//Asignar orientacion
-		rb->getWorldTransform().setRotation(VecToQuat(dir));
+		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(dir));
 		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...

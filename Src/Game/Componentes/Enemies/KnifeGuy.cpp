@@ -39,7 +39,7 @@ void KnifeGuy::Update()
 		auxVec.normalise();
 		auxVec *= (moveSpeed * playerController->getGameSpeed());
 
-		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
+		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 		rb->setLinearVelocity({ auxVec.x, 0, auxVec.z });
 		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
