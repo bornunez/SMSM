@@ -78,7 +78,7 @@ void PlayerController::Start()
 	stopTimeWindow = GUIManager::Instance()->CreateButton("null", "stopTimeIcon", "TaharezLook/EscopetaHUD", 0.885, 0.025, 0.1, 0.12, "", "null", true);
 	stopTimeWindow->disable();
 	slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/SlowIndHUD", 0.885, 0.155, 0, 0, "", "null");
-	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/StopIndHUD", 0.885, 0.155, 0, 0, "", "null");
+	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/StopIndHUD", 0.885, 0.025, 0, 0, "", "null");
 	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Zawaru");
 	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
 	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Pixel");
