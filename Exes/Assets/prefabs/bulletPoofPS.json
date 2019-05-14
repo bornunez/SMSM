@@ -1,0 +1,14 @@
+{
+	"prefabName":"BulletPoofPS",
+	"name":"BulletPoofPS",
+	"active":true,
+	"components":[
+		{
+			"type":"ParticleSystem",
+			"script":"BulletPoof",
+			"name":"BulletPoof",
+			"duration":0.3,
+			"Destroy":true
+		}
+	]
+}

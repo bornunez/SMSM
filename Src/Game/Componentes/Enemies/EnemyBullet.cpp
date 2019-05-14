@@ -43,6 +43,7 @@ void EnemyBullet::collisionHandler(int id)
 {
 	//Destruye la bala cuando colisiona con el jugador
 	if (!hit && id != ownerID) {
+		if(id != 0) scene->Instantiate("BulletPoofPS", gameObject->getPosition(), 0.025f);
 		hit = true;
 		physicRB->clearForces();
 		gameObject->Destroy();

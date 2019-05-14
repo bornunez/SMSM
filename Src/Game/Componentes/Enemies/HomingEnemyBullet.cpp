@@ -43,6 +43,7 @@ void HomingEnemyBullet::collisionHandler(int id)
 {
 	//Destruye la bala cuando colisiona con el jugador
 	if (!hit && id != ownerID) {
+		scene->Instantiate("LitleBoomPS", gameObject->getPosition(), 0.025f);
 		hit = true;
 		physicRB->clearForces();
 		gameObject->Destroy();
