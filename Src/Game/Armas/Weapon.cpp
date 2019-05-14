@@ -53,6 +53,12 @@ void Weapon::handleInput()
 	{
 		shoot();
 	}
+	if (((animationPassed == "Move" || animationPassed == "Run" || animationPassed == "Shoot") && meshRend->AnimationHasEnded("Shoot")) && !InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) && !InputManager::getInstance()->getKey(OIS::KeyCode::KC_A) &&
+		!InputManager::getInstance()->getKey(OIS::KeyCode::KC_D) && !InputManager::getInstance()->getKey(OIS::KeyCode::KC_S))
+	{
+		meshRend->PlayAnimation("Move", true, false);
+		meshRend->StopAnimation(true);
+	}
 	if ((meshRend->AnimationHasEnded("Shoot") || meshRend->AnimationHasEnded("Reload") || animationPassed == "Move"))
 	{
 		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_W) || 
@@ -85,8 +91,8 @@ void Weapon::handleInput()
 
 		}
 	}
-	if ((InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_W) && meshRend->isPlaying("Move")) 
-		|| (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_LSHIFT) && meshRend->isPlaying("Run")))
+	if ((!InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) && meshRend->isPlaying("Move")) 
+		|| (!InputManager::getInstance()->getKey(OIS::KeyCode::KC_LSHIFT) && meshRend->isPlaying("Run")))
 	{
 		animationPassed = "Move";
 		meshRend->PlayAnimation("Move", true, false);
