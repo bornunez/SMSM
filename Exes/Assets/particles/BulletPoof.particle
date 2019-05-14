@@ -1,6 +1,6 @@
 particle_system BulletPoof
 {
-	material Particles/Cloud
+	material Particles/Bullet
 	particle_width 0.07
 	particle_height 0.07
 	quota 50
@@ -25,8 +25,8 @@ particle_system BulletPoof
 		duration_max 0.25
 		repeat_delay_min 2.92
 		repeat_delay_max 2.83
-		colour_range_start 0.7 0.7 0.2 1
-		colour_range_end 0.6 0.6 0.15 0.8
+		colour_range_start 1 1 1 1
+		colour_range_end 0.8 0.8 0.8 0.6
 	}
 	affector Scaler
 	{

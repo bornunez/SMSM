@@ -66,7 +66,7 @@ void IncognitoGuy::Update()
 			}
 			else if (!hasSpawnedPS && tpTimer >= tpTime - 0.2f) {
 				// Generar particulas
-				scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
+				scene->Instantiate("SprinklePS", gameObject->getPosition(), 0.025f);
 				hasSpawnedPS = true;
 			}
 			else if (tpTimer >= tpTime) {
@@ -130,7 +130,7 @@ void IncognitoGuy::Teleport()
 
 
 	// Generar particulas
-	scene->Instantiate("PoofPS", { newOrigin.x(), newOrigin.y(), newOrigin.z() }, 0.025f);
+	scene->Instantiate("SprinklePS", { newOrigin.x(), newOrigin.y(), newOrigin.z() }, 0.025f);
 	posIndex++;
 
 	if (posIndex >= xVec.size()) {

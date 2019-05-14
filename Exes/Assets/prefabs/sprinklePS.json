@@ -1,0 +1,14 @@
+{
+	"prefabName":"SprinklePS",
+	"name":"SprinklePS",
+	"active":true,
+	"components":[
+		{
+			"type":"ParticleSystem",
+			"script":"Sprinkle",
+			"name":"Sprinkle",
+			"duration":0.5,
+			"Destroy":true
+		}
+	]
+}
