@@ -114,11 +114,6 @@ void IncognitoGuy::Spawn()
 
 void IncognitoGuy::Teleport()
 {
-	if (posIndex >= xVec.size()) {
-		RandomizeVecs();
-		posIndex = 0;
-	}
-
 	// Obtenemos transform actual
 	btTransform curT;
 	rb->getMotionState()->getWorldTransform(curT);
@@ -137,6 +132,11 @@ void IncognitoGuy::Teleport()
 	// Generar particulas
 	scene->Instantiate("PoofPS", { newOrigin.x(), newOrigin.y(), newOrigin.z() }, 0.025f);
 	posIndex++;
+
+	if (posIndex >= xVec.size()) {
+		RandomizeVecs();
+		posIndex = 0;
+	}
 }
 
 void IncognitoGuy::RandomizeVecs()

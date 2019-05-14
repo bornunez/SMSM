@@ -1,0 +1,55 @@
+{
+	"prefabName":"BossGuy",
+	"name":"BossGuy",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"boss.mesh"
+		},
+		{
+			"type":"EnemyRigidBody",
+			"shape":0,
+			"id":2,
+			"mass":1,
+			"restFactor":0.5,
+			"positionX":-2,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0,
+			"offsetZ":0,
+			"isTrigger":true,
+			"sizeX": 0.5,
+			"sizeY": 0.5,
+			"sizeZ": 0.5,
+			"recoilTime": 0
+		},
+		{
+			"type":"BossGuy",
+			"moveSpeed":4,
+			"scale": 0.4,
+			"gravity":-15,
+			"linDamp":0.2,
+			"angDamp":0.2,
+			"tpTime":0.8,
+			"enemiesVec":["KnifeGuy","BombGuy","ButterGuy"],
+			"actionsVec":["Shoot","Spawn","Shoot"],
+			"HP":175,
+			"heartProb":0,
+			
+			"shootTime":1.5,
+			"spawnDelay":0.8,
+			"spawnTime":1.6,			
+			"defAnimSp": 2,
+			"deathAnimSp": 2
+		},
+		{
+			"type":"ParticleSystem",
+			"script":"Poof",
+			"name":"PS",
+			"duration":0.5
+		}
+	]
+}
