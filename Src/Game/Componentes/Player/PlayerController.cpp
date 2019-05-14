@@ -73,12 +73,12 @@ void PlayerController::Start()
 	shotGunWindow->hide();
 
 	// HUD TIEMPO
-	slowTimeWindow = GUIManager::Instance()->CreateButton("null", "slowTimeIcon", "TaharezLook/PistolaHUD", 0.885, 0.155, 0.1, 0.12, "", "null");
+	slowTimeWindow = GUIManager::Instance()->CreateButton("null", "slowTimeIcon", "TaharezLook/SlowTimeHUD", 0.885, 0.155, 0.1, 0.12, "", "null");
 	slowTimeWindow->disable();
-	stopTimeWindow = GUIManager::Instance()->CreateButton("null", "stopTimeIcon", "TaharezLook/EscopetaHUD", 0.885, 0.025, 0.1, 0.12, "", "null");
+	stopTimeWindow = GUIManager::Instance()->CreateButton("null", "stopTimeIcon", "TaharezLook/StopTimeHUD", 0.885, 0.025, 0.1, 0.12, "", "null");
 	stopTimeWindow->disable();
-	slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/Button", 0.885, 0.155, 0, 0, "", "null");
-	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/Button", 0.885, 0.155, 0, 0, "", "null");
+	slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/SlowIndHUD", 0.885, 0.155, 0, 0, "", "null");
+	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/StopIndHUD", 0.885, 0.155, 0, 0, "", "null");
 
 #endif
 
