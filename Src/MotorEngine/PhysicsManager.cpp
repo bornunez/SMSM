@@ -19,7 +19,7 @@ PhysicsManager::PhysicsManager()
 	_world->setGravity(btVector3(0, -40, 0));
 
 #ifdef _DEBUG
-	debug_ = true;
+	debug_ = false;
 #endif
 #ifdef C_DEBUG
 	std::cout << " -- Physics world initialized -- " << std::endl;
@@ -291,6 +291,14 @@ void PhysicsManager::resetWorld()
 		++itbObject;
 	}
 
+	std::deque<btDefaultMotionState*>::iterator itMotion= _btDefaultMotionStates.begin();
+
+	while (itMotion != _btDefaultMotionStates.end()) {
+		delete *itMotion;
+		++itMotion;
+	}
+
+	_btDefaultMotionStates.clear();
 	_bodies.clear();
 	_shapes.clear();
 	_bulletObjects.clear();
@@ -500,6 +508,7 @@ btRigidBody * PhysicsManager::CreatePhysicObject(btCollisionShape* collisionShap
 
 	//actually contruvc the body and add it to the dynamics world
 	btDefaultMotionState *state = new btDefaultMotionState(startTransform);
+	_btDefaultMotionStates.push_back(state);
 
 	btRigidBody::btRigidBodyConstructionInfo rbInfo(mass, state, collisionShape, localInertia);
 	btRigidBody *body = new btRigidBody(rbInfo);

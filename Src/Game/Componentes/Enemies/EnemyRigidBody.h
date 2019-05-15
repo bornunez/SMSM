@@ -8,6 +8,8 @@ class EnemyRigidBody :
 {
 private:
 	Enemy* enemy = nullptr;
+	int gunDamage = 0;
+	int shotgunDamage = 0;
 
 public:
 	virtual void Start();

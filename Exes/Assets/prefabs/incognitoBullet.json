@@ -18,7 +18,7 @@
 			"positionX":0,
 			"positionY":0,
 			"positionZ":0,
-			"offsetX":-0.55,
+			"offsetX":0,
 			"offsetY":0,
 			"offsetZ":0,
 			"isTrigger":true,
@@ -26,7 +26,7 @@
 			"gravity":-2,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"speed": 12,
+			"speed": 20,
 			"recoilTime": 0,
 			"deathTime": 5,
 			"scale": 0.05

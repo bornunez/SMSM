@@ -12,14 +12,13 @@ void ShyGuy::Start() {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
-	meshRend->AnimationSpeed(2 * playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	gameObject->setScale(scale);
 }
 
 void ShyGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	gravity = obj["gravity"];
 	scale = obj["scale"];
 	moveSpeed = obj["moveSpeed"];
@@ -27,6 +26,8 @@ void ShyGuy::LoadFromFile(json obj)
 	distFactor = obj["distFactor"];
 	maxFactor = obj["maxFactor"];
 	minFactor = obj["maxFactor"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 	Enemy::alive = true;
 	HP = obj["HP"];
 }
@@ -62,13 +63,15 @@ void ShyGuy::Update()
 			}
 		}
 
-		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
-
-		meshRend->AnimationSpeed(2*playerController->getGameSpeed());
+		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(auxVec));
+		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
-	// Si esta muerto y su animacion de muerte ha terminado...
-	else if (meshRend->AnimationHasEnded("Death")) {
-		Enemy::OnDeath();
+
+	else {
+		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+		if (meshRend->AnimationHasEnded("Death")) {
+			Enemy::OnDeath();
+		}
 	}
 	Enemy::Update();
 }
@@ -77,11 +80,7 @@ void ShyGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(2 * playerController->getGameSpeed());
+	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	playSound("ShyGuyShout", false, 1);
 
-}
-
-void ShyGuy::Spawn()
-{
 }

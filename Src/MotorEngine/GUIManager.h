@@ -34,7 +34,7 @@ public:
 
 	CEGUI::FrameWindow * AddWindow(std::string wndName, std::string frameWindowLook, float posX, float posy, float sizeX, float sizeY, std::string backgroundMatName = " ");
 	void FrameWndImage(std::string name, Ogre::Real left = -1.0, Ogre::Real top = 1.0, Ogre::Real right = 1.0, Ogre::Real down = -1.0);						// Side values go from -1 to 1 from the center of the screen
-	CEGUI::Window* CreateButton(std::string stateWnd, std::string buttonName, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName);
+	CEGUI::Window* CreateButton(std::string stateWnd, std::string buttonName, std::string buttonScheme, float pos_x, float pos_y, float size_x, float size_y, std::string text, std::string methodName, bool gameHUD = false);
 	
 	CEGUI::Window* CreateLifeIcon(std::string buttonName, float pos_x, float pos_y, float size_x, float size_y);
 
@@ -44,7 +44,7 @@ public:
 	bool getGameOverOn()	{ return gameOverHUD; }
 	bool getCreditsOn()		{ return creditsHUD; }
 	
-	void setScrollSpeed(float v) { scrollSpeed = CEGUI::UDim(v,v); }
+	void setScrollSpeed(float v) { scrollSpeed = CEGUI::UDim(v,v); fastScrollSpeed = CEGUI::UDim(v*2, v*2);}
 	void setCreditsTime(float t) { creditsTime = t; }
 
 	void GameOver();
@@ -78,10 +78,12 @@ private:
 	//CREDITOS
 
 		std::map<std::string, CEGUI::Window *> creditsElements;
+		std::map<std::string, CEGUI::UVector2> originalPos;
 		float creditsTime = 10;
 		CEGUI::UDim scrollSpeed = CEGUI::UDim(0.01, 0.01);
+		CEGUI::UDim fastScrollSpeed = CEGUI::UDim(0.01, 0.01);
 		float currentTime = 0;
-		std::vector<CEGUI::UVector2> originalPos;
+		
 
 		void creditsAnim();
 		void resetPositions();
@@ -104,9 +106,12 @@ private:
 	void RestartMainScene();
 	void VolumeUp();
 	void VolumeDown();
+	void VolumeMusicUp();
+	void VolumeMusicDown();
 	void Mute();
+	void MuteMusic();
 	void SensitivityUp();
 	void SensitivityDown();
 
-	std::vector<CEGUI::Window*> hearthLifes;
+	std::vector<CEGUI::Window*> gameHUDelements;
 };

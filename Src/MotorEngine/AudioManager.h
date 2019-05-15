@@ -31,7 +31,9 @@ public:
 
 	void modifyVolume(bool v);
 	void modifyMusicVolume(bool v);
+	void muteMusicVolume();
 	void muteVolume();
+	void setVolumes();
 
 private:
 	static AudioManager* instance;
@@ -41,7 +43,7 @@ private:
 	SoundClass soundSample;
 	void cargaSonidos();
 
-	float globalVolume = 1.0f;
+	float globalEffectVolume = 1.0f;
 	float savedVolume = 1.0f;
 	float globalMusicVolume = 0.2f;
 	float savedMusicVolume = 0.2f;

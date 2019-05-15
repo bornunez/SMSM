@@ -1,0 +1,37 @@
+{
+	"prefabName":"BossBullet",
+	"name":"BossBullet",
+	"active":true,
+	"isListener":true,
+	"components":[
+		{
+			"type":"meshRenderer",
+			"mesh":"Bullet.mesh"
+		},
+		{
+			"type":"EnemyBullet",
+			"shape":2,
+			"id":2,
+			"ownerID":2,
+			"mass":1,
+			"restFactor":0.5,
+			"positionX":0,
+			"positionY":0,
+			"positionZ":0,
+			"offsetX":0,
+			"offsetY":0.1,
+			"offsetZ":0,
+			"isTrigger":true,
+			"radius":0.02,
+			"gravity":-2,
+			"linDamp":0.2,
+			"angDamp":0.2,
+			"speed": 20,
+			"recoilTime": 0,
+			"deathTime": 5,
+			"scale": 0.05
+
+			
+		}
+	]
+}

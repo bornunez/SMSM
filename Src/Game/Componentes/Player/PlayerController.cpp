@@ -3,6 +3,8 @@
 #include "../../../Src/MotorEngine/GUIManager.h"
 #include "../../Src/MotorEngine/MeshRenderer.h"
 #include "../../Armas/Weapon.h"
+#include "../../Src/MotorEngine/AudioManager.h"
+
 
 PlayerController::~PlayerController()
 {
@@ -14,6 +16,17 @@ void PlayerController::LoadFromFile(json obj)
 	walkSpeed = obj["walkSpeed"];
 	runSpeed = obj["runSpeed"];
 	speed = walkSpeed;
+
+	// Habilities ---------------------------------
+	// Slow Time
+	slowTimeSpeed = obj["slowTimeSpeed"];
+	slowTimeDuration = obj["slowTimeDuration"];
+	slowTimeCooldown = obj["slowTimeCooldown"];
+
+	// Freeze Time
+	freezeTimeSpeed = obj["freezeTimeSpeed"];
+	freezeTimeDuration = obj["freezeTimeDuration"];
+	freezeTimeEnemiesNeeded = obj["freezeTimeEnemiesNeeded"];
 
 	// Tiempo invulnerable
 	recoverTime = obj["recoverTime"];
@@ -53,25 +66,87 @@ void PlayerController::Start()
 		livesHeart.push_back(GUIManager::Instance()->CreateLifeIcon("livesHeart" + std::to_string(i), 0.05*(i+1), 0.05, 0.075, 0.075));
 	}
 
-	pistolWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/Button", 0.025, 0.9, 0.07, 0.075, "", "null");
-	pistolWindow->disable();
+	// HUD ARMAS
+	pistolWindow = GUIManager::Instance()->CreateButton("null", "gunIcon", "TaharezLook/PistolaHUD", 0.025, 0.85, 0.1, 0.12, "", "null", true);
+	shotGunWindow = GUIManager::Instance()->CreateButton("null", "shotGunIcon", "TaharezLook/EscopetaHUD", 0.13, 0.85, 0.1, 0.12, "", "null");
+	shotGunWindow->disable();
+	shotGunWindow->hide();
 
-	shotGunWindow = GUIManager::Instance()->CreateButton("null", "shotGunIcon", "TaharezLook/Button", 0.115, 0.9, 0.07, 0.075, "", "null");
+	// HUD TIEMPO
+	slowTimeWindow = GUIManager::Instance()->CreateButton("null", "slowTimeIcon", "TaharezLook/SlowTimeHUD", 0.885, 0.155, 0.1, 0.12, "", "null", true);
+	slowTimeWindow->disable();
+	stopTimeWindow = GUIManager::Instance()->CreateButton("null", "stopTimeIcon", "TaharezLook/StopTimeHUD", 0.885, 0.025, 0.1, 0.12, "", "null", true);
+	stopTimeWindow->disable();
+
+
+	slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/SlowIndHUD", 0.885, 0.155, 0.1, 0.03, "", "null",true);
+	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/StopIndHUD", 0.885, 0.025, 0.1, 0.03, "", "null",true);
+	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Zawaru");
+	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
+	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Pixel");
+	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Pixel", false);
+	/*slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/Button", 0.885, 0.155, 0.1, 0.12, "", "null", true);
+	slowTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0.1,0), CEGUI::UDim(0.12, 0)));
+	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/Button", 0.885, 0.025, 0.1, 0.12, "", "null", true);
+	stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0, 0), CEGUI::UDim(0.12, 0)));*/
+
 	// Desactivado porque empezamos con ella
 	//shotGunWindow->disable();
 
 #endif
+
+	slowTimeCooldownTimer = slowTimeCooldown;
 }
 
 void PlayerController::Update()
 {
 	handleInput();
 	SetInvulnerability();
+	habilitiesLogic();
+}
+
+void PlayerController::habilitiesLogic()
+{
+	if (currentHability != HabilityEnum::None)
+	{
+		timeElapsed += TimeManager::getInstance()->getDeltaTime();
+
+		switch (currentHability)
+		{
+		case SlowTime:
+			if (timeElapsed >= slowTimeDuration) {
+				// Crea el compositor para la sangre en pantalla al contacto
+				CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
+
+				currentHability = HabilityEnum::None;
+				gameSpeed = 1;
+				slowTimeCooldownTimer = 0;				
+			}
+			break;
+		case FreezeTime:
+			if (timeElapsed >= freezeTimeDuration) {
+				CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
+				currentHability = HabilityEnum::None;
+				gameSpeed = 1;
+			}
+			break;
+		default:
+			break;
+		}
+	}
+	else
+	{
+		slowTimeCooldownTimer += TimeManager::getInstance()->getDeltaTime();
+		if (slowTimeCooldownTimer < slowTimeCooldown) {
+			slowTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim((slowTimeCooldownTimer/ slowTimeCooldown) * 0.1,
+				0), CEGUI::UDim(0.03, 0)));
+		}
+	}
 }
 
 void PlayerController::handleInput()
 {
-	// PLAYER CAMERA ----------------------------------------------------------------------
+	// PLAYER CAMERA ------------------------------------------------------------------------------
 
 	int currentMouseX = input->getMouseX();
 	int currentMouseY = input->getMouseY();
@@ -90,7 +165,7 @@ void PlayerController::handleInput()
 	if (currentMouseY == scene->getGame()->getRenderWindow()->getHeight() || currentMouseY == 0)
 		input->CenterMouse();
 
-	//// PLAYER MOVEMENT --------------------------------------------------------------------
+	//// PLAYER MOVEMENT --------------------------------------------------------------------------
 
 	// Running
 	if (input->getKey(OIS::KeyCode::KC_LSHIFT)) {
@@ -137,21 +212,38 @@ void PlayerController::handleInput()
 		playerRb->setLinearVelocity(right * speed + playerRb->getLinearVelocity());
 	}
 
-	if (input->getKey(OIS::KeyCode::KC_L)) { // TESTING ------------------------------------------
-		cout << "SlowMotion: ON" << endl;
-		gameSpeed = 0.2f;
-	}
-	else if (input->getKey(OIS::KeyCode::KC_K)) { // TESTING ------------------------------------------
-		cout << "SlowMotion: OFF" << endl;
-		gameSpeed = 1;
-	}
-
-	// Switch Weapons
+	// SWITCH WEAPONS -----------------------------------------------------------------------------
 	if (input->getKey(OIS::KeyCode::KC_1)) {
 		switchWeapon(WeaponEnum::Pistol);
 	}
 	else if (input->getKey(OIS::KeyCode::KC_2)) {
 		switchWeapon(WeaponEnum::ShotGun);
+	}
+
+	// PLAYER HABILITIES --------------------------------------------------------------------------
+
+	// Slow Time
+	if (currentHability == HabilityEnum::None) {
+		if (input->getKey(OIS::KeyCode::KC_E) && slowTimeCooldownTimer > slowTimeCooldown) {
+			CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", true);
+			currentHability = HabilityEnum::SlowTime;
+			gameSpeed = slowTimeSpeed;
+			timeElapsed = 0;
+			// Ponemos la escala del indicador a 0
+			slowTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0, 0), CEGUI::UDim(0.12, 0)));
+		}
+		// Freeze Time
+		else if (input->getKey(OIS::KeyCode::KC_Q) && (freezeTimeEnemyCount >= freezeTimeEnemiesNeeded)) {
+			CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", true);
+			freezeTimeEnemyCount = 0;
+			currentHability = HabilityEnum::FreezeTime;
+			gameSpeed = freezeTimeSpeed;
+			timeElapsed = 0;
+			// Ponemos la escala del indicador a 0
+			stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0, 0), CEGUI::UDim(0.12, 0)));
+			AudioManager::getInstance()->playSound("TimeSound", false, 1, CHANNEL::Default);
+			
+		}
 	}
 }
 
@@ -216,6 +308,10 @@ void PlayerController::hideHud()
 
 	pistolWindow->hide();
 	shotGunWindow->hide();
+	slowTimeIndicator->hide();
+	stopTimeIndicator->hide();
+	stopTimeWindow->hide();
+	slowTimeWindow->hide();
 }
 
 Vector3  PlayerController::getPlayerDirection()
@@ -231,23 +327,27 @@ void PlayerController::switchWeapon(WeaponEnum w)
 		pistolsGO->SetActive(true);
 		shotgunGO->SetActive(false);
 		// Update GUI
-		shotGunWindow->enable();
-		pistolWindow->disable();
+
+		shotGunWindow->disable();
+		pistolWindow->enable();
 	}
 	else if (currentWeapon == WeaponEnum::ShotGun && shotgunUnlocked) {
 		// Change weapon
 		pistolsGO->SetActive(false);
 		shotgunGO->SetActive(true);
 		// Update GUI
-		shotGunWindow->disable();
-		pistolWindow->enable();
+
+		shotGunWindow->enable();
+		pistolWindow->disable();
 	}
 }
 
 void PlayerController::unlockWeapon(WeaponEnum w)
 {
-	if (w == WeaponEnum::ShotGun)
+	if (w == WeaponEnum::ShotGun) {
 		shotgunUnlocked = true;
+		activateShotgunHUD();
+	}
 }
 
 void PlayerController::SetInvulnerability() {

@@ -1,0 +1,20 @@
+#version 330 core // learnopengl.com
+
+in vec2 uv0; //Texturas
+in vec4 vertex; // atributos de los vertices a procesar
+in vec3 normal; //Normal de luz
+
+//uniform mat4 model;
+uniform mat4 modelViewProjMat; // constantes de programa
+uniform mat4 normal_mat;
+
+out vec3 Normal; // en world space
+out vec2 TexCoords;
+
+
+	void main() {
+		Normal = vec3( mat3(normal_mat) * normal); //Hay que convertir la normal_mat en mat3 para que sea la misma dimension
+		
+		TexCoords = uv0; //Pasamos las coordenadas de texturas
+		gl_Position = modelViewProjMat * vertex; // obligatorio
+	}

@@ -26,7 +26,13 @@
 			"walkSpeed": 6,
 			"runSpeed": 10,
 			"lives": 3,
-			"recoverTime": 3
+			"recoverTime": 3,
+			"slowTimeSpeed": 0.3,
+			"slowTimeDuration": 3,
+			"slowTimeCooldown": 1,
+			"freezeTimeSpeed": 0.001,
+			"freezeTimeDuration": 6,
+			"freezeTimeEnemiesNeeded":1
 		}
 	],
 	"children":[
@@ -43,11 +49,13 @@
 					],
 					"children":[
 						{
+							"name": "Pistola",
 							"prefab":"Pistola",
 							"position": {"x":-0.2, "y":0.3, "z":-0.2},
 							"scale": 0.05
 						},
 						{
+							"name": "Pistola2",
 							"prefab":"Pistola2",
 							"position": {"x":0.2, "y":0.3, "z":-0.2},
 							"scale": 0.05
@@ -55,8 +63,9 @@
 					]
 				},
 				{
+					"name": "Escopeta",
 					"prefab":"Escopeta",
-					"position": {"x":0.15, "y":0.32, "z":-0.8},
+					"position": {"x":0.15, "y":0.35, "z":-0.5},
 					"scale": 0.02
 				},
 				{

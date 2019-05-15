@@ -39,7 +39,9 @@
 			"heartProb":50,
 			
 			"shootDist":6,
-			"shootTime":1.6
+			"shootTime":1,
+			"defAnimSp": 2,
+			"deathAnimSp": 2
 		},
 		{
 			"type":"ParticleSystem",

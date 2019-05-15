@@ -1,0 +1,36 @@
+particle_system BulletPoof
+{
+	material Particles/Bullet
+	particle_width 0.07
+	particle_height 0.07
+	quota 50
+	sorted true
+	billboard_type point
+	billboard_origin center
+
+	emitter Box
+	{
+		position 0.0 0.0 0.0
+		direction 0.0 0.0 1.0
+		angle 180
+		width 2.2
+		height 2.2
+		depth 0
+		emission_rate 100
+		velocity_min 1
+		velocity_max 2
+		time_to_live_min 0.1
+		time_to_live_max 0.2
+		duration_min 0.12
+		duration_max 0.25
+		repeat_delay_min 2.92
+		repeat_delay_max 2.83
+		colour_range_start 1 1 1 1
+		colour_range_end 0.8 0.8 0.8 0.6
+	}
+	affector Scaler
+	{
+		rate -0.1
+	}
+	
+}

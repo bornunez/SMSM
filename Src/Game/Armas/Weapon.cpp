@@ -17,6 +17,7 @@ void Weapon::LoadFromFile(json obj)
 	meshRend = gameObject->getComponent<MeshRenderer>();
 
 	//MeshRenderer* c = dynamic_cast<MeshRenderer*>(gameObject->getComponent<MeshRenderer>());
+	damage = obj["damage"];
 	magazine = obj["magazine"];
 	moveSpeed = obj["moveSpeed"];
 	runSpeed = obj["runSpeed"];
@@ -46,10 +47,17 @@ void Weapon::Update()
 void Weapon::handleInput()
 {
 	//Handlea el input
-	if ((InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left) && dualInt == 0)||
-		(InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Right) && dualInt == 1))
+	if (!InputManager::getInstance()->getKey(OIS::KC_LSHIFT) && 
+	   ((InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left) && dualInt == 0)||
+		(InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Right) && dualInt == 1)))
 	{
 		shoot();
+	}
+	if (((animationPassed == "Move" || animationPassed == "Run" || animationPassed == "Shoot") && meshRend->AnimationHasEnded("Shoot")) && !InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) && !InputManager::getInstance()->getKey(OIS::KeyCode::KC_A) &&
+		!InputManager::getInstance()->getKey(OIS::KeyCode::KC_D) && !InputManager::getInstance()->getKey(OIS::KeyCode::KC_S))
+	{
+		meshRend->PlayAnimation("Move", true, false);
+		meshRend->StopAnimation(true);
 	}
 	if ((meshRend->AnimationHasEnded("Shoot") || meshRend->AnimationHasEnded("Reload") || animationPassed == "Move"))
 	{
@@ -64,7 +72,7 @@ void Weapon::handleInput()
 		{
 			animationPassed = "Move";
 			meshRend->PlayAnimation("Move", true, false);
-			meshRend->AnimationSpeed(moveSpeed);
+			meshRend->SetAnimationSpeed(moveSpeed);
 		}
 		else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W))
 		{
@@ -72,24 +80,24 @@ void Weapon::handleInput()
 			{
 				animationPassed = "Move";
 				meshRend->PlayAnimation("Move", true, true);
-				meshRend->AnimationSpeed(moveSpeed);
+				meshRend->SetAnimationSpeed(moveSpeed);
 			}
 			else
 			{
 				animationPassed = "Run";
 				meshRend->PlayAnimation("Run", true, true);
-				meshRend->AnimationSpeed(runSpeed);
+				meshRend->SetAnimationSpeed(runSpeed);
 			}
 
 		}
 	}
-	if ((InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_W) && meshRend->isPlaying("Move")) 
-		|| (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_LSHIFT) && meshRend->isPlaying("Run")))
+	if ((!InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) && meshRend->isPlaying("Move")) 
+		|| (!InputManager::getInstance()->getKey(OIS::KeyCode::KC_LSHIFT) && meshRend->isPlaying("Run")))
 	{
 		animationPassed = "Move";
 		meshRend->PlayAnimation("Move", true, false);
 		meshRend->StopAnimation(true);
-		meshRend->AnimationSpeed(moveSpeed);
+		meshRend->SetAnimationSpeed(moveSpeed);
 	}
 }
 void Weapon::reloads()
@@ -124,7 +132,7 @@ void Weapon::shoot()
 			PhysicShoot();
 			animationPassed = "Shoot";
 			meshRend->PlayAnimation("Shoot", false);
-			meshRend->AnimationSpeed(shootSpeed);
+			meshRend->SetAnimationSpeed(shootSpeed);
 #ifdef C_DEBUG
 			std::cout << "DISPARO"<<endl;
 #endif
@@ -212,7 +220,7 @@ void Weapon::reload()
 {
 	animationPassed = "Reload";
 	meshRend->PlayAnimation("Reload", false);
-	meshRend->AnimationSpeed(reloadSpeed);
+	meshRend->SetAnimationSpeed(reloadSpeed);
 	actMagazine = 0;
 	actReloadTime = 0;
 	actTimePerShot = 0;

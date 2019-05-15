@@ -13,7 +13,7 @@ void HouseGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Move", true);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 
 	gameObject->setScale(scale);
 	
@@ -34,6 +34,8 @@ void HouseGuy::LoadFromFile(json obj)
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 }
 
 
@@ -41,14 +43,14 @@ void HouseGuy::Update()
 {
 	if (estado != state::DEAD) {
 		rb->activate();
-		spawnTimer += tm->getDeltaTime();
+		spawnTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 		if (estado == state::IDLE) {
-			speedTimer += tm->getDeltaTime();
+			speedTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (speedTimer >= speedTime) {
 				//Calculo velocidad
 				velVec = Ogre::Vector3(((rand() % 200 - 100)), 0 , ((rand() % 200 - 100)));
 				velVec.normalise();
-				velVec *=moveSpeed;
+				velVec *= (moveSpeed * playerController->getGameSpeed());
 
 				//Calculo orientacion
 				float angle = atan2(velVec.x, velVec.z);
@@ -62,9 +64,10 @@ void HouseGuy::Update()
 				rb->getWorldTransform().setRotation(q);
 
 				speedTimer = 0;
+
+				//Asignar velocidad
+				rb->setLinearVelocity({ velVec.x, 0, velVec.z });
 			}
-			//Asignar velocidad
-			rb->setLinearVelocity({ velVec.x, 0, velVec.z});
 
 			//Gestion spawntimer
 			if (spawnTimer >= spawnTime && spawnCount < maxSpawns) {
@@ -87,14 +90,16 @@ void HouseGuy::Update()
 				speedTimer = speedTime;
 			}
 		}
-
+		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
-	// Si esta muerto y su animacion de muerte ha terminado...
-	else if (meshRend->AnimationHasEnded("Death")) {
-		for (int i = 0; i < onDeathSpawns; i++) {
-			SpawnEnemy(gameObject->getPosition());
+	else {
+		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+		if (meshRend->AnimationHasEnded("Death")) {
+			for (int i = 0; i < onDeathSpawns; i++) {
+				SpawnEnemy(gameObject->getPosition());
+			}
+			Enemy::OnDeath();
 		}
-		Enemy::OnDeath();
 	}
 	Enemy::Update();
 }
@@ -103,16 +108,11 @@ void HouseGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(2);
-}
-
-void HouseGuy::Spawn()
-{
+	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 }
 
 void HouseGuy::SpawnEnemy(Vector3 pos)
 {
 	scene->Instantiate("LitlePoofPS", pos, 0.025f);
 	scene->Instantiate("ShyGuy", pos, 0.5f);
-	//RoomManager::getInstance()->GetActiveRoom()->AddEnemy();
 }

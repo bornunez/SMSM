@@ -42,7 +42,9 @@
 			"HP": 40,
 			"onDeathSpawns":3,
 			"maxSpawns":10,
-			"heartProb": 100
+			"heartProb": 100,
+			"defAnimSp": 2,
+			"deathAnimSp": 2
 		},
 		{
 			"type":"ParticleSystem",

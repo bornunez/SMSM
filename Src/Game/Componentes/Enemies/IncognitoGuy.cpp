@@ -13,7 +13,7 @@ void IncognitoGuy::Start() {
 	meshRend->InitAnimations();
 
 	meshRend->PlayAnimation("Idle", true);
-	meshRend->AnimationSpeed(2);
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 
 	gameObject->setScale(scale);
 	
@@ -33,7 +33,6 @@ void IncognitoGuy::Start() {
 void IncognitoGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	scale = obj["scale"];
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
@@ -46,6 +45,8 @@ void IncognitoGuy::LoadFromFile(json obj)
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 }
 
 
@@ -57,14 +58,14 @@ void IncognitoGuy::Update()
 		Ogre::Vector3 dir = player->getPosition() - gameObject->getPosition();
 		float absDist = abs(dir.x) + abs(dir.z);
 		if (estado == state::IDLE) {
-			tpTimer += tm->getDeltaTime();
+			tpTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (hasTeleported && absDist < shootDist) {
 				estado = state::AIMING;
 				shootTimer = 0;
 			}
 			else if (!hasSpawnedPS && tpTimer >= tpTime - 0.2f) {
 				// Generar particulas
-				scene->Instantiate("PoofPS", gameObject->getPosition(), 0.025f);
+				scene->Instantiate("SprinklePS", gameObject->getPosition(), 0.025f);
 				hasSpawnedPS = true;
 			}
 			else if (tpTimer >= tpTime) {
@@ -77,7 +78,7 @@ void IncognitoGuy::Update()
 		}
 		else if (estado == state::AIMING) {
 			//Dispara despues de apuntar cierto tiempo
-			shootTimer += tm->getDeltaTime();
+			shootTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (shootTimer >= shootTime) {
 				Shoot();
 				shootTimer = 0;
@@ -86,11 +87,14 @@ void IncognitoGuy::Update()
 			}
 		}
 		//Asignar orientacion
-		rb->getWorldTransform().setRotation(VecToQuat(dir));
+		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(dir));
+		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
-	// Si esta muerto y su animacion de muerte ha terminado...
-	else if (meshRend->AnimationHasEnded("Death")) {
-		Enemy::OnDeath();
+	else {
+		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+		if (meshRend->AnimationHasEnded("Death")) {
+			Enemy::OnDeath();
+		}
 	}
 	Enemy::Update();
 }
@@ -99,20 +103,11 @@ void IncognitoGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-	meshRend->AnimationSpeed(2);
-}
-
-void IncognitoGuy::Spawn()
-{
+	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 }
 
 void IncognitoGuy::Teleport()
 {
-	if (posIndex >= xVec.size()) {
-		RandomizeVecs();
-		posIndex = 0;
-	}
-
 	// Obtenemos transform actual
 	btTransform curT;
 	rb->getMotionState()->getWorldTransform(curT);
@@ -129,8 +124,13 @@ void IncognitoGuy::Teleport()
 
 
 	// Generar particulas
-	scene->Instantiate("PoofPS", { newOrigin.x(), newOrigin.y(), newOrigin.z() }, 0.025f);
+	scene->Instantiate("SprinklePS", { newOrigin.x(), newOrigin.y(), newOrigin.z() }, 0.025f);
 	posIndex++;
+
+	if (posIndex >= xVec.size()) {
+		RandomizeVecs();
+		posIndex = 0;
+	}
 }
 
 void IncognitoGuy::RandomizeVecs()

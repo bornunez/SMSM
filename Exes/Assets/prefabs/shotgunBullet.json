@@ -11,7 +11,7 @@
 		{
 			"type":"ShotgunBullet",
 			"shape":2,
-			"id":1,
+			"id":5,
 			"mass":1,
 			"restFactor":0.5,
 			"positionX":0,
@@ -22,7 +22,7 @@
 			"offsetZ":0,
 			"isTrigger":true,
 			"radius":0.01,
-			"gravity":-35,
+			"gravity":0,
 			"linDamp":0.2,
 			"angDamp":0.2,
 			"speed":80,

@@ -11,6 +11,7 @@ void ButterGuy::Start() {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 	meshRend->InitAnimations();
 	meshRend->PlayAnimation("Move", true);
+	meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 
 	gameObject->setScale(scale);
 
@@ -20,7 +21,6 @@ void ButterGuy::Start() {
 void ButterGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	gravity = obj["gravity"];
 	scale = obj["scale"];
 	moveSpeed = obj["moveSpeed"];
@@ -30,6 +30,8 @@ void ButterGuy::LoadFromFile(json obj)
 	Enemy::alive = true;
 	HP = obj["HP"];
 	heartProb = obj["heartProb"];
+	defAnimSp = obj["defAnimSp"];
+	deathAnimSp = obj["deathAnimSp"];
 }
 
 
@@ -62,19 +64,17 @@ void ButterGuy::Update()
 			auxVec = -auxVec;
 			auxVec.normalise();
 			auxVec *= (moveSpeed * playerController->getGameSpeed());
-			meshRend->AnimationSpeed(playerController->getGameSpeed());
 			rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
 			if (absDist > dist) {
 				estado = state::IDLE;
 				rb->setLinearVelocity(btVector3(0, 0, 0));
-				//meshRend->StopAnimation(true);
 			}
 		}
 		//Si esta apuntando
 		else if (estado == state::AIMING) {
 			//Dispara cada cierto tiempo
 			//Crear bala con direccion auxvec
-			shootTimer += tm->getDeltaTime();
+			shootTimer += tm->getDeltaTime() * playerController->getGameSpeed();
 			if (shootTimer >= shootTime) {
 				Shoot();
 				shootTimer = 0;
@@ -82,17 +82,19 @@ void ButterGuy::Update()
 			//Si deja de estar en rango vuelve a estar idle
 			if (absDist < dist || absDist > dist*distFactor) {
 				estado = state::IDLE;
-				//meshRend->PlayAnimation("Move", true);
 			}
 		}
 		//Mira al jugador
-		rb->getWorldTransform().setRotation(VecToQuat(auxVec));
+		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(auxVec));
+		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
 	// Si esta muerto y su animacion de muerte ha terminado...
-	else if (meshRend->AnimationHasEnded("Death")) {
-		Enemy::OnDeath();
+	else {
+		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+		if (meshRend->AnimationHasEnded("Death")) {
+			Enemy::OnDeath();
+		}
 	}
-
 	Enemy::Update();
 }
 
@@ -100,10 +102,7 @@ void ButterGuy::OnDeath() {
 	estado = state::DEAD;
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
-}
-
-void ButterGuy::Spawn()
-{
+	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 }
 
 void ButterGuy::Shoot()

@@ -1,0 +1,34 @@
+vertex_program ZawaruVS glsl
+{
+	source ZawaruVS.txt // podemos reutilizar
+	default_params // valores para las variable uniform
+	{
+		param_named_auto modelViewProjMat worldviewproj_matrix
+	}
+}
+fragment_program ZawaruFS glsl
+{
+	source ZawaruFS.txt
+	default_params {
+		param_named RTT0 int 0 // textura con la escena
+	}
+}
+
+
+material ZawaruMAT {
+	technique {
+		pass {
+			depth_check off // desactivar el depth-buffer
+			depth_write off
+			vertex_program_ref ZawaruVS {
+			}
+			fragment_program_ref ZawaruFS {
+			}	
+			texture_unit RTT0
+			{
+			// sin imagen de archivo -> previous render target
+			filtering none // tiene la resolución del viewport
+			}
+		} 
+	} 
+}

@@ -16,17 +16,22 @@ private:
 	float expRadius = 0;
 	float scale = 0;
 
+	float defAnimSp = 0;
+	float deathAnimSp = 0;
+
 	float expTimer = 0;	
 	TimeManager* tm = nullptr;
 
-public:
 	void Start();
+	void LoadFromFile(json obj);
+	void Explode();
+
+protected:
+	virtual void Update();
+	virtual void OnDeath();
+
+public:
 	BombGuy(GameObject* obj) : Enemy(obj) {};
 	~BombGuy();
-	void LoadFromFile(json obj);
-	void Update();
-	void OnDeath();
-	void Spawn();
-	void Explode();
 };
 

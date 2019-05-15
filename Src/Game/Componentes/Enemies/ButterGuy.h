@@ -18,19 +18,21 @@ private:
 	float shootTime = 0;
 	float shootTimer = 0;
 
+	float defAnimSp = 0;
+	float deathAnimSp = 0;
+
 	TimeManager* tm = nullptr;
 
-public:
 	void Start();
-	ButterGuy(GameObject* obj) : Enemy(obj) {};
-	~ButterGuy();
 	void LoadFromFile(json obj);
-	void Update();
-	void OnDeath();
-	void Spawn();
 	void Shoot();
 
+protected:
+	virtual void Update();
+	virtual void OnDeath();
 
-
+public:
+	ButterGuy(GameObject* obj) : Enemy(obj) {};
+	~ButterGuy();
 };
 

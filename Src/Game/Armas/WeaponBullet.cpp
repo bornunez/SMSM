@@ -46,7 +46,7 @@ void WeaponBullet::LoadFromFile(json obj)
 void WeaponBullet::collisionHandler(int id)
 {
 	//Destruye la bala cuando colisiona con algo que no sea el jugador
-	if (!hit && id != PlayerID && id != BulletID && id != HeartID) {
+	if (!hit && id != PlayerID && id != BulletID && id != HeartID && id != collisionID::ShotgunBulletID) {
 		hit = true;
 		physicRB->clearForces();
 		gameObject->Destroy();
@@ -65,6 +65,7 @@ void WeaponBullet::Update()
 			gameObject->Destroy();
 		}
 		float finalSpeed = speed * playerController->getGameSpeed();
-		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed + (actGrav*finalSpeed / 600), direccion.z*finalSpeed));
+		physicRB->activate(true);
+		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
 	}
 }

@@ -7,9 +7,10 @@
 
 #include <vector>
 
-enum collisionID {PlayerID, BulletID, EnemyID, HeartID, ShotgunID};
+enum collisionID {PlayerID, BulletID, EnemyID, HeartID, ShotgunID, ShotgunBulletID};
 
 enum WeaponEnum {Pistol, ShotGun};
+enum HabilityEnum { None, SlowTime, FreezeTime };
 class MeshRenderer;
 class MyCamera;
 class PlayerController: public Component
@@ -37,21 +38,44 @@ private:
 	int maxHealth = 3;
 	int lives = 3;
 	int sensitivityLevel = 2;
-	float gameSpeed = 1;
 
 	// Weapons
 	WeaponEnum currentWeapon = WeaponEnum::Pistol;
-	CEGUI::Window* pistolWindow;
-	CEGUI::Window* shotGunWindow;
 	GameObject* pistolsGO;
 	GameObject* shotgunGO;
 	bool shotgunUnlocked = false;
+
+	// Habilities
+	void habilitiesLogic();
+	float gameSpeed = 1;
+
+	HabilityEnum currentHability = HabilityEnum::None;
+	float timeElapsed = 0;
+
+	float slowTimeSpeed = 0.3f;
+	float slowTimeDuration = 3;
+	float slowTimeCooldown = 5;
+	float slowTimeCooldownTimer = 0;
+
+	float freezeTimeSpeed = 0.01f;
+	float freezeTimeDuration = 5;
+	int freezeTimeEnemyCount = 0;
+	int freezeTimeEnemiesNeeded = 10;
+	//bool freezeTimeAvailable = true; // ToDo: Esto tiene que ir a false en la build final
 
 	// Control de invulnerabilidad
 	bool invulnerability = false;
 	float recoverTime;
 	float actRecoverTime = 0;
+
+	// HUD
 	std::vector<CEGUI::Window *> livesHeart;
+	CEGUI::Window* pistolWindow;
+	CEGUI::Window* shotGunWindow;
+	CEGUI::Window* slowTimeWindow;
+	CEGUI::Window* slowTimeIndicator;
+	CEGUI::Window* stopTimeWindow;
+	CEGUI::Window* stopTimeIndicator;
 
 public:
 	PlayerController(GameObject* obj) : Component(obj) {};
@@ -71,7 +95,15 @@ public:
 	Vector3 getPlayerDirection();
 
 	float getGameSpeed() { return gameSpeed; }
+	bool isTimeStopped() { return (gameSpeed == freezeTimeSpeed); }
+
+	void increaseEnemyKillCount() { 
+		freezeTimeEnemyCount++;
+		if(freezeTimeEnemyCount<=freezeTimeEnemiesNeeded)
+			stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(((float)freezeTimeEnemyCount / (float)freezeTimeEnemiesNeeded) * 0.1,	0), CEGUI::UDim(0.03, 0)));
+	}
 
 	void switchWeapon(WeaponEnum w);
 	void unlockWeapon(WeaponEnum w);
+	void activateShotgunHUD() { shotGunWindow->show(); };
 };

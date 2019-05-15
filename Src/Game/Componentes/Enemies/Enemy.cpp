@@ -71,6 +71,8 @@ void Enemy::playSound(string name, bool loop, float volume)
 
 void Enemy::OnDeath()
 {
+	playerController->increaseEnemyKillCount();
+
 	//Crea un corazon al matar al enemigo
 	int heartRand = rand() % 100;
 	if (heartProb > heartRand) {
@@ -103,7 +105,7 @@ btQuaternion Enemy::VecToQuat(btVector3 vec)
 	return q;
 }
 
-void Enemy::OnHit()
+void Enemy::OnHit(int damage)
 {
 	if (alive) {
 		// Crea las particulas
@@ -112,7 +114,7 @@ void Enemy::OnHit()
 		currHurtTime = hurtTime;
 		
 
-		HP--;
+		HP -= damage;
 		cout << HP << endl;
 		if (HP <= 0) {
 			alive = false;

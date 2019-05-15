@@ -212,4 +212,10 @@
     <Image height="1080" name="BackgroundMenu" width="1920" xPos="259" yPos="1" />
     <Image height="892" name="BackgroundPausa" width="450" xPos="2193" yPos="2" />
     <Image height="892" name="GameOver" width="450" xPos="2656" yPos="2" />
+    <Image height="433" name="PistolaHUD" width="434" xPos="2202" yPos="911" />
+    <Image height="433" name="EscopetaHUD" width="433" xPos="2667" yPos="911" />
+    <Image height="433" name="SlowTimeHUD" width="434" xPos="1274" yPos="1105" />
+    <Image height="433" name="StopTimeHUD" width="433" xPos="1739" yPos="1105" />
+    <Image height="36" name="SlowIndHUD" width="35" xPos="1223" yPos="1105" />
+    <Image height="36" name="StopIndHUD" width="35" xPos="1223" yPos="1156" />
 </Imageset>

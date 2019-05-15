@@ -1,0 +1,10 @@
+#version 330 core // archivo LuminancePS.txt
+in vec2 vUv0;
+uniform sampler2D RTT0; // textura con la escena
+out vec4 fragColor;
+
+void main() {
+	vec3 sceneColor = vec3(texture(RTT0, vUv0));
+
+	fragColor = vec4(1-sceneColor.x, 1-sceneColor.y, 1-sceneColor.z, 1);
+	}

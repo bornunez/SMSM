@@ -25,7 +25,7 @@
 			"sizeY": 0.3,
 			"sizeZ": 0.3,
 			"recoilTime": 0,
-			"HP": 30
+			"HP": 40
 		},
 		{
 			"type":"KnifeGuy",
@@ -35,7 +35,9 @@
 			"linDamp":0.2,
 			"angDamp":0.2,
 			"HP": 20,
-			"heartProb": 50
+			"heartProb": 50,
+			"defAnimSp": 2,
+			"deathAnimSp": 2
 		},
 		{
 			"type":"ParticleSystem",
