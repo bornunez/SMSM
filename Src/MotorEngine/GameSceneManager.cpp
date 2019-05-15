@@ -1,6 +1,5 @@
 #include "GameSceneManager.h"
 #include <filesystem>
-//#include <iostream>
 
 GameSceneManager::GameSceneManager(Game* g, string scenesFolder) : game(g), rootFolder_(scenesFolder)
 {

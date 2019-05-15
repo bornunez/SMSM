@@ -61,4 +61,3 @@ public:
 	float getDispersion() { return dispersion; };
 	int getDamage() { return damage; };
 };
-

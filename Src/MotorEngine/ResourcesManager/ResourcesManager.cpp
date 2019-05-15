@@ -28,4 +28,3 @@ void ResourcesManager::ResetInstance()
 	delete instance;
 	instance = nullptr;
 }
-

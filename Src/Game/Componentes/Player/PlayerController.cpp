@@ -5,7 +5,6 @@
 #include "../../Armas/Weapon.h"
 #include "../../Src/MotorEngine/AudioManager.h"
 
-
 PlayerController::~PlayerController()
 {
 }
@@ -85,13 +84,6 @@ void PlayerController::Start()
 	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
 	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Pixel");
 	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Pixel", false);
-	/*slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/Button", 0.885, 0.155, 0.1, 0.12, "", "null", true);
-	slowTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0.1,0), CEGUI::UDim(0.12, 0)));
-	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/Button", 0.885, 0.025, 0.1, 0.12, "", "null", true);
-	stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0, 0), CEGUI::UDim(0.12, 0)));*/
-
-	// Desactivado porque empezamos con ella
-	//shotGunWindow->disable();
 
 #endif
 

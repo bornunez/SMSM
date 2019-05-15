@@ -7,6 +7,5 @@ MapHandler::~MapHandler()
 
 void MapHandler::OnDestroy()
 {
-
 	RoomManager::ResetInstance();
 }

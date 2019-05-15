@@ -17,10 +17,6 @@ void MyLight::LoadFromFile(json obj)
 		std::cout << "ERROR: La luz tiene que tener un nombre" << endl;
 #endif
 	}
-
-	//Se lo vinculamos al GO
-	
-
 	//Y parseamos los parametros en funcion del tipo
 	if (obj.contains("lightTpye")) {
 		type = getType(obj["lightTpye"]);

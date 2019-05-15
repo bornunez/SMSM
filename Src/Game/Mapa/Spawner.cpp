@@ -14,7 +14,6 @@ Spawner::Spawner(GameObject * o, int _index) : Component(o), index(_index)
 	room->AddSpawner(this);
 }
 
-
 Spawner::~Spawner()
 {
 }
@@ -33,11 +32,6 @@ void Spawner::LoadFromFile(json obj)
 	//Una vez lo tengamos, nos agregamos a la sala correspondiente
 	room = RoomManager::getInstance()->GetRoom(index);
 	room->AddSpawner(this);
-
-	////Tambien registramos los que vana ser nuestros posibles enemigos
-	//if (obj.contains("enemies")) {
-	//	
-	//}
 }
 
 void Spawner::Spawn()

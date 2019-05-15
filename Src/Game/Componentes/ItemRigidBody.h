@@ -10,4 +10,3 @@ public:
 	virtual void collisionHandler(int id);
 	virtual ~ItemRigidBody();
 };
-

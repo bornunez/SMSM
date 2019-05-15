@@ -28,4 +28,3 @@ public:
 	int GetIndex() { return index; }
 
 };
-

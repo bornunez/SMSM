@@ -1,6 +1,6 @@
 #pragma once
-
 #include "..\ResourcesManager//JsonParser.h"
+
 class MapLoader : public Component
 {
 private:

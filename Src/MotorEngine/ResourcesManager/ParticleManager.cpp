@@ -24,7 +24,6 @@ void ParticleManager::ResetInstance()
 	instance = nullptr;
 }
 
-
 string ParticleManager::getName(string originalName)
 {
 	string name = originalName +  std::to_string(registeredNames[originalName]);

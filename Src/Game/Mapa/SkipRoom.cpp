@@ -1,6 +1,5 @@
 #include "SkipRoom.h"
 
-
 SkipRoom::~SkipRoom()
 {
 }

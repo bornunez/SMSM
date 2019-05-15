@@ -21,7 +21,6 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 
 	//Crear root
 	mRoot = new Ogre::Root(mPluginsCfg);
-	//mRoot->loadPlugin("Codec_STBI_d");
 
 	//Cargar recursos
 	SetUpResources();
@@ -33,10 +32,6 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 	// Inicializar recursos
 	Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
 	Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
-
-
-	//ESCENA DE PRUEBA
-	//testScene = new Scene(this,"Assets/scenes/mainScene.json");
 
 	InputManager::CreateInstance(mWindow);
 	mInputM = InputManager::getInstance();
@@ -103,10 +98,6 @@ void Game::SetUpResources()
 
 void Game::InitWindow() 
 {
-	// Configurar render system
-	/*if (!(mRoot->restoreConfig() || mRoot->showConfigDialog(NULL)))
-		return false;*/
-
 	RenderSystem* rs = *mRoot->getAvailableRenderers().begin();
 
 	mRoot->setRenderSystem(rs);
@@ -130,10 +121,8 @@ void Game::Play()
 	PrefabManager::getInstance()->LoadAllPrefabs();
 	//Inicializacion del audio
 	AudioManager::getInstance()->init();
-	//// Scenes
-	//sceneManager->LoadScene("menuScene"); // Load the scene
-	//sceneManager->ChangeScene("menuScene"); // Set it to active (makes this the current active scene)
-	//										// Scenes
+
+	// Scenes
 #ifdef NDEBUG
 	sceneManager->LoadScene("menuScene"); // Load the scene
 	sceneManager->ChangeScene("menuScene"); // Set it to active (makes this the current active scene)
@@ -167,9 +156,6 @@ void Game::Play()
 #endif
 			mWindow->update();
 
-			//TimeManager::getInstance()->Update();
-			
-			//printf(" PRE RENDER");
 			mRoot->renderOneFrame();
 
 			// Current scene update
@@ -183,9 +169,6 @@ void Game::Play()
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_0)) {
 			endGame = true;
 		}
-	
-
-		
 	}
 }
 
@@ -220,7 +203,6 @@ void Game::MessagePump()
 		DispatchMessage(&msg);
 	}
 }
-
 
 Game::~Game()
 {

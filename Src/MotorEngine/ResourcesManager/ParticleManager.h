@@ -1,6 +1,7 @@
 #pragma once
 #include "../Components/MyParticleSystem.h"
 #include <vector>
+
 class ParticleManager
 {
 protected:
@@ -15,4 +16,3 @@ public:
 
 	string getName(string originalName);
 };
-
