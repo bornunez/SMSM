@@ -11,7 +11,6 @@ InputManager::InputManager(Ogre::RenderWindow * window)
 	SetUpOIS();
 }
 
-
 InputManager::~InputManager()
 {
 	if (mInputManager)
@@ -146,13 +145,9 @@ bool InputManager::frameRenderingQueued(const Ogre::FrameEvent & evt)
 	mKeyboard->copyKeyStates(prevKeyboard);
 	prevMouse = mMouse->getMouseState();
 
-
 	//Need to capture/update each device
 	mKeyboard->capture();
 	mMouse->capture();
-
-	//if (mKeyboard->isKeyDown(OIS::KC_ESCAPE))
-	//	return false;
 
 	return true;
 }

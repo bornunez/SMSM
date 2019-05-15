@@ -35,26 +35,16 @@ void MyCamera::Initialize(string camName)
 	cam->setFOVy(Degree(60)); // FOV de la camara 
 	cam->setAutoAspectRatio(true);
 
-	//cameraRollNode->lookAt(Ogre::Vector3(0, 0, -300), Ogre::Node::TS_WORLD);
-
 	// VIEWPORT  - - - - - - - - - - - - - - - - - - - - - -
 	vp->setCamera(cam);
 	
-	//vp = gameObject->getScene()->getGame()->getRenderWindow()->addViewport(cam);
 	vp->setBackgroundColour(Ogre::ColourValue(0, 0, 0));
 }
 
-// Destructor de la clase, destruye los nodos y la camara
+// Destructor de la clase
 MyCamera::~MyCamera()
 {
-	// Los nodos ya los destruye la escena
-	/*
-	sm->destroyEntity(name);
-	sm->destroySceneNode(cameraRollNode);
-	sm->destroySceneNode(cameraPitchNode);
-	sm->destroySceneNode(cameraYawNode);
-	sm->destroySceneNode(cameraNode);
-	*/
+
 }
 
 // Hacer yaw

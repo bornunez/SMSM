@@ -21,4 +21,3 @@ public:
 	Room* GetActiveRoom() { return currRoom; }	
 	void Destroy();
 };	 
-

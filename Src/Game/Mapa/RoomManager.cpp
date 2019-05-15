@@ -18,7 +18,6 @@ RoomManager::RoomManager()
 	
 }
 
-
 RoomManager::~RoomManager()
 {
 	Destroy();

@@ -4,9 +4,11 @@
 Room::Room(int _index) : index(_index)
 {
 	nEnemies = 0;
+
 	//Quitamos las entradas
 	for (GameObject* g : entries)
 		g->Destroy();
+
 	//Cerramos las salidas
 	for (GameObject* g : gates)
 		g->Destroy();
@@ -30,6 +32,7 @@ void Room::OnEnter()
 #endif
 	nEnemies = 0;
 	RoomManager::getInstance()->SetActiveRoom(this);
+
 	//Quitamos las entradas
 	for (GameObject* g : entries) {
 		g->Destroy();

@@ -51,6 +51,7 @@ void read_directory(const std::string& name, std::vector<string>& v)
 	std::experimental::filesystem::directory_iterator end;
 	std::transform(start, end, std::back_inserter(v), path_leaf_string());
 }
+
 void PrefabManager::LoadAllPrefabs() 
 {
 #ifdef C_DEBUG
@@ -95,10 +96,6 @@ GameObject * PrefabManager::GenerateGameObject(string prefabName, Scene * scene,
 #endif
 		
 		o = GenerateGameObject(jsonObj, scene, parent,position,scale, existingObj);
-
-		//Esto parametros y el hecho de tener o no rigidbody debe leerlos de archivo
-		/*RigidBodyComponent * rb = new RigidBodyComponent(o);
-		PhysicsManager::Instance()->CreateBoxCollider(rb, 1, o->getNode(), 10, btVector3(o->getPosition().x, o->getPosition().y, o->getPosition().z), btQuaternion(1, 0, 0, 0), 1, btVector3(1, 1, 1));*/
 	}
 	else {
 #ifdef C_DEBUG

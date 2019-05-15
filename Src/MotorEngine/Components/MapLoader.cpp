@@ -5,7 +5,6 @@
 #include "../../../Src/Game/Mapa/Entry.h"
 #include "../../../Src/Game/Mapa/RoomManager.h"
 
-
 MapLoader::~MapLoader()
 {
 }

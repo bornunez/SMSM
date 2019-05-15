@@ -36,14 +36,11 @@ void RandomMeshRenderer::LoadFromFile(json obj)
 	}
 
 	entity = gameObject->getSceneManager()->createEntity(meshName);
-	
-	// Asigna el material a la mesh
 }
 
 RandomMeshRenderer::~RandomMeshRenderer()
 {
 }  
-
 
 void RandomMeshRenderer::Start()
 {
@@ -57,16 +54,19 @@ void RandomMeshRenderer::Start()
 
 void RandomMeshRenderer::OnDestroy()
 {
-	//gameObject->getNode()->detachObject()
+
 }
+
 void RandomMeshRenderer::OnDisable()
 {
 	gameObject->RemoveEntity(entity);
 }
+
 void RandomMeshRenderer::OnEnable()
 {
 	gameObject->AddEntity(entity);
 }
+
 bool RandomMeshRenderer::AnimationHasEnded(string name)
 {
 	bool ended = false;
@@ -79,6 +79,7 @@ bool RandomMeshRenderer::AnimationHasEnded(string name)
 	}
 	return ended;
 }
+
 void RandomMeshRenderer::InitAnimations(float velocity)
 {
 	animationVelocity = velocity;
@@ -120,6 +121,7 @@ bool RandomMeshRenderer::isPlaying(string name)
 	}
 	return playing;
 }
+
 void RandomMeshRenderer::PlayAnimation(string name, bool loop, bool continued)
 {
 	for (int i = 0; i < animationStates.size(); i++)
@@ -134,6 +136,7 @@ void RandomMeshRenderer::PlayAnimation(string name, bool loop, bool continued)
 		else animationStates[i]->setEnabled(false);
 	}
 }
+
 void RandomMeshRenderer::StopAnimation(bool stop)
 {
 	for (int i = 0; i < animationStates.size(); i++)

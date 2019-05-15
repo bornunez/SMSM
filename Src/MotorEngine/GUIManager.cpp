@@ -31,9 +31,6 @@ GUIManager::GUIManager(Ogre::RenderWindow* w, Game* g)
 
 GUIManager::~GUIManager()
 {
-	// toDo: release memory
-
-	CEGUI::OgreRenderer::destroySystem();
 }
 
 GUIManager * GUIManager::Instance(Ogre::RenderWindow* w, Game* g)
@@ -58,6 +55,17 @@ void GUIManager::Update()
 
 	if (creditsHUD)
 		creditsAnim();
+
+	if (waitingToCredits) {
+		if (currentWaitTime >= timeToCredits) {
+			currentWaitTime = 0;
+			waitingToCredits = false;
+			toggleCredits();
+		}
+		else {
+			currentWaitTime += (TimeManager::getInstance()->getDeltaTime());
+		}
+	}
 
 	CEGUI::System::getSingleton().injectTimePulse(TimeManager::getInstance()->getDeltaTime());
 }
@@ -381,6 +389,11 @@ void GUIManager::toggleMenu()
 			g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHud();
 		g_->ReLoadScene("menuScene");
 	}
+}
+
+void GUIManager::waitToCredits()
+{
+	waitingToCredits = true;
 }
 
 void GUIManager::creditsAnim()

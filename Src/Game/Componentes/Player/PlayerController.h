@@ -99,8 +99,12 @@ public:
 
 	void increaseEnemyKillCount() { 
 		freezeTimeEnemyCount++;
-		if(freezeTimeEnemyCount<=freezeTimeEnemiesNeeded)
-			stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(((float)freezeTimeEnemyCount / (float)freezeTimeEnemiesNeeded) * 0.1,	0), CEGUI::UDim(0.03, 0)));
+		if (freezeTimeEnemyCount <= freezeTimeEnemiesNeeded)
+		{
+#ifndef _DEBUG
+			stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(((float)freezeTimeEnemyCount / (float)freezeTimeEnemiesNeeded) * 0.1, 0), CEGUI::UDim(0.03, 0)));
+#endif
+		}
 	}
 
 	void switchWeapon(WeaponEnum w);

@@ -25,11 +25,6 @@
 			]
 		},
 		{
-			"prefab":"testEnemy",
-			"position": {"x":15, "y":0, "z":10},
-			"scale": 0.5
-		},
-		{
 			"name":"dirlight",
 			"active":true,
 			"components":[
@@ -71,7 +66,7 @@
 					"restFactor":0,
 					"isTrigger":false,
 					"sizeX":100,
-					"sizeY":0.1,
+					"sizeY":0.25,
 					"sizeZ":100,
 					"offsetX":0,
 					"offsetY":0,

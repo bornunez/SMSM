@@ -1,7 +1,6 @@
 #include "PlayerTrigger.h"
 #include "../../../../Src/MotorEngine/Scene.h"
 
-
 PlayerTrigger::PlayerTrigger(GameObject * o) : Component(o)
 {
 }
@@ -38,12 +37,9 @@ void PlayerTrigger::Awake()
 
 void PlayerTrigger::Update()
 {
-	//cout << "Trigger Update" << endl;
 	Vector3 playerPos = player->getGlobalPosition();
 	Vector3 pos = gameObject->getGlobalPosition();
 	pos += Vector3(offset_x, 0, offset_y);
-
-	//cout << "PlayerPos : " << playerPos << " TriggerPos : " << pos << endl;
 
 	if (playerPos.x > pos.x - width / 2 && playerPos.x < pos.x + width / 2) {
 		if (playerPos.z > pos.z - height / 2 && playerPos.z < pos.z + height / 2) {

@@ -4,6 +4,9 @@
 #include "../../../Src/MotorEngine/RigidBodyComponent.h"
 #include "../Componentes/Player/PlayerController.h"
 
+float const INVERSION_ROT_MAX =  1.34f;
+float const INVERSION_ROT_MIN = 0.74f;
+
 class ShotgunBullet : public RigidBodyComponent
 {
 private:
@@ -24,5 +27,3 @@ public:
 	virtual void collisionHandler(int id);
 	virtual void Update();
 };
-
-

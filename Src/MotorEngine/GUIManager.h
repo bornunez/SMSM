@@ -55,6 +55,7 @@ public:
 
 	// Funciones concretas para el videojuego
 	void toggleMenu();
+	void waitToCredits();
 
 private:
 	static GUIManager * instance_;
@@ -80,11 +81,13 @@ private:
 		std::map<std::string, CEGUI::Window *> creditsElements;
 		std::map<std::string, CEGUI::UVector2> originalPos;
 		float creditsTime = 10;
+		float timeToCredits = 5;
 		CEGUI::UDim scrollSpeed = CEGUI::UDim(0.01, 0.01);
 		CEGUI::UDim fastScrollSpeed = CEGUI::UDim(0.01, 0.01);
 		float currentTime = 0;
+		float currentWaitTime = 0;
 		
-
+		bool waitingToCredits = false;
 		void creditsAnim();
 		void resetPositions();
 

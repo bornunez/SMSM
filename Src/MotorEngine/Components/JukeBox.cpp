@@ -6,7 +6,6 @@
 #include "../../../Src/Game/Mapa/RoomManager.h"
 #include "../AudioManager.h"
 
-
 JukeBox::~JukeBox()
 {
 }

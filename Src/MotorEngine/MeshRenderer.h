@@ -16,6 +16,7 @@ private:
 public:
 	MeshRenderer(GameObject* _gameObject, string _meshName, string _materialName = "", bool _enabled = true);
 	MeshRenderer(GameObject* _gameObject);
+
 	//Animations
 	void PlayAnimation(string animationName, bool loop, bool continued = false);
 	void StopAnimation(bool stop);
@@ -30,7 +31,6 @@ public:
 
 	virtual void Start();
 	void OnDestroy();
-
 	void OnDisable();
 	void OnEnable();
 };
