@@ -35,7 +35,6 @@ public:
 	virtual void Update() = 0;
 	virtual void OnHit(int damage);
 	virtual void OnDeath();
-	virtual void Spawn() = 0;
 	void playSound(string name, bool loop, float volume);
 	btQuaternion VecToQuat(Vector3 vec);
 	btQuaternion VecToQuat(btVector3 vec);

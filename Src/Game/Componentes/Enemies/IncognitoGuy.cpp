@@ -33,7 +33,6 @@ void IncognitoGuy::Start() {
 void IncognitoGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	scale = obj["scale"];
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
@@ -91,7 +90,6 @@ void IncognitoGuy::Update()
 		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(dir));
 		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
-	// Si esta muerto y su animacion de muerte ha terminado...
 	else {
 		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 		if (meshRend->AnimationHasEnded("Death")) {
@@ -106,10 +104,6 @@ void IncognitoGuy::OnDeath() {
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
-}
-
-void IncognitoGuy::Spawn()
-{
 }
 
 void IncognitoGuy::Teleport()

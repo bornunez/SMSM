@@ -27,17 +27,16 @@ private:
 
 	TimeManager* tm = nullptr;
 
-public:
 	void Start();
-	HouseGuy(GameObject* obj) : Enemy(obj) {};
-	~HouseGuy();
 	void LoadFromFile(json obj);
-	virtual void Update();
-	virtual void OnDeath();
-	virtual void Spawn();
 	void SpawnEnemy(Vector3 pos);
 
+protected:
+	virtual void Update();
+	virtual void OnDeath();
 
-
+public:
+	HouseGuy(GameObject* obj) : Enemy(obj) {};
+	~HouseGuy();
 };
 

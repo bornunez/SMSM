@@ -37,7 +37,6 @@ void BossGuy::Start() {
 void BossGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	scale = obj["scale"];
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
@@ -135,7 +134,6 @@ void BossGuy::Update()
 		//Asignar orientacion
 		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(dir));
 	}
-	// Si esta muerto y su animacion de muerte ha terminado...
 	else {
 		if (meshRend->AnimationHasEnded("Death")) {
 			Enemy::OnDeath();
@@ -151,10 +149,6 @@ void BossGuy::OnDeath() {
 	meshRend->PlayAnimation("Death", false);
 	currAnimSp = deathAnimSp;
 	meshRend->SetAnimationSpeed(currAnimSp * playerController->getGameSpeed());
-}
-
-void BossGuy::Spawn()
-{
 }
 
 void BossGuy::Shoot()

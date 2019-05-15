@@ -20,7 +20,6 @@ void BombGuy::Start() {
 void BombGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	gravity = obj["gravity"];
 	scale = obj["scale"];
 	moveSpeed = obj["moveSpeed"];
@@ -90,10 +89,6 @@ void BombGuy::OnDeath() {
 	meshRend->PlayAnimation("Death", false);
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	Explode();
-}
-
-void BombGuy::Spawn()
-{
 }
 
 void BombGuy::Explode()

@@ -49,20 +49,20 @@ private:
 
 	TimeManager* tm = nullptr;
 
-public:
 	void Start();
-	BossGuy(GameObject* obj) : Enemy(obj) {};
-	~BossGuy();
 	void LoadFromFile(json obj);
-	virtual void Update();
-	virtual void OnDeath();
-	virtual void Spawn();
 	void Shoot();
 	void SpawnEnemy(Vector3 pos);
 	void UpdateNextAction();
 	void SetNextAction(string action);
 	void ActionEnd();
 
+protected:
+	virtual void Update();
+	virtual void OnDeath();
 
+public:
+	BossGuy(GameObject* obj) : Enemy(obj) {};
+	~BossGuy();
 };
 
