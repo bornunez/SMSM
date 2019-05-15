@@ -218,4 +218,21 @@
     <Image height="433" name="StopTimeHUD" width="433" xPos="1739" yPos="1105" />
     <Image height="36" name="SlowIndHUD" width="35" xPos="1223" yPos="1105" />
     <Image height="36" name="StopIndHUD" width="35" xPos="1223" yPos="1156" />
+    <Image height="376" name="pNormal" width="474" xPos="158" yPos="1712" />
+    <Image height="336" name="pCobarde" width="399" xPos="686" yPos="1746" />
+    <Image height="426" name="pVolador" width="423" xPos="1133" yPos="1691" />
+    <Image height="442" name="pCasa" width="428" xPos="1636" yPos="1676" />
+    <Image height="431" name="pBomba" width="388" xPos="2099" yPos="1689" />
+    <Image height="482" name="pIncognito" width="419" xPos="2519" yPos="1627" />
+    <Image height="536" name="pKing" width="467" xPos="2950" yPos="1559" />
+    <Image height="894" name="blackBackground" width="450" xPos="3114" yPos="2" />
+    <Image height="63" name="marcos" width="630" xPos="256" yPos="1116" />
+    <Image height="73" name="alberto" width="711" xPos="256" yPos="1189" />
+    <Image height="82" name="mini" width="838" xPos="255" yPos="1255" />
+    <Image height="76" name="rodri" width="798" xPos="254" yPos="1349" />
+    <Image height="70" name="kelvin" width="591" xPos="255" yPos="1444" />
+    <Image height="74" name="diego" width="715" xPos="255" yPos="1524" />
+    <Image height="74" name="borja" width="544" xPos="256" yPos="1609" />
+    <Image height="648" name="logoCreditos" width="1530" xPos="97" yPos="2207" />
+    <Image height="648" name="logoCreditosFin" width="1866" xPos="1657" yPos="2217" />
 </Imageset>
