@@ -25,11 +25,6 @@
 			]
 		},
 		{
-			"prefab":"testEnemy",
-			"position": {"x":15, "y":0, "z":10},
-			"scale": 0.5
-		},
-		{
 			"name":"dirlight",
 			"active":true,
 			"components":[
