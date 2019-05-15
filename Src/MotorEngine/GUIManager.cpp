@@ -379,7 +379,7 @@ void GUIManager::toggleMenu()
 		GameObject* p = g_->getActiveScene()->getGameObject("Player");
 		if (p != nullptr)
 			g_->getActiveScene()->getGameObject("Player")->getComponent<PlayerController>()->hideHud();
-		g_->ChangeScene("menuScene");
+		g_->ReLoadScene("menuScene");
 	}
 }
 
