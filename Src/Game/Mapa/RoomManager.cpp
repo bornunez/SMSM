@@ -52,5 +52,7 @@ Room * RoomManager::GetRoom(int index)
 
 void RoomManager::Destroy()
 {
+	for (Room* r : rooms)
+		delete r;
 	rooms.clear();
 }

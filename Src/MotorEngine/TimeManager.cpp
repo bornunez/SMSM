@@ -20,6 +20,7 @@ void TimeManager::Update()
 
 TimeManager::~TimeManager()
 {
+	delete Timer;
 }
 
 TimeManager * TimeManager::getInstance()
