@@ -10118,7 +10118,7 @@
                  "y":268
                 }, 
                 {
-                 "height":8,
+                 "height":16,
                  "id":2171,
                  "name":"",
                  "properties":[
@@ -10130,8 +10130,8 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":20,
-                 "x":324,
+                 "width":8,
+                 "x":320,
                  "y":216
                 }, 
                 {
@@ -12175,6 +12175,132 @@
                  "width":4,
                  "x":340,
                  "y":188
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":5518,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"KnifeGuy",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":380,
+                 "y":216
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":5519,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"KnifeGuy",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":372,
+                 "y":188
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":5520,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"KnifeGuy",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":300,
+                 "y":192
+                }, 
+                {
+                 "gid":83,
+                 "height":4,
+                 "id":5521,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"BombGuy",
+                         "type":"bool",
+                         "value":true
+                        }, 
+                        {
+                         "name":"spawner",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":4,
+                 "x":368,
+                 "y":208
+                }, 
+                {
+                 "height":8,
+                 "id":5522,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"entry",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":28,
+                 "x":320,
+                 "y":208
+                }, 
+                {
+                 "height":16,
+                 "id":5523,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"entry",
+                         "type":"int",
+                         "value":2
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":8.5,
+                 "x":340,
+                 "y":216
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -49314,7 +49440,7 @@
          "y":0
         }],
  "nextlayerid":10,
- "nextobjectid":5518,
+ "nextobjectid":5524,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.2.3",
