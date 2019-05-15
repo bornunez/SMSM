@@ -70,7 +70,7 @@ void MeshRenderer::Start()
 
 void MeshRenderer::OnDestroy()
 {
-
+	gameObject->RemoveEntity(entity);
 }
 void MeshRenderer::OnDisable()
 {

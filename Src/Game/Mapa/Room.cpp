@@ -3,7 +3,20 @@
 
 Room::Room(int _index) : index(_index)
 {
-	
+	nEnemies = 0;
+	//Quitamos las entradas
+	for (GameObject* g : entries)
+		g->Destroy();
+	//Cerramos las salidas
+	for (GameObject* g : gates)
+		g->Destroy();
+
+	//Y spawneamos a los enemigos
+	for (Spawner* s : spawners)
+		s->getGameObject()->Destroy();
+
+	spawners.clear();
+	gates.clear();
 }
 
 Room::~Room()
@@ -50,6 +63,8 @@ void Room::OnClear()
 		for (Spawner* s : spawners)
 			s->getGameObject()->Destroy();
 
+		spawners.clear();
+		gates.clear();
 		cleared = true;
 	}
 }
