@@ -20,7 +20,6 @@ void KnifeGuy::Start() {
 void KnifeGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	scale = obj["scale"];
 	gravity = obj["gravity"];
 	moveSpeed = obj["moveSpeed"];
@@ -43,7 +42,6 @@ void KnifeGuy::Update()
 		rb->setLinearVelocity({ auxVec.x, 0, auxVec.z });
 		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
-	// Si esta muerto y su animacion de muerte ha terminado...
 	else {
 		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 		if (estado == state::DEAD && meshRend->AnimationHasEnded("Death")) {
@@ -60,8 +58,4 @@ void KnifeGuy::OnDeath() {
 	meshRend->PlayAnimation("Death", false);
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	playSound("PocholoShout", false, 1);
-}
-
-void KnifeGuy::Spawn()
-{
 }

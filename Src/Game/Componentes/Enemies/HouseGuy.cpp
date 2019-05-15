@@ -92,7 +92,6 @@ void HouseGuy::Update()
 		}
 		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
-	// Si esta muerto y su animacion de muerte ha terminado...
 	else {
 		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 		if (meshRend->AnimationHasEnded("Death")) {
@@ -111,10 +110,6 @@ void HouseGuy::OnDeath() {
 	meshRend->PlayAnimation("Death", false);
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	playSound("HouseShout", false, 1);
-}
-
-void HouseGuy::Spawn()
-{
 }
 
 void HouseGuy::SpawnEnemy(Vector3 pos)

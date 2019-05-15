@@ -23,17 +23,16 @@ private:
 
 	TimeManager* tm = nullptr;
 
-public:
 	void Start();
-	ButterGuy(GameObject* obj) : Enemy(obj) {};
-	~ButterGuy();
 	void LoadFromFile(json obj);
-	void Update();
-	void OnDeath();
-	void Spawn();
 	void Shoot();
 
+protected:
+	virtual void Update();
+	virtual void OnDeath();
 
-
+public:
+	ButterGuy(GameObject* obj) : Enemy(obj) {};
+	~ButterGuy();
 };
 

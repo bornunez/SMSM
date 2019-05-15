@@ -16,13 +16,16 @@ private:
 	float scale = 0;
 	float defAnimSp = 0;
 	float deathAnimSp = 0;
-public:
+
 	void Start();
+	void LoadFromFile(json obj);
+
+protected: 
+	virtual void Update();
+	virtual void OnDeath();
+
+public:
 	ShyGuy(GameObject* obj) : Enemy(obj) {};
 	~ShyGuy();
-	void LoadFromFile(json obj);
-	void Update();
-	void OnDeath();
-	void Spawn();
 };
 

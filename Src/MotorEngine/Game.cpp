@@ -183,7 +183,9 @@ void Game::Play()
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_0)) {
 			endGame = true;
 		}
-			
+	
+
+		
 	}
 }
 

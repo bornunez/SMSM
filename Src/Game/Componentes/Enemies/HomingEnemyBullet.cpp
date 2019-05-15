@@ -1,17 +1,17 @@
-#include "EnemyBullet.h"
+#include "HomingEnemyBullet.h"
 
 
-EnemyBullet::EnemyBullet(GameObject* obj):RigidBodyComponent(obj)
+HomingEnemyBullet::HomingEnemyBullet(GameObject* obj):RigidBodyComponent(obj)
 {
 
 }
 
 
-EnemyBullet::~EnemyBullet()
+HomingEnemyBullet::~HomingEnemyBullet()
 {
 }
 
-void EnemyBullet::Start()
+void HomingEnemyBullet::Start()
 {
 	RigidBodyComponent::Start();
 	physicRB->setGravity(btVector3(0, grav, 0));
@@ -24,7 +24,7 @@ void EnemyBullet::Start()
 	gameObject->setScale(scale);
 }
 
-void EnemyBullet::LoadFromFile(json obj)
+void HomingEnemyBullet::LoadFromFile(json obj)
 {
 	RigidBodyComponent::LoadFromFile(obj);
 
@@ -39,18 +39,18 @@ void EnemyBullet::LoadFromFile(json obj)
 	scale = obj["scale"];
 }
 
-void EnemyBullet::collisionHandler(int id)
+void HomingEnemyBullet::collisionHandler(int id)
 {
 	//Destruye la bala cuando colisiona con el jugador
 	if (!hit && id != ownerID) {
-		if(id != 0) scene->Instantiate("BulletPoofPS", gameObject->getPosition(), 0.025f);
+		scene->Instantiate("LitleBoomPS", gameObject->getPosition(), 0.025f);
 		hit = true;
 		physicRB->clearForces();
 		gameObject->Destroy();
 	}
 }
 
-void EnemyBullet::Update()
+void HomingEnemyBullet::Update()
 {
 	if (!hit) 
 	{
@@ -61,6 +61,8 @@ void EnemyBullet::Update()
 			physicRB->clearForces();
 			gameObject->Destroy();
 		}
+		direccion = scene->getGameObject("Player")->getNode()->getPosition() - gameObject->getPosition();
+		direccion.normalise();
 		float finalSpeed = speed * playerController->getGameSpeed();
 		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
 	}

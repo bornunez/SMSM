@@ -97,7 +97,11 @@ public:
 	float getGameSpeed() { return gameSpeed; }
 	bool isTimeStopped() { return (gameSpeed == freezeTimeSpeed); }
 
-	void increaseEnemyKillCount() { freezeTimeEnemyCount++; }
+	void increaseEnemyKillCount() { 
+		freezeTimeEnemyCount++;
+		if(freezeTimeEnemyCount<=freezeTimeEnemiesNeeded)
+			stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(((float)freezeTimeEnemyCount / (float)freezeTimeEnemiesNeeded) * 0.1,	0), CEGUI::UDim(0.03, 0)));
+	}
 
 	void switchWeapon(WeaponEnum w);
 	void unlockWeapon(WeaponEnum w);

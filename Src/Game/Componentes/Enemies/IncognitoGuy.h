@@ -35,18 +35,18 @@ private:
 
 	TimeManager* tm = nullptr;
 
-public:
 	void Start();
-	IncognitoGuy(GameObject* obj) : Enemy(obj) {};
-	~IncognitoGuy();
 	void LoadFromFile(json obj);
-	virtual void Update();
-	virtual void OnDeath();
-	virtual void Spawn();
 	void Teleport();
 	void RandomizeVecs();
 	void Shoot();
 
+protected:
+	virtual void Update();
+	virtual void OnDeath();
 
+public:
+	IncognitoGuy(GameObject* obj) : Enemy(obj) {};
+	~IncognitoGuy();
 };
 

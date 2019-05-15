@@ -73,16 +73,22 @@ void PlayerController::Start()
 	shotGunWindow->hide();
 
 	// HUD TIEMPO
-	slowTimeWindow = GUIManager::Instance()->CreateButton("null", "slowTimeIcon", "TaharezLook/SlowTimeHUD", 0.885, 0.155, 0.1, 0.12, "", "null");
+	slowTimeWindow = GUIManager::Instance()->CreateButton("null", "slowTimeIcon", "TaharezLook/SlowTimeHUD", 0.885, 0.155, 0.1, 0.12, "", "null", true);
 	slowTimeWindow->disable();
-	stopTimeWindow = GUIManager::Instance()->CreateButton("null", "stopTimeIcon", "TaharezLook/StopTimeHUD", 0.885, 0.025, 0.1, 0.12, "", "null");
+	stopTimeWindow = GUIManager::Instance()->CreateButton("null", "stopTimeIcon", "TaharezLook/StopTimeHUD", 0.885, 0.025, 0.1, 0.12, "", "null", true);
 	stopTimeWindow->disable();
-	slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/SlowIndHUD", 0.885, 0.155, 0, 0, "", "null");
-	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/StopIndHUD", 0.885, 0.155, 0, 0, "", "null");
+
+
+	slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/SlowIndHUD", 0.885, 0.155, 0.1, 0.03, "", "null",true);
+	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/StopIndHUD", 0.885, 0.025, 0.1, 0.03, "", "null",true);
 	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Zawaru");
 	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Zawaru", false);
 	CompositorManager::getSingleton().addCompositor(getScene()->getGame()->getViewport(), "Pixel");
 	CompositorManager::getSingleton().setCompositorEnabled(getScene()->getGame()->getViewport(), "Pixel", false);
+	/*slowTimeIndicator = GUIManager::Instance()->CreateButton("null", "slowTimeInd", "TaharezLook/Button", 0.885, 0.155, 0.1, 0.12, "", "null", true);
+	slowTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0.1,0), CEGUI::UDim(0.12, 0)));
+	stopTimeIndicator = GUIManager::Instance()->CreateButton("null", "stopTimeInd", "TaharezLook/Button", 0.885, 0.025, 0.1, 0.12, "", "null", true);
+	stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0, 0), CEGUI::UDim(0.12, 0)));*/
 
 	// Desactivado porque empezamos con ella
 	//shotGunWindow->disable();
@@ -114,7 +120,7 @@ void PlayerController::habilitiesLogic()
 
 				currentHability = HabilityEnum::None;
 				gameSpeed = 1;
-				slowTimeCooldownTimer = 0;
+				slowTimeCooldownTimer = 0;				
 			}
 			break;
 		case FreezeTime:
@@ -131,6 +137,10 @@ void PlayerController::habilitiesLogic()
 	else
 	{
 		slowTimeCooldownTimer += TimeManager::getInstance()->getDeltaTime();
+		if (slowTimeCooldownTimer < slowTimeCooldown) {
+			slowTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim((slowTimeCooldownTimer/ slowTimeCooldown) * 0.1,
+				0), CEGUI::UDim(0.03, 0)));
+		}
 	}
 }
 
@@ -219,6 +229,8 @@ void PlayerController::handleInput()
 			currentHability = HabilityEnum::SlowTime;
 			gameSpeed = slowTimeSpeed;
 			timeElapsed = 0;
+			// Ponemos la escala del indicador a 0
+			slowTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0, 0), CEGUI::UDim(0.12, 0)));
 		}
 		// Freeze Time
 		else if (input->getKey(OIS::KeyCode::KC_Q) && (freezeTimeEnemyCount >= freezeTimeEnemiesNeeded)) {
@@ -227,6 +239,8 @@ void PlayerController::handleInput()
 			currentHability = HabilityEnum::FreezeTime;
 			gameSpeed = freezeTimeSpeed;
 			timeElapsed = 0;
+			// Ponemos la escala del indicador a 0
+			stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(0, 0), CEGUI::UDim(0.12, 0)));
 			AudioManager::getInstance()->playSound("TimeSound", false, 1, CHANNEL::Default);
 			
 		}
@@ -294,6 +308,10 @@ void PlayerController::hideHud()
 
 	pistolWindow->hide();
 	shotGunWindow->hide();
+	slowTimeIndicator->hide();
+	stopTimeIndicator->hide();
+	stopTimeWindow->hide();
+	slowTimeWindow->hide();
 }
 
 Vector3  PlayerController::getPlayerDirection()

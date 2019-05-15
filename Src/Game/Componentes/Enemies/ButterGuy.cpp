@@ -21,7 +21,6 @@ void ButterGuy::Start() {
 void ButterGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	gravity = obj["gravity"];
 	scale = obj["scale"];
 	moveSpeed = obj["moveSpeed"];
@@ -105,10 +104,6 @@ void ButterGuy::OnDeath() {
 	meshRend->PlayAnimation("Death", false);
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	playSound("ButterShout", false, 1);
-}
-
-void ButterGuy::Spawn()
-{
 }
 
 void ButterGuy::Shoot()

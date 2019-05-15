@@ -1,0 +1,14 @@
+{
+	"prefabName":"LitleBoomPS",
+	"name":"LitleBoomPS",
+	"active":true,
+	"components":[
+		{
+			"type":"ParticleSystem",
+			"script":"LitleBoom",
+			"name":"LitleBoom",
+			"duration":0.3,
+			"Destroy":true
+		}
+	]
+}

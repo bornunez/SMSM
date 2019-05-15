@@ -19,7 +19,6 @@ void ShyGuy::Start() {
 void ShyGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	gravity = obj["gravity"];
 	scale = obj["scale"];
 	moveSpeed = obj["moveSpeed"];
@@ -67,7 +66,7 @@ void ShyGuy::Update()
 		if (!playerController->isTimeStopped()) rb->getWorldTransform().setRotation(VecToQuat(auxVec));
 		meshRend->SetAnimationSpeed(defAnimSp * playerController->getGameSpeed());
 	}
-	// Si esta muerto y su animacion de muerte ha terminado...
+
 	else {
 		meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 		if (meshRend->AnimationHasEnded("Death")) {
@@ -84,8 +83,4 @@ void ShyGuy::OnDeath() {
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	playSound("ShyGuyShout", false, 1);
 
-}
-
-void ShyGuy::Spawn()
-{
 }

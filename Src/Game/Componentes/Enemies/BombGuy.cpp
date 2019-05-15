@@ -20,7 +20,6 @@ void BombGuy::Start() {
 void BombGuy::LoadFromFile(json obj)
 {
 	//Params from file
-	//rb->setDamping(obj["linDamp"], obj["angDamp"]);
 	gravity = obj["gravity"];
 	scale = obj["scale"];
 	moveSpeed = obj["moveSpeed"];
@@ -29,6 +28,7 @@ void BombGuy::LoadFromFile(json obj)
 	expRadius = obj["expRadius"];
 	expTime = obj["expTime"];
 	Enemy::alive = true;
+	HP = obj["HP"];
 	heartProb = obj["heartProb"];
 	defAnimSp = obj["defAnimSp"];
 	deathAnimSp = obj["deathAnimSp"];
@@ -89,10 +89,6 @@ void BombGuy::OnDeath() {
 	meshRend->PlayAnimation("Death", false);
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
 	Explode();
-}
-
-void BombGuy::Spawn()
-{
 }
 
 void BombGuy::Explode()

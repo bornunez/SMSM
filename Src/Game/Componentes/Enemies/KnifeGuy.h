@@ -12,16 +12,16 @@ private:
 	float scale = 0;
 	float defAnimSp = 0;
 	float deathAnimSp = 0;
-public:
+
 	void Start();
-	KnifeGuy(GameObject* obj) : Enemy(obj) {};
-	~KnifeGuy();
 	void LoadFromFile(json obj);
+
+protected:
 	virtual void Update();
 	virtual void OnDeath();
-	virtual void Spawn();
 
-
-
+public:
+	KnifeGuy(GameObject* obj) : Enemy(obj) {};
+	~KnifeGuy();
 };
 

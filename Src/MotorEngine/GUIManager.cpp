@@ -99,11 +99,11 @@ void GUIManager::checkKeys()
 {
 	if (gameHUD) {
 		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_ESCAPE)) {		//ESCAPE es el unico boton de teclado que queremos reconocer en los menus (para entrar o salir de la pausa)
-			CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyDown((CEGUI::Key::Scan)OIS::KeyCode::KC_ESCAPE);			
+			CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyDown((CEGUI::Key::Scan)OIS::KeyCode::KC_ESCAPE);
+			togglePause();
 		}
 		else if (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_ESCAPE)) {
-			CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyUp((CEGUI::Key::Scan)OIS::KeyCode::KC_ESCAPE);
-			togglePause();
+			CEGUI::System::getSingleton().getDefaultGUIContext().injectKeyUp((CEGUI::Key::Scan)OIS::KeyCode::KC_ESCAPE);			
 		}
 	}
 }
@@ -128,7 +128,7 @@ void GUIManager::Initialize()
 	CEGUI::System::getSingleton().getDefaultGUIContext().setDefaultTooltipType("TaharezLook/Tooltip");	
 
 	// Create CEGUI root object
-	wmgr = &CEGUI::WindowManager::getSingleton();
+	wmgr = CEGUI::WindowManager::getSingletonPtr();
 	myRoot = wmgr->createWindow("DefaultWindow", "root");
 	CEGUI::System::getSingleton().getDefaultGUIContext().setRootWindow(myRoot);
 }
@@ -162,9 +162,9 @@ CEGUI::Window*  GUIManager::CreateButton(std::string stateWnd, std::string butto
 
 		mButtons[buttonName] = temp; // Se añade al diccionario
 
-		if (stateWnd == "CreditsWnd") {
+		if (stateWnd == "CreditsWnd" && buttonName != "BackgroundCredits") {
 			creditsElements[buttonName] = temp;
-			originalPos.push_back(temp->getPosition());
+			originalPos[buttonName] = temp->getPosition();
 		}
 
 
@@ -391,21 +391,38 @@ void GUIManager::creditsAnim()
 		resetPositions();
 	}
 	else {
-		auto it = creditsElements.begin();
+		if (InputManager::getInstance()->getKey(OIS::KC_SPACE)) {
+			auto it = creditsElements.begin();
 
-		while (it != creditsElements.end()) {
+			while (it != creditsElements.end()) {
 
-			if (it->first != "BackgroundCredits") {
+				CEGUI::UVector2 pos;
+				pos = it->second->getPosition();
+				pos.d_y -= fastScrollSpeed;
+				it->second->setPosition(pos);
+
+				it++;
+			}
+
+			currentTime += (TimeManager::getInstance()->getDeltaTime() * 2);
+		}
+		else {
+			auto it = creditsElements.begin();
+
+			while (it != creditsElements.end()) {
+
 				CEGUI::UVector2 pos;
 				pos = it->second->getPosition();
 				pos.d_y -= scrollSpeed;
 				it->second->setPosition(pos);
+
+				it++;
 			}
 
-			it++;
+			currentTime += TimeManager::getInstance()->getDeltaTime();
 		}
 
-		currentTime += TimeManager::getInstance()->getDeltaTime();
+		
 
 		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_RETURN) || InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_ESCAPE))
 			currentTime = creditsTime;
@@ -416,16 +433,12 @@ void GUIManager::creditsAnim()
 void GUIManager::resetPositions()
 {
 	auto it = creditsElements.begin();
-	int i = 0;
+	//int i = 0;
 
 	while (it != creditsElements.end()) {
 
-		if (it->first != "BackgroundCredits") {
-
-			it->second->setPosition(originalPos[i]);
-			
-		}
-		i++;
+		it->second->setPosition(originalPos[it->first]);
+		//i++;
 		it++;
 	}
 
