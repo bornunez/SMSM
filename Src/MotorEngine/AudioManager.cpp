@@ -32,6 +32,8 @@ void AudioManager::cargaSonidos()
 
 	//MUSIC
 	sounds["BandaSonora1"] = path + "DeathMatch (Boss Theme).mp3";
+	sounds["BandaSonora2"] = path + "Alone Against Enemy.mp3";
+
 
 	//WEAPONS
 	sounds["GunShoot"] = path + "PISTOL-SHOOT.mp3";
@@ -40,6 +42,11 @@ void AudioManager::cargaSonidos()
 	//SHOUTS
 	sounds["ShyGuyShout"] = path + "chillido1.mp3";
 	sounds["PocholoShout"] = path + "chillido2.mp3";
+	sounds["ButterShout"] = path + "chillido3.mp3";
+	sounds["HouseShout"] = path + "chillido4.mp3";
+	sounds["IncognitoShout"] = path + "chillido5.mp3";
+	sounds["BombExplode"] = path + "bomb.mp3";
+
 	sounds["BossShout"] = path + "boss_shout.mp3";
 	sounds["TimeSound"] = path + "time_sound.mp3";
 }

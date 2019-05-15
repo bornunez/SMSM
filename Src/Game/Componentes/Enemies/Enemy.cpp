@@ -66,7 +66,10 @@ void Enemy::playSound(string name, bool loop, float volume)
 
 	Ogre::Matrix4 A_BSpace = B.inverse() * A;
 	Vector3 relPos = A_BSpace.getTrans();
-	AudioManager::getInstance()->play3DSound(name, relPos.x, relPos.y, relPos.z, loop, volume, CHANNEL::Enemigos);
+	if(AudioManager::getInstance()->isPlaying(CHANNEL::Enemigos2))
+		AudioManager::getInstance()->play3DSound(name, relPos.x, relPos.y, relPos.z, loop, volume, CHANNEL::Enemigos);
+	else
+		AudioManager::getInstance()->play3DSound(name, relPos.x, relPos.y, relPos.z, loop, volume, CHANNEL::Enemigos2);
 };
 
 void Enemy::OnDeath()

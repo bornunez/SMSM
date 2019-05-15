@@ -104,6 +104,7 @@ void ButterGuy::OnDeath() {
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+	playSound("ButterShout", false, 1);
 }
 
 void ButterGuy::Spawn()

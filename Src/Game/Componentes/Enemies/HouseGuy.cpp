@@ -110,6 +110,7 @@ void HouseGuy::OnDeath() {
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+	playSound("HouseShout", false, 1);
 }
 
 void HouseGuy::Spawn()

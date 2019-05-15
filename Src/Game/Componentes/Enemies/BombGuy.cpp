@@ -107,4 +107,5 @@ void BombGuy::Explode()
 		playerController->receiveDamage();
 	}
 	//Sonido explosion
+	playSound("BombExplode", false, 1);
 }

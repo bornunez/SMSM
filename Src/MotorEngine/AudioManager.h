@@ -34,6 +34,7 @@ public:
 	void muteMusicVolume();
 	void muteVolume();
 	void setVolumes();
+	bool isPlaying(CHANNEL channel = CHANNEL::Default) { return sound->isPlaying(channel); };
 
 private:
 	static AudioManager* instance;

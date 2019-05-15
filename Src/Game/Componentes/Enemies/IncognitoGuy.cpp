@@ -106,6 +106,7 @@ void IncognitoGuy::OnDeath() {
 	rb->clearForces();
 	meshRend->PlayAnimation("Death", false);
 	meshRend->SetAnimationSpeed(deathAnimSp * playerController->getGameSpeed());
+	playSound("IncognitoShout", false, 1);
 }
 
 void IncognitoGuy::Spawn()
