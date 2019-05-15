@@ -18,18 +18,18 @@
 			"positionX":0,
 			"positionY":0,
 			"positionZ":0,
-			"offsetX":-0.4,
-			"offsetY":0.8,
+			"offsetX":0,
+			"offsetY":0.6,
 			"offsetZ":0,
 			"isTrigger":true,
 			"radius":0.02,
-			"gravity":-2,
+			"gravity":-50,
 			"linDamp":0.2,
 			"angDamp":0.2,
-			"speed": 10,
+			"speed": 25,
 			"recoilTime": 0,
 			"deathTime": 5,
-			"scale": 0.07
+			"scale": 0.05
 		}
 	]
 }

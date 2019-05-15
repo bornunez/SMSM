@@ -20,7 +20,7 @@
 			"positionZ":0,
 			"offsetX":0,
 			"offsetY":0.1,
-			"offsetZ":0.5,
+			"offsetZ":0,
 			"isTrigger":true,
 			"radius":0.02,
 			"gravity":-2,
