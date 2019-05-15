@@ -16,7 +16,6 @@ void Weapon::LoadFromFile(json obj)
 {
 	meshRend = gameObject->getComponent<MeshRenderer>();
 
-	//MeshRenderer* c = dynamic_cast<MeshRenderer*>(gameObject->getComponent<MeshRenderer>());
 	damage = obj["damage"];
 	magazine = obj["magazine"];
 	moveSpeed = obj["moveSpeed"];
@@ -44,9 +43,9 @@ void Weapon::Update()
 	SpecialReload();
 }
 
+//Handlea todo el input y animaciones
 void Weapon::handleInput()
 {
-	//Handlea el input
 	if (!InputManager::getInstance()->getKey(OIS::KC_LSHIFT) && 
 	   ((InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Left) && dualInt == 0)||
 		(InputManager::getInstance()->getMouseButton(OIS::MouseButtonID::MB_Right) && dualInt == 1)))
@@ -74,7 +73,10 @@ void Weapon::handleInput()
 			meshRend->PlayAnimation("Move", true, false);
 			meshRend->SetAnimationSpeed(moveSpeed);
 		}
-		else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W))
+		else if (InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) ||
+			InputManager::getInstance()->getKey(OIS::KeyCode::KC_A) || 
+			InputManager::getInstance()->getKey(OIS::KeyCode::KC_W) ||
+			InputManager::getInstance()->getKey(OIS::KeyCode::KC_D))
 		{
 			if (!InputManager::getInstance()->getKey(OIS::KeyCode::KC_LSHIFT))
 			{
@@ -100,6 +102,8 @@ void Weapon::handleInput()
 		meshRend->SetAnimationSpeed(moveSpeed);
 	}
 }
+
+//Controla los tiempos de recarga
 void Weapon::reloads()
 {
 	if (InputManager::getInstance()->getKeyUp(OIS::KeyCode::KC_R) && (!meshRend->isPlaying("Reload")||(meshRend->isPlaying("Reload") && meshRend->AnimationHasEnded("Reload"))))
@@ -121,6 +125,7 @@ void Weapon::reloads()
 	}
 }
 
+//Comportamiento de disparo desde código
 void Weapon::shoot()
 {
 	if (canShoot)
@@ -145,36 +150,27 @@ void Weapon::shoot()
 		}
 	}
 }
+//Gestión de disparo
 void Weapon::PhysicShoot()
 {
 	if (bulletsAmount > 1)
 	{
 		for (int i = 0; i < bulletsAmount; i++)
 		{
-			//int disp = dispersion;
-			//float randX = rand() % (disp)-(disp / 2);
-			//float randY = rand() % (disp)-(disp / 2);
-			//scene->Instantiate("Bullet",(gameObject->getPosition() + Vector3(randX*0.01, 0.05 + randY * 0.01, -0.5)), 0.01);
 			directionalShoot(dispersion, true);
 		}
 	}
 	else
 	{
-		//scene->Instantiate("Bullet", (gameObject->getPosition() + Vector3(0, 0.05, -0.5)), 0.01);
 		directionalShoot(0, false);
 	}
-	//cout << "Disparo en: [ " <<gameObject->getGlobalPosition().x << ", "<< gameObject->getGlobalPosition().y <<", " << gameObject->getGlobalPosition().z << " ]" << endl;
-	
-	//scene->Instantiate("Bullet", (gameObject->getGlobalPosition()+Vector3(0, -0.2, -0.5)), 0.05);
 
 }
 
+//Comportamiento físico de disparo
 void Weapon::directionalShoot(float randOff, bool shotgun)
 {
 	Vector3 auxVec = scene->getGame()->getViewport()->getCamera()->getRealOrientation() * Vector3::NEGATIVE_UNIT_Z*offset.z;
-	//Vector3 auxVec = gameObject->getParent()->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
-	//Vector3 auxVec2 = gameObject->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
-	//float angle2 = atan(auxVec2.y / auxVec2.z)* -57.2958;
 	Vector3 auxVecFinal = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * auxVec;
 	Vector3 auxOff = auxVecFinal.perpendicular();
 	auxOff = Quaternion(Degree(rand() % 360), auxVecFinal) * auxOff;
@@ -183,32 +179,11 @@ void Weapon::directionalShoot(float randOff, bool shotgun)
 		float randDist = (float)(rand() % ((int)(randOff * 1000000))) / 1000000;
 		auxVecFinal = auxVecFinal + (auxOff* randDist);
 	}
-	//auxVecFinal = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * auxVecFinal;
-	//auxVecFinal.normalise();
-	//auxVecFinal *= offset.z;
-
-
-
-	/*Vector3 dir = gameObject->getParent()->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
-	Vector3 dir2 = gameObject->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
-	Vector3 dirFinal = Vector3(dir.x, dir2.y, dir.z);
-	dirFinal.normalise();
-	dirFinal = dirFinal + Vector3(0, dirFinal.y * 10 + 1, 0);
-	dirFinal.normalise();
-	dirFinal *= offset.z;
-	//scene->Instantiate("Bullet", gameObject->getChild("ShootPoint")->getGlobalPosition(), 0.01);
-	// gameObject->getGlobalPosition() + forward*0.4 + Vector3(0, -0.22, 0), 0.01);
-	dirFinal = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * dirFinal;
-	*/
-	//dirFinal = Quaternion(Degree(offset.y*(dir2.y/2+1)), Vector3::UNIT_X) * dirFinal;
-	//scene->Instantiate("Bullet", gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0), 0.1);
 	if(!shotgun)
 		scene->Instantiate("Bullet", gameObject->getParent()->getGlobalPosition() + auxVecFinal + Vector3(0, offset.y, 0), 0.01);
 	else scene->Instantiate("ShotgunBullet", gameObject->getParent()->getGlobalPosition() + auxVecFinal + Vector3(0, offset.y, 0), 0.01);
-	//cout << "Disparo en: [ " << gameObject->getParent()->getNode()->getPosition() +dir << " ]" << endl;
-	//cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0);
-	//cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition();
 }
+//Sonido
 void Weapon::AudioShoot()
 {
 	if(dualInt == 0)
@@ -216,6 +191,7 @@ void Weapon::AudioShoot()
 	else
 		AudioManager::getInstance()->playSound(shootAudio, false, 0.4, CHANNEL::Disparos2);
 }
+//Controla la recarga
 void Weapon::reload()
 {
 	animationPassed = "Reload";
@@ -231,6 +207,7 @@ void Weapon::reload()
 		specialReloading = true;
 	}
 }
+//Si es escopeta, hace recarga especial
 void Weapon::SpecialReload()
 {
 	if (specialReloading && actSpecialReload < specialReloadTime) actSpecialReload += TimeManager::getInstance()->getDeltaTime();
@@ -238,12 +215,8 @@ void Weapon::SpecialReload()
 	{
 		Vector3 dir = gameObject->getParent()->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
 		dir *= offset.z*2;
-		//scene->Instantiate("Bullet", gameObject->getChild("ShootPoint")->getGlobalPosition(), 0.01);
-		// gameObject->getGlobalPosition() + forward*0.4 + Vector3(0, -0.22, 0), 0.01);
 		dir = Quaternion(Degree(-offset.x*3), Vector3::UNIT_Y) * dir;
-		//scene->Instantiate("Bullet", gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0), 0.1);
 		scene->Instantiate("ShotgunReloadBullet", gameObject->getParent()->getGlobalPosition() + dir + Vector3(0, 0.18, 0), 0.03);
-		//cout << "Disparo en: [ " << gameObject->getParent()->getNode()->getPosition() +dir << " ]" << endl;
 #ifdef C_DEBUG
 		cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0)<<endl;
 #endif

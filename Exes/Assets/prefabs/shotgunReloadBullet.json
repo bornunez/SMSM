@@ -22,7 +22,7 @@
 			"offsetZ":0,
 			"isTrigger":true,
 			"radius":0.03,
-			"gravity":-175,
+			"gravity":0,
 			"linDamp":0.2,
 			"angDamp":0.2,
 			"speed": 50,

@@ -16,7 +16,6 @@ void WeaponBullet::Start()
 	RigidBodyComponent::Start();
 	physicRB->setGravity(btVector3(0, grav, 0));
 	physicRB->setDamping(linDamp, angDamp);
-	//physicRB->applyTorqueImpulse(btVector3(0, 0.1, 0));
 	direccion = scene->getGame()->getViewport()->getCamera()->getRealOrientation() * Vector3::NEGATIVE_UNIT_Z;
 	Vector3 auxVecFinal = Quaternion(Degree(0), Vector3::UNIT_X) * direccion;
 	auxVecFinal = Quaternion(Degree(-90), Vector3::UNIT_Y) * auxVecFinal;
@@ -57,7 +56,6 @@ void WeaponBullet::Update()
 {
 	if (!hit)
 	{
-		actGrav += grav* TimeManager::getInstance()->getDeltaTime();
 		if (actDeathTime < deathTime) actDeathTime += TimeManager::getInstance()->getDeltaTime()*playerController->getGameSpeed();
 		else
 		{
