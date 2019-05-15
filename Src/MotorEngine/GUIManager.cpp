@@ -31,9 +31,6 @@ GUIManager::GUIManager(Ogre::RenderWindow* w, Game* g)
 
 GUIManager::~GUIManager()
 {
-	// toDo: release memory
-
-	CEGUI::OgreRenderer::destroySystem();
 }
 
 GUIManager * GUIManager::Instance(Ogre::RenderWindow* w, Game* g)
