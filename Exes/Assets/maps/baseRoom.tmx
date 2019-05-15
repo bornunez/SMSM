@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="5518">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="100" height="100" tilewidth="4" tileheight="4" infinite="0" nextlayerid="10" nextobjectid="5524">
  <tileset firstgid="1" source="City.tsx"/>
  <layer id="3" name="Capa de Patrones 1" width="100" height="100" locked="1">
   <data encoding="base64" compression="zlib">
@@ -2795,7 +2795,7 @@
     <property name="entry" type="int" value="1"/>
    </properties>
   </object>
-  <object id="2171" x="324" y="216" width="20" height="8">
+  <object id="2171" x="320" y="216" width="8" height="16">
    <properties>
     <property name="entry" type="int" value="2"/>
    </properties>
@@ -3357,6 +3357,40 @@
    <properties>
     <property name="ShyGuy" type="bool" value="true"/>
     <property name="spawner" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="5518" gid="83" x="380" y="216" width="4" height="4">
+   <properties>
+    <property name="KnifeGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="5519" gid="83" x="372" y="188" width="4" height="4">
+   <properties>
+    <property name="KnifeGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="5520" gid="83" x="300" y="192" width="4" height="4">
+   <properties>
+    <property name="KnifeGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="5521" gid="83" x="368" y="208" width="4" height="4">
+   <properties>
+    <property name="BombGuy" type="bool" value="true"/>
+    <property name="spawner" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="5522" x="320" y="208" width="28" height="8">
+   <properties>
+    <property name="entry" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="5523" x="340" y="216" width="8.5" height="16">
+   <properties>
+    <property name="entry" type="int" value="2"/>
    </properties>
   </object>
  </objectgroup>
