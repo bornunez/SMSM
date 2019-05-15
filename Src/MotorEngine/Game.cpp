@@ -156,7 +156,7 @@ void Game::Play()
 #endif
 			mWindow->update();
 
-			mRoot->renderOneFrame();
+			//mRoot->renderOneFrame();
 
 			// Current scene update
 			if (sceneManager->GetActiveScene() != nullptr) {
