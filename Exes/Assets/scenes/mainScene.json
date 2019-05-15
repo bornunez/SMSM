@@ -14,7 +14,7 @@
 				},
 				{
 					"type":"MapLoader",
-					"path":"Assets/maps/testRoom.json",
+					"path":"Assets/maps/baseRoom.json",
 					"scale":0.5
 				},	
 				{
