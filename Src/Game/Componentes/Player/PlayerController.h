@@ -101,7 +101,7 @@ public:
 		freezeTimeEnemyCount++;
 		if (freezeTimeEnemyCount <= freezeTimeEnemiesNeeded)
 		{
-#ifdef C_DEBUG
+#ifndef _DEBUG
 			stopTimeIndicator->setSize(CEGUI::USize(CEGUI::UDim(((float)freezeTimeEnemyCount / (float)freezeTimeEnemiesNeeded) * 0.1, 0), CEGUI::UDim(0.03, 0)));
 #endif
 		}
