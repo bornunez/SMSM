@@ -16,6 +16,23 @@
 	<FalagardMapping windowType="TaharezLook/StopIndHUD"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/StopIndHUD" />
 	<FalagardMapping windowType="TaharezLook/BackgroundMenu"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/BackgroundMenu" />
 	<FalagardMapping windowType="TaharezLook/BackgroundPausa"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/BackgroundPausa" />
+	<FalagardMapping windowType="TaharezLook/blackBackground"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/blackBackground" />
+	<FalagardMapping windowType="TaharezLook/pNormal"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/pNormal" />
+	<FalagardMapping windowType="TaharezLook/pCobarde"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/pCobarde" />
+	<FalagardMapping windowType="TaharezLook/pVolador"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/pVolador" />
+	<FalagardMapping windowType="TaharezLook/pCasa"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/pCasa" />
+	<FalagardMapping windowType="TaharezLook/pBomba"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/pBomba" />
+	<FalagardMapping windowType="TaharezLook/pIncognito"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/pIncognito" />
+	<FalagardMapping windowType="TaharezLook/pKing"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/pKing" />
+	<FalagardMapping windowType="TaharezLook/marcos"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/marcos" />
+	<FalagardMapping windowType="TaharezLook/alberto"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/alberto" />
+	<FalagardMapping windowType="TaharezLook/mini"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/mini" />
+	<FalagardMapping windowType="TaharezLook/rodri"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/rodri" />
+	<FalagardMapping windowType="TaharezLook/kelvin"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/kelvin" />
+	<FalagardMapping windowType="TaharezLook/diego"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/diego" />
+	<FalagardMapping windowType="TaharezLook/borja"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/borja" />
+	<FalagardMapping windowType="TaharezLook/logoCreditos"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/logoCreditos" />
+	<FalagardMapping windowType="TaharezLook/logoCreditosFin"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/logoCreditosFin" />
 	<FalagardMapping windowType="TaharezLook/GameOver"      targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/GameOver" />
 	<FalagardMapping windowType="TaharezLook/Checkbox"    targetType="CEGUI/ToggleButton"    renderer="Core/ToggleButton" lookNFeel="TaharezLook/Checkbox" />
 	<FalagardMapping windowType="TaharezLook/ImageButton" targetType="CEGUI/PushButton"  renderer="Core/Button"       lookNFeel="TaharezLook/ImageButton" />
