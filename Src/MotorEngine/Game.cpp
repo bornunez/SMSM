@@ -114,7 +114,6 @@ void Game::InitWindow()
 #endif
 }
 
-
 // Bucle del juego
 void Game::Play() 
 {
@@ -130,9 +129,6 @@ void Game::Play()
 	sceneManager->LoadScene("mainScene"); // Load the scene
 	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
 #endif
-	// Another scene to test changing between scenes
-	//sceneManager->LoadScene("secondScene"); // Load the scene
-	//sceneManager->ChangeScene("secondScene"); // Set it to active (makes this the current active scene)
 
 	while (!endGame) {
 		MessagePump();
@@ -179,7 +175,7 @@ void Game::Quit()
 
 void Game::ReLoadScene(std::string scene)
 {
-	sceneManager->RealoadScene(scene);		// Load the scene
+	sceneManager->RealoadScene(scene);	// Load the scene
 	sceneManager->ChangeScene(scene);	// Set it to active (makes this the current active scene)
 }
 
@@ -215,9 +211,9 @@ Game::~Game()
 	PrefabManager::ResetInstance();
 
 	TimeManager::ResetInstance();
-	//GUIManager::ResetInstance();
 
 	AudioManager::ResetInstance();
+
 	// Libera el debug de las colisiones 
 #ifdef DEBUG
 	myDebugDrawer::ResetInstance();
@@ -226,12 +222,11 @@ Game::~Game()
 
 	//Borrar cosas que solo se utilizan en release
 #ifdef NDEBUG
-	// Da error al borrar
-	//delete GUIManager::Instance();
+	GUIManager::ResetInstance();
 	ParticleManager::ResetInstance();
 	
 #endif
 
-		PhysicsManager::Instance()->resetWorld();
-		delete PhysicsManager::Instance();
+	PhysicsManager::Instance()->resetWorld();
+	delete PhysicsManager::Instance();
 }
