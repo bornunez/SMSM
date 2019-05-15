@@ -107,7 +107,6 @@ void Game::InitWindow()
 	//Crear ventana
 	mWindow = mRoot->initialise(true, "SMSM");
 
-	//Comentado porque no funciona correctamente
 #ifdef NDEBUG
 	GUIManager::Instance(mWindow, this);
 	GUIManager::Instance()->Initialize();
@@ -136,14 +135,6 @@ void Game::Play()
 #ifdef NDEBUG
 		GUIManager::Instance()->Update();
 #endif
-		mRoot->renderOneFrame();
-
-		if (sceneManager->GetActiveScene() != nullptr) {
-			if (!sceneManager->GetActiveScene()->IsStarted()) {
-				sceneManager->GetActiveScene()->Start();
-				TimeManager::getInstance()->setDeltaTime(0);
-			}
-		}
 
 		TimeManager::getInstance()->Update();
 
@@ -152,8 +143,6 @@ void Game::Play()
 #endif
 			mWindow->update();
 
-			//mRoot->renderOneFrame();
-
 			// Current scene update
 			if (sceneManager->GetActiveScene() != nullptr) {
 				sceneManager->GetActiveScene()->Update();
@@ -161,6 +150,8 @@ void Game::Play()
 #ifdef NDEBUG
 		}
 #endif
+
+		mRoot->renderOneFrame();
 
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_0)) {
 			endGame = true;
