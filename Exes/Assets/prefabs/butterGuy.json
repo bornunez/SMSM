@@ -37,7 +37,7 @@
 			"linDamp":0.2,
 			"angDamp":0.2,
 			
-			"shootTime":1.5,
+			"shootTime":0.6,
 			"HP": 30,
 			"heartProb": 50,
 			"defAnimSp": 2,
