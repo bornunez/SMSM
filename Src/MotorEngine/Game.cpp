@@ -151,6 +151,7 @@ void Game::Play()
 #endif
 		mRoot->renderOneFrame();
 
+		// Para salir del juego, util en modo Debug
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_0)) {
 			endGame = true;
 		}
