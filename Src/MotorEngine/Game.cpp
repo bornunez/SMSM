@@ -36,6 +36,18 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 	InputManager::CreateInstance(mWindow);
 	mInputM = InputManager::getInstance();
 	mRoot->addFrameListener(mInputM);
+
+	//Inicializacion del audio
+	AudioManager::getInstance()->init();
+
+	// Cargar la primera escena
+#ifdef NDEBUG
+	sceneManager->LoadScene("menuScene"); // Load the scene
+	sceneManager->ChangeScene("menuScene"); // Set it to active (makes this the current active scene)
+#else
+	sceneManager->LoadScene("mainScene"); // Load the scene
+	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
+#endif
 }
 
 void Game::SetUpResources()
@@ -66,6 +78,7 @@ void Game::SetUpResources()
 		CARGAR EN EL BUFFER LOS PREFABS
 	*/
 	PrefabManager::getInstance()->Init("Assets/prefabs/",componentLoader);
+	PrefabManager::getInstance()->LoadAllPrefabs();
 
 	sceneManager = new GameSceneManager(this, "Assets/scenes/");
 	sceneManager->Init();
@@ -116,19 +129,6 @@ void Game::InitWindow()
 // Bucle del juego
 void Game::Play() 
 {
-	PrefabManager::getInstance()->LoadAllPrefabs();
-	//Inicializacion del audio
-	AudioManager::getInstance()->init();
-
-	// Scenes
-#ifdef NDEBUG
-	sceneManager->LoadScene("menuScene"); // Load the scene
-	sceneManager->ChangeScene("menuScene"); // Set it to active (makes this the current active scene)
-#else
-	sceneManager->LoadScene("mainScene"); // Load the scene
-	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
-#endif
-
 	while (!endGame) {
 		MessagePump();
 		
