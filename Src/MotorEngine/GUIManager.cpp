@@ -398,8 +398,15 @@ void GUIManager::waitToCredits()
 
 void GUIManager::creditsAnim()
 {
+	if (lastCreditsElement == nullptr) {
+		auto it = creditsElements.end();
+		it--;
 
-	if (currentTime >= creditsTime) {
+		lastCreditsElement = it->second;
+	}
+
+	if (lastCreditsElement->getPosition().d_y.d_scale <= -0.5 || creditsFinished) {
+		creditsFinished = false;
 		toggleMenu();
 		resetPositions();
 	}
@@ -416,8 +423,6 @@ void GUIManager::creditsAnim()
 
 				it++;
 			}
-
-			currentTime += (TimeManager::getInstance()->getDeltaTime() * 2);
 		}
 		else {
 			auto it = creditsElements.begin();
@@ -432,13 +437,12 @@ void GUIManager::creditsAnim()
 				it++;
 			}
 
-			currentTime += TimeManager::getInstance()->getDeltaTime();
 		}
 
 		
 
-		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_RETURN) || InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_ESCAPE))
-			currentTime = creditsTime;
+		if (InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_RETURN) || InputManager::getInstance()->getKeyDown(OIS::KeyCode::KC_ESCAPE))			
+			creditsFinished = true;
 	}
 
 }

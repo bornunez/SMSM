@@ -44,8 +44,7 @@ public:
 	bool getGameOverOn()	{ return gameOverHUD; }
 	bool getCreditsOn()		{ return creditsHUD; }
 	
-	void setScrollSpeed(float v) { scrollSpeed = CEGUI::UDim(v,v); fastScrollSpeed = CEGUI::UDim(v*2, v*2);}
-	void setCreditsTime(float t) { creditsTime = t; }
+	void setScrollSpeed(float v) { scrollSpeed = CEGUI::UDim(v,v); fastScrollSpeed = CEGUI::UDim(v*4, v*4);}
 
 	void GameOver();
 
@@ -80,10 +79,13 @@ private:
 
 		std::map<std::string, CEGUI::Window *> creditsElements;
 		std::map<std::string, CEGUI::UVector2> originalPos;
-		float creditsTime = 10;
+		CEGUI::Window * lastCreditsElement = nullptr;
 		float timeToCredits = 5;
 		CEGUI::UDim scrollSpeed = CEGUI::UDim(0.01, 0.01);
 		CEGUI::UDim fastScrollSpeed = CEGUI::UDim(0.01, 0.01);
+		bool creditsFinished = false;
+
+
 		float currentTime = 0;
 		float currentWaitTime = 0;
 		
