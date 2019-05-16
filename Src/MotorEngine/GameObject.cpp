@@ -218,6 +218,3 @@ void GameObject::Destroy()
 {
 	scene->Destroy(this);
 }
-
-
-

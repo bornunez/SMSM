@@ -157,6 +157,7 @@ void Scene::Start()
 			c->setStarted();
 		}
 	}
+	TimeManager::getInstance()->setDeltaTime(0);
 }
 
 void Scene::Update() 

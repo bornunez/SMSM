@@ -6,6 +6,7 @@ protected:
 	float offset_x, offset_y;
 	float width, height;
 	GameObject* player;
+
 public:
 	PlayerTrigger(GameObject* o);
 	PlayerTrigger(GameObject* o, int w, int h, int _offset_x = 0, int _offset_y = 0);
@@ -18,4 +19,3 @@ public:
 
 	~PlayerTrigger();
 };
-

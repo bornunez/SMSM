@@ -1,5 +1,4 @@
 #include "Weapon.h"
-//#include "../../Src/MotorEngine/MeshRenderer.h"
 #include "../../../Src/MotorEngine/InputManager.h"
 #include "../../../Src/MotorEngine/Scene.h"
 #include "../../../Src/MotorEngine/AudioManager.h"
@@ -125,7 +124,7 @@ void Weapon::reloads()
 	}
 }
 
-//Comportamiento de disparo desde código
+//Comportamiento de disparo desde cï¿½digo
 void Weapon::shoot()
 {
 	if (canShoot)
@@ -150,7 +149,7 @@ void Weapon::shoot()
 		}
 	}
 }
-//Gestión de disparo
+//Gestiï¿½n de disparo
 void Weapon::PhysicShoot()
 {
 	if (bulletsAmount > 1)
@@ -164,26 +163,27 @@ void Weapon::PhysicShoot()
 	{
 		directionalShoot(0, false);
 	}
-
 }
 
-//Comportamiento físico de disparo
+//Comportamiento fï¿½sico de disparo
 void Weapon::directionalShoot(float randOff, bool shotgun)
 {
 	Vector3 auxVec = scene->getGame()->getViewport()->getCamera()->getRealOrientation() * Vector3::NEGATIVE_UNIT_Z*offset.z;
 	Vector3 auxVecFinal = Quaternion(Degree(offset.x), Vector3::UNIT_Y) * auxVec;
 	Vector3 auxOff = auxVecFinal.perpendicular();
 	auxOff = Quaternion(Degree(rand() % 360), auxVecFinal) * auxOff;
+
 	if (shotgun)
 	{
 		float randDist = (float)(rand() % ((int)(randOff * 1000000))) / 1000000;
 		auxVecFinal = auxVecFinal + (auxOff* randDist);
 	}
+
 	if(!shotgun)
 		scene->Instantiate("Bullet", gameObject->getParent()->getGlobalPosition() + auxVecFinal + Vector3(0, offset.y, 0), 0.01);
 	else scene->Instantiate("ShotgunBullet", gameObject->getParent()->getGlobalPosition() + auxVecFinal + Vector3(0, offset.y, 0), 0.01);
 }
-//Sonido
+
 void Weapon::AudioShoot()
 {
 	if(dualInt == 0)
@@ -191,7 +191,7 @@ void Weapon::AudioShoot()
 	else
 		AudioManager::getInstance()->playSound(shootAudio, false, 0.4, CHANNEL::Disparos2);
 }
-//Controla la recarga
+
 void Weapon::reload()
 {
 	animationPassed = "Reload";
@@ -207,16 +207,19 @@ void Weapon::reload()
 		specialReloading = true;
 	}
 }
-//Si es escopeta, hace recarga especial
+
 void Weapon::SpecialReload()
 {
-	if (specialReloading && actSpecialReload < specialReloadTime) actSpecialReload += TimeManager::getInstance()->getDeltaTime();
+	if (specialReloading && actSpecialReload < specialReloadTime) 
+		actSpecialReload += TimeManager::getInstance()->getDeltaTime();
 	else if(specialReloading)
 	{
 		Vector3 dir = gameObject->getParent()->getParent()->getNode()->getOrientation()*Vector3::NEGATIVE_UNIT_Z;
 		dir *= offset.z*2;
 		dir = Quaternion(Degree(-offset.x*3), Vector3::UNIT_Y) * dir;
+
 		scene->Instantiate("ShotgunReloadBullet", gameObject->getParent()->getGlobalPosition() + dir + Vector3(0, 0.18, 0), 0.03);
+
 #ifdef C_DEBUG
 		cout << "Direccion: " << gameObject->getParent()->getNode()->getPosition() + dir + Vector3(0, offset.y, 0)<<endl;
 #endif

@@ -39,12 +39,15 @@ void ButterGuy::Update()
 {
 	if (estado != state::DEAD) {
 		rb->activate();
+		rb->setAngularVelocity(btVector3(0, 0, 0));
 		Ogre::Vector3 auxVec = player->getPosition() - gameObject->getPosition();
 		float absDist = abs(auxVec.x) + abs(auxVec.z);
 		//No esta tan cerca como para tener que alejarse
 		if (estado == state::IDLE) {
 			//Si esta demasiado lejos se acerca hasta entrar en el rango de disparo
 			if (absDist > dist*distFactor) {
+				auxVec.normalise();
+				auxVec *= (moveSpeed * playerController->getGameSpeed());
 				rb->setLinearVelocity({ auxVec.x, 0, auxVec.z});
 			}
 			//Si esta demasiado cerca no puede disparar, pasa a huir

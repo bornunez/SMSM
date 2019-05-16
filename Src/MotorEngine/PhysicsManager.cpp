@@ -440,7 +440,6 @@ void PhysicsManager::toggleDebug()
 	debug_ = !debug_;
 }
 
-
 void PhysicsManager::addToWorld(btRigidBody *body)
 {
 	_world->addRigidBody(body);

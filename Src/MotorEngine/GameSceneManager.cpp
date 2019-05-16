@@ -1,6 +1,5 @@
 #include "GameSceneManager.h"
 #include <filesystem>
-//#include <iostream>
 
 GameSceneManager::GameSceneManager(Game* g, string scenesFolder) : game(g), rootFolder_(scenesFolder)
 {
@@ -83,6 +82,9 @@ void GameSceneManager::RealoadScene(string sceneName)
 	s->Load(sceneFiles_[sceneName]);
 
 	scenes_[sceneName] = s;
+
+	if(!activeScene_.scene->IsStarted()) 
+		activeScene_.scene->Start();
 }
 
 // Set sceneName as the new active scene
@@ -101,6 +103,9 @@ void GameSceneManager::ChangeScene(string sceneName)
 		activeScene_.scene = s;
 		activeScene_.scene->SetActive(true);
 	}
+
+	if (!activeScene_.scene->IsStarted())
+		activeScene_.scene->Start();
 }
 
 void GameSceneManager::UnloadScene(string sceneName)

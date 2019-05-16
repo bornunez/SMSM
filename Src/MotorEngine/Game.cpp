@@ -21,7 +21,6 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 
 	//Crear root
 	mRoot = new Ogre::Root(mPluginsCfg);
-	//mRoot->loadPlugin("Codec_STBI_d");
 
 	//Cargar recursos
 	SetUpResources();
@@ -34,13 +33,21 @@ Game::Game(ComponentLoader* _componentLoader) : mRoot(0), mResourcesCfg(Ogre::BL
 	Ogre::TextureManager::getSingleton().setDefaultNumMipmaps(5);
 	Ogre::ResourceGroupManager::getSingleton().initialiseAllResourceGroups();
 
-
-	//ESCENA DE PRUEBA
-	//testScene = new Scene(this,"Assets/scenes/mainScene.json");
-
 	InputManager::CreateInstance(mWindow);
 	mInputM = InputManager::getInstance();
 	mRoot->addFrameListener(mInputM);
+
+	//Inicializacion del audio
+	AudioManager::getInstance()->init();
+
+	// Cargar la primera escena
+#ifdef NDEBUG
+	sceneManager->LoadScene("menuScene"); // Load the scene
+	sceneManager->ChangeScene("menuScene"); // Set it to active (makes this the current active scene)
+#else
+	sceneManager->LoadScene("mainScene"); // Load the scene
+	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
+#endif
 }
 
 void Game::SetUpResources()
@@ -71,6 +78,7 @@ void Game::SetUpResources()
 		CARGAR EN EL BUFFER LOS PREFABS
 	*/
 	PrefabManager::getInstance()->Init("Assets/prefabs/",componentLoader);
+	PrefabManager::getInstance()->LoadAllPrefabs();
 
 	sceneManager = new GameSceneManager(this, "Assets/scenes/");
 	sceneManager->Init();
@@ -103,10 +111,6 @@ void Game::SetUpResources()
 
 void Game::InitWindow() 
 {
-	// Configurar render system
-	/*if (!(mRoot->restoreConfig() || mRoot->showConfigDialog(NULL)))
-		return false;*/
-
 	RenderSystem* rs = *mRoot->getAvailableRenderers().begin();
 
 	mRoot->setRenderSystem(rs);
@@ -116,49 +120,21 @@ void Game::InitWindow()
 	//Crear ventana
 	mWindow = mRoot->initialise(true, "SMSM");
 
-	//Comentado porque no funciona correctamente
 #ifdef NDEBUG
 	GUIManager::Instance(mWindow, this);
 	GUIManager::Instance()->Initialize();
 #endif
 }
 
-
 // Bucle del juego
 void Game::Play() 
 {
-	PrefabManager::getInstance()->LoadAllPrefabs();
-	//Inicializacion del audio
-	AudioManager::getInstance()->init();
-	//// Scenes
-	//sceneManager->LoadScene("menuScene"); // Load the scene
-	//sceneManager->ChangeScene("menuScene"); // Set it to active (makes this the current active scene)
-	//										// Scenes
-#ifdef NDEBUG
-	sceneManager->LoadScene("menuScene"); // Load the scene
-	sceneManager->ChangeScene("menuScene"); // Set it to active (makes this the current active scene)
-#else
-	sceneManager->LoadScene("mainScene"); // Load the scene
-	sceneManager->ChangeScene("mainScene"); // Set it to active (makes this the current active scene)
-#endif
-	// Another scene to test changing between scenes
-	//sceneManager->LoadScene("secondScene"); // Load the scene
-	//sceneManager->ChangeScene("secondScene"); // Set it to active (makes this the current active scene)
-
 	while (!endGame) {
 		MessagePump();
 		
 #ifdef NDEBUG
 		GUIManager::Instance()->Update();
 #endif
-		mRoot->renderOneFrame();
-
-		if (sceneManager->GetActiveScene() != nullptr) {
-			if (!sceneManager->GetActiveScene()->IsStarted()) {
-				sceneManager->GetActiveScene()->Start();
-				TimeManager::getInstance()->setDeltaTime(0);
-			}
-		}
 
 		TimeManager::getInstance()->Update();
 
@@ -166,11 +142,6 @@ void Game::Play()
 		if (!GUIManager::Instance()->getMenuOn() && !GUIManager::Instance()->getPauseOn() && !GUIManager::Instance()->getGameOverOn() && !GUIManager::Instance()->getCreditsOn()) {
 #endif
 			mWindow->update();
-
-			//TimeManager::getInstance()->Update();
-			
-			//printf(" PRE RENDER");
-			mRoot->renderOneFrame();
 
 			// Current scene update
 			if (sceneManager->GetActiveScene() != nullptr) {
@@ -180,12 +151,11 @@ void Game::Play()
 		}
 #endif
 
+		mRoot->renderOneFrame();
+
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_0)) {
 			endGame = true;
 		}
-	
-
-		
 	}
 }
 
@@ -196,7 +166,7 @@ void Game::Quit()
 
 void Game::ReLoadScene(std::string scene)
 {
-	sceneManager->RealoadScene(scene);		// Load the scene
+	sceneManager->RealoadScene(scene);	// Load the scene
 	sceneManager->ChangeScene(scene);	// Set it to active (makes this the current active scene)
 }
 
@@ -221,7 +191,6 @@ void Game::MessagePump()
 	}
 }
 
-
 Game::~Game()
 {
 	delete componentLoader;
@@ -233,9 +202,9 @@ Game::~Game()
 	PrefabManager::ResetInstance();
 
 	TimeManager::ResetInstance();
-	//GUIManager::ResetInstance();
 
 	AudioManager::ResetInstance();
+
 	// Libera el debug de las colisiones 
 #ifdef DEBUG
 	myDebugDrawer::ResetInstance();
@@ -244,12 +213,11 @@ Game::~Game()
 
 	//Borrar cosas que solo se utilizan en release
 #ifdef NDEBUG
-	// Da error al borrar
-	//delete GUIManager::Instance();
+	GUIManager::ResetInstance();
 	ParticleManager::ResetInstance();
 	
 #endif
 
-		PhysicsManager::Instance()->resetWorld();
-		delete PhysicsManager::Instance();
+	PhysicsManager::Instance()->resetWorld();
+	delete PhysicsManager::Instance();
 }

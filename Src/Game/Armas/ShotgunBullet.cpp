@@ -7,7 +7,6 @@ ShotgunBullet::ShotgunBullet(GameObject* obj) :RigidBodyComponent(obj)
 
 }
 
-
 ShotgunBullet::~ShotgunBullet()
 {
 }
@@ -27,12 +26,13 @@ void ShotgunBullet::Start()
 	Vector3 auxOffImp;
 	Vector3 auxVecNorm = auxVec;
 	auxVecNorm.normalise();
-	//VARIABLE MAGICA 1.34 Y LA INVERSA 0.74 NO TOCAR
-	if((auxVecNorm.x < 0 &&Math::Abs(auxVecNorm.x) >= Math::Abs(auxVecNorm.z)*1.34) || (-auxVecNorm.z < 0 && Math::Abs(auxVecNorm.z) >= Math::Abs(auxVecNorm.x)*0.74))
+
+	if((auxVecNorm.x < 0 &&Math::Abs(auxVecNorm.x) >= Math::Abs(auxVecNorm.z) * INVERSION_ROT_MAX) || (-auxVecNorm.z < 0 && Math::Abs(auxVecNorm.z) >= Math::Abs(auxVecNorm.x) * INVERSION_ROT_MIN))
 		auxOffImp = Vector3(0, esco->getOffset().y - 0.004, 0);
 	else 
 		auxOffImp = Vector3(0, esco->getOffset().y+0.003, 0);
-	pos2 += (pos - (esco->getGameObject()->getParent()->getGlobalPosition() + auxVecFinal + auxOffImp))*10;
+
+	pos2 += (pos - (esco->getGameObject()->getParent()->getGlobalPosition() + auxVecFinal + auxOffImp)) * 10;
 	direccion = pos2 - pos;
 	playerController = scene->getGameObject("Player")->getComponent<PlayerController>();
 }
@@ -73,4 +73,3 @@ void ShotgunBullet::Update()
 		physicRB->setLinearVelocity(btVector3(direccion.x*finalSpeed, direccion.y*finalSpeed, direccion.z*finalSpeed));
 	}
 }
-

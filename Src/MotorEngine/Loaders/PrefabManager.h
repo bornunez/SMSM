@@ -6,7 +6,6 @@
 #include "..\GameObject.h"
 #include "ComponentLoader.h"
 
-
 class PrefabManager
 {
 private:
@@ -28,8 +27,6 @@ public:
 	void LoadAllPrefabs();
 	void LoadPrefab(string path);
 
-
-	
 	GameObject* GenerateGameObject(string prefabName, Scene* scene, GameObject* parent, Vector3 position = { 0,0,0 }, float scale = 1, GameObject * existingObj = nullptr);
 	GameObject * GenerateGameObject(json obj, Scene * scene, GameObject * parent, Vector3 position = { 0,0,0 }, float scale = 1, GameObject * existingObj = nullptr);
 	GameObject* ParseGameObject(json obj, Scene* scene, GameObject* parent, GameObject * existingObj = nullptr);

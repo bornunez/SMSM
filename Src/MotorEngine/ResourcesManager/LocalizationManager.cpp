@@ -3,7 +3,6 @@
 #include <streambuf>
 #include "JsonParser.h"
 
-
 LocalizationManager::LocalizationManager() : rootFolder_("")
 {
 }

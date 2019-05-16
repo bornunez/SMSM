@@ -149,6 +149,10 @@ void BossGuy::OnDeath() {
 	meshRend->PlayAnimation("Death", false);
 	currAnimSp = deathAnimSp;
 	meshRend->SetAnimationSpeed(currAnimSp * playerController->getGameSpeed());
+
+#ifndef _DEBUG
+	GUIManager::Instance()->waitToCredits();
+#endif
 }
 
 void BossGuy::Shoot()

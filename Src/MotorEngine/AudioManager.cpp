@@ -3,7 +3,6 @@
 
 AudioManager* AudioManager::instance = 0;
 
-
 AudioManager::AudioManager()
 {
 

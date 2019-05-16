@@ -1,6 +1,5 @@
 #pragma once
 #include "../../MotorEngine/Loaders/ComponentLoader.h"
-
 #include "../Armas/Weapon.h"
 #include "../Componentes/ObstacleRigidBody.h"
 #include "../../MotorEngine/MyCamera.h"

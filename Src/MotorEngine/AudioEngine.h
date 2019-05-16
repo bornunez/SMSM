@@ -12,7 +12,7 @@
 #include <math.h>
 #endif
 
-//Lleva la gestión de canales y reproducción de sonidos
+//Lleva la gestiï¿½n de canales y reproducciï¿½n de sonidos
 
 #define PI 3.14159265359
 typedef FMOD::Sound* SoundClass;
@@ -95,7 +95,6 @@ public:
 	void createSound(SoundClass *pSound, const char* pFile)
 	{
 		m_pSystem->createSound(pFile, NULL, 0, pSound);
-		//      m_pSystem->createSound(pFile, FMOD_HARDWARE, 0, pSound);
 	}
 	void changeGlobalMusicVolume(float volume)
 	{
@@ -138,6 +137,7 @@ public:
 			break;
 		}
 	}
+
 	void change3DPosition(int relX, int relY, int relZ, CHANNEL channel = CHANNEL::Default, float volume = 1)
 	{
 		float magnitude = sqrt(pow(relX, 2) + pow(relY, 2) + pow(relZ, 2));
@@ -201,8 +201,6 @@ public:
 	}
 	void playSound(SoundClass pSound, bool bLoop = false, float volume = 1, CHANNEL channel = CHANNEL::Default)
 	{
-
-		//MIO NO
 		if (!bLoop)
 			pSound->setMode(FMOD_LOOP_OFF);
 		else
@@ -211,7 +209,6 @@ public:
 			pSound->setLoopCount(-1);
 		}
 
-		//MIO
 		switch (channel)
 		{
 		case CHANNEL::Default:
@@ -245,16 +242,12 @@ public:
 			channel5->setVolume(volume);
 			break;
 		}
-
-		//channel->setPaused(true);
-
-		//       m_pSystem->playSound(FMOD_CHANNEL_FREE, pSound, false, 0);
 	}
 
 	void play3DSound(SoundClass pSound, float relX, float relY, float relZ, bool bLoop = false, float volume = 1, CHANNEL channel = CHANNEL::Default)
 	{
 		change3DPosition(relX, relY, relZ, channel, volume);
-		//MIO NO
+
 		if (!bLoop)
 			pSound->setMode(FMOD_LOOP_OFF);
 		else
@@ -263,7 +256,6 @@ public:
 			pSound->setLoopCount(-1);
 		}
 
-		//MIO
 		switch (channel)
 		{
 		case CHANNEL::Default:
