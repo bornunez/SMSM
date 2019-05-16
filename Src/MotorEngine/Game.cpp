@@ -74,9 +74,9 @@ void Game::SetUpResources()
 
 	resourcesManager = ResourcesManager::GetInstance();
 
-	/*
-		CARGAR EN EL BUFFER LOS PREFABS
-	*/
+	
+	//CARGAR EN EL BUFFER LOS PREFABS
+	
 	PrefabManager::getInstance()->Init("Assets/prefabs/",componentLoader);
 	PrefabManager::getInstance()->LoadAllPrefabs();
 
@@ -135,7 +135,6 @@ void Game::Play()
 #ifdef NDEBUG
 		GUIManager::Instance()->Update();
 #endif
-
 		TimeManager::getInstance()->Update();
 
 #ifdef NDEBUG
@@ -150,7 +149,6 @@ void Game::Play()
 #ifdef NDEBUG
 		}
 #endif
-
 		mRoot->renderOneFrame();
 
 		if (mInputM->getKeyUp(OIS::KeyCode::KC_0)) {
@@ -197,6 +195,7 @@ Game::~Game()
 	delete sceneManager;
 	resourcesManager->ResetInstance();
 	InputManager::ResetInstance();
+	mWindow->destroy();
 	delete mRoot;
 	
 	PrefabManager::ResetInstance();
@@ -208,7 +207,6 @@ Game::~Game()
 	// Libera el debug de las colisiones 
 #ifdef DEBUG
 	myDebugDrawer::ResetInstance();
-
 #endif
 
 	//Borrar cosas que solo se utilizan en release
@@ -218,6 +216,7 @@ Game::~Game()
 	
 #endif
 
+	//Borrar Physics
 	PhysicsManager::Instance()->resetWorld();
 	delete PhysicsManager::Instance();
 }
