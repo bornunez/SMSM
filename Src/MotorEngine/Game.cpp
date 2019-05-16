@@ -115,7 +115,7 @@ void Game::InitWindow()
 
 	mRoot->setRenderSystem(rs);
 	rs->setConfigOption("Full Screen", "No");
-	rs->setConfigOption("Video Mode", "800 x 600 @ 32-bit colour");
+	rs->setConfigOption("Video Mode", "1920 x 1080 @ 32-bit colour");
 
 	//Crear ventana
 	mWindow = mRoot->initialise(true, "SMSM");

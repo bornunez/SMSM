@@ -61,7 +61,6 @@ private:
 	float freezeTimeDuration = 5;
 	int freezeTimeEnemyCount = 0;
 	int freezeTimeEnemiesNeeded = 10;
-	//bool freezeTimeAvailable = true; // ToDo: Esto tiene que ir a false en la build final
 
 	// Control de invulnerabilidad
 	bool invulnerability = false;
